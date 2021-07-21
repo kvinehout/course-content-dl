@@ -372,6 +372,86 @@
 </ul>
 </li>
 </ul>
+<p class="caption">
+<span class="caption-text">
+  Advanced topics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D1_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+   Unsupervised And Self Supervised Learning (W3D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+<label for="toctree-checkbox-14">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_UnsupervisedAndSelfSupervisedLearning/student/W3D1_Tutorial1.html">
+     Tutorial 1: Un/Self-supervised learning methods
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+<label for="toctree-checkbox-15">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/student/W3D2_Tutorial1.html">
+     Tutorial 1: Introduction to Reinforcement Learning
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D3_ReinforcementLearningForGames/chapter_title.html">
+   Reinforcement Learning For Games (W3D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+<label for="toctree-checkbox-16">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D3_ReinforcementLearningForGames/student/W3D3_Tutorial1.html">
+     Tutorial 1: Learn to play games with RL
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D4_ContinualLearning/chapter_title.html">
+   Continual Learning (W3D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+<label for="toctree-checkbox-17">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Introduction to Continual Learning
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial2.html">
+     Tutorial 2: Out-of-distribution (OOD) Learning
+    </a>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </nav> <!-- To handle the deprecated key -->
 <div class="navbar_extra_footer">
@@ -836,8 +916,8 @@
 \end{array}\right.
 \end{split}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, and <span class="math notranslate nohighlight">\(R\)</span> are the membrane voltage, capacitance, and resitance of the neuron respectively and <span class="math notranslate nohighlight">\(-\frac{V}{R}\)</span> is the leakage current. When <span class="math notranslate nohighlight">\(I\)</span> is sufficiently strong such that <span class="math notranslate nohighlight">\(V\)</span> reaches a certain threshold value <span class="math notranslate nohighlight">\(V_{\rm th}\)</span>, it momentarily spikes and then <span class="math notranslate nohighlight">\(V\)</span> is reset to <span class="math notranslate nohighlight">\(V_{\rm reset}&lt; V_{\rm th}\)</span>, and voltage stays at <span class="math notranslate nohighlight">\(V_{\rm reset}\)</span> for <span class="math notranslate nohighlight">\(\tau_{\rm ref}\)</span> ms, mimicking the refractoriness of the neuron during an action potential (note that <span class="math notranslate nohighlight">\(V_{\rm reset}\)</span> and <span class="math notranslate nohighlight">\(\tau_{\rm ref}\)</span> is assumed to be zero in the lecture):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b318c630-7979-4796-8479-ccf86c9582a4">
-<span class="eqno">(13)<a class="headerlink" href="#equation-b318c630-7979-4796-8479-ccf86c9582a4" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-4eddc058-f4ec-4730-a77d-93323a2b55d5">
+<span class="eqno">(13)<a class="headerlink" href="#equation-4eddc058-f4ec-4730-a77d-93323a2b55d5" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 V(t)=V_{\rm reset} \text{  for } t\in(t_{\text{sp}}, t_{\text{sp}} + \tau_{\text{ref}}]
 \end{eqnarray}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t_{\rm sp}\)</span> is the spike time when <span class="math notranslate nohighlight">\(V(t)\)</span> just exceeded <span class="math notranslate nohighlight">\(V_{\rm th}\)</span>.</p>
@@ -982,8 +1062,8 @@ V_{n-1} + \frac{1}{C}\left(-\frac{V}{R}+I \right) \Delta t &amp; t&gt;t_{r e s t
 <p>We will approximate the sine function using a linear combination (a weighted sum) of ReLUs with slope 1. We need to determine the bias terms (which determines where the ReLU inflection point from 0 to linear occurs) and how to weight each ReLU. The idea is to set the weights iteratively so that the slope changes in the new sample’s direction.</p>
 <p>First, we generate our “training data” from a sine function. These are the points we will use to learn how to approximate the function. We have 10 training data points so we will have 9 ReLUs (we don’t need a ReLU for the last data point as we don’t have anything to the right of it to model).</p>
 <p>We first need to figure out the bias term for each ReLU and compute the activation of each ReLU where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3caab5ba-d59a-4717-9d0f-85e3bf1c97cd">
-<span class="eqno">(14)<a class="headerlink" href="#equation-3caab5ba-d59a-4717-9d0f-85e3bf1c97cd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6dd1ab15-5d72-46cc-bd62-c7bca396f9b9">
+<span class="eqno">(14)<a class="headerlink" href="#equation-6dd1ab15-5d72-46cc-bd62-c7bca396f9b9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y(x) = \text{max}(0,x+b)
 \end{equation}\]</div>
 <p>We then need to figure out the correct weights on each ReLU so the linear combination approximates the desired function.</p>
@@ -1148,8 +1228,8 @@ This criterion expects a batch of predictions <code class="docutils literal notr
 <li><p>a batch of <code class="docutils literal notranslate"><span class="pre">labels</span></code> with shape <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">)</span></code> that ranges from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">C-1</span></code></p></li>
 </ul>
 <p>returns the average loss <span class="math notranslate nohighlight">\(L\)</span> calculated according to:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5426c444-bbc3-4cfd-8e71-e19a011bb08e">
-<span class="eqno">(15)<a class="headerlink" href="#equation-5426c444-bbc3-4cfd-8e71-e19a011bb08e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-667204e1-91a0-472f-8163-cfad30651e9b">
+<span class="eqno">(15)<a class="headerlink" href="#equation-667204e1-91a0-472f-8163-cfad30651e9b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 loss(x_i, \text { labels }_i) &amp;=v-x_i[\text { labels }_i]+\log \left(\sum_{j=1}^C \exp (x_i[j])\right) \\
 L &amp;= \frac{1}{N} \sum_{i=1}^{N}{loss(x_i, \text { labels }_i)}
 \end{align}\]</div>

@@ -372,6 +372,86 @@
 </ul>
 </li>
 </ul>
+<p class="caption">
+<span class="caption-text">
+  Advanced topics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D1_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+   Unsupervised And Self Supervised Learning (W3D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+<label for="toctree-checkbox-14">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_UnsupervisedAndSelfSupervisedLearning/student/W3D1_Tutorial1.html">
+     Tutorial 1: Un/Self-supervised learning methods
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+<label for="toctree-checkbox-15">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/student/W3D2_Tutorial1.html">
+     Tutorial 1: Introduction to Reinforcement Learning
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D3_ReinforcementLearningForGames/chapter_title.html">
+   Reinforcement Learning For Games (W3D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+<label for="toctree-checkbox-16">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D3_ReinforcementLearningForGames/student/W3D3_Tutorial1.html">
+     Tutorial 1: Learn to play games with RL
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D4_ContinualLearning/chapter_title.html">
+   Continual Learning (W3D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+<label for="toctree-checkbox-17">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Introduction to Continual Learning
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial2.html">
+     Tutorial 2: Out-of-distribution (OOD) Learning
+    </a>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </nav> <!-- To handle the deprecated key -->
 <div class="navbar_extra_footer">
@@ -1832,8 +1912,8 @@ which leads to the two-step update rule:
 <div class="section" id="coding-exercise-7-1-implement-rmsprop">
 <h3>Coding Exercise 7.1: Implement RMSprop<a class="headerlink" href="#coding-exercise-7-1-implement-rmsprop" title="Permalink to this headline">¶</a></h3>
 <p>In this exercise you will implement the update of the RMSprop optimizer:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55bdff87-ba62-4926-8ab4-9e5c4da22a4a">
-<span class="eqno">(16)<a class="headerlink" href="#equation-55bdff87-ba62-4926-8ab4-9e5c4da22a4a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-97e5dbd0-9e52-4a77-87e2-713ca1127f2c">
+<span class="eqno">(16)<a class="headerlink" href="#equation-97e5dbd0-9e52-4a77-87e2-713ca1127f2c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 v_{t} &amp;= \alpha v_{t-1} + (1 - \alpha) \nabla J(w_t)^2 \\ \\
 w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 \end{align}\]</div>

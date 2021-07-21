@@ -372,6 +372,86 @@
 </ul>
 </li>
 </ul>
+<p class="caption">
+<span class="caption-text">
+  Advanced topics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D1_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+   Unsupervised And Self Supervised Learning (W3D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+<label for="toctree-checkbox-14">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_UnsupervisedAndSelfSupervisedLearning/student/W3D1_Tutorial1.html">
+     Tutorial 1: Un/Self-supervised learning methods
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+<label for="toctree-checkbox-15">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/student/W3D2_Tutorial1.html">
+     Tutorial 1: Introduction to Reinforcement Learning
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D3_ReinforcementLearningForGames/chapter_title.html">
+   Reinforcement Learning For Games (W3D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+<label for="toctree-checkbox-16">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D3_ReinforcementLearningForGames/student/W3D3_Tutorial1.html">
+     Tutorial 1: Learn to play games with RL
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D4_ContinualLearning/chapter_title.html">
+   Continual Learning (W3D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+<label for="toctree-checkbox-17">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Introduction to Continual Learning
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial2.html">
+     Tutorial 2: Out-of-distribution (OOD) Learning
+    </a>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </nav> <!-- To handle the deprecated key -->
 <div class="navbar_extra_footer">
@@ -1468,8 +1548,8 @@
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>In this section, we intend to study the learning (training) dynamics we just saw. First, we should know that a linear neural network is performing sequential matrix multiplications, which can be simplified to:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-379f9ec0-d1df-4603-914a-e4af20d3c1e6">
-<span class="eqno">(4)<a class="headerlink" href="#equation-379f9ec0-d1df-4603-914a-e4af20d3c1e6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c9def1fa-3dee-407e-8ae2-64f070c4d563">
+<span class="eqno">(4)<a class="headerlink" href="#equation-c9def1fa-3dee-407e-8ae2-64f070c4d563" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathbf{y} &amp;= \mathbf{W}_{L}~\mathbf{W}_{L-1}~\dots~\mathbf{W}_{1} ~ \mathbf{x} \\
  &amp;= (\prod_{i=1}^{L}{\mathbf{W}_{i}}) ~ \mathbf{x} \\
  &amp;= \mathbf{W}_{tot} ~ \mathbf{x}
@@ -1480,8 +1560,8 @@
 <br/>
 <p><strong>A Quick intro to SVD</strong></p>
 <p>Any real-valued matix <span class="math notranslate nohighlight">\(A\)</span> (yes, ANY) can be decomposed (factorized) to 3 matrices:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-082af91b-b24c-4f98-a113-30699a03ed5b">
-<span class="eqno">(5)<a class="headerlink" href="#equation-082af91b-b24c-4f98-a113-30699a03ed5b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-89844bdd-f3cd-4f8a-84ba-d37a03ab8400">
+<span class="eqno">(5)<a class="headerlink" href="#equation-89844bdd-f3cd-4f8a-84ba-d37a03ab8400" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{A} = \mathbf{U} \mathbf{Σ} \mathbf{V}^{\top}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(U\)</span> is an orthogonal matrix, <span class="math notranslate nohighlight">\(\Sigma\)</span> is a diagonal matrix, and <span class="math notranslate nohighlight">\(V\)</span> is again an orthogonal matrix. The diagonal elements of <span class="math notranslate nohighlight">\(\Sigma\)</span> are called <strong>singular values</strong>.</p>
@@ -1856,21 +1936,21 @@
 <p>Generally, <em>regression</em> refers to a set of methods for modeling the mapping (relationship) between one (or more) independent variable(s) (i.e. features) and one (or more) dependent variable(s) (i.e. labels). For example, if we want to examine the relative impacts of calendar date, GPS coordinates, and time of the say (the independent variables) on air temperature (the dependent variable). On the other hand, regression can be used for predictive analysis. Thus the independent variables are also called predictors. When the model contains more than one predictor, then the method is called <em>multiple regression</em>, and if it contains more than one dependent variable called <em>multivariate regression</em>. Regression problems pop up whenever we want to predict a numerical (usually continuous) value.</p>
 <p>The independent variables are collected in vector <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^M\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> denotes the number of independent variables, while the dependent variables are collected in vector <span class="math notranslate nohighlight">\(\mathbf{y} \in \mathbb{R}^N\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> denotes the number of independent variables. And the mapping between them is represented by the weight matrix <span class="math notranslate nohighlight">\(\mathbf{W} \in \mathbb{R}^{N \times M}\)</span> and a bias vector <span class="math notranslate nohighlight">\(\mathbf{b} \in \mathbb{R}^{N}\)</span> (generalizing to affine mappings).</p>
 <p>The multivariate regression model can be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d3c16416-f12e-4bf3-978b-a210a124fbde">
-<span class="eqno">(6)<a class="headerlink" href="#equation-d3c16416-f12e-4bf3-978b-a210a124fbde" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-95f2446a-987c-4d3e-9415-fbc3f91ece3f">
+<span class="eqno">(6)<a class="headerlink" href="#equation-95f2446a-987c-4d3e-9415-fbc3f91ece3f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{y} = \mathbf{W} ~ \mathbf{x} + \mathbf{b}
 \end{equation}\]</div>
 <p>or it can be written in matrix format as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6052d6a-4f74-43db-b8cb-8d64fc523f4c">
-<span class="eqno">(7)<a class="headerlink" href="#equation-e6052d6a-4f74-43db-b8cb-8d64fc523f4c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fd98ff06-b97f-4e28-a4a2-16cf16325cfe">
+<span class="eqno">(7)<a class="headerlink" href="#equation-fd98ff06-b97f-4e28-a4a2-16cf16325cfe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{N} \\ \end{bmatrix} = \begin{bmatrix} w_{1,1} &amp; w_{1,2} &amp; \dots &amp; w_{1,M} \\ w_{2,1} &amp; w_{2,2} &amp; \dots &amp; w_{2,M} \\ \vdots &amp; \ddots &amp; \ddots &amp; \vdots \\ w_{N,1} &amp; w_{N,2} &amp; \dots &amp; w_{N,M} \end{bmatrix} \begin{bmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{M} \\ \end{bmatrix} + \begin{bmatrix} b_{1} \\ b_{2} \\ \vdots \\b_{N} \\ \end{bmatrix}
 \end{equation}\]</div>
 </div>
 <div class="section" id="section-5-2-vectorized-regression">
 <h2>Section 5.2: Vectorized regression<a class="headerlink" href="#section-5-2-vectorized-regression" title="Permalink to this headline">¶</a></h2>
 <p>Linear regression can be simply extended to multi-samples (<span class="math notranslate nohighlight">\(D\)</span>) input-output mapping, which we can collect in a matrix <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{M \times D}\)</span>, sometimes called the design matrix. The sample dimension also shows up in the output matrix <span class="math notranslate nohighlight">\(\mathbf{Y} \in \mathbb{R}^{N \times D}\)</span>. Thus, linear regression takes the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a72b81bd-d005-48d7-aa33-9066cbbe1ccd">
-<span class="eqno">(8)<a class="headerlink" href="#equation-a72b81bd-d005-48d7-aa33-9066cbbe1ccd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-921b3752-c395-478b-9e0a-62b89697e7cf">
+<span class="eqno">(8)<a class="headerlink" href="#equation-921b3752-c395-478b-9e0a-62b89697e7cf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{Y} = \mathbf{W} ~ \mathbf{X} + \mathbf{b}
 \end{equation}\]</div>
 <p>where matrix <span class="math notranslate nohighlight">\(\mathbf{W} \in \mathbb{R}^{N \times M}\)</span> and the vector <span class="math notranslate nohighlight">\(\mathbf{b} \in \mathbb{R}^{N}\)</span> (broudcasted over sample dimension) are the desired parameters to find.</p>
@@ -1882,25 +1962,25 @@
 <div class="math notranslate nohighlight">
 \[\mathbf{Y} = \mathbf{W} ~ \mathbf{X} \]</div>
 <p>Given the Squared Error loss function, we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53a55b8d-5b25-4704-81ab-3b82c23e2a28">
-<span class="eqno">(9)<a class="headerlink" href="#equation-53a55b8d-5b25-4704-81ab-3b82c23e2a28" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f75e2a42-c8dd-4e97-8bc9-2d88b090e2e1">
+<span class="eqno">(9)<a class="headerlink" href="#equation-f75e2a42-c8dd-4e97-8bc9-2d88b090e2e1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 Loss(\mathbf{W}) = ||\mathbf{Y} - \mathbf{W} ~ \mathbf{X}||^2
 \end{equation}\]</div>
 <p>So, using matrix notation, the optimization problem is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b26bad9-a5ea-4394-933a-1d4f8fa631cc">
-<span class="eqno">(10)<a class="headerlink" href="#equation-4b26bad9-a5ea-4394-933a-1d4f8fa631cc" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-05d45de6-3696-4c3f-9443-ed23777642cd">
+<span class="eqno">(10)<a class="headerlink" href="#equation-05d45de6-3696-4c3f-9443-ed23777642cd" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathbf{W^{*}} &amp;= \underset{\mathbf{W}}{\mathrm{argmin}} \left( Loss (\mathbf{W})  \right) \\
  &amp;= \underset{\mathbf{W}}{\mathrm{argmin}} \left( ||\mathbf{Y} - \mathbf{W} ~ \mathbf{X}||^2  \right) \\
 &amp;= \underset{\mathbf{W}}{\mathrm{argmin}} \left( \left( \mathbf{Y} - \mathbf{W} ~ \mathbf{X}\right)^{\top} \left( \mathbf{Y} - \mathbf{W} ~ \mathbf{X}\right) \right)
 \end{align}\]</div>
 <p>To solve the minimization problem, we can simply set the derivative of the loss with respect to <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> to zero.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4880593-4dff-499d-8697-de25b059b6e0">
-<span class="eqno">(11)<a class="headerlink" href="#equation-a4880593-4dff-499d-8697-de25b059b6e0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cde37a4c-7f83-4f8f-b011-bd40209d92d3">
+<span class="eqno">(11)<a class="headerlink" href="#equation-cde37a4c-7f83-4f8f-b011-bd40209d92d3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \dfrac{\partial Loss}{\partial \mathbf{W}} = 0
 \end{equation}\]</div>
 <p>Assuming that <span class="math notranslate nohighlight">\(\mathbf{X}\mathbf{X}^{\top}\)</span> is full-rank, and thus it is invertible we can write:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b8916261-09b2-49b7-8e56-54171d03e8ca">
-<span class="eqno">(12)<a class="headerlink" href="#equation-b8916261-09b2-49b7-8e56-54171d03e8ca" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b4c5a26e-8750-434c-ae70-98fab9f34254">
+<span class="eqno">(12)<a class="headerlink" href="#equation-b4c5a26e-8750-434c-ae70-98fab9f34254" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{W}^{\mathbf{*}} = \mathbf{Y} \mathbf{X}^{\top} \left( \mathbf{X}  \mathbf{X}^{\top} \right) ^{-1}
 \end{equation}\]</div>
 <div class="section" id="coding-exercise-5-3-1-analytical-solution-to-lr">

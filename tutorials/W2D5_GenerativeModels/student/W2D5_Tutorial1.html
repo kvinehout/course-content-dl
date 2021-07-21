@@ -372,6 +372,86 @@
 </ul>
 </li>
 </ul>
+<p class="caption">
+<span class="caption-text">
+  Advanced topics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D1_UnsupervisedAndSelfSupervisedLearning/chapter_title.html">
+   Unsupervised And Self Supervised Learning (W3D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+<label for="toctree-checkbox-14">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_UnsupervisedAndSelfSupervisedLearning/student/W3D1_Tutorial1.html">
+     Tutorial 1: Un/Self-supervised learning methods
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+<label for="toctree-checkbox-15">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/student/W3D2_Tutorial1.html">
+     Tutorial 1: Introduction to Reinforcement Learning
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D3_ReinforcementLearningForGames/chapter_title.html">
+   Reinforcement Learning For Games (W3D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+<label for="toctree-checkbox-16">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D3_ReinforcementLearningForGames/student/W3D3_Tutorial1.html">
+     Tutorial 1: Learn to play games with RL
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D4_ContinualLearning/chapter_title.html">
+   Continual Learning (W3D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+<label for="toctree-checkbox-17">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Introduction to Continual Learning
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial2.html">
+     Tutorial 2: Out-of-distribution (OOD) Learning
+    </a>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </nav> <!-- To handle the deprecated key -->
 <div class="navbar_extra_footer">
@@ -1010,13 +1090,13 @@
 <div class="section" id="section-2-1-build-a-linear-autoencoder">
 <h2>Section 2.1: Build a linear AutoEncoder<a class="headerlink" href="#section-2-1-build-a-linear-autoencoder" title="Permalink to this headline">¶</a></h2>
 <p>Now we’ll create our first autoencoder. It will reduce images down to <span class="math notranslate nohighlight">\(K\)</span> dimensions. The architecture will be quite simple: the input will be linearly mapped to a single hidden layer with <span class="math notranslate nohighlight">\(K\)</span> units, which will then be linearly mapped back to an output that is the same size as the input:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-949d364f-98ae-40f8-bb08-fb60ec250ad2">
-<span class="eqno">(41)<a class="headerlink" href="#equation-949d364f-98ae-40f8-bb08-fb60ec250ad2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d9b8c275-0e8f-4b87-b2a6-da74a345bcec">
+<span class="eqno">(41)<a class="headerlink" href="#equation-d9b8c275-0e8f-4b87-b2a6-da74a345bcec" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} \longrightarrow \mathbf{h} \longrightarrow \mathbf{x'}
 \end{equation}\]</div>
 <p>The loss function we’ll use will simply be mean squared error (MSE) quantifying how well the reconstruction (<span class="math notranslate nohighlight">\(\mathbf{x'}\)</span>) matches the original image (<span class="math notranslate nohighlight">\(\mathbf{x}\)</span>):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-faa3c311-d7fb-471d-9045-1708fd18ab8d">
-<span class="eqno">(42)<a class="headerlink" href="#equation-faa3c311-d7fb-471d-9045-1708fd18ab8d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-18ea35f3-c792-4bbb-82d4-f10ef713c648">
+<span class="eqno">(42)<a class="headerlink" href="#equation-18ea35f3-c792-4bbb-82d4-f10ef713c648" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{MSE}_{Loss} = \sum_{i=1}^{N} ||\mathbf{x}_i - \mathbf{x'}_i||^2_2
 \end{equation}\]</div>
 <p>If all goes well, then the AutoEncoder will learn, <strong>end to end</strong>, a good “encoding” or “compression” of inputs (<span class="math notranslate nohighlight">\(\mathbf{x \longrightarrow h}\)</span>) as well as a good “decoding” (<span class="math notranslate nohighlight">\(\mathbf{h \longrightarrow x'}\)</span>).</p>
@@ -1469,13 +1549,13 @@ Re-run the above cell a few times to look at multiple examples.</p>
 <div class="section" id="section-3-1-generating-novel-images-from-the-decoder">
 <h2>Section 3.1: Generating novel images from the decoder<a class="headerlink" href="#section-3-1-generating-novel-images-from-the-decoder" title="Permalink to this headline">¶</a></h2>
 <p>If we isolate the decoder part of the AutoEncoder, what we have is a neural network that takes as input a vector of size <span class="math notranslate nohighlight">\(K\)</span> and produces as output an image that looks something like our training data. Recall that in our earlier notation, we had an input <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> that was mapped to a low-dimensional hidden representation <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> which was then decoded into a reconstruction of the input, <span class="math notranslate nohighlight">\(\mathbf{x'}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ee47885-74b9-4486-a310-e76a77097010">
-<span class="eqno">(43)<a class="headerlink" href="#equation-2ee47885-74b9-4486-a310-e76a77097010" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7ce59f2c-9785-42d0-97cc-661aefb43de1">
+<span class="eqno">(43)<a class="headerlink" href="#equation-7ce59f2c-9785-42d0-97cc-661aefb43de1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} \overset{\text{encode}}{\longrightarrow} \mathbf{h} \overset{\text{decode}}{\longrightarrow} \mathbf{x'}\, .
 \end{equation}\]</div>
 <p>Partly as a matter of convention, and partly to distinguish where we are going next from the previous section, we’re going to introduce a new variable, <span class="math notranslate nohighlight">\(\mathbf{z} \in \mathbb{R}^K\)</span>, which will take the place of <span class="math notranslate nohighlight">\(\mathbf{h}\)</span>. The key difference is that while <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> is produced by the encoder for a particular <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> will be drawn out of thin air from a prior of our choosing:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1703341-0a0c-4690-b403-1436558383c2">
-<span class="eqno">(44)<a class="headerlink" href="#equation-c1703341-0a0c-4690-b403-1436558383c2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c156d80e-4207-4076-98cb-79aa370e33be">
+<span class="eqno">(44)<a class="headerlink" href="#equation-c156d80e-4207-4076-98cb-79aa370e33be" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathbf{z} &amp;\sim p(\mathbf{z})\\
 \mathbf{z} &amp;\overset{\text{decode}}{\longrightarrow} \mathbf{x}\, .
 \end{align}\]</div>
@@ -1554,13 +1634,13 @@ where, as above, \)</span>p(\mathbf{x}|\mathbf{z};\mathbf{w})<span class="math n
 <p>How can a neural network (the <strong>recognition model</strong>) output an entire probability distribution $<span class="math notranslate nohighlight">\(\mathbf{x} \longrightarrow q(\mathbf{z}) \, ?\)</span><span class="math notranslate nohighlight">\(
 One idea would be to make the weights of the neural network stochastic, so that every time the network is run, a different \)</span>\mathbf{z}$ is produced. (In fact, this is quite common in <a class="reference external" href="https://medium.com/neuralspace/bayesian-neural-network-series-post-1-need-for-bayesian-networks-e209e66b70b2">Bayesian Neural Networks</a>, but this isn’t what people use in VAEs.)</p>
 <p>Instead, we will start by committing to a particular <em>family</em> of distributions. We’ll then have the recognition model output the <em>parameters</em> of <span class="math notranslate nohighlight">\(q\)</span>, which we’ll call <span class="math notranslate nohighlight">\(\phi\)</span>. A common choice, which we will use throughout, is the family of isotropic multivariate Gaussians (spherical or isotropic: <span class="math notranslate nohighlight">\(\mathbf{\Sigma} = \sigma^2 ~ \mathbf{I}\)</span>) <span class="math notranslate nohighlight">\(^\dagger\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ec8e157-9611-41fa-91e5-0d945571e91f">
-<span class="eqno">(45)<a class="headerlink" href="#equation-2ec8e157-9611-41fa-91e5-0d945571e91f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-479c2c3b-6ad3-4f1f-bda6-a976130462c1">
+<span class="eqno">(45)<a class="headerlink" href="#equation-479c2c3b-6ad3-4f1f-bda6-a976130462c1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 q(\mathbf{z};\phi) = \mathcal{N}(\mathbf{z};\boldsymbol{\mu},\sigma^2\mathbf{I}_K) = \prod_{k=1}^K \mathcal{N}(z_k; \mu_k, \sigma^2)
 \end{equation}\]</div>
 <p>where the <span class="math notranslate nohighlight">\(K+1\)</span> parameters are<span class="math notranslate nohighlight">\(^{\dagger \dagger}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f9788f3-dea3-48c2-870f-467403963a02">
-<span class="eqno">(46)<a class="headerlink" href="#equation-1f9788f3-dea3-48c2-870f-467403963a02" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3eedae9f-3c46-4517-8cf2-c43d5066922c">
+<span class="eqno">(46)<a class="headerlink" href="#equation-3eedae9f-3c46-4517-8cf2-c43d5066922c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \phi = \lbrace{\mu_1, \mu_2, \ldots, \mu_K, \log(\sigma)}\rbrace \, .
 \end{equation}\]</div>
 <p>By defining the last entry of <span class="math notranslate nohighlight">\(\phi\)</span> as the <em>logarithm</em> of <span class="math notranslate nohighlight">\(\sigma\)</span>, the last entry can be any real number while enforcing the requirement that <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span>.</p>
@@ -1602,8 +1682,8 @@ q(\mathbf{z};\phi) = \mathcal{N}(\mathbf{z};\boldsymbol{\mu},\sigma^2\mathbf{I}_
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W2D5_GenerativeModels/static/W2D5_Tutorial1_Solution_667937d0_1.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W2D5_GenerativeModels/static/W2D5_Tutorial1_Solution_667937d0_1.png" style="width: 1696.0px; height: 421.0px;"/></a>
 <p><span class="math notranslate nohighlight">\(^\dagger\)</span> PyTorch has a <code class="docutils literal notranslate"><span class="pre">MultivariateNormal</span></code> class which handles multivariate Gaussian distributions with arbitrary covariance matrices. It is not very beginner-friendly, though, so we will write our own functions to work with <span class="math notranslate nohighlight">\(\phi\)</span>, which will both teach you some implementation details and is not very hard especially if we use only an isotropic (<span class="math notranslate nohighlight">\(\sigma\)</span>) or diagonal <span class="math notranslate nohighlight">\(\left( \lbrace{\sigma_1, \ldots, \sigma_K}\rbrace \right)\)</span> covariance</p>
 <p><span class="math notranslate nohighlight">\(^{\dagger \dagger}\)</span> Another common parameterization is to use a separate <span class="math notranslate nohighlight">\(\sigma\)</span> for each dimension of <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>, in which case <span class="math notranslate nohighlight">\(\phi\)</span> would instead contain <span class="math notranslate nohighlight">\(2K\)</span> parameters:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7545b4f8-7fd3-4f2a-ad13-a9a426733f0d">
-<span class="eqno">(47)<a class="headerlink" href="#equation-7545b4f8-7fd3-4f2a-ad13-a9a426733f0d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-704520d4-4578-4c4f-a40b-86e2f0489e3c">
+<span class="eqno">(47)<a class="headerlink" href="#equation-704520d4-4578-4c4f-a40b-86e2f0489e3c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \phi = \lbrace{\mu_1, \mu_2, \ldots, \mu_K, \log(\sigma_1), \ldots, \log(\sigma_K)}\rbrace \, .
 \end{equation}\]</div>
 </div>
