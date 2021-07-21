@@ -1,0 +1,1518 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tutorial 1: Biological vs. Artificial neurons — Neuromatch Academy: Deep Learning</title>
+<link href="../../../_static/css/theme.css" rel="stylesheet"/>
+<link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet"/>
+<link href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../../_static/pygments.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/togglebutton.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/mystnb.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/sphinx-thebe.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" rel="stylesheet" type="text/css"/>
+<link as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js" rel="preload"/>
+<script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+<script src="../../../_static/jquery.js"></script>
+<script src="../../../_static/underscore.js"></script>
+<script src="../../../_static/doctools.js"></script>
+<script src="../../../_static/togglebutton.js"></script>
+<script src="../../../_static/clipboard.min.js"></script>
+<script src="../../../_static/copybutton.js"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+<script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+<script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+<script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+<script async="async" src="../../../_static/sphinx-thebe.js"></script>
+<script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+<link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="W1D3_Tutorial2.html" rel="next" title="Tutorial 2: Deep MLPs"/>
+<link href="../chapter_title.html" rel="prev" title="Multi Layer Perceptrons"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</link></link></link></link></head>
+<body data-offset="80" data-spy="scroll" data-target="#bd-toc-nav">
+<div class="container-fluid" id="banner"></div>
+<div class="container-xl">
+<div class="row">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+<div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+<img alt="logo" class="logo" src="../../../_static/nma-logo-square-4xp.jpg"/>
+<h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
+</a>
+</div><form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="icon fas fa-search"></i>
+<input aria-label="Search this book..." autocomplete="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." type="search"/>
+</form><nav aria-label="Main navigation" class="bd-links" id="bd-docs-nav">
+<div class="bd-toc-item active">
+<ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../Schedule/schedule_intro.html">
+   Schedule
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox">
+<label for="toctree-checkbox-1">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/daily_schedules.html">
+     General schedule
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/shared_calendars.html">
+     Shared calendars
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/timezone_widget.html">
+     Timezone widget
+    </a>
+</li>
+</ul>
+</input></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../TechnicalHelp/tech_intro.html">
+   Technical Help
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+<label for="toctree-checkbox-2">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../TechnicalHelp/Jupyterbook.html">
+     Using jupyterbook
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+<label for="toctree-checkbox-3">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../TechnicalHelp/Tutorial_colab.html">
+       Using Google Colab
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../TechnicalHelp/Tutorial_kaggle.html">
+       Using Kaggle
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../TechnicalHelp/Discord.html">
+     Using Discord
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D1_BasicsAndPytorch/chapter_title.html">
+   Basics And Pytorch (W1D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+<label for="toctree-checkbox-4">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">
+     Tutorial 1: PyTorch
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_BasicsAndPytorch/further_reading.html">
+     Suggested further reading (TBD)
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D2_LinearDeepLearning/chapter_title.html">
+   Linear Deep Learning (W1D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+<label for="toctree-checkbox-5">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html">
+     Tutorial 1: Gradient Descent and AutoGrad
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D2_LinearDeepLearning/student/W1D2_Tutorial2.html">
+     Tutorial 2: Learning Hyperparameters
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">
+     Tutorial 3: Deep linear neural networks
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children">
+<a class="reference internal" href="../chapter_title.html">
+   Multi Layer Perceptrons (W1D3)
+  </a>
+<input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+<label for="toctree-checkbox-6">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul class="current">
+<li class="toctree-l2 current active">
+<a class="current reference internal" href="#">
+     Tutorial 1: Biological vs. Artificial neurons
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="W1D3_Tutorial2.html">
+     Tutorial 2: Deep MLPs
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D4_Optimization/chapter_title.html">
+   Optimization (W1D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+<label for="toctree-checkbox-7">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D4_Optimization/student/W1D4_Tutorial1.html">
+     Tutorial 1: Optimization techniques
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D5_Regularization/chapter_title.html">
+   Regularization (W1D5)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+<label for="toctree-checkbox-8">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_Regularization/student/W1D5_Tutorial1.html">
+     Tutorial 1: Regularization techniques part 1
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_Regularization/student/W1D5_Tutorial2.html">
+     Tutorial 2: Regularization techniques part 2
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  Doing more with fewer parameters
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/chapter_title.html">
+   Convnets And Recurrent Neural Networks (W2D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+<label for="toctree-checkbox-9">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/student/W2D1_Tutorial1.html">
+     Tutorial 1: Introduction to CNNs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/student/W2D1_Tutorial2.html">
+     Tutorial 2: Training loop of CNNs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/student/W2D1_Tutorial3.html">
+     Tutorial 3: Introduction to RNNs
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D2_ModernConvnets/chapter_title.html">
+   Modern Convnets (W2D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+<label for="toctree-checkbox-10">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_ModernConvnets/student/W2D2_Tutorial1.html">
+     Tutorial 1: Learn how to use modern convnets
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D3_ModernRecurrentNeuralNetworks/chapter_title.html">
+   Modern Recurrent Neural Networks (W2D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+<label for="toctree-checkbox-11">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_ModernRecurrentNeuralNetworks/student/W2D3_Tutorial1.html">
+     Tutorial 1: Modeling sequencies and encoding text
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_ModernRecurrentNeuralNetworks/student/W2D3_Tutorial2.html">
+     Tutorial 2: Modern RNNs and their variants
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D4_AttentionAndTransformers/chapter_title.html">
+   Attention And Transformers (W2D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+<label for="toctree-checkbox-12">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D4_AttentionAndTransformers/student/W2D4_Tutorial1.html">
+     Tutorial 1: Learn how to work with Transformers
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D5_GenerativeModels/chapter_title.html">
+   Generative Models (W2D5)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+<label for="toctree-checkbox-13">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D5_GenerativeModels/student/W2D5_Tutorial1.html">
+     Tutorial 1: Variational Autoencoders (VAEs)
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D5_GenerativeModels/student/W2D5_Tutorial2.html">
+     Tutorial 2: Introduction to GANs and Density Ratio Estimation Perspective of GANs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D5_GenerativeModels/student/W2D5_Tutorial3.html">
+     Tutorial 3: Conditional GANs and Implications of GAN Technology
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav> <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+</div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<div class="topbar container-xl fixed-top">
+<div class="topbar-contents row">
+<div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+<div class="col pl-md-4 topbar-main">
+<button aria-controls="site-navigation" aria-expanded="true" aria-label="Toggle navigation" class="navbar-toggler ml-0" data-placement="left" data-target=".site-navigation" data-toggle="tooltip" id="navbar-toggler" title="Toggle navigation" type="button">
+<i class="fas fa-bars"></i>
+<i class="fas fa-arrow-left"></i>
+<i class="fas fa-arrow-up"></i>
+</button>
+<div class="dropdown-buttons-trigger">
+<button aria-label="Download this page" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fas fa-download"></i></button>
+<div class="dropdown-buttons">
+<!-- ipynb file if we had a myst markdown file -->
+<!-- Download raw file -->
+<a class="dropdown-buttons" href="../../../_sources/tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.ipynb"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Download source file" type="button">.ipynb</button></a>
+<!-- Download PDF via print -->
+<button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" id="download-print" onclick="window.print()" title="Print to PDF" type="button">.pdf</button>
+</div>
+</div>
+<!-- Source interaction buttons -->
+<div class="dropdown-buttons-trigger">
+<button aria-label="Connect with source repository" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fab fa-github"></i></button>
+<div class="dropdown-buttons sourcebuttons">
+<a class="repository-button" href="https://github.com/NeuromatchAcademy/course-content-dl"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Source repository" type="button"><i class="fab fa-github"></i>repository</button></a>
+<a class="issues-button" href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Ftutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html&amp;body=Your%20issue%20content%20here."><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Open an issue" type="button"><i class="fas fa-lightbulb"></i>open issue</button></a>
+</div>
+</div>
+<!-- Full screen (wrap in <a> to have style consistency -->
+<a class="full-screen-button"><button aria-label="Fullscreen mode" class="btn btn-secondary topbarbtn" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode" type="button"><i class="fas fa-expand"></i></button></a>
+<!-- Launch buttons -->
+</div>
+<!-- Table of contents -->
+<div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+<i class="fas fa-list"></i> Contents
+            </div>
+<nav id="bd-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#">
+   Tutorial 1: Biological vs. Artificial neurons
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-objectives">
+   Tutorial objectives
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#helper-functions">
+     Helper functions
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#set-random-seed">
+     Set random seed
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#set-device-gpu-or-cpu-execute-set-device">
+     Set device (GPU or CPU). Execute
+     <code class="docutils literal notranslate">
+<span class="pre">
+       set_device()
+      </span>
+</code>
+</a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#dataset-download">
+     Dataset download
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-neuron-physiology-and-motivation-to-deep-learning">
+   Section 1: Neuron Physiology and Motivation to Deep Learning
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-biological-to-artificial-neurons">
+     Video 1: Biological to Artificial Neurons
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-1-leaky-integrate-and-fire-lif">
+     Section 1.1: Leaky Integrate-and-fire (LIF)
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-2-simulating-an-lif-neuron">
+     Section 1.2: Simulating an LIF Neuron
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#interactive-demo-1-2-neuron-s-transfer-function-explorer-for-different-r-m-and-t-ref">
+       Interactive Demo 1.2: Neuron’s transfer function explorer for different
+       <span class="math notranslate nohighlight">
+        \(R_m\)
+       </span>
+       and
+       <span class="math notranslate nohighlight">
+        \(t_{ref}\)
+       </span>
+</a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#id1">
+</a>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#think-1-2-real-and-artificial-neuron-similarities">
+       Think! 1.2: Real and Artificial neuron similarities
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-the-need-for-mlps">
+   Section 2: The Need for MLPs
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-2-universal-approximation-theorem">
+     Video 2: Universal Approximation Theorem
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-2-function-approximation-with-relu">
+     Coding Exercise 2: Function approximation with ReLU
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-3-mlps-in-pytorch">
+   Section 3: MLPs in Pytorch
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-3-build-mlp">
+     Video 3: Build MLP
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-3-implement-a-general-purpose-mlp-in-pytorch">
+     Coding Exercise 3: Implement a general-purpose MLP in Pytorch
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-3-1-classification-with-mlps">
+     Section 3.1: Classification with MLPs
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-4-cross-entropy">
+       Video 4: Cross Entropy
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-3-1-implement-batch-cross-entropy-loss">
+       Coding Exercise 3.1: Implement Batch Cross Entropy Loss
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-3-2-spiral-classification-dataset">
+     Section 3.2: Spiral classification dataset
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-3-3-training-and-evaluation">
+     Section 3.3: Training and Evaluation
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-5-train-test">
+       Video 5: Train Test
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-3-3-implement-it-for-a-classfication-task">
+       Coding Exercise 3.3: Implement it for a classfication task
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#think-3-3-1-what-s-the-point-of-eval-and-train">
+       Think! 3.3.1: What’s the point of .eval() and .train()?
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#think-3-3-2-does-it-generalize-well">
+       Think! 3.3.2: Does it generalize well?
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="row" id="main-content">
+<div class="col-12 col-md-9 pl-md-3 pr-md-0">
+<div>
+<p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
+<div class="section" id="tutorial-1-biological-vs-artificial-neurons">
+<h1>Tutorial 1: Biological vs. Artificial neurons<a class="headerlink" href="#tutorial-1-biological-vs-artificial-neurons" title="Permalink to this headline">¶</a></h1>
+<p><strong>Week 1, Day 3: Multi-layer Perceptrons (MLPs)</strong></p>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> Arash Ash, Surya Ganguli</p>
+<p><strong>Content reviewers:</strong> Saeed Salehi, Felix Bartsch, Yu-Fang Yang</p>
+<p><strong>Content editors:</strong> Gagana B, Spiros Chavlis</p>
+<p><strong>Production editors:</strong> Anoop Kulkarni, Spiros Chavlis</p>
+<p><strong>Our 2021 Sponsors, including Presenting Sponsor Facebook Reality Labs</strong></p>
+<p align="center"><img src="https://github.com/NeuromatchAcademy/widgets/blob/master/sponsors.png?raw=True"/></p></div>
+<hr class="docutils"/>
+<div class="section" id="tutorial-objectives">
+<h1>Tutorial objectives<a class="headerlink" href="#tutorial-objectives" title="Permalink to this headline">¶</a></h1>
+<p>MLPs are arguably one of the most tractable models that we can use to study deep learning fundamentals. Here we will learn why they are:</p>
+<ul class="simple">
+<li><p>similar to biological networks</p></li>
+<li><p>good at function approximation</p></li>
+<li><p>implemented the way they are in Pytorch</p></li>
+</ul>
+<p>Tutorial slides</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Tutorial slides</span>
+<span class="c1"># you should link the slides for all tutorial videos here (we will store pdfs on osf)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;iframe src="" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"&gt;&lt;/iframe&gt;'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="k">as</span> <span class="nn">transforms</span>
+<span class="kn">from</span> <span class="nn">torchvision.datasets</span> <span class="kn">import</span> <span class="n">ImageFolder</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">TensorDataset</span>
+<span class="kn">from</span> <span class="nn">torchvision.utils</span> <span class="kn">import</span> <span class="n">make_grid</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="figure-settings">
+<h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="c1">#@title Figure settings</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>       <span class="c1"># interactive display</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s1">'retina'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/NeuromatchAcademy/content-creation/main/nma.mplstyle"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="helper-functions">
+<h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper functions</span>
+<span class="k">def</span> <span class="nf">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+  <span class="n">img</span> <span class="o">=</span> <span class="n">img</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.5</span>     <span class="c1"># unnormalize</span>
+  <span class="n">npimg</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">npimg</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">progress</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span><span class="s2">"""</span>
+<span class="s2">      &lt;label for="file"&gt;Training loss: </span><span class="si">{loss}</span><span class="s2">&lt;/label&gt;</span>
+<span class="s2">      &lt;progress</span>
+<span class="s2">          value='</span><span class="si">{epoch}</span><span class="s2">'</span>
+<span class="s2">          max='</span><span class="si">{epochs}</span><span class="s2">',</span>
+<span class="s2">          style='width: 100%'</span>
+<span class="s2">      &gt;</span>
+<span class="s2">          </span><span class="si">{epoch}</span><span class="s2"></span>
+<span class="s2">      &lt;/progress&gt;</span>
+<span class="s2">  """</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">plot_function_approximation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">relu_acts</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
+  <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+  <span class="c1"># Plot ReLU Activations</span>
+  <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">relu_acts</span><span class="o">.</span><span class="n">T</span><span class="p">);</span>
+  <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'x'</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">'Activation'</span><span class="p">,</span>
+              <span class="n">title</span><span class="o">=</span><span class="s1">'ReLU Activations'</span><span class="p">)</span>
+  <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">'ReLU </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">relu_acts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+  <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+  <span class="c1"># Plot function approximation</span>
+  <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'truth'</span><span class="p">)</span>
+  <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'estimated'</span><span class="p">)</span>
+  <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+  <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'x'</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">'y(x)'</span><span class="p">,</span>
+              <span class="n">title</span><span class="o">=</span><span class="s1">'Function Approximation'</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-random-seed">
+<h2>Set random seed<a class="headerlink" href="#set-random-seed" title="Permalink to this headline">¶</a></h2>
+<p>Executing <code class="docutils literal notranslate"><span class="pre">set_seed(seed=seed)</span></code> you are setting the seed</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Set random seed</span>
+
+<span class="c1">#@markdown Executing `set_seed(seed=seed)` you are setting the seed</span>
+
+<span class="c1"># for DL its critical to set the random seed so that students can have a</span>
+<span class="c1"># baseline to compare their results to expected results.</span>
+<span class="c1"># Read more here: https://pytorch.org/docs/stable/notes/randomness.html</span>
+
+<span class="c1"># Call `set_seed` function in the exercises to ensure reproducibility.</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="k">def</span> <span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed_torch</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">seed_torch</span><span class="p">:</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed_all</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">benchmark</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">deterministic</span> <span class="o">=</span> <span class="kc">True</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Random seed </span><span class="si">{</span><span class="n">seed</span><span class="si">}</span><span class="s1"> has been set.'</span><span class="p">)</span>
+
+
+<span class="c1"># In case that `DataLoader` is used</span>
+<span class="k">def</span> <span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">):</span>
+  <span class="n">worker_seed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">initial_seed</span><span class="p">()</span> <span class="o">%</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
+  <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-device-gpu-or-cpu-execute-set-device">
+<h2>Set device (GPU or CPU). Execute <code class="docutils literal notranslate"><span class="pre">set_device()</span></code><a class="headerlink" href="#set-device-gpu-or-cpu-execute-set-device" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Set device (GPU or CPU). Execute `set_device()`</span>
+<span class="c1"># especially if torch modules used.</span>
+
+<span class="c1"># inform the user if the notebook uses GPU or CPU.</span>
+
+<span class="k">def</span> <span class="nf">set_device</span><span class="p">():</span>
+  <span class="n">device</span> <span class="o">=</span> <span class="s2">"cuda"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span>
+  <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s2">"cuda"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"WARNING: For this notebook to perform best, "</span>
+          <span class="s2">"if possible, in the menu under `Runtime` -&gt; "</span>
+          <span class="s2">"`Change runtime type.`  select `GPU` "</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"GPU is enabled in this notebook."</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">device</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dataset-download">
+<h2>Dataset download<a class="headerlink" href="#dataset-download" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># @title Dataset download
+%%capture
+!rm -r AnimalFaces32x32/
+!git clone https://github.com/arashash/AnimalFaces32x32
+!rm -r afhq/
+!unzip ./AnimalFaces32x32/afhq_32x32.zip
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SEED</span> <span class="o">=</span> <span class="mi">2021</span>
+<span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">DEVICE</span> <span class="o">=</span> <span class="n">set_device</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-1-neuron-physiology-and-motivation-to-deep-learning">
+<h1>Section 1: Neuron Physiology and Motivation to Deep Learning<a class="headerlink" href="#section-1-neuron-physiology-and-motivation-to-deep-learning" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-1-biological-to-artificial-neurons">
+<h2>Video 1: Biological to Artificial Neurons<a class="headerlink" href="#video-1-biological-to-artificial-neurons" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+</div>
+<div class="section" id="section-1-1-leaky-integrate-and-fire-lif">
+<h2>Section 1.1: Leaky Integrate-and-fire (LIF)<a class="headerlink" href="#section-1-1-leaky-integrate-and-fire-lif" title="Permalink to this headline">¶</a></h2>
+<p>The basic idea of LIF neuron was proposed in 1907 by Louis Édouard Lapicque, long before we understood the electrophysiology of a neuron (see a translation of <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/17968583/">Lapicque’s paper</a> ). More details of the model can be found in the book <a class="reference external" href="http://www.gatsby.ucl.ac.uk/~dayan/book/"><strong>Theoretical neuroscience</strong></a> by Peter Dayan and Laurence F. Abbott.</p>
+<p>The model dynamics is defined with the following formula,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{d V}{d t}=\left\{\begin{array}{cc}
+\frac{1}{C}\left(-\frac{V}{R}+I \right) &amp; t&gt;t_{r e s t} \\
+0 &amp; \text { otherwise }
+\end{array}\right.
+\end{split}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, and <span class="math notranslate nohighlight">\(R\)</span> are the membrane voltage, capacitance, and resitance of the neuron respectively and <span class="math notranslate nohighlight">\(-\frac{V}{R}\)</span> is the leakage current. When <span class="math notranslate nohighlight">\(I\)</span> is sufficiently strong such that <span class="math notranslate nohighlight">\(V\)</span> reaches a certain threshold value <span class="math notranslate nohighlight">\(V_{\rm th}\)</span>, it momentarily spikes and then <span class="math notranslate nohighlight">\(V\)</span> is reset to <span class="math notranslate nohighlight">\(V_{\rm reset}&lt; V_{\rm th}\)</span>, and voltage stays at <span class="math notranslate nohighlight">\(V_{\rm reset}\)</span> for <span class="math notranslate nohighlight">\(\tau_{\rm ref}\)</span> ms, mimicking the refractoriness of the neuron during an action potential (note that <span class="math notranslate nohighlight">\(V_{\rm reset}\)</span> and <span class="math notranslate nohighlight">\(\tau_{\rm ref}\)</span> is assumed to be zero in the lecture):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b318c630-7979-4796-8479-ccf86c9582a4">
+<span class="eqno">(13)<a class="headerlink" href="#equation-b318c630-7979-4796-8479-ccf86c9582a4" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+V(t)=V_{\rm reset} \text{  for } t\in(t_{\text{sp}}, t_{\text{sp}} + \tau_{\text{ref}}]
+\end{eqnarray}\]</div>
+<p>where <span class="math notranslate nohighlight">\(t_{\rm sp}\)</span> is the spike time when <span class="math notranslate nohighlight">\(V(t)\)</span> just exceeded <span class="math notranslate nohighlight">\(V_{\rm th}\)</span>.</p>
+<p>Thus, the LIF model captures the facts that a neuron:</p>
+<ul class="simple">
+<li><p>performs spatial and temporal integration of synaptic inputs</p></li>
+<li><p>generates a spike when the voltage reaches a certain threshold</p></li>
+<li><p>goes refractory during the action potential</p></li>
+<li><p>has a leaky membrane</p></li>
+</ul>
+<p>For in-depth content on computational models of neurons, follow the <a class="reference external" href="https://www.neuromatchacademy.org/">NMA</a> Week 3 Day 1 material on Real Neurons and specifically this <a class="reference external" href="https://colab.research.google.com/github/NeuromatchAcademy/course-content/blob/master/tutorials/W3D1_RealNeurons/W3D1_Tutorial1.ipynb">Tutorial</a>.</p>
+</div>
+<div class="section" id="section-1-2-simulating-an-lif-neuron">
+<h2>Section 1.2: Simulating an LIF Neuron<a class="headerlink" href="#section-1-2-simulating-an-lif-neuron" title="Permalink to this headline">¶</a></h2>
+<p>In the cell below is given a function for LIF neuron model with it’s arguments described.</p>
+<p>Note that we will use Euler’s method to make a numerical approximation to a derivative. Hence we will use the following implementation of the model dynamics,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+V_n=\left\{\begin{array}{cc}
+V_{n-1} + \frac{1}{C}\left(-\frac{V}{R}+I \right) \Delta t &amp; t&gt;t_{r e s t} \\
+0 &amp; \text { otherwise }
+\end{array}\right.
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_LIF</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">t_ref</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">Rm</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Cm</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">Vth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">V_spike</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+  <span class="sd">"""</span>
+<span class="sd">  Simulate the LIF dynamics with external input current</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">    I          : input current (mA)</span>
+<span class="sd">    T          : total time to simulate (msec)</span>
+<span class="sd">    dt         : simulation time step (msec)</span>
+<span class="sd">    t_ref      : refractory period (msec)</span>
+<span class="sd">    Rm         : resistance (kOhm)</span>
+<span class="sd">    Cm         : capacitance (uF)</span>
+<span class="sd">    Vth        : spike threshold (V)</span>
+<span class="sd">    V_spike    : spike delta (V)</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    time       : time points</span>
+<span class="sd">    Vm         : membrane potentials</span>
+<span class="sd">  """</span>
+
+  <span class="c1"># Set up array of time steps</span>
+  <span class="n">time</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="o">+</span><span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+  <span class="c1"># Set up array for tracking Vm</span>
+  <span class="n">Vm</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>
+
+  <span class="c1"># Iterate over each time step</span>
+  <span class="n">t_rest</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+
+    <span class="c1"># If t is after refractory period</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="n">t_rest</span><span class="p">:</span>
+      <span class="n">Vm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vm</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">Cm</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">Vm</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">Rm</span> <span class="o">+</span> <span class="n">I</span><span class="p">)</span>  <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="c1"># If Vm is over the threshold</span>
+    <span class="k">if</span> <span class="n">Vm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Vth</span><span class="p">:</span>
+
+      <span class="c1"># Increase volatage by change due to spike</span>
+      <span class="n">Vm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">V_spike</span>
+
+      <span class="c1"># Set up new refactory period</span>
+      <span class="n">t_rest</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">t_ref</span>
+
+  <span class="k">return</span> <span class="n">time</span><span class="p">,</span> <span class="n">Vm</span>
+
+
+<span class="n">sim_time</span><span class="p">,</span> <span class="n">Vm</span> <span class="o">=</span> <span class="n">run_LIF</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="c1"># Plot the membrane voltage across time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim_time</span><span class="p">,</span> <span class="n">Vm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'LIF Neuron Output'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Membrane Potential (V)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (msec)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="interactive-demo-1-2-neuron-s-transfer-function-explorer-for-different-r-m-and-t-ref">
+<h3>Interactive Demo 1.2: Neuron’s transfer function explorer for different <span class="math notranslate nohighlight">\(R_m\)</span> and <span class="math notranslate nohighlight">\(t_{ref}\)</span><a class="headerlink" href="#interactive-demo-1-2-neuron-s-transfer-function-explorer-for-different-r-m-and-t-ref" title="Permalink to this headline">¶</a></h3>
+<p>We know that real neurons communicate by modulating the spike count meaning that more input current causes a neuron to spike more often. Therefore, to find an input-output relationship, it makes sense to characterize their spike count as a function of input current. This is called the neuron’s input-output transfer function. Let’s plot the neuron’s transfer function and see how it changes with respect to the <strong>membrane resistance</strong> and <strong>refractory time</strong>?</p>
+<div class="section" id="id1">
+<h4><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Make sure you execute this cell to enable the widget!</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+
+<span class="c1"># @markdown Make sure you execute this cell to enable the widget!</span>
+<span class="n">my_layout</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">()</span>
+
+<span class="nd">@widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">Rm</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">100.</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">my_layout</span><span class="p">),</span>
+                  <span class="n">t_ref</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">100.</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">my_layout</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">plot_IF_curve</span><span class="p">(</span><span class="n">Rm</span><span class="p">,</span> <span class="n">t_ref</span><span class="p">):</span>
+  <span class="n">T</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># total time to simulate (msec)</span>
+  <span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># simulation time step (msec)</span>
+  <span class="n">Vth</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># spike threshold (V)</span>
+  <span class="n">Is_max</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="n">Is</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Is_max</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="n">spike_counts</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="n">Is</span><span class="p">:</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">Vm</span> <span class="o">=</span> <span class="n">run_LIF</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span> <span class="n">Vth</span><span class="o">=</span><span class="n">Vth</span><span class="p">,</span> <span class="n">Rm</span><span class="o">=</span><span class="n">Rm</span><span class="p">,</span> <span class="n">t_ref</span><span class="o">=</span><span class="n">t_ref</span><span class="p">)</span>
+    <span class="n">spike_counts</span> <span class="o">+=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Vm</span> <span class="o">&gt;</span> <span class="n">Vth</span><span class="p">)]</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Is</span><span class="p">,</span> <span class="n">spike_counts</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'LIF Neuron: Transfer Function'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Spike count'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'I (mA)'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Is_max</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="think-1-2-real-and-artificial-neuron-similarities">
+<h3>Think! 1.2: Real and Artificial neuron similarities<a class="headerlink" href="#think-1-2-real-and-artificial-neuron-similarities" title="Permalink to this headline">¶</a></h3>
+<p>What happens at infinite membrane resistance (Rm) and small refactory time (t_ref)? Why?</p>
+<p>Take 10 mins to discuss the similarity between a real neuron and an artificial one with your pod.</p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D3_MultiLayerPerceptrons/solutions/W1D3_Tutorial1_Solution_40ab8faf.py"><em>Click for solution</em></a></p>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-2-the-need-for-mlps">
+<h1>Section 2: The Need for MLPs<a class="headerlink" href="#section-2-the-need-for-mlps" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-2-universal-approximation-theorem">
+<h2>Video 2: Universal Approximation Theorem<a class="headerlink" href="#video-2-universal-approximation-theorem" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+</div>
+<div class="section" id="coding-exercise-2-function-approximation-with-relu">
+<h2>Coding Exercise 2: Function approximation with ReLU<a class="headerlink" href="#coding-exercise-2-function-approximation-with-relu" title="Permalink to this headline">¶</a></h2>
+<p>We learned that one hidden layer MLPs are enough to approximate any smooth function! Now let’s manually fit a Sine function using ReLU activation.</p>
+<p>We will approximate the sine function using a linear combination (a weighted sum) of ReLUs with slope 1. We need to determine the bias terms (which determines where the ReLU inflection point from 0 to linear occurs) and how to weight each ReLU. The idea is to set the weights iteratively so that the slope changes in the new sample’s direction.</p>
+<p>First, we generate our “training data” from a sine function. These are the points we will use to learn how to approximate the function. We have 10 training data points so we will have 9 ReLUs (we don’t need a ReLU for the last data point as we don’t have anything to the right of it to model).</p>
+<p>We first need to figure out the bias term for each ReLU and compute the activation of each ReLU where:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3caab5ba-d59a-4717-9d0f-85e3bf1c97cd">
+<span class="eqno">(14)<a class="headerlink" href="#equation-3caab5ba-d59a-4717-9d0f-85e3bf1c97cd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y(x) = \text{max}(0,x+b)
+\end{equation}\]</div>
+<p>We then need to figure out the correct weights on each ReLU so the linear combination approximates the desired function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">approximate_function</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
+
+  <span class="c1">####################################################################</span>
+  <span class="c1"># Fill in missing code below (...),</span>
+  <span class="c1"># then remove or comment the line below to test your function</span>
+  <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Complete approximate_function!"</span><span class="p">)</span>
+  <span class="c1">####################################################################</span>
+
+  <span class="c1"># Number of relus</span>
+  <span class="n">n_relus</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+
+  <span class="c1"># x axis points (more than x train)</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x_train</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x_train</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)</span>
+
+  <span class="c1">## COMPUTE RELU ACTIVATIONS</span>
+
+  <span class="c1"># First determine what bias terms should be for each of 9 ReLUs</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="o">...</span>
+
+  <span class="c1"># Compute ReLU activations for each point along the x axis (x)</span>
+  <span class="n">relu_acts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_relus</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+  <span class="k">for</span> <span class="n">i_relu</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_relus</span><span class="p">):</span>
+    <span class="n">relu_acts</span><span class="p">[</span><span class="n">i_relu</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i_relu</span><span class="p">])</span>
+
+  <span class="c1">## COMBINE RELU ACTIVATIONS</span>
+
+  <span class="c1"># Set up weights for weighted sum of ReLUs</span>
+  <span class="n">combination_weights</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_relus</span><span class="p">,</span> <span class="p">))</span>
+
+  <span class="c1"># Figure out weights on each ReLU</span>
+  <span class="n">prev_slope</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_relus</span><span class="p">):</span>
+    <span class="n">delta_x</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_train</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_train</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_train</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="n">delta_x</span>
+    <span class="n">combination_weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">prev_slope</span> <span class="o">=</span> <span class="n">slope</span>
+
+  <span class="c1"># Get output of weighted sum of ReLU activations for every point along x axis</span>
+  <span class="n">y_hat</span> <span class="o">=</span> <span class="o">...</span>
+
+  <span class="k">return</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">relu_acts</span><span class="p">,</span> <span class="n">x</span>
+
+<span class="c1"># Make training data from sine function</span>
+<span class="n">N_train</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">N_train</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+
+<span class="c1">## Uncomment the lines below to test your function approximation</span>
+<span class="c1"># y_hat, relu_acts, x = approximate_function(x_train, y_train)</span>
+<span class="c1"># plot_function_approximation(x, relu_acts, y_hat)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D3_MultiLayerPerceptrons/solutions/W1D3_Tutorial1_Solution_b4daec5f.py"><em>Click for solution</em></a></p>
+<p><em>Example output:</em></p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W1D3_MultiLayerPerceptrons/static/W1D3_Tutorial1_Solution_b4daec5f_0.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W1D3_MultiLayerPerceptrons/static/W1D3_Tutorial1_Solution_b4daec5f_0.png" style="width: 1120.0px; height: 832.0px;"/></a>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-3-mlps-in-pytorch">
+<h1>Section 3: MLPs in Pytorch<a class="headerlink" href="#section-3-mlps-in-pytorch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-3-build-mlp">
+<h2>Video 3: Build MLP<a class="headerlink" href="#video-3-build-mlp" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>In the previous segment, we implemented a function to approximate any smooth function using MLPs. We saw that using Lipschitz continuity; we can prove that our approximation is mathematically correct. MLPs are fascinating, but before we get into the details on designing them, let’s familiarize ourselves with some basic terminology of MLPs- layer, neuron, depth, width, weight, bias, and activation function. Armed with these ideas, we can now design an MLP given its input, hidden layers, and output size.</p>
+</div>
+<div class="section" id="coding-exercise-3-implement-a-general-purpose-mlp-in-pytorch">
+<h2>Coding Exercise 3: Implement a general-purpose MLP in Pytorch<a class="headerlink" href="#coding-exercise-3-implement-a-general-purpose-mlp-in-pytorch" title="Permalink to this headline">¶</a></h2>
+<p>The objective is to design an MLP with these properties:</p>
+<ul class="simple">
+<li><p>works with any input (1D, 2D, etc.)</p></li>
+<li><p>construct any number of given hidden layers using <code class="docutils literal notranslate"><span class="pre">nn.Sequential()</span></code> and <code class="docutils literal notranslate"><span class="pre">add_module()</span></code> function</p></li>
+<li><p>use the same given activation function in all hidden layers</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Net</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">actv</span><span class="p">,</span> <span class="n">input_feature_num</span><span class="p">,</span> <span class="n">hidden_unit_nums</span><span class="p">,</span> <span class="n">output_feature_num</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">Net</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">input_feature_num</span> <span class="o">=</span> <span class="n">input_feature_num</span> <span class="c1"># save the input size for reshapinng later</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span> <span class="c1"># Initialize layers of MLP</span>
+
+    <span class="n">in_num</span> <span class="o">=</span> <span class="n">input_feature_num</span> <span class="c1"># initialize the temporary input feature to each layer</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_unit_nums</span><span class="p">)):</span> <span class="c1"># Loop over layers and create each one</span>
+
+      <span class="c1">####################################################################</span>
+      <span class="c1"># Fill in missing code below (...),</span>
+      <span class="c1"># then remove or comment the line below to test your function</span>
+      <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Create MLP Layer"</span><span class="p">)</span>
+      <span class="c1">####################################################################</span>
+
+      <span class="n">out_num</span> <span class="o">=</span> <span class="n">hidden_unit_nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># assign the current layer hidden unit from list</span>
+      <span class="n">layer</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># use nn.Linear to define the layer</span>
+      <span class="n">in_num</span> <span class="o">=</span> <span class="n">out_num</span> <span class="c1"># assign next layer input using current layer output</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">'Linear_</span><span class="si">%d</span><span class="s1">'</span><span class="o">%</span><span class="n">i</span><span class="p">,</span> <span class="n">layer</span><span class="p">)</span> <span class="c1"># append layer to the model with a name</span>
+
+      <span class="n">actv_layer</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s1">'nn.</span><span class="si">%s</span><span class="s1">'</span><span class="o">%</span><span class="n">actv</span><span class="p">)</span> <span class="c1"># Assign activation function (eval allows us to instantiate object from string)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">'Activation_</span><span class="si">%d</span><span class="s1">'</span><span class="o">%</span><span class="n">i</span><span class="p">,</span> <span class="n">actv_layer</span><span class="p">)</span> <span class="c1"># append activation to the model with a name</span>
+
+    <span class="n">out_layer</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_num</span><span class="p">,</span> <span class="n">output_feature_num</span><span class="p">)</span> <span class="c1"># Create final layer</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">'Output_Linear'</span><span class="p">,</span> <span class="n">out_layer</span><span class="p">)</span> <span class="c1"># append the final layer</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="c1"># reshape inputs to (batch_size, input_feature_num)</span>
+    <span class="c1"># just in case the input vector is not 2D, like an image!</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_feature_num</span><span class="p">)</span>
+
+    <span class="c1">####################################################################</span>
+    <span class="c1"># Fill in missing code below (...),</span>
+    <span class="c1"># then remove or comment the line below to test your function</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Run MLP model"</span><span class="p">)</span>
+    <span class="c1">####################################################################</span>
+
+    <span class="n">logits</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># forward pass of MLP</span>
+    <span class="k">return</span> <span class="n">logits</span>
+
+
+<span class="nb">input</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1">## Uncomment below to create network and test it on input</span>
+<span class="c1"># net = Net(actv='LeakyReLU(0.1)', input_feature_num=2, hidden_unit_nums = [100, 10, 5], output_feature_num = 1)</span>
+<span class="c1"># y = net(input)</span>
+<span class="c1"># print(f'The output shape is {y.shape} for an input of shape {input.shape}')</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D3_MultiLayerPerceptrons/solutions/W1D3_Tutorial1_Solution_3e5f4fb7.py"><em>Click for solution</em></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">output</span> <span class="n">shape</span> <span class="ow">is</span> <span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">an</span> <span class="nb">input</span> <span class="n">of</span> <span class="n">shape</span> <span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="section-3-1-classification-with-mlps">
+<h2>Section 3.1: Classification with MLPs<a class="headerlink" href="#section-3-1-classification-with-mlps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="video-4-cross-entropy">
+<h3>Video 4: Cross Entropy<a class="headerlink" href="#video-4-cross-entropy" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>The main loss function we could use out of the box for multi-class classification for <code class="docutils literal notranslate"><span class="pre">N</span></code> samples and <code class="docutils literal notranslate"><span class="pre">C</span></code> number of classes is:</p>
+<ul class="simple">
+<li><p>CrossEntropyLoss:
+This criterion expects a batch of predictions <code class="docutils literal notranslate"><span class="pre">x</span></code> with shape <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">C)</span></code> and class index in the range <span class="math notranslate nohighlight">\([0, C-1]\)</span> as the target (label) for each <code class="docutils literal notranslate"><span class="pre">N</span></code> samples, hence a batch of <code class="docutils literal notranslate"><span class="pre">labels</span></code> with shape <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">)</span></code>. There are other optional parameters like class weights and class ignores. Feel free to check the documentation <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html">here</a> for more detail.</p></li>
+</ul>
+<p>To get CrossEntropyLoss of a sample <span class="math notranslate nohighlight">\(i\)</span>, we could first calculate <span class="math notranslate nohighlight">\(-\log(\text{softmax(x}))\)</span> and then take the element corresponding to <span class="math notranslate nohighlight">\(\text { labels }_i\)</span> as the loss. However, due to numerical stability, we implement this more stable equivalent form,</p>
+<div class="math notranslate nohighlight">
+\[
+\operatorname{loss}(x_i, \text { labels }_i)=-\log \left(\frac{\exp (x[\text { labels }_i])}{\sum_{j} \exp (x[j])}\right)=-x_i[\text { labels }_i]+\log \left(\sum_{j=1}^C \exp (x_i[j])\right)
+\]</div>
+</div>
+<div class="section" id="coding-exercise-3-1-implement-batch-cross-entropy-loss">
+<h3>Coding Exercise 3.1: Implement Batch Cross Entropy Loss<a class="headerlink" href="#coding-exercise-3-1-implement-batch-cross-entropy-loss" title="Permalink to this headline">¶</a></h3>
+<p>To recap, since we will be doing batch learning, we’d like a loss function that given:</p>
+<ul class="simple">
+<li><p>a batch of predictions <code class="docutils literal notranslate"><span class="pre">x</span></code> with shape <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">C)</span></code></p></li>
+<li><p>a batch of <code class="docutils literal notranslate"><span class="pre">labels</span></code> with shape <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">)</span></code> that ranges from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">C-1</span></code></p></li>
+</ul>
+<p>returns the average loss <span class="math notranslate nohighlight">\(L\)</span> calculated according to:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5426c444-bbc3-4cfd-8e71-e19a011bb08e">
+<span class="eqno">(15)<a class="headerlink" href="#equation-5426c444-bbc3-4cfd-8e71-e19a011bb08e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+loss(x_i, \text { labels }_i) &amp;=v-x_i[\text { labels }_i]+\log \left(\sum_{j=1}^C \exp (x_i[j])\right) \\
+L &amp;= \frac{1}{N} \sum_{i=1}^{N}{loss(x_i, \text { labels }_i)}
+\end{align}\]</div>
+<p>Steps:</p>
+<ol class="simple">
+<li><p>Use indexing operation to get predictions of class corresponding to the labels (i.e., <span class="math notranslate nohighlight">\(x_i[\text { labels }_i]\)</span>)</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(loss(x_i, \text { labels }_i)\)</span> vector (<code class="docutils literal notranslate"><span class="pre">losses</span></code>) using <code class="docutils literal notranslate"><span class="pre">torch.log()</span></code> and <code class="docutils literal notranslate"><span class="pre">torch.exp()</span></code> without Loops!</p></li>
+<li><p>Return the average of the loss vector</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cross_entropy_loss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+  <span class="c1"># x is the model predictions we'd like to evaluate using lables</span>
+  <span class="n">x_of_labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+  <span class="c1">####################################################################</span>
+  <span class="c1"># Fill in missing code below (...),</span>
+  <span class="c1"># then remove or comment the line below to test your function</span>
+  <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Cross Entropy Loss"</span><span class="p">)</span>
+  <span class="c1">####################################################################</span>
+  <span class="c1"># 1. prediction for each class corresponding to the label</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+    <span class="n">x_of_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">label</span><span class="p">]</span>
+  <span class="c1"># 2. loss vector for the batch</span>
+  <span class="n">losses</span> <span class="o">=</span> <span class="o">...</span>
+  <span class="c1"># 3. Return the average of the loss vector</span>
+  <span class="n">avg_loss</span> <span class="o">=</span> <span class="o">...</span>
+
+  <span class="k">return</span> <span class="n">avg_loss</span>
+
+
+<span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">],</span>  <span class="c1"># correctly classified</span>
+                  <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">]])</span>  <span class="c1"># Not correctly classified</span>
+<span class="n">CE</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">pytorch_loss</span> <span class="o">=</span> <span class="n">CE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="c1">## Uncomment below to test your function</span>
+<span class="c1"># our_loss = cross_entropy_loss(x, labels).item()</span>
+<span class="c1"># print(f'Our CE loss: {our_loss:0.8f}, Pytorch CE loss: {pytorch_loss:0.8f}')</span>
+<span class="c1"># print(f'Difference: {np.abs(our_loss - pytorch_loss):0.8f}')</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D3_MultiLayerPerceptrons/solutions/W1D3_Tutorial1_Solution_799fb4d7.py"><em>Click for solution</em></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Our</span> <span class="n">CE</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.34672737</span><span class="p">,</span> <span class="n">Pytorch</span> <span class="n">CE</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.34672749</span>
+<span class="n">Difference</span><span class="p">:</span> <span class="mf">0.00000012</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="section-3-2-spiral-classification-dataset">
+<h2>Section 3.2: Spiral classification dataset<a class="headerlink" href="#section-3-2-spiral-classification-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Before we could start optimizing these loss functions, we need a dataset!</p>
+<p>Let’s turn this fancy-looking equation into a classification dataset</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c}
+X_{k}(t)=t\left(\begin{array}{c}
+\sin \left[\frac{2 \pi}{K}\left(2 t+k-1\right)\right]+\mathcal{N}\left(0, \sigma\right) \\
+\cos \left[\frac{2 \pi}{K}\left(2 t+k-1\right)\right]+\mathcal{N}\left(0, \sigma\right) 
+\end{array}\right)
+\end{array}, \quad 0 \leq t \leq 1, \quad k=1, \ldots, K
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_spiral_dataset</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+
+  <span class="c1"># Initialize t, X, y</span>
+  <span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+
+  <span class="c1"># Create data</span>
+  <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="o">*</span><span class="n">N</span><span class="p">:(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">K</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">k</span><span class="p">))</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+    <span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="o">*</span><span class="n">N</span><span class="p">:(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">K</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">k</span><span class="p">))</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="o">*</span><span class="n">N</span><span class="p">:(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
+
+  <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+
+
+<span class="c1"># Set parameters</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.16</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">create_spiral_dataset</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="section-3-3-training-and-evaluation">
+<h2>Section 3.3: Training and Evaluation<a class="headerlink" href="#section-3-3-training-and-evaluation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="video-5-train-test">
+<h3>Video 5: Train Test<a class="headerlink" href="#video-5-train-test" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_remove-input docutils container">
+</div>
+</div>
+<div class="section" id="coding-exercise-3-3-implement-it-for-a-classfication-task">
+<h3>Coding Exercise 3.3: Implement it for a classfication task<a class="headerlink" href="#coding-exercise-3-3-implement-it-for-a-classfication-task" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have the Spiral dataset and loss function, it’s your turn to implement a simple train/test split for training and validation.</p>
+<p>Steps to follow:</p>
+<ul class="simple">
+<li><p>Dataset shuffle</p></li>
+<li><p>Train/Test split (20% for test)</p></li>
+<li><p>Dataloader definition</p></li>
+<li><p>Training and Evaluation</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">shuffle_and_split_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+
+  <span class="c1">####################################################################</span>
+  <span class="c1"># Fill in missing code below (...),</span>
+  <span class="c1"># then remove or comment the line below to test your function</span>
+  <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Shuffle &amp; split data"</span><span class="p">)</span>
+  <span class="c1">####################################################################</span>
+  <span class="c1"># Number of samples</span>
+  <span class="n">N</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+  <span class="c1"># Shuffle data</span>
+  <span class="n">shuffled_indices</span> <span class="o">=</span> <span class="o">...</span>   <span class="c1"># get indices to shuffle data, could use torch.randperm</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">shuffled_indices</span><span class="p">]</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">shuffled_indices</span><span class="p">]</span>
+
+  <span class="c1"># Split data into train/test</span>
+  <span class="n">test_size</span> <span class="o">=</span> <span class="o">...</span>    <span class="c1"># assign test datset size using 20% of samples</span>
+  <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="n">test_size</span><span class="p">]</span>
+  <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="n">test_size</span><span class="p">]</span>
+  <span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">test_size</span><span class="p">:]</span>
+  <span class="n">y_train</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">test_size</span><span class="p">:]</span>
+
+  <span class="k">return</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span>
+
+
+<span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="c1">## Uncomment below to test your function</span>
+<span class="c1"># X_test, y_test, X_train, y_train = shuffle_and_split_data(X, y)</span>
+<span class="c1"># plt.scatter(X_test[:, 0], X_test[:, 1], c=y_test)</span>
+<span class="c1"># plt.title('Test data')</span>
+<span class="c1"># plt.show()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D3_MultiLayerPerceptrons/solutions/W1D3_Tutorial1_Solution_ced214e7.py"><em>Click for solution</em></a></p>
+<p><em>Example output:</em></p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W1D3_MultiLayerPerceptrons/static/W1D3_Tutorial1_Solution_ced214e7_1.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W1D3_MultiLayerPerceptrons/static/W1D3_Tutorial1_Solution_ced214e7_1.png" style="width: 1120.0px; height: 832.0px;"/></a>
+<p>And we need to make a Pytorch data loader out of it. Data loading in PyTorch can be separated in 2 parts:</p>
+<ul class="simple">
+<li><p>Data must be wrapped on a Dataset parent class where the methods <strong>getitem</strong> and <strong>len</strong> must be overrided. Not that at this point the data is not loaded on memory. PyTorch will only load what is needed to the memory. Here <code class="docutils literal notranslate"><span class="pre">TensorDataset</span></code> does this for us directly.</p></li>
+<li><p>Use a Dataloader that will actually read the data in batches and put into memory. Also, the option of <code class="docutils literal notranslate"><span class="pre">num_workers</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> allows multithreading, which prepares multiple batches in the queue to speed things up.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g_seed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">()</span>
+<span class="n">g_seed</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                         <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                         <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
+                         <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
+
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                         <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
+                         <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s write a general-purpose training and evaluation code and keep it in our pocket for next tutorial as well. So make sure you review it to see what it does.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">model.train()</span></code> tells your model that you are training the model. So layers like dropout, batchnorm etc. which behave different on the train and test procedures know what is going on and hence can behave accordingly. And to turn off training mode we set <code class="docutils literal notranslate"><span class="pre">model.eval()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_test_classification</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span>
+                              <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span>
+                              <span class="n">num_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                              <span class="n">training_plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+    <span class="n">progress_bar</span> <span class="o">=</span> <span class="n">display</span><span class="p">(</span><span class="n">progress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">),</span> <span class="n">display_id</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+  <span class="n">net</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+  <span class="n">training_losses</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>  <span class="c1"># loop over the dataset multiple times</span>
+    <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+      <span class="c1"># get the inputs; data is a list of [inputs, labels]</span>
+      <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span>
+      <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+      <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+
+      <span class="c1"># zero the parameter gradients</span>
+      <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+      <span class="c1"># forward + backward + optimize</span>
+      <span class="n">outputs</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+      <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+      <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+      <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+      <span class="c1"># print statistics</span>
+      <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">training_losses</span> <span class="o">+=</span> <span class="p">[</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()]</span>
+        <span class="n">running_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>    <span class="c1"># update every 10 mini-batches</span>
+            <span class="n">progress_bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">progress</span><span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">running_loss</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">))</span>
+            <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+  <span class="n">net</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+  <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">data_loader</span><span class="p">):</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">data_loader</span><span class="p">:</span>
+      <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span>
+      <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+      <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+
+      <span class="n">outputs</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+      <span class="n">_</span><span class="p">,</span> <span class="n">predicted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">total</span> <span class="o">+=</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+      <span class="n">correct</span> <span class="o">+=</span> <span class="p">(</span><span class="n">predicted</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+    <span class="n">acc</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">correct</span> <span class="o">/</span> <span class="n">total</span>
+    <span class="k">return</span> <span class="n">total</span><span class="p">,</span> <span class="n">acc</span>
+
+  <span class="n">train_total</span><span class="p">,</span> <span class="n">train_acc</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
+  <span class="n">test_total</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">test_loader</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Accuracy on the </span><span class="si">%d</span><span class="s1"> training samples: </span><span class="si">%0.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_total</span><span class="p">,</span> <span class="n">train_acc</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Accuracy on the </span><span class="si">%d</span><span class="s1"> testing samples: </span><span class="si">%0.2f</span><span class="s1"> </span><span class="si">%%</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">test_total</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">))</span>
+
+  <span class="k">if</span> <span class="n">training_plot</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">training_losses</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Batch'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Training loss'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="k">return</span> <span class="n">train_acc</span><span class="p">,</span> <span class="n">test_acc</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="think-3-3-1-what-s-the-point-of-eval-and-train">
+<h3>Think! 3.3.1: What’s the point of .eval() and .train()?<a class="headerlink" href="#think-3-3-1-what-s-the-point-of-eval-and-train" title="Permalink to this headline">¶</a></h3>
+<p>Is it necessary to use <code class="docutils literal notranslate"><span class="pre">net.train()</span></code> and <code class="docutils literal notranslate"><span class="pre">net.eval()</span></code> for our MLP model? why?</p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D3_MultiLayerPerceptrons/solutions/W1D3_Tutorial1_Solution_51988471.py"><em>Click for solution</em></a></p>
+<p>Now let’s put everything together and train your first deep-ish model!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">set_seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">Net</span><span class="p">(</span><span class="s1">'ReLU()'</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">128</span><span class="p">],</span> <span class="n">K</span><span class="p">)</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">train_test_classification</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span>
+                                 <span class="n">test_loader</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span>
+                                 <span class="n">training_plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                         <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                         <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
+                         <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
+
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                         <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
+                         <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And finally, let’s visualize the learned decision-map. We know you’re probably running out of time, so we won’t make you write code now! But make sure you have reviewed it since we’ll start with another visualization technique next time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sample_grid</span><span class="p">(</span><span class="n">M</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">):</span>
+  <span class="n">ii</span><span class="p">,</span> <span class="n">jj</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">x_max</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span><span class="n">M</span><span class="p">),</span>
+                          <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">x_max</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span>
+  <span class="n">X_all</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">ii</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                     <span class="n">jj</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)],</span>
+                     <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">X_all</span>
+
+
+<span class="k">def</span> <span class="nf">plot_decision_map</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span>
+                      <span class="n">M</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">x_max</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
+  <span class="n">decision_map</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)):</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_all</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">X_all</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="n">eps</span>
+    <span class="n">decision_map</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">K</span> <span class="o">+</span> <span class="n">y_test</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+
+  <span class="n">decision_map</span> <span class="o">=</span> <span class="n">decision_map</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">decision_map</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="n">x_max</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="o">-</span><span class="n">x_max</span><span class="p">,</span> <span class="n">x_max</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'jet'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+
+<span class="n">X_all</span> <span class="o">=</span> <span class="n">sample_grid</span><span class="p">()</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">X_all</span><span class="p">)</span>
+<span class="n">plot_decision_map</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="think-3-3-2-does-it-generalize-well">
+<h3>Think! 3.3.2: Does it generalize well?<a class="headerlink" href="#think-3-3-2-does-it-generalize-well" title="Permalink to this headline">¶</a></h3>
+<p>Do you think this model is performing well outside its training distribution? Why?</p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D3_MultiLayerPerceptrons/solutions/W1D3_Tutorial1_Solution_f289782d.py"><em>Click for solution</em></a></p>
+</div>
+</div>
+</div>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials/W1D3_MultiLayerPerceptrons/student"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</div>
+<div class="prev-next-bottom">
+<a class="left-prev" href="../chapter_title.html" id="prev-link" title="previous page">Multi Layer Perceptrons</a>
+<a class="right-next" href="W1D3_Tutorial2.html" id="next-link" title="next page">Tutorial 2: Deep MLPs</a>
+</div>
+</div>
+</div>
+<footer class="footer mt-5 mt-md-0">
+<div class="container">
+<p>
+        
+          By Neuromatch<br/>
+        
+            © Copyright 2021.<br/>
+</p>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+</body>
+</html>

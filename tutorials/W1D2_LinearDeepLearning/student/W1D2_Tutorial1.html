@@ -1,0 +1,1368 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tutorial 1: Gradient Descent and AutoGrad — Neuromatch Academy: Deep Learning</title>
+<link href="../../../_static/css/theme.css" rel="stylesheet"/>
+<link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet"/>
+<link href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../../_static/pygments.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/togglebutton.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/mystnb.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/sphinx-thebe.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" rel="stylesheet" type="text/css"/>
+<link as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js" rel="preload"/>
+<script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+<script src="../../../_static/jquery.js"></script>
+<script src="../../../_static/underscore.js"></script>
+<script src="../../../_static/doctools.js"></script>
+<script src="../../../_static/togglebutton.js"></script>
+<script src="../../../_static/clipboard.min.js"></script>
+<script src="../../../_static/copybutton.js"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+<script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+<script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+<script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+<script async="async" src="../../../_static/sphinx-thebe.js"></script>
+<script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+<link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="W1D2_Tutorial2.html" rel="next" title="Tutorial 2: Learning Hyperparameters"/>
+<link href="../chapter_title.html" rel="prev" title="Linear Deep Learning"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</link></link></link></link></head>
+<body data-offset="80" data-spy="scroll" data-target="#bd-toc-nav">
+<div class="container-fluid" id="banner"></div>
+<div class="container-xl">
+<div class="row">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+<div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+<img alt="logo" class="logo" src="../../../_static/nma-logo-square-4xp.jpg"/>
+<h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
+</a>
+</div><form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="icon fas fa-search"></i>
+<input aria-label="Search this book..." autocomplete="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." type="search"/>
+</form><nav aria-label="Main navigation" class="bd-links" id="bd-docs-nav">
+<div class="bd-toc-item active">
+<ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../Schedule/schedule_intro.html">
+   Schedule
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox">
+<label for="toctree-checkbox-1">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/daily_schedules.html">
+     General schedule
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/shared_calendars.html">
+     Shared calendars
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/timezone_widget.html">
+     Timezone widget
+    </a>
+</li>
+</ul>
+</input></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../TechnicalHelp/tech_intro.html">
+   Technical Help
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+<label for="toctree-checkbox-2">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../TechnicalHelp/Jupyterbook.html">
+     Using jupyterbook
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+<label for="toctree-checkbox-3">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../TechnicalHelp/Tutorial_colab.html">
+       Using Google Colab
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../TechnicalHelp/Tutorial_kaggle.html">
+       Using Kaggle
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../TechnicalHelp/Discord.html">
+     Using Discord
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D1_BasicsAndPytorch/chapter_title.html">
+   Basics And Pytorch (W1D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+<label for="toctree-checkbox-4">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">
+     Tutorial 1: PyTorch
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_BasicsAndPytorch/further_reading.html">
+     Suggested further reading (TBD)
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children">
+<a class="reference internal" href="../chapter_title.html">
+   Linear Deep Learning (W1D2)
+  </a>
+<input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+<label for="toctree-checkbox-5">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul class="current">
+<li class="toctree-l2 current active">
+<a class="current reference internal" href="#">
+     Tutorial 1: Gradient Descent and AutoGrad
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="W1D2_Tutorial2.html">
+     Tutorial 2: Learning Hyperparameters
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="W1D2_Tutorial3.html">
+     Tutorial 3: Deep linear neural networks
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D3_MultiLayerPerceptrons/chapter_title.html">
+   Multi Layer Perceptrons (W1D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+<label for="toctree-checkbox-6">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html">
+     Tutorial 1: Biological vs. Artificial neurons
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial2.html">
+     Tutorial 2: Deep MLPs
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D4_Optimization/chapter_title.html">
+   Optimization (W1D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+<label for="toctree-checkbox-7">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D4_Optimization/student/W1D4_Tutorial1.html">
+     Tutorial 1: Optimization techniques
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D5_Regularization/chapter_title.html">
+   Regularization (W1D5)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+<label for="toctree-checkbox-8">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_Regularization/student/W1D5_Tutorial1.html">
+     Tutorial 1: Regularization techniques part 1
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_Regularization/student/W1D5_Tutorial2.html">
+     Tutorial 2: Regularization techniques part 2
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  Doing more with fewer parameters
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/chapter_title.html">
+   Convnets And Recurrent Neural Networks (W2D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+<label for="toctree-checkbox-9">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/student/W2D1_Tutorial1.html">
+     Tutorial 1: Introduction to CNNs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/student/W2D1_Tutorial2.html">
+     Tutorial 2: Training loop of CNNs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/student/W2D1_Tutorial3.html">
+     Tutorial 3: Introduction to RNNs
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D2_ModernConvnets/chapter_title.html">
+   Modern Convnets (W2D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+<label for="toctree-checkbox-10">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_ModernConvnets/student/W2D2_Tutorial1.html">
+     Tutorial 1: Learn how to use modern convnets
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D3_ModernRecurrentNeuralNetworks/chapter_title.html">
+   Modern Recurrent Neural Networks (W2D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+<label for="toctree-checkbox-11">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_ModernRecurrentNeuralNetworks/student/W2D3_Tutorial1.html">
+     Tutorial 1: Modeling sequencies and encoding text
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_ModernRecurrentNeuralNetworks/student/W2D3_Tutorial2.html">
+     Tutorial 2: Modern RNNs and their variants
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D4_AttentionAndTransformers/chapter_title.html">
+   Attention And Transformers (W2D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+<label for="toctree-checkbox-12">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D4_AttentionAndTransformers/student/W2D4_Tutorial1.html">
+     Tutorial 1: Learn how to work with Transformers
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D5_GenerativeModels/chapter_title.html">
+   Generative Models (W2D5)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+<label for="toctree-checkbox-13">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D5_GenerativeModels/student/W2D5_Tutorial1.html">
+     Tutorial 1: Variational Autoencoders (VAEs)
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D5_GenerativeModels/student/W2D5_Tutorial2.html">
+     Tutorial 2: Introduction to GANs and Density Ratio Estimation Perspective of GANs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D5_GenerativeModels/student/W2D5_Tutorial3.html">
+     Tutorial 3: Conditional GANs and Implications of GAN Technology
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav> <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+</div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<div class="topbar container-xl fixed-top">
+<div class="topbar-contents row">
+<div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+<div class="col pl-md-4 topbar-main">
+<button aria-controls="site-navigation" aria-expanded="true" aria-label="Toggle navigation" class="navbar-toggler ml-0" data-placement="left" data-target=".site-navigation" data-toggle="tooltip" id="navbar-toggler" title="Toggle navigation" type="button">
+<i class="fas fa-bars"></i>
+<i class="fas fa-arrow-left"></i>
+<i class="fas fa-arrow-up"></i>
+</button>
+<div class="dropdown-buttons-trigger">
+<button aria-label="Download this page" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fas fa-download"></i></button>
+<div class="dropdown-buttons">
+<!-- ipynb file if we had a myst markdown file -->
+<!-- Download raw file -->
+<a class="dropdown-buttons" href="../../../_sources/tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.ipynb"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Download source file" type="button">.ipynb</button></a>
+<!-- Download PDF via print -->
+<button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" id="download-print" onclick="window.print()" title="Print to PDF" type="button">.pdf</button>
+</div>
+</div>
+<!-- Source interaction buttons -->
+<div class="dropdown-buttons-trigger">
+<button aria-label="Connect with source repository" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fab fa-github"></i></button>
+<div class="dropdown-buttons sourcebuttons">
+<a class="repository-button" href="https://github.com/NeuromatchAcademy/course-content-dl"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Source repository" type="button"><i class="fab fa-github"></i>repository</button></a>
+<a class="issues-button" href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Ftutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html&amp;body=Your%20issue%20content%20here."><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Open an issue" type="button"><i class="fas fa-lightbulb"></i>open issue</button></a>
+</div>
+</div>
+<!-- Full screen (wrap in <a> to have style consistency -->
+<a class="full-screen-button"><button aria-label="Fullscreen mode" class="btn btn-secondary topbarbtn" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode" type="button"><i class="fas fa-expand"></i></button></a>
+<!-- Launch buttons -->
+</div>
+<!-- Table of contents -->
+<div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+<i class="fas fa-list"></i> Contents
+            </div>
+<nav id="bd-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#">
+   Tutorial 1: Gradient Descent and AutoGrad
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#plotting-functions">
+     Plotting functions
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#helper-functions">
+     Helper functions
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#set-random-seed">
+     Set random seed.
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#set-device-gpu-or-cpu-execute-set-device">
+     Set device (GPU or CPU). Execute
+     <code class="docutils literal notranslate">
+<span class="pre">
+       set_device()
+      </span>
+</code>
+</a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-0-introduction">
+   Section 0: Introduction
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-0-introduction">
+     Video 0: Introduction
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-gradient-descent-algorithm">
+   Section 1: Gradient Descent Algorithm
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-1-gradients-steepest-ascent">
+     Section 1.1: Gradients &amp; Steepest Ascent
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-gradient-descent">
+       Video 1: Gradient Descent
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#analytical-exercise-1-1-gradient-vector">
+       Analytical Exercise 1.1: Gradient vector
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-1-1-gradient-vector">
+       Coding Exercise 1.1: Gradient Vector
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-2-gradient-descent">
+     Section 1.2: Gradient Descent
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#analytical-exercise-1-2-gradients">
+       Analytical Exercise 1.2: Gradients
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-3-computational-graphs-and-backprop">
+     Section 1.3: Computational Graphs and Backprop
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-2-computational-graph">
+       Video 2: Computational Graph
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#analytical-exercise-1-3-chain-rule">
+       Analytical Exercise 1.3: Chain Rule
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-pytorch-autograd">
+   Section 2: PyTorch AutoGrad
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-3-automatic-differentiation">
+     Video 3: Automatic Differentiation
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-1-forward-propagation">
+     Section 2.1: Forward Propagation
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-2-1-buiding-a-computational-graph">
+       Coding Exercise 2.1: Buiding a Computational Graph
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-2-backward-propagation">
+     Section 2.2: Backward Propagation
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-3-pytorch-s-neural-net-module-nn-module">
+   Section 3: PyTorch’s Neural Net module (
+   <code class="docutils literal notranslate">
+<span class="pre">
+     nn.Module
+    </span>
+</code>
+   )
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-4-putting-it-together">
+     Video 4: Putting it together
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-3-1-training-loop-in-pytorch">
+     Section 3.1: Training loop in PyTorch
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#generate-the-sample-dataset">
+       Generate the sample dataset
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-3-1-training-loop">
+       Coding Exercise 3.1: Training Loop
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#wrap-up">
+   Wrap-up
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-5-wrap-up">
+     Video 5: Wrap-up
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="row" id="main-content">
+<div class="col-12 col-md-9 pl-md-3 pr-md-0">
+<div>
+<p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W1D2_LinearDeepLearning/student/W1D2_Tutorial1.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
+<div class="section" id="tutorial-1-gradient-descent-and-autograd">
+<h1>Tutorial 1: Gradient Descent and AutoGrad<a class="headerlink" href="#tutorial-1-gradient-descent-and-autograd" title="Permalink to this headline">¶</a></h1>
+<p><strong>Week 1, Day 2: Linear Deep Learning</strong></p>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> Andrew Saxe, Saeed Salehi, Vladimir Haltakov</p>
+<p><strong>Content reviewers:</strong> Polina Turishcheva</p>
+<p><strong>Content editors:</strong> Anoop Kulkarni</p>
+<p><strong>Production editors:</strong> Khalid Almubarak, Spiros Chavlis</p>
+<p><strong>Our 2021 Sponsors, including Presenting Sponsor Facebook Reality Labs</strong></p>
+<p align="center"><img src="https://github.com/NeuromatchAcademy/widgets/blob/master/sponsors.png?raw=True"/></p><hr class="docutils"/>
+<p>#Tutorial Objectives</p>
+<p>Day 2 Tutorial 1 will continue on buiding PyTorch skillset and motivate its core functionality, Autograd. In this notebook, we will cover the key concepts and ideas of:</p>
+<ul class="simple">
+<li><p>Gradient descent</p></li>
+<li><p>PyTorch Autograd</p></li>
+<li><p>PyTorch nn module</p></li>
+</ul>
+<p>Tutorial slides</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Tutorial slides</span>
+<span class="c1"># you should link the slides for all tutorial videos here (we will store pdfs on osf)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;iframe src="https://docs.google.com/presentation/d/1ao5fJrxtQTMKaWXWALDtFjHeWFYl25M1btGfsS6TIs0/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"&gt;&lt;/iframe&gt;'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<p>This a GPU-Free tutorial!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="figure-settings">
+<h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Figure settings</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
+
+<span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s1">'retina'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/NeuromatchAcademy/course-content/master/nma.mplstyle"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-functions">
+<h2>Plotting functions<a class="headerlink" href="#plotting-functions" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Plotting functions</span>
+
+<span class="k">def</span> <span class="nf">ex3_plot</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ep</span><span class="p">,</span> <span class="n">lss</span><span class="p">):</span>
+  <span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Regression"</span><span class="p">)</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'prediction'</span><span class="p">)</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'c'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'targets'</span><span class="p">)</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'y'</span><span class="p">)</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+  <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Training loss"</span><span class="p">)</span>
+  <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="n">epochs</span><span class="p">),</span> <span class="n">losses</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'y'</span><span class="p">)</span>
+  <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Epoch"</span><span class="p">)</span>
+  <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"MSE"</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">ex1_plot</span><span class="p">(</span><span class="n">fun_z</span><span class="p">,</span> <span class="n">fun_dz</span><span class="p">):</span>
+  <span class="sd">"""Plots the function and gradient vectors</span>
+
+<span class="sd">  """</span>
+  <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">3.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">3.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+  <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">zz</span> <span class="o">=</span> <span class="n">fun_z</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
+  <span class="n">xg</span><span class="p">,</span> <span class="n">yg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+  <span class="n">xxg</span><span class="p">,</span> <span class="n">yyg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="n">yg</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">zxg</span><span class="p">,</span> <span class="n">zyg</span> <span class="o">=</span> <span class="n">fun_dz</span><span class="p">(</span><span class="n">xxg</span><span class="p">,</span> <span class="n">yyg</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Gradient vectors point towards steepest ascent"</span><span class="p">)</span>
+  <span class="n">contplt</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">zz</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">xxg</span><span class="p">,</span> <span class="n">yyg</span><span class="p">,</span> <span class="n">zxg</span><span class="p">,</span> <span class="n">zyg</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$x$'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$y$'</span><span class="p">)</span>
+  <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+  <span class="n">divider</span> <span class="o">=</span> <span class="n">make_axes_locatable</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+  <span class="n">cax</span> <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">append_axes</span><span class="p">(</span><span class="s2">"right"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">"5%"</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+  <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">contplt</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cax</span><span class="p">)</span>
+  <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">'$z = h(x, y)$'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="helper-functions">
+<h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Helper functions</span>
+
+<span class="c1"># Nothing to see here...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-random-seed">
+<h2>Set random seed.<a class="headerlink" href="#set-random-seed" title="Permalink to this headline">¶</a></h2>
+<p>Executing <code class="docutils literal notranslate"><span class="pre">set_seed(seed=seed)</span></code> you are setting the seed</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Set random seed.</span>
+
+<span class="c1">#@markdown Executing `set_seed(seed=seed)` you are setting the seed</span>
+
+<span class="c1"># for DL its critical to set the random seed so that students can have a</span>
+<span class="c1"># baseline to compare their results to expected results.</span>
+<span class="c1"># Read more here: https://pytorch.org/docs/stable/notes/randomness.html</span>
+
+<span class="c1"># Call `set_seed` function in the exercises to ensure reproducibility.</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="k">def</span> <span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed_torch</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">seed_torch</span><span class="p">:</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed_all</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">benchmark</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">deterministic</span> <span class="o">=</span> <span class="kc">True</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Random seed </span><span class="si">{</span><span class="n">seed</span><span class="si">}</span><span class="s1"> has been set.'</span><span class="p">)</span>
+
+
+<span class="c1"># In case that `DataLoader` is used</span>
+<span class="k">def</span> <span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">):</span>
+  <span class="n">worker_seed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">initial_seed</span><span class="p">()</span> <span class="o">%</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
+  <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-device-gpu-or-cpu-execute-set-device">
+<h2>Set device (GPU or CPU). Execute <code class="docutils literal notranslate"><span class="pre">set_device()</span></code><a class="headerlink" href="#set-device-gpu-or-cpu-execute-set-device" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Set device (GPU or CPU). Execute `set_device()`</span>
+<span class="c1"># especially if torch modules used.</span>
+
+<span class="c1"># inform the user if the notebook uses GPU or CPU.</span>
+
+<span class="k">def</span> <span class="nf">set_device</span><span class="p">():</span>
+  <span class="n">device</span> <span class="o">=</span> <span class="s2">"cuda"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span>
+  <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s2">"cuda"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"WARNING: For this notebook to perform best, "</span>
+        <span class="s2">"if possible, in the menu under `Runtime` -&gt; "</span>
+        <span class="s2">"`Change runtime type.`  select `GPU` "</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"GPU is enabled in this notebook."</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">device</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SEED</span> <span class="o">=</span> <span class="mi">2021</span>
+<span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">DEVICE</span> <span class="o">=</span> <span class="n">set_device</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-0-introduction">
+<h1>Section 0: Introduction<a class="headerlink" href="#section-0-introduction" title="Permalink to this headline">¶</a></h1>
+<p>Today, we will go through 3 tutorials. Starting with Gradient Descent, the workhorse of deep learning algorithms, in this tutorial. The second tutorial will help us build a better intuition about neural networks and basic hyper-parameters. Finally, in tutorial 3, we learn about the learning dynamics, what the (a good) deep network is learning, and why sometimes they may perform poorly.</p>
+<div class="section" id="video-0-introduction">
+<h2>Video 0: Introduction<a class="headerlink" href="#video-0-introduction" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-1-gradient-descent-algorithm">
+<h1>Section 1: Gradient Descent Algorithm<a class="headerlink" href="#section-1-gradient-descent-algorithm" title="Permalink to this headline">¶</a></h1>
+<p>Since the goal of most learning algorithms is <strong>minimizing the risk (also known as the cost or loss) function</strong>, optimization is often the core of most machine learning techniques! The gradient descent algorithm, along with its variations such as stochastic gradient descent, is one of the most powerful and popular optimization methods used for deep learning. Today we will introduce the basics, but you will learn much more about Optimization in the coming days (Week 1 Day 4).</p>
+<div class="section" id="section-1-1-gradients-steepest-ascent">
+<h2>Section 1.1: Gradients &amp; Steepest Ascent<a class="headerlink" href="#section-1-1-gradients-steepest-ascent" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="video-1-gradient-descent">
+<h3>Video 1: Gradient Descent<a class="headerlink" href="#video-1-gradient-descent" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Before introducing the gradient descent algorithm, let’s review a very important property of gradients. The gradient of a function always points in the direction of the steepest ascent. The following exercise will help clarify this.</p>
+</div>
+<div class="section" id="analytical-exercise-1-1-gradient-vector">
+<h3>Analytical Exercise 1.1: Gradient vector<a class="headerlink" href="#analytical-exercise-1-1-gradient-vector" title="Permalink to this headline">¶</a></h3>
+<p>Given the following function:</p>
+<div class="math notranslate nohighlight">
+\[ z = h(x, y) = \sin(x^2 + y^2) \]</div>
+<p>find the gradient vector:</p>
+<div class="math notranslate nohighlight">
+\[\left[ \dfrac{\partial z}{\partial x}, \dfrac{\partial z}{\partial y}\right]^{\top} \]</div>
+<p><em>hint: use the chain rule!</em></p>
+<p><strong>Chain rule</strong>: For a composite function <span class="math notranslate nohighlight">\(F(x) = g(h(x)) \equiv (g \circ h)(x)\)</span>:
+$<span class="math notranslate nohighlight">\(F'(x) = g'(h(x)) \cdot h'(x)\)</span><span class="math notranslate nohighlight">\(
+or differently denoted:
+\)</span><span class="math notranslate nohighlight">\( \frac{dF}{dx} = \frac{dg}{dh} ~ \frac{dh}{dx} \)</span>$</p>
+</div>
+<hr class="docutils"/>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<p>We can rewrite the function as a composite function:</p>
+<div class="math notranslate nohighlight">
+\[ z = f(g(x,y)), ~~ f(u) = \sin(u), ~~ g(x, y) = x^2 + y^2\]</div>
+<p>Using chain rule:</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{\partial z}{\partial x} = \dfrac{\partial f}{\partial g} \dfrac{\partial g}{\partial x} = \cos(g(x,y)) ~ (2x) = \cos(x^2 + y^2) \cdot 2x \]</div>
+<div class="math notranslate nohighlight">
+\[\dfrac{\partial z}{\partial y} = \dfrac{\partial f}{\partial g} \dfrac{\partial g}{\partial y} = \cos(g(x,y)) ~ (2y) = \cos(x^2 + y^2) \cdot 2y \]</div>
+</div>
+<div class="section" id="coding-exercise-1-1-gradient-vector">
+<h3>Coding Exercise 1.1: Gradient Vector<a class="headerlink" href="#coding-exercise-1-1-gradient-vector" title="Permalink to this headline">¶</a></h3>
+<p>Implement (complete) the function which returns the gradient vector for <span class="math notranslate nohighlight">\(z=\sin(x^2 + y^2)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun_z</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+  <span class="sd">"""Function sin(x^2 + y^2)</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">    x (float, np.ndarray): variable x</span>
+<span class="sd">    y (float, np.ndarray): variable y</span>
+
+<span class="sd">  Return:</span>
+<span class="sd">    z (float, np.ndarray): sin(x^2 + y^2)</span>
+<span class="sd">  """</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">z</span>
+
+
+<span class="k">def</span> <span class="nf">fun_dz</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+  <span class="sd">"""Function sin(x^2 + y^2)</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">    x (float, np.ndarray): variable x</span>
+<span class="sd">    y (float, np.ndarray): variable y</span>
+
+<span class="sd">  Return:</span>
+<span class="sd">    (tuple): gradient vector for sin(x^2 + y^2)</span>
+<span class="sd">  """</span>
+  <span class="c1">#################################################</span>
+  <span class="c1">## Implement the function which returns gradient vector</span>
+  <span class="c1">## Complete the partial derivatives dz_dx and dz_dy</span>
+  <span class="c1"># Complete the function and remove or comment the line below</span>
+  <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Gradient function `fun_dz`"</span><span class="p">)</span>
+  <span class="c1">#################################################</span>
+  <span class="n">dz_dx</span> <span class="o">=</span> <span class="o">...</span>
+  <span class="n">dz_dy</span> <span class="o">=</span> <span class="o">...</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">dz_dx</span><span class="p">,</span> <span class="n">dz_dy</span><span class="p">)</span>
+
+<span class="c1"># # Uncomment to run</span>
+<span class="c1"># ex1_plot(fun_z, fun_dz)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D2_LinearDeepLearning/solutions/W1D2_Tutorial1_Solution_b4cac861.py"><em>Click for solution</em></a></p>
+<p><em>Example output:</em></p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W1D2_LinearDeepLearning/static/W1D2_Tutorial1_Solution_b4cac861_0.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W1D2_LinearDeepLearning/static/W1D2_Tutorial1_Solution_b4cac861_0.png" style="width: 1120.0px; height: 976.0px;"/></a>
+<p>We can see from the plot that for any given <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(y_0\)</span>, the gradient vector <span class="math notranslate nohighlight">\(\left[ \dfrac{\partial z}{\partial x}, \dfrac{\partial z}{\partial y}\right]^{\top}_{(x_0, y_0)}\)</span> points in the direction of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> for which <span class="math notranslate nohighlight">\(z\)</span> increases the most. It is important to note that gradient vectors only see their local values, not the whole landscape! Also, length (size) of each vector, which indicates the steepness of the function, can be very small near local plateaus (i.e. minima or maxima).</p>
+<p>Thus, we can simply use the aforementioned formula to find the local minima.</p>
+<p>In 1847, Augustin-Louis Cauchy used <strong>negative of gradients</strong>  to develop the Gradient Descent algorithm as an <strong>iterative</strong> method to <strong>minimize</strong> a <strong>continuous</strong> and (ideally) <strong>differentiable function</strong> of <strong>many variables</strong>.</p>
+</div>
+</div>
+<div class="section" id="section-1-2-gradient-descent">
+<h2>Section 1.2: Gradient Descent<a class="headerlink" href="#section-1-2-gradient-descent" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(f(\mathbf{w}): \mathbb{R}^d \rightarrow \mathbb{R}\)</span> be a differentiable function. Gradient Descent is an iterative algorithm for minimizing the function <span class="math notranslate nohighlight">\(f\)</span>, starting with an initial value for variables <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>, taking steps of size <span class="math notranslate nohighlight">\(\eta\)</span> (learning rate) in the direction of the negative gradient at the current point to update the variables <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla f (\mathbf{w}^{(t)}) \]</div>
+<p>where <span class="math notranslate nohighlight">\(\eta &gt; 0\)</span> and <span class="math notranslate nohighlight">\(\nabla f (\mathbf{w})= \left( \frac{\partial f(\mathbf{w})}{\partial w_1}, ..., \frac{\partial f(\mathbf{w})}{\partial w_d} \right)\)</span>. Since negative gradients always point locally in the direction of steepest descent, the algorithm makes small steps at each point <strong>towards</strong> the minimum.</p>
+<br/>
+<p><strong>Vanilla Algorithm</strong></p>
+<hr class="docutils"/>
+<blockquote>
+<div><p><strong>inputs</strong>: initial guess <span class="math notranslate nohighlight">\(\mathbf{w}^{(0)}\)</span>, step size <span class="math notranslate nohighlight">\(\eta &gt; 0\)</span>, number of steps <span class="math notranslate nohighlight">\(T\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><em>For</em> <span class="math notranslate nohighlight">\(t = 0, 2, \dots , T-1\)</span> <em>do</em> <br/>
+<span class="math notranslate nohighlight">\(\qquad\)</span> <span class="math notranslate nohighlight">\(\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla f (\mathbf{w}^{(t)})\)</span><br/>
+<em>end</em></p>
+</div></blockquote>
+<blockquote>
+<div><p><em>return</em>: <span class="math notranslate nohighlight">\(\mathbf{w}^{(t+1)}\)</span></p>
+</div></blockquote>
+<hr class="docutils"/>
+<br/>
+<p>Hence, all we need is to calculate the gradient of the loss function with respect to the learnable parameters (i.e. weights):</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{\partial Loss}{\partial \mathbf{w}} = \left[ \dfrac{\partial Loss}{\partial w_1}, \dfrac{\partial Loss}{\partial w_2} , ..., \dfrac{\partial Loss}{\partial w_d} \right]^{\top} \]</div>
+<div class="section" id="analytical-exercise-1-2-gradients">
+<h3>Analytical Exercise 1.2: Gradients<a class="headerlink" href="#analytical-exercise-1-2-gradients" title="Permalink to this headline">¶</a></h3>
+<p>Given <span class="math notranslate nohighlight">\(f(x, y, z) = \tanh \left( \ln \left[1 + z \frac{2x}{sin(y)} \right] \right)\)</span>, how easy is it to derive <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial x}\)</span>, <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial y}\)</span> and <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial z}\)</span>? (<em>hint: you don’t have to actually calculate them!</em>)</p>
+</div>
+</div>
+<div class="section" id="section-1-3-computational-graphs-and-backprop">
+<h2>Section 1.3: Computational Graphs and Backprop<a class="headerlink" href="#section-1-3-computational-graphs-and-backprop" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="video-2-computational-graph">
+<h3>Video 2: Computational Graph<a class="headerlink" href="#video-2-computational-graph" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p><em>Exercise 1.2</em> is an example of how overwhelming the derivation of gradients can get, as the number of variables and nested functions increases. This function is still extraordinarily simple compared to the loss functions of modern neural networks. So how can we (as well as PyTorch and similar frameworks) approach such beasts?</p>
+<p>Let’s look at the function again:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-76ccd284-540b-4d82-86d7-cfab1a6c4e1c">
+<span class="eqno">(2)<a class="headerlink" href="#equation-76ccd284-540b-4d82-86d7-cfab1a6c4e1c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+f(x, y, z) = \tanh \left(\ln \left[1 + z \frac{2x}{sin(y)} \right] \right)
+\end{equation}\]</div>
+<p>We can build a so-called computational graph (shown below) to break the original function into smaller and more approachable expressions.</p>
+<center><img alt="Computation Graph" src="https://raw.githubusercontent.com/ssnio/statics/main/neuromatch/comput_graph.png" width="700"/></center>
+<p>Starting from <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> and following the arrows and expressions, you would see that our graph returns the same function as <span class="math notranslate nohighlight">\(f\)</span>. It does so by calculating intermediate variables <span class="math notranslate nohighlight">\(a,b,c,d,\)</span> and <span class="math notranslate nohighlight">\(e\)</span>. This is called the <strong>forward pass</strong>.</p>
+<p>Now, let’s start from <span class="math notranslate nohighlight">\(f\)</span>, and work our way against the arrows while calculating the gradient of each expression as we go. This is called the <strong>backward pass</strong>, from which the <strong>backpropagation of errors</strong> algorithm gets its name.</p>
+<center><img alt="Computation Graph full" src="https://raw.githubusercontent.com/ssnio/statics/main/neuromatch/comput_graph_full.png" width="1200"/></center>
+<p>By breaking the computation into simple operations on intermediate variables, we can use the chain rule to calculate any gradient:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-caae6143-ba8c-4fc6-97a6-ac18332b577b">
+<span class="eqno">(3)<a class="headerlink" href="#equation-caae6143-ba8c-4fc6-97a6-ac18332b577b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\dfrac{\partial f}{\partial x} = \dfrac{\partial f}{\partial e}~\dfrac{\partial e}{\partial d}~\dfrac{\partial d}{\partial c}~\dfrac{\partial c}{\partial a}~\dfrac{\partial a}{\partial x} = \left( 1-\tanh^2(e) \right) \cdot \frac{1}{d+1}\cdot z \cdot \frac{1}{b} \cdot 2
+\end{equation}\]</div>
+<p>Conveniently, the values for <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(d\)</span> are available to us from when we did the forward pass through the graph. That is, the partial derivatives have simple expressions in terms of the intermediate variables <span class="math notranslate nohighlight">\(a,b,c,d,e\)</span> that we calculated and stored during the forward pass.</p>
+</div>
+<div class="section" id="analytical-exercise-1-3-chain-rule">
+<h3>Analytical Exercise 1.3: Chain Rule<a class="headerlink" href="#analytical-exercise-1-3-chain-rule" title="Permalink to this headline">¶</a></h3>
+<p>For the function above, calculate the <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial y}\)</span> using the computational graph and chain rule.</p>
+<p>For more: <a class="reference external" href="https://colah.github.io/posts/2015-08-Backprop/">Calculus on Computational Graphs: Backpropagation</a></p>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-2-pytorch-autograd">
+<h1>Section 2: PyTorch AutoGrad<a class="headerlink" href="#section-2-pytorch-autograd" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-3-automatic-differentiation">
+<h2>Video 3: Automatic Differentiation<a class="headerlink" href="#video-3-automatic-differentiation" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Deep learning frameworks such as PyTorch, JAX, and TensorFlow come with a very efficient and sophisticated set of algorithms, commonly known as Automatic Differentiation. AutoGrad is PyTorch’s automatic differentiation engine. Here we start by covering the essentials of AutoGrad, and you will learn more in the coming days.</p>
+</div>
+<div class="section" id="section-2-1-forward-propagation">
+<h2>Section 2.1: Forward Propagation<a class="headerlink" href="#section-2-1-forward-propagation" title="Permalink to this headline">¶</a></h2>
+<p>Everything starts with the forward propagation (pass). PyTorch tracks all the instructions, as we declare the variables and operations, and it builds the graph when we call the <code class="docutils literal notranslate"><span class="pre">.backward()</span></code> pass. PyTorch rebuilds the graph every time we iterate or change it (or simply put, PyTorch uses a dynamic graph).</p>
+<p>For gradient descent, it is only required to have the gradients of cost function with respect to the variables we wish to learn. These variables are often called “learnable / trainable parameters” or simply “parameters” in PyTorch. In neural nets, weights and biases are often the learnable parameters.</p>
+<div class="section" id="coding-exercise-2-1-buiding-a-computational-graph">
+<h3>Coding Exercise 2.1: Buiding a Computational Graph<a class="headerlink" href="#coding-exercise-2-1-buiding-a-computational-graph" title="Permalink to this headline">¶</a></h3>
+<p>In PyTorch, to indicate that a certain tensor contains learnable parameters, we can set the optional argument <code class="docutils literal notranslate"><span class="pre">requires_grad</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>. PyTorch will then track every operation using this tensor while configuring the computational graph. For this exercise, use the provided tensors to build the following graph, which implements a single neuron with scalar input and output.</p>
+<br/>
+<center><img alt="Simple nn graph" src="https://raw.githubusercontent.com/ssnio/statics/main/neuromatch/simple_graph.png" width="600"/></center><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SimpleGraph</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">"""Initializing the SimpleGraph</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      w (float): initial value for weight</span>
+<span class="sd">      b (float): initial value for bias</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">w</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">b</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="sd">"""Forward pass</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      x (torch.Tensor): 1D tensor of features</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      torch.Tensor: model predictions</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span>
+    <span class="c1">#################################################</span>
+    <span class="c1">## Implement the the forward pass to calculate prediction</span>
+    <span class="c1">## Note that prediction is not the loss, but the value after `tanh`</span>
+    <span class="c1"># Complete the function and remove or comment the line below</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Forward Pass `forward`"</span><span class="p">)</span>
+    <span class="c1">#################################################</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="n">prediction</span>
+
+
+<span class="k">def</span> <span class="nf">sq_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_prediction</span><span class="p">):</span>
+  <span class="sd">"""L2 loss function</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">    y_true (torch.Tensor): 1D tensor of target labels</span>
+<span class="sd">    y_prediction (torch.Tensor): 1D tensor of predictions</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    torch.Tensor: L2-loss (squared error)</span>
+<span class="sd">  """</span>
+  <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span>
+  <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y_prediction</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span>
+  <span class="c1">#################################################</span>
+  <span class="c1">## Implement the L2-loss (squred error) given true label and prediction</span>
+  <span class="c1"># Complete the function and remove or comment the line below</span>
+  <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Loss function `sq_loss`"</span><span class="p">)</span>
+  <span class="c1">#################################################</span>
+  <span class="n">loss</span> <span class="o">=</span> <span class="o">...</span>
+  <span class="k">return</span> <span class="n">loss</span>
+
+
+<span class="c1"># # Uncomment to run</span>
+<span class="c1"># feature = torch.tensor([1])  # input tensor</span>
+<span class="c1"># target = torch.tensor([7])  # target tensor</span>
+
+<span class="c1"># simple_graph = SimpleGraph(-0.5, 0.5)</span>
+<span class="c1"># print("initial weight = {} \ninitial bias = {}".format(simple_graph.w.item(),</span>
+<span class="c1">#                                                         simple_graph.b.item()))</span>
+<span class="c1"># prediction = simple_graph.forward(feature)</span>
+<span class="c1"># square_loss = sq_loss(target, prediction)</span>
+
+<span class="c1"># print("for x={} and y={}, prediction={} and L2 Loss = {}".format(feature.item(),</span>
+<span class="c1">#                                                                  target.item(),</span>
+<span class="c1">#                                                                  prediction.item(),</span>
+<span class="c1">#                                                                  square_loss.item()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D2_LinearDeepLearning/solutions/W1D2_Tutorial1_Solution_2a07101d.py"><em>Click for solution</em></a></p>
+<p>It is important to appreciate the fact that PyTorch can follow our operations as we arbitrarily go through classes and functions.</p>
+</div>
+</div>
+<div class="section" id="section-2-2-backward-propagation">
+<h2>Section 2.2: Backward Propagation<a class="headerlink" href="#section-2-2-backward-propagation" title="Permalink to this headline">¶</a></h2>
+<p>Here is where all the magic lies. In PyTorch, <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> and <code class="docutils literal notranslate"><span class="pre">Function</span></code> are interconnected and build up an acyclic graph, that encodes a complete history of computation. Each variable has a <code class="docutils literal notranslate"><span class="pre">grad_fn</span></code> attribute that references a function that has created the Tensor (except for Tensors created by the user - these have <code class="docutils literal notranslate"><span class="pre">None</span></code> as <code class="docutils literal notranslate"><span class="pre">grad_fn</span></code>).  The example below shows that the tensor <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> is created by the <code class="docutils literal notranslate"><span class="pre">Add</span></code> operation and the gradient function is the object <code class="docutils literal notranslate"><span class="pre">&lt;AddBackward...&gt;</span></code>. Replace <code class="docutils literal notranslate"><span class="pre">+</span></code> with other single operations (e.g., <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code> or <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">torch.sin(a)</span></code>) and examine the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Gradient function ='</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For more complex functions, printing the <code class="docutils literal notranslate"><span class="pre">grad_fn</span></code> would only show the last operation, even though the object tracks all the operations up to that point:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Gradient function for prediction ='</span><span class="p">,</span> <span class="n">prediction</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Gradient function for loss ='</span><span class="p">,</span> <span class="n">square_loss</span><span class="o">.</span><span class="n">grad_fn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s kick off the backward pass to calculate the gradients by calling <code class="docutils literal notranslate"><span class="pre">.backward()</span></code> on the tensor we wish to initiate the backpropagation from. Often, <code class="docutils literal notranslate"><span class="pre">.backward()</span></code> is called on the loss, which is the last node on the graph. Before doing that, let’s calculate the loss gradients by hand:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial{loss}}{\partial{w}} = - 2 x (y_t - y_p)(1 - y_p^2)\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial{loss}}{\partial{b}} = - 2 (y_t - y_p)(1 - y_p^2)\]</div>
+<p>Where <span class="math notranslate nohighlight">\(y_t\)</span> is the target (true label), and <span class="math notranslate nohighlight">\(y_p\)</span> is the prediction (model output). We can then compare it to PyTorch gradients, which can be obtained by calling <code class="docutils literal notranslate"><span class="pre">.grad</span></code> on the relevant tensors.</p>
+<p><strong>Important Notes</strong></p>
+<ul class="simple">
+<li><p>Learnable parameters (i.e. <code class="docutils literal notranslate"><span class="pre">reguires_grad</span></code> tensors) are “contagious”. Let’s look at a simple example: <code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">W</span> <span class="pre">@</span> <span class="pre">X</span></code>, where <code class="docutils literal notranslate"><span class="pre">X</span></code> is the feature tensors and <code class="docutils literal notranslate"><span class="pre">W</span></code> is the weight tensor (learnable parameters, <code class="docutils literal notranslate"><span class="pre">reguires_grad</span></code>), the newly generated output tensor <code class="docutils literal notranslate"><span class="pre">Y</span></code> will be also <code class="docutils literal notranslate"><span class="pre">reguires_grad</span></code>. So any operation that is applied to <code class="docutils literal notranslate"><span class="pre">Y</span></code> will be part of the computational graph. Therefore, if we need to plot or store a tensor that is <code class="docutils literal notranslate"><span class="pre">reguires_grad</span></code>, we must first <code class="docutils literal notranslate"><span class="pre">.detach()</span></code> it from the graph by calling the <code class="docutils literal notranslate"><span class="pre">.detach()</span></code> method on that tensor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.backward()</span></code> accumulates gradients in the leaf nodes (i.e., the input nodes to the node of interest). We can call <code class="docutils literal notranslate"><span class="pre">.zero_grad()</span></code> on the loss or optimizer to zero out all <code class="docutils literal notranslate"><span class="pre">.grad</span></code> attributes (see <a class="reference external" href="https://pytorch.org/docs/stable/autograd.html#torch.autograd.backward">autograd.backward</a> for more).</p></li>
+<li><p>Recall that in python we can access variables and associated methods with <code class="docutils literal notranslate"><span class="pre">.method_name</span></code>. You can use the command <code class="docutils literal notranslate"><span class="pre">dir(my_object)</span></code> to observe all variables and associated methods to your object, e.g., <code class="docutils literal notranslate"><span class="pre">dir(simple_graph.w)</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># analytical gradients (remember detaching)</span>
+<span class="n">ana_dloss_dw</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">feature</span> <span class="o">*</span> <span class="p">(</span><span class="n">target</span> <span class="o">-</span> <span class="n">prediction</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prediction</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ana_dloss_db</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">target</span> <span class="o">-</span> <span class="n">prediction</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prediction</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">square_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>  <span class="c1"># first we should call the backward to build the graph</span>
+<span class="n">autograd_dloss_dw</span> <span class="o">=</span> <span class="n">simple_graph</span><span class="o">.</span><span class="n">w</span><span class="o">.</span><span class="n">grad</span>  <span class="c1"># we calculate the derivative w.r.t weights</span>
+<span class="n">autograd_dloss_db</span> <span class="o">=</span> <span class="n">simple_graph</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">grad</span>  <span class="c1"># we calculate the derivative w.r.t bias</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ana_dloss_dw</span> <span class="o">==</span> <span class="n">autograd_dloss_dw</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ana_dloss_db</span> <span class="o">==</span> <span class="n">autograd_dloss_db</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>References and more:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html">A GENTLE INTRODUCTION TO TORCH.AUTOGRAD</a></p></li>
+<li><p><a class="reference external" href="https://pytorch.org/docs/stable/autograd.html">AUTOMATIC DIFFERENTIATION PACKAGE - TORCH.AUTOGRAD</a></p></li>
+<li><p><a class="reference external" href="https://pytorch.org/docs/stable/notes/autograd.html">AUTOGRAD MECHANICS</a></p></li>
+<li><p><a class="reference external" href="https://pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html">AUTOMATIC DIFFERENTIATION WITH TORCH.AUTOGRAD</a></p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-3-pytorch-s-neural-net-module-nn-module">
+<h1>Section 3: PyTorch’s Neural Net module (<code class="docutils literal notranslate"><span class="pre">nn.Module</span></code>)<a class="headerlink" href="#section-3-pytorch-s-neural-net-module-nn-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-4-putting-it-together">
+<h2>Video 4: Putting it together<a class="headerlink" href="#video-4-putting-it-together" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>PyTorch provides us with ready-to-use neural network building blocks, such as layers (e.g. linear, recurrent, …), different activation and loss functions, and much more, packed in the <a class="reference external" href="https://pytorch.org/docs/stable/nn.html"><code class="docutils literal notranslate"><span class="pre">torch.nn</span></code></a> module. If we build a neural network using <code class="docutils literal notranslate"><span class="pre">torch.nn</span></code> layers, the weights and biases are already in <code class="docutils literal notranslate"><span class="pre">requires_grad</span></code> mode and will be registered as model parameters.</p>
+<p>For training, we need three things:</p>
+<ul class="simple">
+<li><p><strong>Model parameters</strong> - Model parameters refer to all the learnable parameters of the model, which are accessible by calling <code class="docutils literal notranslate"><span class="pre">.parameters()</span></code> on the model. Please note that NOT all the <code class="docutils literal notranslate"><span class="pre">requires_grad</span></code> tensors are seen as model parameters. To create a custom model parameter, we can use <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.parameter.Parameter.html"><code class="docutils literal notranslate"><span class="pre">nn.Parameter</span></code></a> (<em>A kind of Tensor that is to be considered a module parameter</em>).</p></li>
+<li><p><strong>Loss function</strong> - The loss that we are going to be optimizing, which is often combined with regularization terms (conming up in few days).</p></li>
+<li><p><strong>Optimizer</strong> - PyTorch provides us with many optimization methods (different versions of gradient descent). Optimizer holds the current state of the model and by calling the <code class="docutils literal notranslate"><span class="pre">step()</span></code> method, will update the parameters based on the computed gradients.</p></li>
+</ul>
+<p>You will learn more details about choosing the right model architecture, loss function, and optimizer later in the course.</p>
+</div>
+<div class="section" id="section-3-1-training-loop-in-pytorch">
+<h2>Section 3.1: Training loop in PyTorch<a class="headerlink" href="#section-3-1-training-loop-in-pytorch" title="Permalink to this headline">¶</a></h2>
+<p>We use a regression problem to study the training loop in PyTorch.</p>
+<p>The task is to train a wide nonlinear (using <span class="math notranslate nohighlight">\(\tanh\)</span> activation function) neural net for a simple <span class="math notranslate nohighlight">\(\sin\)</span> regression task. Wide neural networks are thought to be really good at generalization.</p>
+<div class="section" id="generate-the-sample-dataset">
+<h3>Generate the sample dataset<a class="headerlink" href="#generate-the-sample-dataset" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown #### Generate the sample dataset</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span> <span class="o">*</span> <span class="n">inputs</span><span class="p">)</span> <span class="o">+</span> <span class="n">noise</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'c'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'x (inputs)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'y (targets)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s define a very wide (512 neurons) neural net with one hidden layer and <code class="docutils literal notranslate"><span class="pre">Tanh</span></code> activation function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # A Wide neural network with a single hidden layer</span>
+<span class="k">class</span> <span class="nc">WideNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">"""Initializing the WideNet</span>
+<span class="sd">    """</span>
+    <span class="n">n_cells</span> <span class="o">=</span> <span class="mi">512</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_cells</span><span class="p">),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">(),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_cells</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="sd">"""Forward pass</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      x (torch.Tensor): 2D tensor of features</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      torch.Tensor: model predictions</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now create an instance of our neural net and print its parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # creating an instance</span>
+<span class="n">wide_net</span> <span class="o">=</span> <span class="n">WideNet</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wide_net</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Create a mse loss function</span>
+<span class="n">loss_function</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+
+<span class="c1"># # Stochstic Gradient Descent optimizer (you will learn about momentum soon)</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="mf">0.003</span>  <span class="c1"># learning rate</span>
+<span class="n">sgd_optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">wide_net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The training process in PyTorch is interactive - you can perform training iterations as you wish and inspect the results after each iteration.</p>
+<p>Let’s perform one training iteration. You can run the cell multiple times and see how the parameters are being updated and the loss is reducing. We pick the parameters of the first neuron in the first layer. This code block is the core of everything to come: please make sure you go line-by-line through all the commands and discuss their purpose with the pod.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset all gradients to zero</span>
+<span class="n">sgd_optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+<span class="c1"># Forward pass (Compute the output of the model on the features (inputs))</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">wide_net</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="c1"># Compute the loss</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Loss:'</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+<span class="c1"># Perform backpropagation to build the graph and compute the gradients</span>
+<span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+<span class="c1"># `.parameters()` returns a generator</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Gradients:'</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">wide_net</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">grad</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Print model's first learnable parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Parameters before:'</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">wide_net</span><span class="o">.</span><span class="n">parameters</span><span class="p">())[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Optimizer takes a tiny step in the steepest direction (negative of gradient)</span>
+<span class="c1"># and "updates" the weights and biases of the network</span>
+<span class="n">sgd_optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+<span class="c1"># Print model's first learnable parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Parameters after: '</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">wide_net</span><span class="o">.</span><span class="n">parameters</span><span class="p">())[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="coding-exercise-3-1-training-loop">
+<h3>Coding Exercise 3.1: Training Loop<a class="headerlink" href="#coding-exercise-3-1-training-loop" title="Permalink to this headline">¶</a></h3>
+<p>Using everything we’ve learned so far, we ask you to complete the <code class="docutils literal notranslate"><span class="pre">train</span></code> function below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">):</span>
+
+  <span class="sd">"""Training function</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">    features (torch.Tensor): features (input) with shape torch.Size([n_samples, 1])</span>
+<span class="sd">    labels (torch.Tensor): labels (targets) with shape torch.Size([n_samples, 1])</span>
+<span class="sd">    model (torch nn.Module): the neural network</span>
+<span class="sd">    loss_fun (function): loss function</span>
+<span class="sd">    optimizer(function): optimizer</span>
+<span class="sd">    n_epochs (int): number of training iterations</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    list: record (evolution) of training losses</span>
+<span class="sd">  """</span>
+  <span class="n">loss_record</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># keeping recods of loss</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="c1">#################################################</span>
+    <span class="c1">## Implement the missing parts of the training loop</span>
+    <span class="c1"># Complete the function and remove or comment the line below</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Training loop `train`"</span><span class="p">)</span>
+    <span class="c1">#################################################</span>
+    <span class="o">...</span>  <span class="c1"># set gradients to 0</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># Compute model prediction (output)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># Compute the loss</span>
+    <span class="o">...</span>  <span class="c1"># Compute gradients (backward pass)</span>
+    <span class="o">...</span>  <span class="c1"># update parameters (optimizer takes a step)</span>
+
+    <span class="n">loss_record</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+  <span class="k">return</span> <span class="n">loss_record</span>
+
+
+<span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">2021</span><span class="p">)</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">1847</span> <span class="c1"># Cauchy, Exercices d'analyse et de physique mathematique (1847)</span>
+<span class="c1">## Uncomment to run</span>
+<span class="c1"># losses = train(inputs, targets, wide_net, loss_function, sgd_optimizer, epochs)</span>
+<span class="c1"># ex3_plot(wide_net, inputs, targets, epochs, losses)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D2_LinearDeepLearning/solutions/W1D2_Tutorial1_Solution_ff3a0ba6.py"><em>Click for solution</em></a></p>
+<p><em>Example output:</em></p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W1D2_LinearDeepLearning/static/W1D2_Tutorial1_Solution_ff3a0ba6_1.png"><img align="center" alt="Solution hint" class="align-center" src="https://raw.githubusercontent.com/NeuromatchAcademy/course-content-dl/main/tutorials/W1D2_LinearDeepLearning/static/W1D2_Tutorial1_Solution_ff3a0ba6_1.png" style="width: 1696.0px; height: 544.0px;"/></a>
+<p><strong>Questions</strong>:
+After training, the prediction looks very accurate, but the loss is not yet zero! Do you think reaching zero loss (the global minimum) is desired in such problems?</p>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="wrap-up">
+<h1>Wrap-up<a class="headerlink" href="#wrap-up" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial we covered one of the most basic concepts of deep learning; the computational graph and how a network learns via gradient descent and the backpropagation algorithm. We have seen all of these using PyTorch modules and we compared the analytical solutions with the ones provided directly by the PyTorch module.</p>
+<div class="section" id="video-5-wrap-up">
+<h2>Video 5: Wrap-up<a class="headerlink" href="#video-5-wrap-up" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+</div>
+</div>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials/W1D2_LinearDeepLearning/student"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</div>
+<div class="prev-next-bottom">
+<a class="left-prev" href="../chapter_title.html" id="prev-link" title="previous page">Linear Deep Learning</a>
+<a class="right-next" href="W1D2_Tutorial2.html" id="next-link" title="next page">Tutorial 2: Learning Hyperparameters</a>
+</div>
+</div>
+</div>
+<footer class="footer mt-5 mt-md-0">
+<div class="container">
+<p>
+        
+          By Neuromatch<br/>
+        
+            © Copyright 2021.<br/>
+</p>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+</body>
+</html>

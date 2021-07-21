@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tutorial 3: Conditional GANs and Implications of GAN Technology — Neuromatch Academy: Deep Learning</title>
+<link href="../../../_static/css/theme.css" rel="stylesheet"/>
+<link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet"/>
+<link href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../../_static/pygments.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/togglebutton.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/mystnb.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/sphinx-thebe.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" rel="stylesheet" type="text/css"/>
+<link as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js" rel="preload"/>
+<script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+<script src="../../../_static/jquery.js"></script>
+<script src="../../../_static/underscore.js"></script>
+<script src="../../../_static/doctools.js"></script>
+<script src="../../../_static/togglebutton.js"></script>
+<script src="../../../_static/clipboard.min.js"></script>
+<script src="../../../_static/copybutton.js"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+<script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+<script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+<script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+<script async="async" src="../../../_static/sphinx-thebe.js"></script>
+<link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="W2D5_Tutorial2.html" rel="prev" title="Tutorial 2: Introduction to GANs and Density Ratio Estimation Perspective of GANs"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</link></link></link></link></head>
+<body data-offset="80" data-spy="scroll" data-target="#bd-toc-nav">
+<div class="container-fluid" id="banner"></div>
+<div class="container-xl">
+<div class="row">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+<div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+<img alt="logo" class="logo" src="../../../_static/nma-logo-square-4xp.jpg"/>
+<h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
+</a>
+</div><form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="icon fas fa-search"></i>
+<input aria-label="Search this book..." autocomplete="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." type="search"/>
+</form><nav aria-label="Main navigation" class="bd-links" id="bd-docs-nav">
+<div class="bd-toc-item active">
+<ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../Schedule/schedule_intro.html">
+   Schedule
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox">
+<label for="toctree-checkbox-1">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/daily_schedules.html">
+     General schedule
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/shared_calendars.html">
+     Shared calendars
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/timezone_widget.html">
+     Timezone widget
+    </a>
+</li>
+</ul>
+</input></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../TechnicalHelp/tech_intro.html">
+   Technical Help
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+<label for="toctree-checkbox-2">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../TechnicalHelp/Jupyterbook.html">
+     Using jupyterbook
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+<label for="toctree-checkbox-3">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../TechnicalHelp/Tutorial_colab.html">
+       Using Google Colab
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../TechnicalHelp/Tutorial_kaggle.html">
+       Using Kaggle
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../TechnicalHelp/Discord.html">
+     Using Discord
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D1_BasicsAndPytorch/chapter_title.html">
+   Basics And Pytorch (W1D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+<label for="toctree-checkbox-4">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_BasicsAndPytorch/student/W1D1_Tutorial1.html">
+     Tutorial 1: PyTorch
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_BasicsAndPytorch/further_reading.html">
+     Suggested further reading (TBD)
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D2_LinearDeepLearning/chapter_title.html">
+   Linear Deep Learning (W1D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+<label for="toctree-checkbox-5">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D2_LinearDeepLearning/student/W1D2_Tutorial1.html">
+     Tutorial 1: Gradient Descent and AutoGrad
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D2_LinearDeepLearning/student/W1D2_Tutorial2.html">
+     Tutorial 2: Learning Hyperparameters
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D2_LinearDeepLearning/student/W1D2_Tutorial3.html">
+     Tutorial 3: Deep linear neural networks
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D3_MultiLayerPerceptrons/chapter_title.html">
+   Multi Layer Perceptrons (W1D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+<label for="toctree-checkbox-6">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html">
+     Tutorial 1: Biological vs. Artificial neurons
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial2.html">
+     Tutorial 2: Deep MLPs
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D4_Optimization/chapter_title.html">
+   Optimization (W1D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+<label for="toctree-checkbox-7">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D4_Optimization/student/W1D4_Tutorial1.html">
+     Tutorial 1: Optimization techniques
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D5_Regularization/chapter_title.html">
+   Regularization (W1D5)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+<label for="toctree-checkbox-8">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_Regularization/student/W1D5_Tutorial1.html">
+     Tutorial 1: Regularization techniques part 1
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_Regularization/student/W1D5_Tutorial2.html">
+     Tutorial 2: Regularization techniques part 2
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  Doing more with fewer parameters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/chapter_title.html">
+   Convnets And Recurrent Neural Networks (W2D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+<label for="toctree-checkbox-9">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/student/W2D1_Tutorial1.html">
+     Tutorial 1: Introduction to CNNs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/student/W2D1_Tutorial2.html">
+     Tutorial 2: Training loop of CNNs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_ConvnetsAndRecurrentNeuralNetworks/student/W2D1_Tutorial3.html">
+     Tutorial 3: Introduction to RNNs
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D2_ModernConvnets/chapter_title.html">
+   Modern Convnets (W2D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+<label for="toctree-checkbox-10">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_ModernConvnets/student/W2D2_Tutorial1.html">
+     Tutorial 1: Learn how to use modern convnets
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D3_ModernRecurrentNeuralNetworks/chapter_title.html">
+   Modern Recurrent Neural Networks (W2D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+<label for="toctree-checkbox-11">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_ModernRecurrentNeuralNetworks/student/W2D3_Tutorial1.html">
+     Tutorial 1: Modeling sequencies and encoding text
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_ModernRecurrentNeuralNetworks/student/W2D3_Tutorial2.html">
+     Tutorial 2: Modern RNNs and their variants
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D4_AttentionAndTransformers/chapter_title.html">
+   Attention And Transformers (W2D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+<label for="toctree-checkbox-12">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D4_AttentionAndTransformers/student/W2D4_Tutorial1.html">
+     Tutorial 1: Learn how to work with Transformers
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children">
+<a class="reference internal" href="../chapter_title.html">
+   Generative Models (W2D5)
+  </a>
+<input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+<label for="toctree-checkbox-13">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul class="current">
+<li class="toctree-l2">
+<a class="reference internal" href="W2D5_Tutorial1.html">
+     Tutorial 1: Variational Autoencoders (VAEs)
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="W2D5_Tutorial2.html">
+     Tutorial 2: Introduction to GANs and Density Ratio Estimation Perspective of GANs
+    </a>
+</li>
+<li class="toctree-l2 current active">
+<a class="current reference internal" href="#">
+     Tutorial 3: Conditional GANs and Implications of GAN Technology
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav> <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+</div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<div class="topbar container-xl fixed-top">
+<div class="topbar-contents row">
+<div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+<div class="col pl-md-4 topbar-main">
+<button aria-controls="site-navigation" aria-expanded="true" aria-label="Toggle navigation" class="navbar-toggler ml-0" data-placement="left" data-target=".site-navigation" data-toggle="tooltip" id="navbar-toggler" title="Toggle navigation" type="button">
+<i class="fas fa-bars"></i>
+<i class="fas fa-arrow-left"></i>
+<i class="fas fa-arrow-up"></i>
+</button>
+<div class="dropdown-buttons-trigger">
+<button aria-label="Download this page" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fas fa-download"></i></button>
+<div class="dropdown-buttons">
+<!-- ipynb file if we had a myst markdown file -->
+<!-- Download raw file -->
+<a class="dropdown-buttons" href="../../../_sources/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial3.ipynb"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Download source file" type="button">.ipynb</button></a>
+<!-- Download PDF via print -->
+<button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" id="download-print" onclick="window.print()" title="Print to PDF" type="button">.pdf</button>
+</div>
+</div>
+<!-- Source interaction buttons -->
+<div class="dropdown-buttons-trigger">
+<button aria-label="Connect with source repository" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fab fa-github"></i></button>
+<div class="dropdown-buttons sourcebuttons">
+<a class="repository-button" href="https://github.com/NeuromatchAcademy/course-content-dl"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Source repository" type="button"><i class="fab fa-github"></i>repository</button></a>
+<a class="issues-button" href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Ftutorials/W2D5_GenerativeModels/student/W2D5_Tutorial3.html&amp;body=Your%20issue%20content%20here."><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Open an issue" type="button"><i class="fas fa-lightbulb"></i>open issue</button></a>
+</div>
+</div>
+<!-- Full screen (wrap in <a> to have style consistency -->
+<a class="full-screen-button"><button aria-label="Fullscreen mode" class="btn btn-secondary topbarbtn" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode" type="button"><i class="fas fa-expand"></i></button></a>
+<!-- Launch buttons -->
+</div>
+<!-- Table of contents -->
+<div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+<i class="fas fa-list"></i> Contents
+            </div>
+<nav id="bd-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#">
+   Tutorial 3: Conditional GANs and Implications of GAN Technology
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-objectives">
+     Tutorial Objectives
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#figure-settings">
+     Figure settings
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#set-random-seed">
+     Set random seed
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#set-device-gpu-or-cpu-execute-set-device">
+     Set device (GPU or CPU). Execute
+     <code class="docutils literal notranslate">
+<span class="pre">
+       set_device()
+      </span>
+</code>
+</a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-generating-with-a-conditional-gan-biggan">
+   Section 1: Generating with a conditional GAN (BigGAN)
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-conditional-generative-models">
+     Video 1: Conditional Generative Models
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-1-define-configurations">
+     Section 1.1:  Define configurations
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#run-auto">
+       { run: “auto” }
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#think-1-biggans">
+     Think! 1: BigGANs
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-ethical-issues">
+   Section 2: Ethical issues
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-2-ethical-issues">
+     Video 2: Ethical Issues
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-1-faces-quiz">
+     Section 2.1: Faces Quiz
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-2-energy-efficiency-quiz">
+     Section 2.2: Energy Efficiency Quiz
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-3-recap-and-advanced-topics">
+     Video 3: Recap and advanced topics
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="row" id="main-content">
+<div class="col-12 col-md-9 pl-md-3 pr-md-0">
+<div>
+<p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W2D5_GenerativeModels/student/W2D5_Tutorial3.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
+<div class="section" id="tutorial-3-conditional-gans-and-implications-of-gan-technology">
+<h1>Tutorial 3: Conditional GANs and Implications of GAN Technology<a class="headerlink" href="#tutorial-3-conditional-gans-and-implications-of-gan-technology" title="Permalink to this headline">¶</a></h1>
+<p><strong>Week 2, Day 5: Generative Models</strong></p>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators:</strong> Seungwook Han, Kai Xu, Akash Srivastava</p>
+<p><strong>Content reviewers:</strong> Polina Turishcheva, Melvin Selim Atay, Hadi Vafaei, Deepak Raya</p>
+<p><strong>Content editors:</strong> Spiros Chavlis</p>
+<p><strong>Production editors:</strong> Arush Tagade, Spiros Chavlis</p>
+<p><strong>Our 2021 Sponsors, including Presenting Sponsor Facebook Reality Labs</strong></p>
+<p align="center"><img src="https://github.com/NeuromatchAcademy/widgets/blob/master/sponsors.png?raw=True"/></p><hr class="docutils"/>
+<div class="section" id="tutorial-objectives">
+<h2>Tutorial Objectives<a class="headerlink" href="#tutorial-objectives" title="Permalink to this headline">¶</a></h2>
+<p>The goal of this notebook is to understand conditional GANs. Then you will have the opportunity to experience first-hand how effective GANs are at modeling the data distribution and to question what the consequences of this technology may be.</p>
+<p>By the end of this tutorial you will be able to:</p>
+<ul class="simple">
+<li><p>Understand the differences in conditional GANs.</p></li>
+<li><p>Generate high-dimensional natural images from a BigGAN.</p></li>
+<li><p>Understand the efficacy of GANs in modeling the data distribution (e.g., faces).</p></li>
+<li><p>Understand the energy inefficiency / environmental impact of training these large generative models.</p></li>
+<li><p>Understand the implications of this technology (ethics, environment, <em>etc</em>.).</p></li>
+</ul>
+<p>Tutorial slides</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Tutorial slides</span>
+<span class="c1"># you should link the slides for all tutorial videos here (we will store pdfs on osf)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;iframe src="https://mfr.ca-1.osf.io/render?url=https://osf.io/ps28k/?direct%26mode=render</span><span class="si">%26a</span><span class="s1">ction=download%26mode=render" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"&gt;&lt;/iframe&gt;'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># Imports
+
+# Install Huggingface BigGAN library
+!pip install pytorch-pretrained-biggan --quiet
+!pip install Pillow libsixel-python --quiet
+
+# Import libraries
+import nltk
+import torch
+import random
+import torchvision
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+from pytorch_pretrained_biggan import BigGAN
+from pytorch_pretrained_biggan import one_hot_from_names
+from pytorch_pretrained_biggan import truncated_noise_sample
+
+nltk.download('wordnet')
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="figure-settings">
+<h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Figure settings</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>       <span class="c1"># interactive display</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s1">'retina'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/NeuromatchAcademy/content-creation/main/nma.mplstyle"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-random-seed">
+<h2>Set random seed<a class="headerlink" href="#set-random-seed" title="Permalink to this headline">¶</a></h2>
+<p>Executing <code class="docutils literal notranslate"><span class="pre">set_seed(seed=seed)</span></code> you are setting the seed</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Set random seed</span>
+
+<span class="c1">#@markdown Executing `set_seed(seed=seed)` you are setting the seed</span>
+
+<span class="c1"># for DL its critical to set the random seed so that students can have a</span>
+<span class="c1"># baseline to compare their results to expected results.</span>
+<span class="c1"># Read more here: https://pytorch.org/docs/stable/notes/randomness.html</span>
+
+<span class="c1"># Call `set_seed` function in the exercises to ensure reproducibility.</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="k">def</span> <span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed_torch</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">seed_torch</span><span class="p">:</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed_all</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">benchmark</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">deterministic</span> <span class="o">=</span> <span class="kc">True</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Random seed </span><span class="si">{</span><span class="n">seed</span><span class="si">}</span><span class="s1"> has been set.'</span><span class="p">)</span>
+
+
+<span class="c1"># In case that `DataLoader` is used</span>
+<span class="k">def</span> <span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">):</span>
+  <span class="n">worker_seed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">initial_seed</span><span class="p">()</span> <span class="o">%</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
+  <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-device-gpu-or-cpu-execute-set-device">
+<h2>Set device (GPU or CPU). Execute <code class="docutils literal notranslate"><span class="pre">set_device()</span></code><a class="headerlink" href="#set-device-gpu-or-cpu-execute-set-device" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Set device (GPU or CPU). Execute `set_device()`</span>
+<span class="c1"># especially if torch modules used.</span>
+
+<span class="c1"># inform the user if the notebook uses GPU or CPU.</span>
+
+<span class="k">def</span> <span class="nf">set_device</span><span class="p">():</span>
+  <span class="n">device</span> <span class="o">=</span> <span class="s2">"cuda"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span>
+  <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s2">"cuda"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"WARNING: For this notebook to perform best, "</span>
+        <span class="s2">"if possible, in the menu under `Runtime` -&gt; "</span>
+        <span class="s2">"`Change runtime type.`  select `GPU` "</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"GPU is enabled in this notebook."</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">device</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SEED</span> <span class="o">=</span> <span class="mi">2021</span>
+<span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">DEVICE</span> <span class="o">=</span> <span class="n">set_device</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-1-generating-with-a-conditional-gan-biggan">
+<h1>Section 1: Generating with a conditional GAN (BigGAN)<a class="headerlink" href="#section-1-generating-with-a-conditional-gan-biggan" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-1-conditional-generative-models">
+<h2>Video 1: Conditional Generative Models<a class="headerlink" href="#video-1-conditional-generative-models" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>In this section, we will load a pre-trained conditional GAN, BigGAN, which is the state-of-the-art model in conditional high-dimensional natural image generation, and generate samples from it. Since it is a class conditional model, we will be able to use the class label to generate images from the different classes of objects.</p>
+<p>Read here for more details on BigGAN: https://arxiv.org/pdf/1809.11096.pdf</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load respective BigGAN model for the specified resolution (biggan-deep-128, biggan-deep-256, biggan-deep-512)</span>
+<span class="k">def</span> <span class="nf">load_biggan</span><span class="p">(</span><span class="n">model_res</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">BigGAN</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">'biggan-deep-</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model_res</span><span class="p">))</span>
+
+
+<span class="c1"># Create class and noise vectors for sampling from BigGAN</span>
+<span class="k">def</span> <span class="nf">create_class_noise_vectors</span><span class="p">(</span><span class="n">class_str</span><span class="p">,</span> <span class="n">trunc</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">):</span>
+  <span class="n">class_vector</span> <span class="o">=</span> <span class="n">one_hot_from_names</span><span class="p">([</span><span class="n">class_str</span><span class="p">]</span><span class="o">*</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">num_samples</span><span class="p">)</span>
+  <span class="n">noise_vector</span> <span class="o">=</span> <span class="n">truncated_noise_sample</span><span class="p">(</span><span class="n">truncation</span><span class="o">=</span><span class="n">trunc</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">num_samples</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">class_vector</span><span class="p">,</span> <span class="n">noise_vector</span>
+
+
+<span class="c1"># Generate samples from BigGAN</span>
+<span class="k">def</span> <span class="nf">generate_biggan_samples</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">class_vector</span><span class="p">,</span> <span class="n">noise_vector</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span>
+                            <span class="n">truncation</span><span class="o">=</span><span class="mf">0.4</span><span class="p">):</span>
+  <span class="c1"># Convert to tensor</span>
+  <span class="n">noise_vector</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">noise_vector</span><span class="p">)</span>
+  <span class="n">class_vector</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">class_vector</span><span class="p">)</span>
+
+  <span class="c1"># Move to GPU</span>
+  <span class="n">noise_vector</span> <span class="o">=</span> <span class="n">noise_vector</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+  <span class="n">class_vector</span> <span class="o">=</span> <span class="n">class_vector</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+  <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+  <span class="c1"># Generate an image</span>
+  <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+      <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">noise_vector</span><span class="p">,</span> <span class="n">class_vector</span><span class="p">,</span> <span class="n">truncation</span><span class="p">)</span>
+
+  <span class="c1"># Back to CPU</span>
+  <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">)</span>
+
+  <span class="c1"># The output layer of BigGAN has a tanh layer, resulting the range of [-1, 1] for the output image</span>
+  <span class="c1"># Therefore, we normalize the images properly to [0, 1] range.</span>
+  <span class="c1"># Clipping is only in case of numerical instability problems</span>
+
+  <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(((</span><span class="n">output</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">output</span> <span class="o">=</span> <span class="n">output</span>
+
+  <span class="c1"># Make grid and show generated samples</span>
+  <span class="n">output_grid</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">output</span><span class="p">,</span>
+                                            <span class="n">nrow</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                                            <span class="n">padding</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">output_grid</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+  <span class="k">return</span> <span class="n">output_grid</span>
+
+
+<span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+  <span class="c1"># Create BigGAN model</span>
+  <span class="n">model</span> <span class="o">=</span> <span class="n">load_biggan</span><span class="p">(</span><span class="n">MODEL_RESOLUTION</span><span class="p">)</span>
+
+  <span class="c1"># Use specified parameters (resolution, class, number of samples, etc) to generate from BigGAN</span>
+  <span class="n">class_vector</span><span class="p">,</span> <span class="n">noise_vector</span> <span class="o">=</span> <span class="n">create_class_noise_vectors</span><span class="p">(</span><span class="n">CLASS</span><span class="p">,</span> <span class="n">TRUNCATION</span><span class="p">,</span> <span class="n">NUM_SAMPLES</span><span class="p">)</span>
+  <span class="n">samples_grid</span> <span class="o">=</span> <span class="n">generate_biggan_samples</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">class_vector</span><span class="p">,</span> <span class="n">noise_vector</span><span class="p">,</span>
+                                         <span class="n">DEVICE</span><span class="p">,</span> <span class="n">TRUNCATION</span><span class="p">)</span>
+  <span class="n">torchvision</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">save_image</span><span class="p">(</span><span class="n">samples_grid</span><span class="p">,</span> <span class="s1">'samples.png'</span><span class="p">)</span>
+  <span class="c1">### If CUDA out of memory issue, lower NUM_SAMPLES (number of samples)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="section-1-1-define-configurations">
+<h2>Section 1.1:  Define configurations<a class="headerlink" href="#section-1-1-define-configurations" title="Permalink to this headline">¶</a></h2>
+<p>We will now define the configurations (resolution of model, number of samples, class to sample from, truncation level) under which we will sample from BigGAN.</p>
+<p><em><strong>Question</strong></em>: What is the truncation trick employed by BigGAN? How does sample variety and fidelity change by varying the truncation level? (Hint: play with the truncation slider and try sampling at different levels)</p>
+<div class="section" id="run-auto">
+<h3>{ run: “auto” }<a class="headerlink" href="#run-auto" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title { run: "auto" }</span>
+
+<span class="c1">### RUN THIS BLOCK EVERY TIME YOU CHANGE THE PARAMETERS FOR GENERATION</span>
+
+<span class="c1"># Resolution at which to generate</span>
+<span class="n">MODEL_RESOLUTION</span> <span class="o">=</span> <span class="s2">"128"</span> <span class="c1">#@param [128, 256, 512]</span>
+
+<span class="c1"># Number of images to generate</span>
+<span class="n">NUM_SAMPLES</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1">#@param {type:"slider", min:4, max:12, step:4}</span>
+
+<span class="c1"># Class of images to generate</span>
+<span class="n">CLASS</span> <span class="o">=</span> <span class="s1">'German shepherd'</span> <span class="c1">#@param ['tench', 'magpie', 'jellyfish', 'German shepherd', 'bee', 'acoustic guitar', 'coffee mug', 'minibus', 'monitor']</span>
+
+<span class="c1"># Truncation level of the normal distribution we sample z from</span>
+<span class="n">TRUNCATION</span> <span class="o">=</span> <span class="mf">0.4</span> <span class="c1">#@param {type:"slider", min:0.1, max:1, step:0.1}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create generate button, given parameters specified above</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"GENERATE!"</span><span class="p">,</span>
+                        <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">'30%'</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">'80px'</span><span class="p">),</span>
+                        <span class="n">button_style</span><span class="o">=</span><span class="s1">'danger'</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+<span class="n">button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">generate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="think-1-biggans">
+<h2>Think! 1: BigGANs<a class="headerlink" href="#think-1-biggans" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>How does BigGAN differ from previous state-of-the-art generative models for high-dimensional natural images? In other words, how does BigGAN solve high-dimensional image generation? (Hint: look into model architecture and training configurations) (BigGAN paper: https://arxiv.org/pdf/1809.11096.pdf)</p></li>
+<li><p>Continuing from Question 1, what are the drawbacks of introducing such techniques into training large models for high-dimensional, diverse datasets?</p></li>
+<li><p>Play with other pre-trained generative models like StyleGAN here – where code for sampling and interpolation in the latent space is available: https://github.com/NVlabs/stylegan</p></li>
+</ol>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D5_GenerativeModels/solutions/W2D5_Tutorial3_Solution_b2572721.py"><em>Click for solution</em></a></p>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-2-ethical-issues">
+<h1>Section 2: Ethical issues<a class="headerlink" href="#section-2-ethical-issues" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-2-ethical-issues">
+<h2>Video 2: Ethical Issues<a class="headerlink" href="#video-2-ethical-issues" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+</div>
+<div class="section" id="section-2-1-faces-quiz">
+<h2>Section 2.1: Faces Quiz<a class="headerlink" href="#section-2-1-faces-quiz" title="Permalink to this headline">¶</a></h2>
+<p>Now is your turn to test your abilities on recognizing a real vs. a fake image!</p>
+<p>Real or Fake?</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+</div>
+<div class="section" id="section-2-2-energy-efficiency-quiz">
+<h2>Section 2.2: Energy Efficiency Quiz<a class="headerlink" href="#section-2-2-energy-efficiency-quiz" title="Permalink to this headline">¶</a></h2>
+<p>Make a guess</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-3-recap-and-advanced-topics">
+<h2>Video 3: Recap and advanced topics<a class="headerlink" href="#video-3-recap-and-advanced-topics" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Hooray! You have finished the second week of NMA-DL course!!!</p>
+<p>In the first section of this tutorial, we have learned:</p>
+<ul class="simple">
+<li><p>How conditional GANs differ from unconditional models</p></li>
+<li><p>How to use a pre-trained BigGAN model to generate high-dimensional photo-realistic images and its tricks to modulate diversity and image fidelity</p></li>
+</ul>
+<p>In the second section, we learned about the broader ethical implications of GAN technology on society through deepfakes and their tremendous energy inefficiency.</p>
+<p>On the brighter side, as we learned throughout the week, GANs are very effective in modeling the data distribution and have many practical applications.</p>
+<p>For example, as personalized healthcare and applications of AI in healthcare rise, the need to remove any Personally Identifiable Information (PII) becomes more important. As shown in this paper (https://link.springer.com/chapter/10.1007/978-3-030-45385-5_36), GANs can be leveraged to anonymize healthcare data.</p>
+<p>As a food for thought, what are some other practical applications of GANs that you can think of? Discuss with your pod your ideas.</p>
+</div>
+</div>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials/W2D5_GenerativeModels/student"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</div>
+<div class="prev-next-bottom">
+<a class="left-prev" href="W2D5_Tutorial2.html" id="prev-link" title="previous page">Tutorial 2: Introduction to GANs and Density Ratio Estimation Perspective of GANs</a>
+</div>
+</div>
+</div>
+<footer class="footer mt-5 mt-md-0">
+<div class="container">
+<p>
+        
+          By Neuromatch<br/>
+        
+            © Copyright 2021.<br/>
+</p>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+</body>
+</html>
