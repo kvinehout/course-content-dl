@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# @title Install dependencies', 'from IPython.display import clear_output', '', '!pip install textattack --quiet', '!pip install urllib3==1.25.4 --quiet']
+['#to remove solution', 'def simpleFunGPU(dim, device):', '  """', '  Args:', '    dim: integer']
 ...
-['!pip install datasets --quiet', '!pip install transformers --quiet', '!pip install pytorch_pretrained_bert --quiet', '', 'clear_output()']
+['', '', '## TODO: Implement the function above and uncomment the following lines to test your code', 'timeFun(f=simpleFun, dim=dim, iterations=iterations, device=DEVICE)', 'timeFun(f=simpleFunGPU, dim=dim, iterations=iterations, device=DEVICE)']
 -------------------
 

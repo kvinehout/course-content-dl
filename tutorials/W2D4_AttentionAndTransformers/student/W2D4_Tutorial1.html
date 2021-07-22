@@ -38,6 +38,8 @@
         const thebe_selector_output = ".output"
     </script>
 <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+<script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
 <link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
 <link href="../../../genindex.html" rel="index" title="Index"/>
 <link href="../../../search.html" rel="search" title="Search"/>
@@ -395,10 +397,27 @@
   </a>
 </li>
 <li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-objectives">
+   Tutorial Objectives
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-slides">
+     Tutorial slides
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
 <a class="reference internal nav-link" href="#setup">
    Setup
   </a>
 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+</li>
 <li class="toc-h2 nav-item toc-entry">
 <a class="reference internal nav-link" href="#figure-settings">
      Figure settings
@@ -519,7 +538,19 @@
 <ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry">
 <a class="reference internal nav-link" href="#coding-exercise-5-q-k-v-attention">
-       Coding Exercise 5: Q, K, V attention
+       Coding Exercise 5:
+       <span class="math notranslate nohighlight">
+        \(Q\)
+       </span>
+       ,
+       <span class="math notranslate nohighlight">
+        \(K\)
+       </span>
+       ,
+       <span class="math notranslate nohighlight">
+        \(V\)
+       </span>
+       attention
       </a>
 </li>
 </ul>
@@ -605,23 +636,21 @@
 <a class="reference internal nav-link" href="#video-8-fine-tuning">
      Video 8: Fine-tuning
     </a>
-<ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry">
+</li>
+<li class="toc-h2 nav-item toc-entry">
 <a class="reference internal nav-link" href="#section-8-1-data-processing">
-       Section 8.1: Data Processing
-      </a>
+     Section 8.1: Data Processing
+    </a>
 </li>
-<li class="toc-h3 nav-item toc-entry">
+<li class="toc-h2 nav-item toc-entry">
 <a class="reference internal nav-link" href="#section-8-2-model-loading">
-       Section 8.2: Model Loading
-      </a>
+     Section 8.2: Model Loading
+    </a>
 </li>
-<li class="toc-h3 nav-item toc-entry">
+<li class="toc-h2 nav-item toc-entry">
 <a class="reference internal nav-link" href="#section-8-3-fine-tuning">
-       Section 8.3: Fine-tuning
-      </a>
-</li>
-</ul>
+     Section 8.3: Fine-tuning
+    </a>
 </li>
 </ul>
 </li>
@@ -634,28 +663,26 @@
 <a class="reference internal nav-link" href="#video-9-robustness">
      Video 9: Robustness
     </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#interactive-demo-9-break-the-model">
+     Interactive Demo 9: Break the model
+    </a>
 <ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry">
-<a class="reference internal nav-link" href="#interactive-demo-9-break-the-model">
-       Interactive Demo 9: Break the model
-      </a>
-<ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry">
 <a class="reference internal nav-link" href="#load-an-original-review">
-         9.1: Load an original review
-        </a>
+       9.1: Load an original review
+      </a>
 </li>
-<li class="toc-h4 nav-item toc-entry">
+<li class="toc-h3 nav-item toc-entry">
 <a class="reference internal nav-link" href="#augment-the-original-review">
-         9.2: Augment the original review
-        </a>
+       9.2: Augment the original review
+      </a>
 </li>
-<li class="toc-h4 nav-item toc-entry">
+<li class="toc-h3 nav-item toc-entry">
 <a class="reference internal nav-link" href="#check-model-predictions">
-         9.3: Check model predictions
-        </a>
-</li>
-</ul>
+       9.3: Check model predictions
+      </a>
 </li>
 </ul>
 </li>
@@ -689,18 +716,35 @@
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry">
-<a class="reference internal nav-link" href="#think-10-1">
-       Think! 10.1
+<a class="reference internal nav-link" href="#think-10-1-problems-of-this-approach">
+       Think! 10.1: Problems of this approach
       </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#hint">
+<code class="docutils literal notranslate">
+<span class="pre">
+           Hint
+          </span>
+</code>
+         !
+        </a>
+</li>
+</ul>
 </li>
 <li class="toc-h3 nav-item toc-entry">
-<a class="reference internal nav-link" href="#think-10-2">
-       Think! 10.2
+<a class="reference internal nav-link" href="#think-10-2-biases-of-using-these-models-in-other-fields">
+       Think! 10.2: Biases of using these models in other fields
       </a>
 </li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
 </li>
 </ul>
 </nav>
@@ -716,12 +760,14 @@
 <p><strong>Week 2, Day 4: Attention and Transformers</strong></p>
 <p><strong>By Neuromatch Academy</strong></p>
 <p><strong>Content creators:</strong> Bikram Khastgir, Rajaswa Patil, Egor Zverev, He He</p>
-<p><strong>Content reviewers:</strong> Khalid Almubarak, Lily Cheng, Hadi Vafaei</p>
+<p><strong>Content reviewers:</strong> Ezekiel Williams, Khalid Almubarak, Lily Cheng, Hadi Vafaei</p>
 <p><strong>Content editors:</strong> Anoop Kulkarni, Spiros Chavlis</p>
 <p><strong>Production editors:</strong> Khalid Almubarak, Spiros Chavlis</p>
 <p><strong>Our 2021 Sponsors, including Presenting Sponsor Facebook Reality Labs</strong></p>
-<p align="center"><img src="https://github.com/NeuromatchAcademy/widgets/blob/master/sponsors.png?raw=True"/></p><hr class="docutils"/>
-<p>#Tutorial Objectives</p>
+<p align="center"><img src="https://github.com/NeuromatchAcademy/widgets/blob/master/sponsors.png?raw=True"/></p></div>
+<hr class="docutils"/>
+<div class="section" id="tutorial-objectives">
+<h1>Tutorial Objectives<a class="headerlink" href="#tutorial-objectives" title="Permalink to this headline">¶</a></h1>
 <p>At the end of the day, you should be able to</p>
 <ul class="simple">
 <li><p>Explain the general attention mechanism using keys, queries, values</p></li>
@@ -733,32 +779,28 @@
 <li><p>Understand the framework of pre-training then fine-tuning</p></li>
 <li><p>Name three types of biases in pre-trained language models</p></li>
 </ul>
-<p>Tutorial slides</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Tutorial slides</span>
-<span class="c1"># you should link the slides for all tutorial videos here (we will store pdfs on osf)</span>
-
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;iframe src="https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render</span><span class="si">%26a</span><span class="s1">ction=download%26mode=render" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"&gt;&lt;/iframe&gt;'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="tutorial-slides">
+<h2>Tutorial slides<a class="headerlink" href="#tutorial-slides" title="Permalink to this headline">¶</a></h2>
+<p>These are the slides for the videos in all tutorials today</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/IPython/core/display.py:724: UserWarning: Consider using IPython.display.IFrame instead
-  warnings.warn("Consider using IPython.display.IFrame instead")
-</pre></div>
+<div class="output text_html">
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render%26action=download%26mode=render" width="854"></iframe>
+</div></div>
 </div>
-<div class="output text_html"><iframe allowfullscreen="true" frameborder="0" height="569" mozallowfullscreen="true" src="https://mfr.ca-1.osf.io/render?url=https://osf.io/sfmpe/?direct%26mode=render%26action=download%26mode=render" webkitallowfullscreen="true" width="960"></iframe></div></div>
 </div>
 </div>
 <hr class="docutils"/>
 <div class="section" id="setup">
 <h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
 <p>In this section, we will import libraries and helper functions needed for this tutorial.</p>
-<div class="cell docutils container">
+<div class="section" id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Install dependencies</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
 <span class="o">!</span>pip install textattack --quiet
 <span class="o">!</span>pip install <span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.25.4 --quiet
 <span class="o">!</span>pip install <span class="nv">folium</span><span class="o">==</span><span class="m">0</span>.2.1 --quiet
@@ -766,10 +808,24 @@
 <span class="o">!</span>pip install transformers --quiet
 <span class="o">!</span>pip install pytorch_pretrained_bert --quiet
 
+<span class="n">clear_output</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+<span class="-Color -Color-Red">ERROR: Operation cancelled by user</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">statistics</span>
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
@@ -805,15 +861,9 @@
 <span class="kn">from</span> <span class="nn">textattack.transformations</span> <span class="kn">import</span> <span class="n">WordSwapRandomCharacterInsertion</span>
 <span class="kn">from</span> <span class="nn">textattack.transformations</span> <span class="kn">import</span> <span class="n">WordSwapRandomCharacterSubstitution</span>
 
-<span class="n">device</span> <span class="o">=</span> <span class="s1">'cuda'</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">'cpu'</span>
 <span class="o">%</span><span class="k">load_ext</span> tensorboard
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-<span class="-Color -Color-Red">ERROR: Operation cancelled by user</span>
-</pre></div>
 </div>
 </div>
 </div>
@@ -821,7 +871,7 @@
 <h2>Figure settings<a class="headerlink" href="#figure-settings" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Figure settings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Figure settings</span>
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>       <span class="c1"># interactive display</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = 'retina'
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/NeuromatchAcademy/content-creation/main/nma.mplstyle"</span><span class="p">)</span>
@@ -835,9 +885,9 @@
 <p>Executing <code class="docutils literal notranslate"><span class="pre">set_seed(seed=seed)</span></code> you are setting the seed</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Set random seed</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Set random seed</span>
 
-<span class="c1">#@markdown Executing `set_seed(seed=seed)` you are setting the seed</span>
+<span class="c1"># @markdown Executing `set_seed(seed=seed)` you are setting the seed</span>
 
 <span class="c1"># for DL its critical to set the random seed so that students can have a</span>
 <span class="c1"># baseline to compare their results to expected results.</span>
@@ -876,7 +926,7 @@
 <h2>Set device (GPU or CPU). Execute <code class="docutils literal notranslate"><span class="pre">set_device()</span></code><a class="headerlink" href="#set-device-gpu-or-cpu-execute-set-device" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Set device (GPU or CPU). Execute `set_device()`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Set device (GPU or CPU). Execute `set_device()`</span>
 <span class="c1"># especially if torch modules used.</span>
 
 <span class="c1"># inform the user if the notebook uses GPU or CPU.</span>
@@ -907,9 +957,12 @@
 </div>
 <div class="section" id="load-yelp-dataset">
 <h2>Load Yelp dataset<a class="headerlink" href="#load-yelp-dataset" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DATASET</span> <span class="pre">=</span> <span class="pre">load_dataset("yelp_review_full")</span></code></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Load Yelp dataset</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Load Yelp dataset</span>
+
+<span class="c1"># @markdown `DATASET = load_dataset("yelp_review_full")`</span>
 
 <span class="n">DATASET</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">"yelp_review_full"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">DATASET</span><span class="p">))</span>
@@ -948,7 +1001,7 @@
 <h2>Helper functions for BERT infilling<a class="headerlink" href="#helper-functions-for-bert-infilling" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Helper functions for BERT infilling</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper functions for BERT infilling</span>
 
 <span class="k">def</span> <span class="nf">transform_sentence_for_bert</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="n">masked_word</span> <span class="o">=</span> <span class="s2">"___"</span><span class="p">):</span>
   <span class="sd">"""</span>
@@ -1017,7 +1070,7 @@
 
   <span class="c1"># Predict all tokens</span>
   <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-      <span class="n">predictions</span> <span class="o">=</span> <span class="n">pretrained_masked_model</span><span class="p">(</span><span class="n">tokens_tensor</span><span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">pretrained_masked_model</span><span class="p">(</span><span class="n">tokens_tensor</span><span class="p">)</span>
   <span class="n">probabilities</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">masked_index</span><span class="p">],</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
   <span class="n">predicted_index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
@@ -1042,7 +1095,7 @@
 <h3>Think! 1: Application of attention<a class="headerlink" href="#think-1-application-of-attention" title="Permalink to this headline">¶</a></h3>
 <p>Recall that in machine translation, the partial target sequence attends to the source words to decide the next word to translate. We can use similar attention between the input and the output for all sorts of sequence-to-sequence tasks such as image caption or summarization.</p>
 <p>Can you think of other applications of the attention mechanisum? Be creative!</p>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_7b21e71d.py"><em>Click for solution</em></a></p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_db6df91b.py"><em>Click for solution</em></a></p>
 </div>
 </div>
 </div>
@@ -1056,9 +1109,11 @@
 <p>One way to think about attention is to consider a dictionary that contains all information needed for our task. Each entry in the dictionary contains some value and the corresponding key to retrieve it. For a specific prediction, we would like to retrieve relevant information from the dictionary. Therefore, we issue a query, match it to keys in the dictionary, and return the corresponding values.</p>
 <div class="section" id="coding-exercise-2-dot-product-attention">
 <h3>Coding Exercise 2: Dot product attention<a class="headerlink" href="#coding-exercise-2-dot-product-attention" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://">link text</a>
-In this exercise, let’s compute the scaled dot product attention using its matrix form.</p>
-<center>$\mathrm{softmax}(\frac{Q K^T}{\sqrt{d}})V$</center>
+<p>In this exercise, let’s compute the scaled dot product attention using its matrix form.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2d1746e6-7ce8-4cf0-b50f-f632da5dc0e3">
+<span class="eqno">(74)<a class="headerlink" href="#equation-2d1746e6-7ce8-4cf0-b50f-f632da5dc0e3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\mathrm{softmax} \left( \frac{Q K^\text{T}}{\sqrt{d}} \right) V
+\end{equation}\]</div>
 <p>Note: the function takes an additional argument <code class="docutils literal notranslate"><span class="pre">h</span></code> (number of heads). You can assume it is 1 for now.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1110,7 +1165,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 </div>
 </div>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_b6b3bf51.py"><em>Click for solution</em></a></p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_4a60ed40.py"><em>Click for solution</em></a></p>
 </div>
 </div>
 </div>
@@ -1174,7 +1229,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 </div>
 </div>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_4f660d02.py"><em>Click for solution</em></a></p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_fb1ff1ae.py"><em>Click for solution</em></a></p>
 </div>
 </div>
 </div>
@@ -1185,7 +1240,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <h2>Video 4: Transformer Overview II<a class="headerlink" href="#video-4-transformer-overview-ii" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
 </div>
-<p>There are three attention happening when decoding using the Transformer model. First, the self-attention among words in the input sequence. Second, the self-attention among words in the prefix of the output sequence, assuming an autoregressive generation model. Third, the attention between input words and output prefix words.</p>
+<p>Attention appears at three points in the encoder-decoder transformer architecture. First, the self-attention among words in the input sequence. Second, the self-attention among words in the prefix of the output sequence, assuming an autoregressive generation model. Third, the attention between input words and output prefix words.</p>
 <div class="section" id="think-4-complexity-of-decoding">
 <h3>Think 4: Complexity of decoding<a class="headerlink" href="#think-4-complexity-of-decoding" title="Permalink to this headline">¶</a></h3>
 <p>Let <code class="docutils literal notranslate"><span class="pre">n</span></code> be the number of input words, <code class="docutils literal notranslate"><span class="pre">m</span></code> be the number of output words, and <code class="docutils literal notranslate"><span class="pre">p</span></code> be the embedding dimension of keys/values/queries. What is the time complexity of generating a sequence?</p>
@@ -1203,7 +1258,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 <p>One powerful idea in Transformer is multi-head attention, which is used to capture different aspects of the dependence among words (e.g., syntactical vs semantic).</p>
 <div class="section" id="coding-exercise-5-q-k-v-attention">
-<h3>Coding Exercise 5: Q, K, V attention<a class="headerlink" href="#coding-exercise-5-q-k-v-attention" title="Permalink to this headline">¶</a></h3>
+<h3>Coding Exercise 5: <span class="math notranslate nohighlight">\(Q\)</span>, <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\(V\)</span> attention<a class="headerlink" href="#coding-exercise-5-q-k-v-attention" title="Permalink to this headline">¶</a></h3>
 <p>In self-attention, the queries, keys, and values are all mapped (by linear projection) from the word embeddings. Implement the mapping functions (<code class="docutils literal notranslate"><span class="pre">to_keys</span></code>, <code class="docutils literal notranslate"><span class="pre">to_queries</span></code>, <code class="docutils literal notranslate"><span class="pre">to_values</span></code>) below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1353,7 +1408,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 </div>
 </div>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_fff5f3cf.py"><em>Click for solution</em></a></p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_944d4fff.py"><em>Click for solution</em></a></p>
 </div>
 <div class="section" id="training-the-transformer">
 <h3>Training the Transformer<a class="headerlink" href="#training-the-transformer" title="Permalink to this headline">¶</a></h3>
@@ -1495,11 +1550,11 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <h4>7.1: Load Yelp reviews dataset ⌛🤗<a class="headerlink" href="#load-yelp-reviews-dataset" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title 7.1: Load Yelp reviews dataset ⌛🤗</span>
-<span class="o">%%capture</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 7.1: Load Yelp reviews dataset ⌛🤗</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
 <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">"yelp_review_full"</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s1">'train'</span><span class="p">)</span>
 <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">"yelp_review_full"</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s1">'test'</span><span class="p">)</span>
+<span class="n">clear_output</span><span class="p">()</span>
 
 <span class="c1"># filter training data by sentiment value</span>
 <span class="n">sentiment_dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1518,7 +1573,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <h4>7.2: Setting up a text context ✍️<a class="headerlink" href="#setting-up-a-text-context" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title 7.2: Setting up a text context ✍️</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 7.2: Setting up a text context ✍️</span>
 
 <span class="k">def</span> <span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">n"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">)</span>
@@ -1526,18 +1581,18 @@ In this exercise, let’s compute the scaled dot product attention using its mat
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">text</span>
 
-<span class="c1">#@markdown ---</span>
-<span class="n">sample_review_from_yelp</span> <span class="o">=</span> <span class="s2">"Sentiment = 0"</span> <span class="c1">#@param ["Sentiment = 0", "Sentiment = 1", "Sentiment = 2", "Sentiment = 3", "Sentiment = 4"]</span>
-<span class="c1">#@markdown **Randomly sample a response from the Yelp review dataset with the given sentiment value {0:😠, 1:😦, 2:😐, 3:🙂, 4:😀}**</span>
+<span class="c1"># @markdown ---</span>
+<span class="n">sample_review_from_yelp</span> <span class="o">=</span> <span class="s2">"Sentiment = 0"</span> <span class="c1"># @param ["Sentiment = 0", "Sentiment = 1", "Sentiment = 2", "Sentiment = 3", "Sentiment = 4"]</span>
+<span class="c1"># @markdown **Randomly sample a response from the Yelp review dataset with the given sentiment value {0:😠, 1:😦, 2:😐, 3:🙂, 4:😀}**</span>
 
-<span class="c1">#@markdown ---</span>
+<span class="c1"># @markdown ---</span>
 <span class="n">use_custom_review</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#@param {type:"boolean"}</span>
-<span class="n">custom_review</span> <span class="o">=</span> <span class="s2">"I liked this movie very much because ..."</span> <span class="c1">#@param {type:"string"}</span>
-<span class="c1">#@markdown ***Alternatively, write your own review (don't forget to enable custom review using the checkbox given above)***</span>
+<span class="n">custom_review</span> <span class="o">=</span> <span class="s2">"I liked this movie very much because ..."</span> <span class="c1"># @param {type:"string"}</span>
+<span class="c1"># @markdown ***Alternatively, write your own review (don't forget to enable custom review using the checkbox given above)***</span>
 
-<span class="c1">#@markdown ---</span>
+<span class="c1"># @markdown ---</span>
 
-<span class="c1">#@markdown **NOTE:** *Run the cell after setting all the above fields appropriately!*</span>
+<span class="c1"># @markdown **NOTE:** *Run the cell after setting all the You can adding different kinds of extensionabove fields appropriately!*</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2"> ****** The selected text context ****** </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">use_custom_review</span><span class="p">:</span>
@@ -1549,31 +1604,31 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 </div>
 </div>
-<p>Here, we’ll ask the pre-trained language models to extend the selected text context further. You can adding different kinds of extension prompts at the end of the text context, conditioning it for different kinds of text extensions.</p>
+<p>Here, we’ll ask the pre-trained language models to extend the selected text context further. You can try adding different kinds of extension prompts at the end of the text context, conditioning it for different kinds of text extensions.</p>
 </div>
 <div class="section" id="extending-the-review-with-pre-trained-models">
 <h4>7.3: Extending the review with pre-trained models 🤖<a class="headerlink" href="#extending-the-review-with-pre-trained-models" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title 7.3: Extending the review with pre-trained models 🤖</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 7.3: Extending the review with pre-trained models 🤖</span>
 
-<span class="c1">#@markdown ---</span>
+<span class="c1"># @markdown ---</span>
 <span class="n">model</span> <span class="o">=</span> <span class="s2">"gpt2"</span> <span class="c1">#@param ["gpt2", "gpt2-medium", "xlnet-base-cased"]</span>
 <span class="n">generator</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">'text-generation'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
 <span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="c1">#@markdown **Select a pre-trained language model to generate text 🤖**</span>
+<span class="c1"># @markdown **Select a pre-trained language model to generate text 🤖**</span>
 
-<span class="c1">#@markdown *(might take some time to download the pre-trained weights for the first time)*</span>
+<span class="c1"># @markdown *(might take some time to download the pre-trained weights for the first time)*</span>
 
-<span class="c1">#@markdown ---</span>
+<span class="c1"># @markdown ---</span>
 <span class="n">extension_prompt</span> <span class="o">=</span> <span class="s2">"Hence, overall I feel that ..."</span> <span class="c1">#@param {type:"string"}</span>
 <span class="n">num_output_responses</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#@param {type:"slider", min:1, max:10, step:1}</span>
-<span class="c1">#@markdown **Provide a prompt to extend the review ✍️**</span>
+<span class="c1"># @markdown **Provide a prompt to extend the review ✍️**</span>
 
 <span class="n">input_text</span> <span class="o">=</span> <span class="n">context</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">extension_prompt</span>
-<span class="c1">#@markdown **NOTE:** *Run this cell after setting all the fields appropriately!*</span>
+<span class="c1"># @markdown **NOTE:** *Run this cell after setting all the fields appropriately!*</span>
 
-<span class="c1">#@markdown **NOTE:** *Some pre-trained models might not work well with longer texts!*</span>
+<span class="c1"># @markdown **NOTE:** *Some pre-trained models might not work well with longer texts!*</span>
 
 <span class="n">generated_responses</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="n">input_text</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">num_return_sequences</span><span class="o">=</span><span class="n">num_output_responses</span><span class="p">)</span>
 
@@ -1587,28 +1642,28 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 </div>
 </div>
-<p>Next, we’ll ask the pre-trained language models to calculate the likelihood of already existing text-extensions. We can define a positive text-extension as well as a negative text-extension. The sentiment of the given text context can then be determined by the comparing the likelihoods of the given text extensions.</p>
+<p>Next, we’ll ask the pre-trained language models to calculate the likelihood of already existing text-extensions. We can define a positive text-extension as well as a negative text-extension. The sentiment of the given text context can then be determined by comparing the likelihoods of the given text extensions.</p>
 <p>(For a positive review, a positive text-extension should ideally be given more likelihood by the pre-trained langauge model as compared to a negative text-extension. Similarly, for a negative review, the negative text-extension should have more likelihood than the positive text-extension.)</p>
 </div>
 <div class="section" id="sentiment-binary-classification-with-likelihood-of-positive-and-negative-extensions-of-the-review">
 <h4>7.4: Sentiment binary-classification with likelihood of positive and negative extensions of the review 👍👎<a class="headerlink" href="#sentiment-binary-classification-with-likelihood-of-positive-and-negative-extensions-of-the-review" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title 7.4: Sentiment binary-classification with likelihood of positive and negative extensions of the review 👍👎</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 7.4: Sentiment binary-classification with likelihood of positive and negative extensions of the review 👍👎</span>
 
-<span class="c1">#@markdown ---</span>
+<span class="c1"># @markdown ---</span>
 <span class="n">model_name</span> <span class="o">=</span> <span class="s2">"gpt2"</span> <span class="c1">#@param ["gpt2", "gpt2-medium", "xlnet-base-cased"]</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
-<span class="c1">#@markdown **Select a pre-trained language model to score the likelihood of extended review**</span>
+<span class="c1"># @markdown **Select a pre-trained language model to score the likelihood of extended review**</span>
 
-<span class="c1">#@markdown *(might take some time to download the pre-trained weights for the first time)*</span>
+<span class="c1"># @markdown *(might take some time to download the pre-trained weights for the first time)*</span>
 
-<span class="c1">#@markdown ---</span>
+<span class="c1"># @markdown ---</span>
 <span class="n">custom_positive_extension</span> <span class="o">=</span> <span class="s2">"I would definitely recommend this!"</span> <span class="c1">#@param {type:"string"}</span>
 <span class="n">custom_negative_extension</span> <span class="o">=</span> <span class="s2">"I would not recommend this!"</span> <span class="c1">#@param {type:"string"}</span>
-<span class="c1">#@markdown **Provide custom positive and negative extensions to the review ✍️**</span>
+<span class="c1"># @markdown **Provide custom positive and negative extensions to the review ✍️**</span>
 
 <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">context</span><span class="p">,</span> <span class="n">custom_positive_extension</span><span class="p">,</span> <span class="n">custom_negative_extension</span><span class="p">]</span>
 <span class="n">encodings</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
@@ -1637,9 +1692,9 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Negative text-extension has greater likelihood probabilities!"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"The given review can be predicted to be NEGATIVE 👎"</span><span class="p">)</span>
-<span class="c1">#@markdown **NOTE:** *Run this cell after setting all the fields appropriately!*</span>
+<span class="c1"># @markdown **NOTE:** *Run this cell after setting all the fields appropriately!*</span>
 
-<span class="c1">#@markdown **NOTE:** *Some pre-trained models might not work well with longer texts!*</span>
+<span class="c1"># @markdown **NOTE:** *Some pre-trained models might not work well with longer texts!*</span>
 </pre></div>
 </div>
 </div>
@@ -1657,8 +1712,9 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 <p>Fine-tuning these large pre-trained models with billions of parameters tends to be very slow. In this section, we will explore the effect of fine-tuning a few layers (while fixing the others) to save training time.</p>
 <p>The HuggingFace python library provides a simplified API for training and fine-tuning transformer language models. In this exercise we will fine-tune a pre-trained language model for sentiment classification.</p>
+</div>
 <div class="section" id="section-8-1-data-processing">
-<h3>Section 8.1: Data Processing<a class="headerlink" href="#section-8-1-data-processing" title="Permalink to this headline">¶</a></h3>
+<h2>Section 8.1: Data Processing<a class="headerlink" href="#section-8-1-data-processing" title="Permalink to this headline">¶</a></h2>
 <p>Pre-trained transformer models have a fixed vocabulary of words and sub-words. The input text to a transformer model has to be tokenized into these words and sub-words during the pre-processing stage. We’ll use the HuggingFace <code class="docutils literal notranslate"><span class="pre">tokenizers</span></code> to perform the tokenization here.</p>
 <p>(By default we’ll use the BERT base-cased pre-trained language model here. You can try using one of the other models available <a class="reference external" href="https://huggingface.co/transformers/pretrained_models.html">here</a> by changing the model ID values at appropriate places in the code.)</p>
 <p>Most of the pre-trained language models have a fixed maximum sequence length. With the HuggingFace <code class="docutils literal notranslate"><span class="pre">tokenizer</span></code> library, we can either pad or truncate input text sequences to maximum length with a few lines of code:</p>
@@ -1669,8 +1725,9 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <span class="k">def</span> <span class="nf">tokenize_function</span><span class="p">(</span><span class="n">examples</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">examples</span><span class="p">[</span><span class="s2">"text"</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s2">"max_length"</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">raw_datasets</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">"yelp_review_full"</span><span class="p">)</span>
-<span class="n">tokenized_datasets</span> <span class="o">=</span> <span class="n">raw_datasets</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tokenize_function</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Here we use the `DATASET` as defined above.</span>
+<span class="c1"># Recall that DATASET = load_dataset("yelp_review_full")</span>
+<span class="n">tokenized_datasets</span> <span class="o">=</span> <span class="n">DATASET</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tokenize_function</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1688,7 +1745,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 </div>
 <div class="section" id="section-8-2-model-loading">
-<h3>Section 8.2: Model Loading<a class="headerlink" href="#section-8-2-model-loading" title="Permalink to this headline">¶</a></h3>
+<h2>Section 8.2: Model Loading<a class="headerlink" href="#section-8-2-model-loading" title="Permalink to this headline">¶</a></h2>
 <p>Next, we’ll load a pre-trained checkpoint fo the model and decide which layers are to be fine-tuned.</p>
 <p>Modify the <code class="docutils literal notranslate"><span class="pre">train_layers</span></code> variable below to pick which layers you would like to fine-tune (you can uncomment the print statements for this). Fine-tuning more layers might result in better performance (at the cost of longer training times). Due to computational limitations (limited GPU memory) we cannot fine-tune the entire model.</p>
 <div class="cell docutils container">
@@ -1711,7 +1768,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 </div>
 <div class="section" id="section-8-3-fine-tuning">
-<h3>Section 8.3: Fine-tuning<a class="headerlink" href="#section-8-3-fine-tuning" title="Permalink to this headline">¶</a></h3>
+<h2>Section 8.3: Fine-tuning<a class="headerlink" href="#section-8-3-fine-tuning" title="Permalink to this headline">¶</a></h2>
 <p>Fine-tune the model! The HuggingFace <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> class supports easy fine-tuning and logging. You can play around with various hyperparameters here!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1723,7 +1780,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
                                   <span class="n">per_device_eval_batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
                                   <span class="n">learning_rate</span><span class="o">=</span><span class="mf">5e-5</span><span class="p">,</span>
                                   <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                                  <span class="n">num_train_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># original was 5</span>
+                                  <span class="n">num_train_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># students may use 5 to see a full training!</span>
                                   <span class="n">fp16</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                   <span class="n">save_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
                                   <span class="n">logging_steps</span><span class="o">=</span><span class="mi">10</span>
@@ -1787,7 +1844,6 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 </div>
 </div>
-</div>
 <hr class="docutils"/>
 <div class="section" id="section-9-model-robustness">
 <h1>Section 9: Model robustness<a class="headerlink" href="#section-9-model-robustness" title="Permalink to this headline">¶</a></h1>
@@ -1796,13 +1852,14 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Given the previously trained model for sentiment classification, it is possible to decieve it using various text perturbations. The text perturbations can act as previously unseen noise to the model, which might make it give out wrong values of sentiment!</p>
+</div>
 <div class="section" id="interactive-demo-9-break-the-model">
-<h3>Interactive Demo 9: Break the model<a class="headerlink" href="#interactive-demo-9-break-the-model" title="Permalink to this headline">¶</a></h3>
+<h2>Interactive Demo 9: Break the model<a class="headerlink" href="#interactive-demo-9-break-the-model" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="load-an-original-review">
-<h4>9.1: Load an original review<a class="headerlink" href="#load-an-original-review" title="Permalink to this headline">¶</a></h4>
+<h3>9.1: Load an original review<a class="headerlink" href="#load-an-original-review" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title 9.1: Load an original review</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 9.1: Load an original review</span>
 
 <span class="k">def</span> <span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">n"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">)</span>
@@ -1810,11 +1867,11 @@ In this exercise, let’s compute the scaled dot product attention using its mat
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">text</span>
 
-<span class="c1">#@markdown ---</span>
+<span class="c1"># @markdown ---</span>
 <span class="n">sample_review_from_yelp</span> <span class="o">=</span> <span class="s2">"Sentiment = 4"</span> <span class="c1">#@param ["Sentiment = 0", "Sentiment = 1", "Sentiment = 2", "Sentiment = 3", "Sentiment = 4"]</span>
-<span class="c1">#@markdown **Randomly sample a response from the Yelp review dataset with the given sentiment value {0:😠, 1:😦, 2:😐, 3:🙂, 4:😀}**</span>
+<span class="c1"># @markdown **Randomly sample a response from the Yelp review dataset with the given sentiment value {0:😠, 1:😦, 2:😐, 3:🙂, 4:😀}**</span>
 
-<span class="c1">#@markdown ---</span>
+<span class="c1"># @markdown ---</span>
 
 <span class="n">context</span> <span class="o">=</span> <span class="n">clean_text</span><span class="p">(</span><span class="n">sentiment_dict</span><span class="p">[</span><span class="n">sample_review_from_yelp</span><span class="p">][</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sentiment_dict</span><span class="p">[</span><span class="n">sample_review_from_yelp</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">)][</span><span class="s2">"text"</span><span class="p">])</span>
 
@@ -1827,29 +1884,29 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <p>We can apply various text perturbations to the selected review using the <code class="docutils literal notranslate"><span class="pre">textattack</span></code> python library. This will help us augment the original text to break the model!</p>
 </div>
 <div class="section" id="augment-the-original-review">
-<h4>9.2: Augment the original review<a class="headerlink" href="#augment-the-original-review" title="Permalink to this headline">¶</a></h4>
+<h3>9.2: Augment the original review<a class="headerlink" href="#augment-the-original-review" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title 9.2: Augment the original review</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 9.2: Augment the original review</span>
 
-<span class="c1">#@markdown ---</span>
-<span class="c1">#@markdown Word-level Augmentations</span>
+<span class="c1"># @markdown ---</span>
+<span class="c1"># @markdown Word-level Augmentations</span>
 <span class="n">word_swap_contract</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">#@param {type:"boolean"}</span>
 <span class="n">word_swap_extend</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#@param {type:"boolean"}</span>
 <span class="n">word_swap_homoglyph_swap</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#@param {type:"boolean"}</span>
 
-<span class="c1">#@markdown ---</span>
-<span class="c1">#@markdown Character-level Augmentations</span>
+<span class="c1"># @markdown ---</span>
+<span class="c1"># @markdown Character-level Augmentations</span>
 <span class="n">word_swap_neighboring_character_swap</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">#@param {type:"boolean"}</span>
 <span class="n">word_swap_qwerty</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#@param {type:"boolean"}</span>
 <span class="n">word_swap_random_character_deletion</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#@param {type:"boolean"}</span>
 <span class="n">word_swap_random_character_insertion</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#@param {type:"boolean"}</span>
 <span class="n">word_swap_random_character_substitution</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#@param {type:"boolean"}</span>
-<span class="c1">#@markdown ---</span>
+<span class="c1"># @markdown ---</span>
 
-<span class="c1">#@markdown Check all the augmentations that you wish to apply!</span>
+<span class="c1"># @markdown Check all the augmentations that you wish to apply!</span>
 
-<span class="c1">#@markdown **NOTE:** *Try applying each augmentation individually, and observe the changes.*</span>
+<span class="c1"># @markdown **NOTE:** *Try applying each augmentation individually, and observe the changes.*</span>
 
 <span class="c1"># Apply augmentations</span>
 <span class="n">augmentations</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1882,10 +1939,10 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <p>We can now check the predictions for the original text and its augmented version! Try to find the perfect combination of perturbations to break the model! (i.e. model giving incorrect prediction for the augmented text)</p>
 </div>
 <div class="section" id="check-model-predictions">
-<h4>9.3: Check model predictions<a class="headerlink" href="#check-model-predictions" title="Permalink to this headline">¶</a></h4>
+<h3>9.3: Check model predictions<a class="headerlink" href="#check-model-predictions" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title 9.3: Check model predictions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 9.3: Check model predictions</span>
 <span class="k">def</span> <span class="nf">getPrediction</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
   <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">"max_length"</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">"pt"</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -1905,7 +1962,6 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Predicted Sentiment ="</span><span class="p">,</span> <span class="n">getPrediction</span><span class="p">(</span><span class="n">augmented_review</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"########################################"</span><span class="p">)</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -1962,7 +2018,7 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <h4>Probabilities of masked words<a class="headerlink" href="#probabilities-of-masked-words" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Probabilities of masked words</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Probabilities of masked words</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="s1">'It was a very important discovery, one you wouldn</span><span class="se">\u2019</span><span class="s1">t expect from a female/male astrophysicist'</span> <span class="c1">#@param \["It was a very important discovery, one you wouldn’t expect from a female/male astrophysicist", "We were especially upset that there were so many gross old/young people at the beach.", "People who live in trailers/mansions are alcoholics.", "Thin/fat people can never really be attractive."]</span>
 <span class="n">masked_text</span><span class="p">,</span> <span class="n">words</span> <span class="o">=</span> <span class="n">parse_text_and_words</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
@@ -1983,10 +2039,9 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 <h4>Probabilities of masked words<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Probabilities of masked words</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Probabilities of masked words</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="s1">'The doctor picked up his/her bag'</span> <span class="c1">#@param {type:"string"}</span>
-<span class="c1">#@title Probabilities of masked words</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s1">'The doctor picked up his/her bag'</span> <span class="c1"># @param {type:"string"}</span>
 
 <span class="n">masked_text</span><span class="p">,</span> <span class="n">words</span> <span class="o">=</span> <span class="n">parse_text_and_words</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 <span class="n">probs</span> <span class="o">=</span> <span class="n">get_probabilities_of_masked_words</span><span class="p">(</span><span class="n">masked_text</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span>
@@ -2002,23 +2057,52 @@ In this exercise, let’s compute the scaled dot product attention using its mat
 </div>
 </div>
 </div>
-<div class="section" id="think-10-1">
-<h3>Think! 10.1<a class="headerlink" href="#think-10-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="think-10-1-problems-of-this-approach">
+<h3>Think! 10.1: Problems of this approach<a class="headerlink" href="#think-10-1-problems-of-this-approach" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>What are the problems with our approach? How would you solve that?</p></li>
 </ul>
-<p>If you need help, see the hint in the link below.</p>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_d2a1143a.py"><em>Click for solution</em></a></p>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_81cdc500.py"><em>Click for solution</em></a></p>
+<div class="section" id="hint">
+<h4><code class="docutils literal notranslate"><span class="pre">Hint</span></code>!<a class="headerlink" href="#hint" title="Permalink to this headline">¶</a></h4>
+<p>If you need help, see the hint by executing this cell.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title `Hint`!</span>
+<span class="c1"># @markdown If you need help, see the hint by executing this cell.</span>
+
+<span class="nb">print</span><span class="p">(</span>
+<span class="sd">"""</span>
+<span class="sd">HINT:</span>
+
+<span class="sd">Suppose you want to verify if your model is biased towards creatures who lived a long</span>
+<span class="sd">time ago. So you make two almost identical sentences like this:</span>
+
+<span class="sd">  'The tigers are looking for their prey in the jungles.</span>
+<span class="sd">   The compsognathus are looking for their prey in the jungles.'</span>
+
+<span class="sd">What do you think would be the probabilities of these sentences? What would be you</span>
+<span class="sd">conclusion in this situation?</span>
+<span class="sd">"""</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="think-10-2">
-<h3>Think! 10.2<a class="headerlink" href="#think-10-2" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_97191d8b.py"><em>Click for solution</em></a></p>
+</div>
+</div>
+<div class="section" id="think-10-2-biases-of-using-these-models-in-other-fields">
+<h3>Think! 10.2: Biases of using these models in other fields<a class="headerlink" href="#think-10-2-biases-of-using-these-models-in-other-fields" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Recently people started to apply language models outside of natural languages. For instance, ProtBERT is trained on the sequences of proteins. Think about the types of bias that might arise in this case.</p></li>
 </ul>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_ea1b3789.py"><em>Click for solution</em></a></p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D4_AttentionAndTransformers/solutions/W2D4_Tutorial1_Solution_78a6849b.py"><em>Click for solution</em></a></p>
 </div>
 </div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<p>What a day! Congratulations! You have finished one of the most demanding days! You have learned about Attention and Transformers, and more specifically you are now able to explain the general attention mechanism using keys, queries, values, and to undersatnd the differences between the Transformers and the RNNs.</p>
 </div>
 <script type="text/x-thebe-config">
     {
