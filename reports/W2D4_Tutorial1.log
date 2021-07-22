@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['#@markdown #### Run to train the default network', '', '#creating train data', 'X = torch.rand((10,1))', 'X.sort(dim = 0)']
+['# Imports', '!pip install textattack --quiet', '!pip install urllib3==1.25.4 --quiet', '!pip install folium==0.2.1 --quiet', '!pip install datasets --quiet']
 ...
-['val_acc_pure, train_acc_pure, _, model ,_ = main(args,', '                                                 model,', '                                                 train_loader,', '                                                 val_loader,', '                                                 img_test_dataset)']
+['from textattack.transformations import WordSwapRandomCharacterInsertion', 'from textattack.transformations import WordSwapRandomCharacterSubstitution', '', "device = 'cuda' if torch.cuda.is_available() else 'cpu'", '%load_ext tensorboard']
 -------------------
 
