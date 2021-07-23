@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# @title Loading Animal Faces data and Randomized data', 'from IPython.display import clear_output', '', '!rm -r AnimalFaces32x32/', '!git clone https://github.com/arashash/AnimalFaces32x32']
+['#@markdown #### Run to train the default network', '', '#creating train data', 'X = torch.rand((10,1))', 'X.sort(dim = 0)']
 ...
-['!unzip ./Animal_faces_random/afhq_random_32x32.zip', '!rm -r afhq_10_32x32/', '!unzip ./Animal_faces_random/afhq_10_32x32.zip', '', 'clear_output()']
+['val_acc_pure, train_acc_pure, _, model ,_ = main(args,', '                                                 model,', '                                                 train_loader,', '                                                 val_loader,', '                                                 img_test_dataset)']
 -------------------
 
