@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# @markdown Download MNIST and CIFAR10 image datasets while the above video plays', '# See https://pytorch.org/docs/stable/torchvision/datasets.html', 'from IPython.display import clear_output', '', '# MNIST contains handwritten digets 0-9, in grayscale images of size (1,28,28)']
+['def run_poly_clasification(poly_degree, device, seed):', '', '  def make_poly_features(poly_degree, X):', '    # Define the number of polynomial features except the bias term', '    num_features = (poly_degree + 1)*(poly_degree + 2) // 2 - 1']
 ...
-['                                  train=False,', '                                  transform=tv.transforms.ToTensor(),', '                                  download=True)', '', 'clear_output()']
+['', 'set_seed(seed=SEED)', 'max_poly_degree = 50', 'num_features = run_poly_clasification(max_poly_degree, DEVICE, SEED)', "print('Number of features: %d'%num_features)"]
 -------------------
 

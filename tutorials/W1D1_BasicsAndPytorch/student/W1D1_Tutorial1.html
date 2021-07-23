@@ -431,6 +431,28 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D4_ContinualLearning/chapter_title.html">
+   Continual Learning (W3D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+<label for="toctree-checkbox-17">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial1.html">
+     Tutorial 1: Introduction to Continual Learning
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ContinualLearning/student/W3D4_Tutorial2.html">
+     Tutorial 2: Out-of-distribution (OOD) Learning
+    </a>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </nav> <!-- To handle the deprecated key -->
@@ -961,7 +983,7 @@
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "e201c9f147b549fa94e43f712ca1ba73"}
+{"version_major": 2, "version_minor": 0, "model_id": "8e94e156ca8c4a4e81f9427bd9d9bcf7"}
 </script></div>
 </div>
 <p>*This will be an intensive 3 week adventure. We will all learn Deep Learning. In a group. Groups need standards. Read our
@@ -972,7 +994,7 @@
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "17a7390e6c484b8abc4e2c753f51c162"}
+{"version_major": 2, "version_minor": 0, "model_id": "935d0491c6bf42bbbe5b0ea119b33c97"}
 </script></div>
 </div>
 <p><strong>Describe what you hope to get out of this course in about 100 words.</strong></p>
@@ -1002,7 +1024,7 @@ and speed</p></li>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "3aaedec05de646dda5f750eab90912d4"}
+{"version_major": 2, "version_minor": 0, "model_id": "edebced74c664f1eae9bfc3f7930f94a"}
 </script></div>
 </div>
 <p>There are various ways of creating tensors, and when doing any real deep learning project we will usually have to do so.</p>
@@ -1058,16 +1080,13 @@ Tensor c: tensor([[1., 1., 1.],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tensor x: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1., 1., 1.],
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tensor x: tensor([[1., 1., 1.],
         [1., 1., 1.],
         [1., 1., 1.],
         [1., 1., 1.],
         [1., 1., 1.]])
 Tensor y: tensor([0., 0.])
-Tensor z: tensor([[[-5.1957e-10,  3.0829e-41, -5.1943e-10,  3.0829e-41,  7.6416e-17]]])
+Tensor z: tensor([[[-7.6845e+28,  4.5771e-41, -7.6845e+28,  4.5771e-41,  4.4842e-44]]])
 </pre></div>
 </div>
 </div>
@@ -1100,12 +1119,12 @@ Tensor z: tensor([[[-5.1957e-10,  3.0829e-41, -5.1943e-10,  3.0829e-41,  7.6416e
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tensor a:  tensor([[0.5069, 0.5739, 0.4099]])
-Tensor b:  tensor([[-0.2197,  0.3774,  0.5178,  1.3722],
-        [ 0.8116,  0.9401, -0.0592,  0.1465],
-        [-0.5569,  1.0317, -1.2683, -0.9833]])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tensor a:  tensor([[0.4586, 0.4651, 0.1013]])
+Tensor b:  tensor([[ 1.3537, -0.0546,  0.6223,  1.3662],
+        [-0.2839,  0.0752, -0.3780, -0.8497],
+        [-0.4234,  0.9188,  0.8626, -1.0853]])
 Tensor c:  tensor([[0., 0., 0.]])
-Tensor d:  tensor([[0.7513, 0.1574, 0.4895]])
+Tensor d:  tensor([[0.4203, 0.7125, 0.7216]])
 </pre></div>
 </div>
 </div>
@@ -1293,7 +1312,7 @@ Numpy array d: [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5. ]
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "7504ac7bb975401cb17c7b20c7712ea6"}
+{"version_major": 2, "version_minor": 0, "model_id": "4adc62eda4f84c398e03152ab9d3abd4"}
 </script></div>
 </div>
 <p><strong>Tensor-Tensor operations</strong></p>
@@ -1376,10 +1395,10 @@ The common standard arithmetic operators (+, -, *, /, and **) have all been lift
 
 
 Sum of every element of x: 4.187318325042725
-Sum of the columns of x: tensor([1.1051, 1.3306, 1.7517])
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum of the rows of x: tensor([0.7565, 1.8509, 1.5800])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum of the columns of x: tensor([1.1051, 1.3306, 1.7517])
+Sum of the rows of x: tensor([0.7565, 1.8509, 1.5800])
 
 
 Mean value of all elements of x 0.46525758504867554
@@ -1480,7 +1499,7 @@ Mean values of the rows of x tensor([0.2522, 0.6170, 0.5267])
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "741530ef1dbe464383d135ad1b1e34a1"}
+{"version_major": 2, "version_minor": 0, "model_id": "bc2066fe465545c8963994bfe8eb0c55"}
 </script></div>
 </div>
 <p><strong>Indexing</strong></p>
@@ -1883,7 +1902,7 @@ z: tensor([ 0.2659, -0.5148, -0.0613,  0.5046,  0.1385])  |  z type:  torch.Floa
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "7697de257e4f4e8b8efee309f7658228"}
+{"version_major": 2, "version_minor": 0, "model_id": "045f3ba8d29f42958c97411762d09a00"}
 </script></div>
 </div>
 <p>By default, when we create a tensor it will <em>not</em> live on the GPU!</p>
@@ -2106,7 +2125,7 @@ tensor([ 9, 11, 13])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time taken for 1 iterations of simpleFun(10000): 16.59423
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time taken for 1 iterations of simpleFun(10000): 17.79258
 </pre></div>
 </div>
 </div>
@@ -2680,8 +2699,8 @@ X &amp; Y &amp; \text{XOR} \
 </ul>
 <p>For the second part, you should set the weights by clicking on the connections and either type the value or use the up and down keys to change it by one increment. You could also do the same for the biases by clicking on the tiny square to each neuron’s bottom left.
 Even though there are infinitely many solutions, a neat solution when <span class="math notranslate nohighlight">\(f(x)\)</span> is ReLU is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f04a45d1-c034-46f1-8a98-886f19715337">
-<span class="eqno">(1)<a class="headerlink" href="#equation-f04a45d1-c034-46f1-8a98-886f19715337" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-49e65c8f-0dd7-4d44-9dba-37df75c2c2a1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-49e65c8f-0dd7-4d44-9dba-37df75c2c2a1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
   y = f(x_1)+f(x_2)-f(x_1+x_2)
 \end{equation}\]</div>
 <p>Try to set the weights and biases to implement this function after you played enough :)</p>

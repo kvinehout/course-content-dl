@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# @markdown Download MNIST and CIFAR10 image datasets while the above video plays', '# See https://pytorch.org/docs/stable/torchvision/datasets.html', 'from IPython.display import clear_output', '', '# MNIST contains handwritten digets 0-9, in grayscale images of size (1,28,28)']
+["# test the model's accuracy on both the regular and permuted dataset", '', "# Let's define a dictionary that holds each of the task", '# datasets and labels', "tasks = {'MNIST':(x_test, t_test),"]
 ...
-['                                  train=False,', '                                  transform=tv.transforms.ToTensor(),', '                                  download=True)', '', 'clear_output()']
+['  print(f"Testing on task {ti+1}")', '  t1_accs.append(test(model, DEVICE, tasks[task][0], tasks[task][1]))', '', "# And then let's plot the testing accuracy on both datasets", "multi_task_barplot(t1_accs, tasks, t='Accuracy after training on Task 1 \\nbut before Training on Task 2')"]
 -------------------
 
