@@ -655,7 +655,7 @@
 <ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry">
 <a class="reference internal nav-link" href="#plot-ewc-vs-replay">
-       Plot EWC vs replay
+       Plot EWC vs. Replay
       </a>
 </li>
 </ul>
@@ -690,6 +690,11 @@
 <li class="toc-h3 nav-item toc-entry">
 <a class="reference internal nav-link" href="#exercise-4-2-evaluate-your-cl-algorithm">
        Exercise 4.2: Evaluate your CL algorithm
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#think-4-2-performance-metrics">
+       Think! 4.2: Performance metrics
       </a>
 </li>
 </ul>
@@ -729,17 +734,17 @@
 <p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content-dl/blob/main/tutorials/W3D4_ContinualLearning/student/W3D4_Tutorial1.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
 <div class="section" id="tutorial-1-introduction-to-continual-learning">
 <h1>Tutorial 1: Introduction to Continual Learning<a class="headerlink" href="#tutorial-1-introduction-to-continual-learning" title="Permalink to this headline">¶</a></h1>
-<p><strong>Week 3, Day 4: Name of the day</strong></p>
+<p><strong>Week 3, Day 4: Continual Learning</strong></p>
 <p><strong>By Neuromatch Academy</strong></p>
 <p><strong>Content creators:</strong> Keiland Cooper, Diganta Misra, Gido van de Ven, Andrea Cossu, Vincenzo Lomonaco</p>
-<p><strong>Content reviewers:</strong> Arush Tagade, Jeremy Forest</p>
+<p><strong>Content reviewers:</strong> Arush Tagade, Jeremy Forest, Siwei Bai</p>
 <p><strong>Content editors:</strong> Anoop Kulkarni, Spiros Chavlis</p>
 <p><strong>Production editors:</strong> Deepak Raya, Spiros Chavlis</p>
 </div>
 <hr class="docutils"/>
 <div class="section" id="tutorial-objectives">
 <h1>Tutorial Objectives<a class="headerlink" href="#tutorial-objectives" title="Permalink to this headline">¶</a></h1>
-<p>In this tutorial we’ll dive head-first into the exciting field of continual learning (CL). CL has gained increasing attention in recent years, and for good reason. CL is positioned as a problem accross sud-disciplines, from academia to industry, and may promise to be a major pathway towards strong artificial intelligence (AI). As datasets get bigger and AI gets smarter, we’re expecting more and more cognitive capabilities from our machines.</p>
+<p>In this tutorial we’ll dive head-first into the exciting field of continual learning (CL). CL has gained increasing attention in recent years, and for good reason. CL is positioned as a problem across sub-disciplines, from academia to industry, and may promise to be a major pathway towards strong artificial intelligence (AI). As datasets get bigger and AI gets smarter, we’re expecting more and more cognitive capabilities from our machines.</p>
 <p>We have a few specific objectives for this tutorial:</p>
 <ul class="simple">
 <li><p>Introduce major CL concepts</p></li>
@@ -752,7 +757,7 @@
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "6fff399e19464c42aa621e1d9742606a"}
+{"version_major": 2, "version_minor": 0, "model_id": "6e79eb04bd9f47a2827e8ac7a785b1bf"}
 </script></div>
 </div>
 </div>
@@ -770,7 +775,7 @@
 <hr class="docutils"/>
 <div class="section" id="setup">
 <h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
-<p>First, let’s load in some useful packages and functions. We’ll primarly be using PyTorch as our neural network framework of choice. Be sure to run all the cells below so the code runs properly.</p>
+<p>First, let’s load in some useful packages and functions. We’ll primarily be using PyTorch as our neural network framework of choice. Be sure to run all the cells below so the code runs properly.</p>
 <div class="section" id="install-dependencies">
 <h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-input docutils container">
@@ -1033,7 +1038,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading and unpacking MNIST data. Please wait a moment...
 
---2021-07-23 13:31:21--  http://www.di.ens.fr/~lelarge/MNIST.tar.gz
+--2021-07-23 18:14:39--  http://www.di.ens.fr/~lelarge/MNIST.tar.gz
 Resolving www.di.ens.fr (www.di.ens.fr)... 
 </pre></div>
 </div>
@@ -1047,7 +1052,7 @@ HTTP request sent, awaiting response...
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>302 Found
 Location: https://www.di.ens.fr/~lelarge/MNIST.tar.gz [following]
---2021-07-23 13:31:21--  https://www.di.ens.fr/~lelarge/MNIST.tar.gz
+--2021-07-23 18:14:39--  https://www.di.ens.fr/~lelarge/MNIST.tar.gz
 Connecting to www.di.ens.fr (www.di.ens.fr)|129.199.99.14|:443... 
 </pre></div>
 </div>
@@ -1065,43 +1070,210 @@ Saving to: ‘MNIST.tar.gz’
 MNIST.tar.gz            [&lt;=&gt;                 ]       0  --.-KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]  42.85K   195KB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]  35.98K   145KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ] 179.36K   407KB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ]  79.58K   160KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ] 774.34K  1.14MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ] 124.59K   167KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ]   3.08M  3.49MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ] 175.07K   176KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ]   6.59M  5.98MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ] 233.58K   188KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ]  10.16M  7.68MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ] 297.34K   199KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ]  13.72M  8.89MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ] 366.70K   211KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ]  17.27M  9.79MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ] 442.10K   222KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ]  20.87M  10.5MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ] 523.52K   234KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [          &lt;=&gt;       ]  25.10M  11.4MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [          &lt;=&gt;       ] 609.89K   245KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [           &lt;=&gt;      ]  28.86M  12.1MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [           &lt;=&gt;      ] 704.04K   257KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [            &lt;=&gt;     ]  32.73M  12.6MB/s               
-MNIST.tar.gz            [             &lt;=&gt;    ]  33.20M  12.7MB/s    in 2.6s    
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [            &lt;=&gt;     ] 803.45K   269KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [             &lt;=&gt;    ] 906.70K   280KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [              &lt;=&gt;   ]   1018K   300KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [               &lt;=&gt;  ]   1.10M   322KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                &lt;=&gt; ]   1.19M   335KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                 &lt;=&gt;]   1.30M   356KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                &lt;=&gt; ]   1.40M   379KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [               &lt;=&gt;  ]   1.52M   400KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [              &lt;=&gt;   ]   1.62M   413KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [             &lt;=&gt;    ]   1.75M   434KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [            &lt;=&gt;     ]   1.86M   457KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [           &lt;=&gt;      ]   1.99M   476KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [          &lt;=&gt;       ]   2.12M   492KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ]   2.25M   511KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ]   2.39M   537KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ]   2.53M   553KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ]   2.69M   573KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ]   2.83M   589KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ]   2.99M   616KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ]   3.14M   632KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ]   3.31M   651KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]   3.49M   673KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [&lt;=&gt;                 ]   3.66M   698KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]   3.86M   725KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ]   4.08M   754KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ]   4.36M   802KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ]   4.59M   844KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ]   4.85M   881KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ]   5.20M   944KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ]   5.50M   993KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ]   5.93M  1.07MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ]   6.29M  1.13MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [          &lt;=&gt;       ]   6.79M  1.23MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [           &lt;=&gt;      ]   7.21M  1.30MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [            &lt;=&gt;     ]   7.81M  1.46MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [             &lt;=&gt;    ]   8.29M  1.55MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [              &lt;=&gt;   ]   9.00M  1.70MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [               &lt;=&gt;  ]   9.55M  1.80MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                &lt;=&gt; ]  10.38M  2.03MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                 &lt;=&gt;]  11.14M  2.18MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                &lt;=&gt; ]  11.97M  2.35MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [               &lt;=&gt;  ]  12.68M  2.48MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [              &lt;=&gt;   ]  13.78M  2.78MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [             &lt;=&gt;    ]  14.60M  2.92MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [            &lt;=&gt;     ]  15.86M  3.18MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [           &lt;=&gt;      ]  16.77M  3.33MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [          &lt;=&gt;       ]  18.20M  3.70MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ]  19.24M  3.87MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ]  20.85M  4.19MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ]  22.02M  4.38MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ]  23.82M  4.83MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ]  25.13M  5.03MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ]  27.16M  5.42MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ]  28.62M  5.63MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ]  30.88M  6.20MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]  32.50M  6.42MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [&lt;=&gt;                 ]  33.20M  6.57MB/s    in 14s     
 
-2021-07-23 13:31:24 (12.7 MB/s) - ‘MNIST.tar.gz’ saved [34813078]
+2021-07-23 18:14:54 (2.29 MB/s) - ‘MNIST.tar.gz’ saved [34813078]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST/
@@ -1131,9 +1303,9 @@ MNIST/processed/training.pt
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>URL transformed to HTTPS due to an HSTS policy
---2021-07-23 13:31:25--  https://raw.githubusercontent.com/ContinualAI/colab/master/scripts/download_and_extract_core50_mini.sh
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+--2021-07-23 18:14:55--  https://raw.githubusercontent.com/ContinualAI/colab/master/scripts/download_and_extract_core50_mini.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
 HTTP request sent, awaiting response... 
 </pre></div>
 </div>
@@ -1145,12 +1317,12 @@ Saving to: ‘download_and_extract_core50_mini.sh’
           download_   0%[                    ]       0  --.-KB/s               
 download_and_extrac 100%[===================&gt;]     632  --.-KB/s    in 0s      
 
-2021-07-23 13:31:26 (24.1 MB/s) - ‘download_and_extract_core50_mini.sh’ saved [632/632]
+2021-07-23 18:14:55 (23.9 MB/s) - ‘download_and_extract_core50_mini.sh’ saved [632/632]
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4841</span><span class="o">/</span><span class="mf">586937735.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4976</span><span class="o">/</span><span class="mf">586937735.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="c1"># this lines of code will download core50 in background. We suggest to run it at the start of the notebook</span>
 <span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'wget http://raw.githubusercontent.com/ContinualAI/colab/master/scripts/download_and_extract_core50_mini.sh'</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">68</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'nohup sh download_and_extract_core50_mini.sh &amp;'</span><span class="p">)</span>
@@ -1179,7 +1351,7 @@ download_and_extrac 100%[===================&gt;]     632  --.-KB/s    in 0s
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "932558bf71884b63840bcb98e77fbab1"}
+{"version_major": 2, "version_minor": 0, "model_id": "8363210adaf044cd9a5f16cf47b2444c"}
 </script></div>
 </div>
 <p>Here we’ll explore catastrophic forgetting first hand, a key barrier preventing continual learning in neural networks. To do so, we’ll build a simple network model and try our best to teach it the trusty MNIST dataset</p>
@@ -1286,7 +1458,7 @@ download_and_extrac 100%[===================&gt;]     632  --.-KB/s    in 0s
 </div>
 </div>
 </div>
-<p>Now let’s load in our dataset, MNIST. We’ll also run a function we defined in the helper function cell above that permutes (scrambles) the images. This allows us to create aditional datasets with similar statictics to MNIST on the fly. We’ll call the normal MNIST Task 1, and the permuted MNIST Task 2. We’ll see why in a second!</p>
+<p>Now let’s load in our dataset, MNIST. We’ll also run a function we defined in the helper function cell above that permutes (scrambles) the images. This allows us to create additional datasets with similar statistics to MNIST on the fly. We’ll call the normal MNIST Task 1, and the permuted MNIST Task 2. We’ll see why in a second!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in MNIST and create an additional permuted dataset</span>
@@ -1341,13 +1513,13 @@ t_test dim and type:  (10000,) int64
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4841</span><span class="o">/</span><span class="mf">1113941798.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4976</span><span class="o">/</span><span class="mf">1113941798.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Training model on </span><span class="si">{</span><span class="n">nEpochs</span><span class="si">}</span><span class="s1"> epochs...'</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nEpochs</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">9</span>   <span class="n">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">DEVICE</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">t_train</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span>   <span class="n">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">DEVICE</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">t_test</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_4841/2281763851.py</span> in <span class="ni">train</span><span class="nt">(model, device, x_train, t_train, optimizer, epoch)</span>
+<span class="nn">/tmp/ipykernel_4976/2281763851.py</span> in <span class="ni">train</span><span class="nt">(model, device, x_train, t_train, optimizer, epoch)</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span>   <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_train</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">):</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">256</span>
 <span class="ne">---&gt; </span><span class="mi">12</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">)</span>
@@ -1403,7 +1575,7 @@ t_test dim and type:  (10000,) int64
 </div>
 </div>
 </div>
-<p>Hey! Training did the trick, task 2 (permuted MNIST) has great accuracy now that we trained the model on it. But something is wrong. We just saw that Task 1 (standard MNIST) had high accuracy before we trained on the new task. What gives? Try to incorperate what you learned in the lecture to help explain the problem we’re seeing. You might also take a few seconds and think of what possible soultions you might like to try. In the next section, we’ll look into exactly that!</p>
+<p>Hey! Training did the trick, task 2 (permuted MNIST) has great accuracy now that we trained the model on it. But something is wrong. We just saw that Task 1 (standard MNIST) had high accuracy before we trained on the new task. What gives? Try to incorporate what you learned in the lecture to help explain the problem we’re seeing. You might also take a few seconds and think of what possible soultions you might like to try. In the next section, we’ll look into exactly that!</p>
 </div>
 </div>
 </div>
@@ -1874,11 +2046,11 @@ Although we don’t have time to demonstrate this, there are no values of lambda
 </div>
 <p>And finally, let’s compare the performance of EWC and Replay on the class-incremental version of Split MNIST in a plot:</p>
 <div class="section" id="plot-ewc-vs-replay">
-<h3>Plot EWC vs replay<a class="headerlink" href="#plot-ewc-vs-replay" title="Permalink to this headline">¶</a></h3>
+<h3>Plot EWC vs. Replay<a class="headerlink" href="#plot-ewc-vs-replay" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Plot EWC vs replay</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">rehe_accs</span><span class="p">,</span> <span class="s1">'-o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Rehearsal"</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Plot EWC vs. Replay</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">rehe_accs</span><span class="p">,</span> <span class="s1">'-o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Replay"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">ewc_accs</span><span class="p">,</span> <span class="s1">'-o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"EWC"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Tasks Encountered'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Average Accuracy'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -1957,7 +2129,7 @@ Although we don’t have time to demonstrate this, there are no values of lambda
 </div>
 <div class="section" id="exercise-4-2-evaluate-your-cl-algorithm">
 <h3>Exercise 4.2: Evaluate your CL algorithm<a class="headerlink" href="#exercise-4-2-evaluate-your-cl-algorithm" title="Permalink to this headline">¶</a></h3>
-<p>You should replace the <code class="docutils literal notranslate"><span class="pre">None</span></code> values with your code. This is the only cell you have to modify :)</p>
+<p>You should replace the ellipses, i.e., <code class="docutils literal notranslate"><span class="pre">...</span></code>, with your code. This is the only cell you have to modify :)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
@@ -1971,7 +2143,11 @@ Although we don’t have time to demonstrate this, there are no values of lambda
 </div>
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W3D4_ContinualLearning/solutions/W3D4_Tutorial1_Solution_77a92249.py"><em>Click for solution</em></a></p>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W3D4_ContinualLearning/solutions/W3D4_Tutorial1_Solution_e1dcd60d.py"><em>Click for solution</em></a></p>
+</div>
+<div class="section" id="think-4-2-performance-metrics">
+<h3>Think! 4.2: Performance metrics<a class="headerlink" href="#think-4-2-performance-metrics" title="Permalink to this headline">¶</a></h3>
+<p>Why we choose a specific number of performance metrics even if we have access to numerous metrics? Why the result matrix has <code class="docutils literal notranslate"><span class="pre">nan</span></code> values?</p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W3D4_ContinualLearning/solutions/W3D4_Tutorial1_Solution_4d78e6d9.py"><em>Click for solution</em></a></p>
 <p>You <strong>don’t</strong> need to modify the next cell, just execute it to see metrics in action!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2007,7 +2183,7 @@ Although we don’t have time to demonstrate this, there are no values of lambda
 <h2>Video 5: Continual Learning Applications<a class="headerlink" href="#video-5-continual-learning-applications" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
 </div>
-<p><strong>CORe50</strong> is an interesting rea-world video dataset composed of 50 domestic objects belonging to 10 different categories and specifically designed for Continual Learning. You can find more information about the dataset and benchmark in its <a class="reference external" href="https://vlomonaco.github.io/core50">official website</a>.</p>
+<p><strong>CORe50</strong> is an interesting real-world video dataset composed of 50 domestic objects belonging to 10 different categories and specifically designed for Continual Learning. You can find more information about the dataset and benchmark in its <a class="reference external" href="https://vlomonaco.github.io/core50">official website</a>.</p>
 <p>Here we will use the <a class="reference external" href="https://avalanche.continualai.org">Avalanche library</a> to automatically download and use this dataset. Avalanche allows you to explore more challenging datasets and tasks to bring your continual learning algorithms into the real-world!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2020,7 +2196,7 @@ Although we don’t have time to demonstrate this, there are no values of lambda
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">avalanche.benchmarks.classic</span> <span class="kn">import</span> <span class="n">CORe50</span>
 <span class="c1"># the scenario "New Instances" (NI) corresponds to the previously introduced</span>
-<span class="c1"># Domain-Incremental setting and its based on the idea of encounterning images</span>
+<span class="c1"># Domain-Incremental setting and it’s based on the idea of encountering images</span>
 <span class="c1"># of the same classes for every incremental batch of data (or experience if you</span>
 <span class="c1"># will). The "mini" option downloads data 32x32 instead of the original 128x128.</span>
 <span class="n">benchmark</span> <span class="o">=</span> <span class="n">CORe50</span><span class="p">(</span><span class="n">dataset_root</span><span class="o">=</span><span class="s2">"/content/core50/"</span><span class="p">,</span> <span class="n">scenario</span><span class="o">=</span><span class="s2">"ni"</span><span class="p">,</span> <span class="n">mini</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2039,7 +2215,7 @@ Although we don’t have time to demonstrate this, there are no values of lambda
 </div>
 <div class="section" id="exercise-5-explore-the-challenging-core50-scenarios">
 <h2>Exercise 5: Explore the challenging CORe50 scenarios!<a class="headerlink" href="#exercise-5-explore-the-challenging-core50-scenarios" title="Permalink to this headline">¶</a></h2>
-<p>CORe50 offers and number of interesting preset scenarios already implemented and available to you through Avalanche.</p>
+<p>CORe50 offers a number of interesting preset scenarios already implemented and available to you through Avalanche.</p>
 <p>In this exercise try to explore the different scenarios offered (like the challenging NICv2-391) and possibly even apply what you’ve previously learned (like a replay approach) to get the best accuracy you can!</p>
 </div>
 </div>

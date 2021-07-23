@@ -778,18 +778,18 @@
     </a>
 <ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry">
-<a class="reference internal nav-link" href="#load-an-original-review">
-       9.1: Load an original review
+<a class="reference internal nav-link" href="#section-9-1-load-an-original-review">
+       Section 9.1: Load an original review
       </a>
 </li>
 <li class="toc-h3 nav-item toc-entry">
-<a class="reference internal nav-link" href="#augment-the-original-review">
-       9.2: Augment the original review
+<a class="reference internal nav-link" href="#section-9-2-augment-the-original-review">
+       Section 9.2: Augment the original review
       </a>
 </li>
 <li class="toc-h3 nav-item toc-entry">
-<a class="reference internal nav-link" href="#check-model-predictions">
-       9.3: Check model predictions
+<a class="reference internal nav-link" href="#section-9-3-check-model-predictions">
+       Section 9.3: Check model predictions
       </a>
 </li>
 </ul>
@@ -1218,8 +1218,8 @@
 <div class="section" id="coding-exercise-2-dot-product-attention">
 <h3>Coding Exercise 2: Dot product attention<a class="headerlink" href="#coding-exercise-2-dot-product-attention" title="Permalink to this headline">¶</a></h3>
 <p>In this exercise, let’s compute the scaled dot product attention using its matrix form.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-584aa264-de8e-4d6e-96a1-02dea5089ccc">
-<span class="eqno">(74)<a class="headerlink" href="#equation-584aa264-de8e-4d6e-96a1-02dea5089ccc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-406d9871-3916-42d7-bd9e-7e9fe6fd3b39">
+<span class="eqno">(74)<a class="headerlink" href="#equation-406d9871-3916-42d7-bd9e-7e9fe6fd3b39" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathrm{softmax} \left( \frac{Q K^\text{T}}{\sqrt{d}} \right) V
 \end{equation}\]</div>
 <p>Note: the function takes an additional argument <code class="docutils literal notranslate"><span class="pre">h</span></code> (number of heads). You can assume it is 1 for now.</p>
@@ -1891,7 +1891,8 @@
                                   <span class="n">num_train_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># students may use 5 to see a full training!</span>
                                   <span class="n">fp16</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                   <span class="n">save_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-                                  <span class="n">logging_steps</span><span class="o">=</span><span class="mi">10</span>
+                                  <span class="n">logging_steps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                  <span class="n">report_to</span><span class="o">=</span><span class="s2">"tensorboard"</span>
                                   <span class="p">)</span>
 </pre></div>
 </div>
@@ -1963,11 +1964,11 @@
 </div>
 <div class="section" id="interactive-demo-9-break-the-model">
 <h2>Interactive Demo 9: Break the model<a class="headerlink" href="#interactive-demo-9-break-the-model" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="load-an-original-review">
-<h3>9.1: Load an original review<a class="headerlink" href="#load-an-original-review" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="section-9-1-load-an-original-review">
+<h3>Section 9.1: Load an original review<a class="headerlink" href="#section-9-1-load-an-original-review" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 9.1: Load an original review</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Section 9.1: Load an original review</span>
 
 <span class="k">def</span> <span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">n"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">)</span>
@@ -1991,11 +1992,11 @@
 </div>
 <p>We can apply various text perturbations to the selected review using the <code class="docutils literal notranslate"><span class="pre">textattack</span></code> python library. This will help us augment the original text to break the model!</p>
 </div>
-<div class="section" id="augment-the-original-review">
-<h3>9.2: Augment the original review<a class="headerlink" href="#augment-the-original-review" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="section-9-2-augment-the-original-review">
+<h3>Section 9.2: Augment the original review<a class="headerlink" href="#section-9-2-augment-the-original-review" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 9.2: Augment the original review</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Section 9.2: Augment the original review</span>
 
 <span class="c1"># @markdown ---</span>
 <span class="c1"># @markdown Word-level Augmentations</span>
@@ -2046,11 +2047,11 @@
 </div>
 <p>We can now check the predictions for the original text and its augmented version! Try to find the perfect combination of perturbations to break the model! (i.e. model giving incorrect prediction for the augmented text)</p>
 </div>
-<div class="section" id="check-model-predictions">
-<h3>9.3: Check model predictions<a class="headerlink" href="#check-model-predictions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="section-9-3-check-model-predictions">
+<h3>Section 9.3: Check model predictions<a class="headerlink" href="#section-9-3-check-model-predictions" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 9.3: Check model predictions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Section 9.3: Check model predictions</span>
 <span class="k">def</span> <span class="nf">getPrediction</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
   <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">"max_length"</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">"pt"</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
