@@ -1036,7 +1036,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f7356322d0774e8a9031895d70c32144"}
+{"version_major": 2, "version_minor": 0, "model_id": "9b0eeb32ce1a4a97aacdebfe85fa69d9"}
 </script></div>
 </div>
 <p>Download MNIST and CIFAR10 image datasets while the above video plays</p>
@@ -1067,133 +1067,6 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
                                   <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">clear_output</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to ./mnist/MNIST/raw/train-images-idx3-ubyte.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download (trying next):
-HTTP Error 503: Service Unavailable
-
-Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz to ./mnist/MNIST/raw/train-images-idx3-ubyte.gz
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "afbda086a08943ac801517dfc2560531"}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting ./mnist/MNIST/raw/train-images-idx3-ubyte.gz to ./mnist/MNIST/raw
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to ./mnist/MNIST/raw/train-labels-idx1-ubyte.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download (trying next):
-HTTP Error 503: Service Unavailable
-
-Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz to ./mnist/MNIST/raw/train-labels-idx1-ubyte.gz
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "c9b1e6e48d504c969fc2dcf41c67f058"}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting ./mnist/MNIST/raw/train-labels-idx1-ubyte.gz to ./mnist/MNIST/raw
-
-Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to ./mnist/MNIST/raw/t10k-images-idx3-ubyte.gz
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "121f91099856467a84fbe4952587bd39"}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4473</span><span class="o">/</span><span class="mf">599051573.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>                           <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>                           <span class="n">transform</span><span class="o">=</span><span class="n">tv</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
-<span class="ne">----&gt; </span><span class="mi">9</span>                           <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">mnist_val</span> <span class="o">=</span> <span class="n">tv</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="s1">'./mnist/'</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>                               <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/mnist.py</span> in <span class="ni">__init__</span><span class="nt">(self, root, train, transform, target_transform, download)</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span> 
-<span class="g g-Whitespace">     </span><span class="mi">86</span>         <span class="k">if</span> <span class="n">download</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">87</span>             <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span> 
-<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_exists</span><span class="p">():</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/mnist.py</span> in <span class="ni">download</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">177</span>                         <span class="n">url</span><span class="p">,</span> <span class="n">download_root</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_folder</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">178</span>                         <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">179</span>                         <span class="n">md5</span><span class="o">=</span><span class="n">md5</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>                     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span>                 <span class="k">except</span> <span class="n">URLError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/utils.py</span> in <span class="ni">download_and_extract_archive</span><span class="nt">(url, download_root, extract_root, filename, md5, remove_finished)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span>         <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span> 
-<span class="ne">--&gt; </span><span class="mi">413</span>     <span class="n">download_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">download_root</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">md5</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span> 
-<span class="g g-Whitespace">    </span><span class="mi">415</span>     <span class="n">archive</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/utils.py</span> in <span class="ni">download_url</span><span class="nt">(url, root, filename, md5, max_redirect_hops)</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>         <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>             <span class="nb">print</span><span class="p">(</span><span class="s1">'Downloading '</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s1">' to '</span> <span class="o">+</span> <span class="n">fpath</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">139</span>             <span class="n">_urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">fpath</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>         <span class="k">except</span> <span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">URLError</span><span class="p">,</span> <span class="ne">IOError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># type: ignore[attr-defined]</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>             <span class="k">if</span> <span class="n">url</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'https'</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/utils.py</span> in <span class="ni">_urlretrieve</span><span class="nt">(url, filename, chunk_size)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>         <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"User-Agent"</span><span class="p">:</span> <span class="n">USER_AGENT</span><span class="p">}))</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>             <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">33</span>                 <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">),</span> <span class="s2">""</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>                     <span class="k">if</span> <span class="ow">not</span> <span class="n">chunk</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>                         <span class="k">break</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/utils.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>         <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"User-Agent"</span><span class="p">:</span> <span class="n">USER_AGENT</span><span class="p">}))</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>             <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">33</span>                 <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">),</span> <span class="s2">""</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>                     <span class="k">if</span> <span class="ow">not</span> <span class="n">chunk</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>                         <span class="k">break</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/http/client.py</span> in <span class="ni">read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>             <span class="c1"># Amount is given, implement using readinto</span>
-<span class="g g-Whitespace">    </span><span class="mi">464</span>             <span class="n">b</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">465</span>             <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">466</span>             <span class="k">return</span> <span class="nb">memoryview</span><span class="p">(</span><span class="n">b</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">467</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/http/client.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">507</span>         <span class="c1"># connection, and the user is reading more bytes than will be provided</span>
-<span class="g g-Whitespace">    </span><span class="mi">508</span>         <span class="c1"># (for example, reading in 1k chunks)</span>
-<span class="ne">--&gt; </span><span class="mi">509</span>         <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">510</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">511</span>             <span class="c1"># Ideally, we would raise IncompleteRead if the content-length</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">589</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span>             <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1235,18 +1108,22 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
 <div class="section" id="video-2-latent-variable-models">
 <h2>Video 2: Latent Variable Models<a class="headerlink" href="#video-2-latent-variable-models" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "2860f747d103485b9a3c25bfd7a9fd6d"}
+</script></div>
 </div>
 </div>
 <div class="section" id="section-2-1-build-a-linear-autoencoder">
 <h2>Section 2.1: Build a linear AutoEncoder<a class="headerlink" href="#section-2-1-build-a-linear-autoencoder" title="Permalink to this headline">¶</a></h2>
 <p>Now we’ll create our first autoencoder. It will reduce images down to <span class="math notranslate nohighlight">\(K\)</span> dimensions. The architecture will be quite simple: the input will be linearly mapped to a single hidden layer with <span class="math notranslate nohighlight">\(K\)</span> units, which will then be linearly mapped back to an output that is the same size as the input:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2c932ce5-fe46-4d58-aede-aa5c8dbf6926">
-<span class="eqno">(75)<a class="headerlink" href="#equation-2c932ce5-fe46-4d58-aede-aa5c8dbf6926" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-284cd520-f288-4bed-95c4-371e85f6c87f">
+<span class="eqno">(75)<a class="headerlink" href="#equation-284cd520-f288-4bed-95c4-371e85f6c87f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} \longrightarrow \mathbf{h} \longrightarrow \mathbf{x'}
 \end{equation}\]</div>
 <p>The loss function we’ll use will simply be mean squared error (MSE) quantifying how well the reconstruction (<span class="math notranslate nohighlight">\(\mathbf{x'}\)</span>) matches the original image (<span class="math notranslate nohighlight">\(\mathbf{x}\)</span>):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d21084c-2b28-41b9-83bc-26fa9cb6e0f2">
-<span class="eqno">(76)<a class="headerlink" href="#equation-4d21084c-2b28-41b9-83bc-26fa9cb6e0f2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-042260c4-500f-4187-8ab4-bb75cc7b92e7">
+<span class="eqno">(76)<a class="headerlink" href="#equation-042260c4-500f-4187-8ab4-bb75cc7b92e7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{MSE}_{Loss} = \sum_{i=1}^{N} ||\mathbf{x}_i - \mathbf{x'}_i||^2_2
 \end{equation}\]</div>
 <p>If all goes well, then the AutoEncoder will learn, <strong>end to end</strong>, a good “encoding” or “compression” of inputs (<span class="math notranslate nohighlight">\(\mathbf{x \longrightarrow h}\)</span>) as well as a good “decoding” (<span class="math notranslate nohighlight">\(\mathbf{h \longrightarrow x'}\)</span>).</p>
@@ -1356,6 +1233,11 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random seed 2021 has been set.
+</pre></div>
+</div>
+</div>
 </div>
 <p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W2D5_GenerativeModels/solutions/W2D5_Tutorial1_Solution_9e2bcbea.py"><em>Click for solution</em></a></p>
 <p><em>Example output:</em></p>
@@ -1378,6 +1260,29 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
                         <span class="n">n_batches</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">my_dataset</span><span class="p">)</span> <span class="o">//</span> <span class="mi">32</span><span class="p">)</span>
 
 <span class="n">pca_encode</span><span class="p">,</span> <span class="n">pca_decode</span> <span class="o">=</span> <span class="n">pca_encoder_decoder</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "a06aaca645c346f1abda03d6ead574aa"}
+</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4447</span><span class="o">/</span><span class="mf">2002945944.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">mu</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="n">image_moments</span><span class="p">((</span><span class="n">im</span> <span class="k">for</span> <span class="n">im</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">),</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>                         <span class="n">n_batches</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">my_dataset</span><span class="p">)</span> <span class="o">//</span> <span class="mi">32</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> 
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">pca_encode</span><span class="p">,</span> <span class="n">pca_decode</span> <span class="o">=</span> <span class="n">pca_encoder_decoder</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+
+<span class="nn">/tmp/ipykernel_4447/3620725537.py</span> in <span class="ni">image_moments</span><span class="nt">(image_batches, n_batches)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">m1</span> <span class="o">=</span> <span class="n">m1</span> <span class="o">+</span> <span class="n">im</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">15</span>     <span class="n">m2</span> <span class="o">=</span> <span class="n">m2</span> <span class="o">+</span> <span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">im</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">n</span> <span class="o">+=</span> <span class="n">b</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>   <span class="n">m1</span><span class="p">,</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">m1</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="n">m2</span><span class="o">/</span><span class="n">n</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1653,22 +1558,22 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
 <ol class="simple">
 <li><p>interpolate the raw pixels, thus:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-2fd90a39-fdcc-4120-8bea-43eebc8fc421">
-<span class="eqno">(77)<a class="headerlink" href="#equation-2fd90a39-fdcc-4120-8bea-43eebc8fc421" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-adf277b2-7ee8-49f3-9e84-6d4e8dd05e80">
+<span class="eqno">(77)<a class="headerlink" href="#equation-adf277b2-7ee8-49f3-9e84-6d4e8dd05e80" title="Permalink to this equation">¶</a></span>\[\begin{equation}
   \mathbf{x}(t) = (1-t) \cdot \mathbf{x}_1 + t \cdot \mathbf{x}_2
   \end{equation}\]</div>
 <ol class="simple">
 <li><p>interpolate their encodings from the <strong>linear</strong> AE, thus:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-d8eeda77-6c96-4f84-af17-5a130f568856">
-<span class="eqno">(78)<a class="headerlink" href="#equation-d8eeda77-6c96-4f84-af17-5a130f568856" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-903aab05-eb43-49b1-8444-7a68f884250f">
+<span class="eqno">(78)<a class="headerlink" href="#equation-903aab05-eb43-49b1-8444-7a68f884250f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x}(t) = \text{linear_decoder}((1-t) \cdot \text{linear_encoder}(\mathbf{x}_1) + t \cdot  \text{linear_encoder}(\mathbf{x}_2))
   \end{equation}\]</div>
 <ol class="simple">
 <li><p>interpolate their encodings from the <strong>nonlinear</strong> AE, thus:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-d7dfd53e-4723-4d37-9a8f-7973caaa38dd">
-<span class="eqno">(79)<a class="headerlink" href="#equation-d7dfd53e-4723-4d37-9a8f-7973caaa38dd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c668bc44-e19e-4252-b2c1-6aca3add21ed">
+<span class="eqno">(79)<a class="headerlink" href="#equation-c668bc44-e19e-4252-b2c1-6aca3add21ed" title="Permalink to this equation">¶</a></span>\[\begin{equation}
   \mathbf{x}(t) = \text{conv_decoder}((1-t) \cdot \text{conv_encoder}(\mathbf{x}_1) + t \cdot  \text{conv_encoder}(\mathbf{x}_2))
   \end{equation}\]</div>
 <p><strong>Note:</strong> this demo will likely look better using MNIST than using CIFAR10. Check with other members of your pod. If you’re using CIFAR10 for this notebook, consider having someone using MNIST share their screen.</p>
@@ -1725,13 +1630,13 @@ Re-run the below cell a few times to look at multiple examples.</p>
 <div class="section" id="section-3-1-generating-novel-images-from-the-decoder">
 <h2>Section 3.1: Generating novel images from the decoder<a class="headerlink" href="#section-3-1-generating-novel-images-from-the-decoder" title="Permalink to this headline">¶</a></h2>
 <p>If we isolate the decoder part of the AutoEncoder, what we have is a neural network that takes as input a vector of size <span class="math notranslate nohighlight">\(K\)</span> and produces as output an image that looks something like our training data. Recall that in our earlier notation, we had an input <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> that was mapped to a low-dimensional hidden representation <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> which was then decoded into a reconstruction of the input, <span class="math notranslate nohighlight">\(\mathbf{x'}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cac6fbc7-17cf-4bd4-93ec-16207d370441">
-<span class="eqno">(80)<a class="headerlink" href="#equation-cac6fbc7-17cf-4bd4-93ec-16207d370441" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fbe211fa-48c0-49b2-aa39-9680f4c3a472">
+<span class="eqno">(80)<a class="headerlink" href="#equation-fbe211fa-48c0-49b2-aa39-9680f4c3a472" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} \overset{\text{encode}}{\longrightarrow} \mathbf{h} \overset{\text{decode}}{\longrightarrow} \mathbf{x'}\, .
 \end{equation}\]</div>
 <p>Partly as a matter of convention, and partly to distinguish where we are going next from the previous section, we’re going to introduce a new variable, <span class="math notranslate nohighlight">\(\mathbf{z} \in \mathbb{R}^K\)</span>, which will take the place of <span class="math notranslate nohighlight">\(\mathbf{h}\)</span>. The key difference is that while <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> is produced by the encoder for a particular <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> will be drawn out of thin air from a prior of our choosing:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-97522888-97b9-4ad7-a743-db83df3ca124">
-<span class="eqno">(81)<a class="headerlink" href="#equation-97522888-97b9-4ad7-a743-db83df3ca124" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-eded8ff8-ca99-48ba-961e-ebd2d3669d86">
+<span class="eqno">(81)<a class="headerlink" href="#equation-eded8ff8-ca99-48ba-961e-ebd2d3669d86" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathbf{z} &amp;\sim p(\mathbf{z})\\
 \mathbf{z} &amp;\overset{\text{decode}}{\longrightarrow} \mathbf{x}\, .
 \end{align}\]</div>
@@ -1798,26 +1703,26 @@ Re-run the below cell a few times to look at multiple examples.</p>
 <h3>Recognition models and density networks<a class="headerlink" href="#recognition-models-and-density-networks" title="Permalink to this headline">¶</a></h3>
 <p>Variational AutoEncoders (VAEs) are a lot like the classic AutoEncoders (AEs) you just saw, but where we explicitly think about probability distributions. In the language of VAEs, the <strong>encoder</strong> is replaced with a <strong>recognition model</strong>, and the <strong>decoder</strong> is replaced with a <strong>density network</strong>.</p>
 <p>Where in a classic autoencoder the encoder maps from images to a single hidden vector,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8dd7056-9d81-494b-a470-1d518e2796dd">
-<span class="eqno">(82)<a class="headerlink" href="#equation-c8dd7056-9d81-494b-a470-1d518e2796dd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-209d02ef-62f3-4875-8007-c56c3a88511d">
+<span class="eqno">(82)<a class="headerlink" href="#equation-209d02ef-62f3-4875-8007-c56c3a88511d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} \overset{\text{AE}}{\longrightarrow} \mathbf{h} \, ,
 \end{equation}\]</div>
 <p>in a VAE we would say that a recognition model maps from inputs to entire <strong>distributions</strong> over hidden vectors,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-68f6e833-e979-427e-b33c-a2068b64f923">
-<span class="eqno">(83)<a class="headerlink" href="#equation-68f6e833-e979-427e-b33c-a2068b64f923" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b35d513a-76cb-4d61-a6cd-dfe7be670516">
+<span class="eqno">(83)<a class="headerlink" href="#equation-b35d513a-76cb-4d61-a6cd-dfe7be670516" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} \overset{\text{VAE}}{\longrightarrow} q(\mathbf{z}) \, ,
 \end{equation}\]</div>
 <p>which we will then sample from.
 We’ll say more in a moment about what kind of distribution <span class="math notranslate nohighlight">\(q(\mathbf{z})\)</span> is.
 Part of what makes VAEs work is that the loss function will require good reconstructions of the input not just for a single <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>, but <em>on average</em> from samples of <span class="math notranslate nohighlight">\(\mathbf{z} \sim q(\mathbf{z})\)</span>.</p>
 <p>In the classic autoencoder, we had a decodebeginr which maps from hidden vectors to reconstructions of the input:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-68a90a7c-8231-46ae-aa48-4aab474dee75">
-<span class="eqno">(84)<a class="headerlink" href="#equation-68a90a7c-8231-46ae-aa48-4aab474dee75" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb88ebda-17a9-49dd-8c21-f872c95e366d">
+<span class="eqno">(84)<a class="headerlink" href="#equation-cb88ebda-17a9-49dd-8c21-f872c95e366d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{h} \overset{\text{AE}}{\longrightarrow} \mathbf{x'} \, .
 \end{equation}\]</div>
 <p>In a density network, reconstructions are expressed in terms of a distribution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-13f55d82-267d-4bae-9004-3412be67bfd4">
-<span class="eqno">(85)<a class="headerlink" href="#equation-13f55d82-267d-4bae-9004-3412be67bfd4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-16f18eee-d8c5-4927-98d1-12e739bfdbdf">
+<span class="eqno">(85)<a class="headerlink" href="#equation-16f18eee-d8c5-4927-98d1-12e739bfdbdf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{z} \overset{\text{VAE}}{\longrightarrow} p(\mathbf{x}|\mathbf{z};\mathbf{w})
 \end{equation}\]</div>
 <p>where, as above, <span class="math notranslate nohighlight">\(p(\mathbf{x}|\mathbf{z};\mathbf{w})\)</span> is defined by mapping <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> through a density network then treating the resulting <span class="math notranslate nohighlight">\(f(\mathbf{z};\mathbf{w})\)</span> as the mean of a (Gaussian) distribution over <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p>
@@ -1827,13 +1732,13 @@ Part of what makes VAEs work is that the loss function will require good reconst
 <p>How can a neural network (the <strong>recognition model</strong>) output an entire probability distribution $<span class="math notranslate nohighlight">\(\mathbf{x} \longrightarrow q(\mathbf{z}) \, ?\)</span><span class="math notranslate nohighlight">\(
 One idea would be to make the weights of the neural network stochastic, so that every time the network is run, a different \)</span>\mathbf{z}$ is produced. (In fact, this is quite common in <a class="reference external" href="https://medium.com/neuralspace/bayesian-neural-network-series-post-1-need-for-bayesian-networks-e209e66b70b2">Bayesian Neural Networks</a>, but this isn’t what people use in VAEs.)</p>
 <p>Instead, we will start by committing to a particular <em>family</em> of distributions. We’ll then have the recognition model output the <em>parameters</em> of <span class="math notranslate nohighlight">\(q\)</span>, which we’ll call <span class="math notranslate nohighlight">\(\phi\)</span>. A common choice, which we will use throughout, is the family of isotropic multivariate Gaussians (spherical or isotropic: <span class="math notranslate nohighlight">\(\mathbf{\Sigma} = \sigma^2 ~ \mathbf{I}\)</span>) <span class="math notranslate nohighlight">\(^\dagger\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b3dab20b-d3ef-43a2-831e-6ef4387a0632">
-<span class="eqno">(86)<a class="headerlink" href="#equation-b3dab20b-d3ef-43a2-831e-6ef4387a0632" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c2ea2d86-8ac0-4d9a-bf6d-fe03a0649887">
+<span class="eqno">(86)<a class="headerlink" href="#equation-c2ea2d86-8ac0-4d9a-bf6d-fe03a0649887" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 q(\mathbf{z};\phi) = \mathcal{N}(\mathbf{z};\boldsymbol{\mu},\sigma^2\mathbf{I}_K) = \prod_{k=1}^K \mathcal{N}(z_k; \mu_k, \sigma^2)
 \end{equation}\]</div>
 <p>where the <span class="math notranslate nohighlight">\(K+1\)</span> parameters are<span class="math notranslate nohighlight">\(^{\dagger \dagger}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6dde221-797e-41df-a677-5b4ff315d9f7">
-<span class="eqno">(87)<a class="headerlink" href="#equation-e6dde221-797e-41df-a677-5b4ff315d9f7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-14ddc120-2e23-41c0-8de5-74d404ef58c0">
+<span class="eqno">(87)<a class="headerlink" href="#equation-14ddc120-2e23-41c0-8de5-74d404ef58c0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \phi = \lbrace{\mu_1, \mu_2, \ldots, \mu_K, \log(\sigma)}\rbrace \, .
 \end{equation}\]</div>
 <p>By defining the last entry of <span class="math notranslate nohighlight">\(\phi\)</span> as the <em>logarithm</em> of <span class="math notranslate nohighlight">\(\sigma\)</span>, the last entry can be any real number while enforcing the requirement that <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span>.</p>
@@ -1841,8 +1746,8 @@ q(\mathbf{z};\phi) = \mathcal{N}(\mathbf{z};\boldsymbol{\mu},\sigma^2\mathbf{I}_
 <hr class="docutils"/>
 <p><span class="math notranslate nohighlight">\(^\dagger\)</span> PyTorch has a <code class="docutils literal notranslate"><span class="pre">MultivariateNormal</span></code> class which handles multivariate Gaussian distributions with arbitrary covariance matrices. It is not very beginner-friendly, though, so we will write our own functions to work with <span class="math notranslate nohighlight">\(\phi\)</span>, which will both teach you some implementation details and is not very hard especially if we use only an isotropic (<span class="math notranslate nohighlight">\(\sigma\)</span>) or diagonal <span class="math notranslate nohighlight">\(\left( \lbrace{\sigma_1, \ldots, \sigma_K}\rbrace \right)\)</span> covariance</p>
 <p><span class="math notranslate nohighlight">\(^{\dagger \dagger}\)</span> Another common parameterization is to use a separate <span class="math notranslate nohighlight">\(\sigma\)</span> for each dimension of <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>, in which case <span class="math notranslate nohighlight">\(\phi\)</span> would instead contain <span class="math notranslate nohighlight">\(2K\)</span> parameters:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-20accf44-a04a-4604-a33e-9fb4fb58e5d3">
-<span class="eqno">(88)<a class="headerlink" href="#equation-20accf44-a04a-4604-a33e-9fb4fb58e5d3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-311b877b-7b2a-477d-a38a-e1c7b9b65846">
+<span class="eqno">(88)<a class="headerlink" href="#equation-311b877b-7b2a-477d-a38a-e1c7b9b65846" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \phi = \lbrace{\mu_1, \mu_2, \ldots, \mu_K, \log(\sigma_1), \ldots, \log(\sigma_K)}\rbrace \, .
 \end{equation}\]</div>
 <div class="cell docutils container">

@@ -32,8 +32,9 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['def run_poly_clasification(poly_degree, device, seed):', '', '  def make_poly_features(poly_degree, X):', '    # Define the number of polynomial features except the bias term', '    num_features = (poly_degree + 1)*(poly_degree + 2) // 2 - 1']
-...
-['', 'set_seed(seed=SEED)', 'max_poly_degree = 50', 'num_features = run_poly_clasification(max_poly_degree, DEVICE, SEED)', "print('Number of features: %d'%num_features)"]
+# @title Download and unzip the dataset
+
+!wget -q http://mmlab.ie.cuhk.edu.hk/projects/TCDCN/data/MTFL.zip
+!unzip -q /content/MTFL.zip
 -------------------
 
