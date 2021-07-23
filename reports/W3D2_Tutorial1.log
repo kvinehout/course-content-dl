@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['def load_mnist_data(change_tensors=False, download=True):', '  """Load training and test examples for the MNIST digits dataset', '', '  Returns:', '    train_data (tensor): training input tensor of size (train_size x 784)']
+['# @title Install requirements', '', '# @markdown we install the acme library, see [here](https://github.com/deepmind/acme) for more info', '!sudo apt-get install -y xvfb ffmpeg --quiet', '!pip install einops --quiet']
 ...
-['', '  return train_set, test_set', '', '', 'train_set, test_set = load_mnist_data(change_tensors=True)']
+['!pip install dm-sonnet --quiet', '!pip install typing --quiet', '', 'from IPython.display import clear_output', 'clear_output']
 -------------------
 

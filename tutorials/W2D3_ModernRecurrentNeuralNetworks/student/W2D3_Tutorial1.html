@@ -397,6 +397,23 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/chapter_title.html">
+   Basic Reinforcement Learning (W3D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+<label for="toctree-checkbox-15">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_BasicReinforcementLearning/student/W3D2_Tutorial1.html">
+     Tutorial 1: Introduction to Reinforcement Learning
+    </a>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </nav> <!-- To handle the deprecated key -->
@@ -1178,18 +1195,18 @@
 and that the <em>system</em> transitions between these states with some probability at each time step <span class="math notranslate nohighlight">\(t\)</span>,
 thus generating a sequence of states over time.
 Let’s call these states <span class="math notranslate nohighlight">\(S\)</span>, where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50eea810-a1dc-4f44-8638-40f9060395c2">
-<span class="eqno">(53)<a class="headerlink" href="#equation-50eea810-a1dc-4f44-8638-40f9060395c2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-63d2bc37-fee6-4559-8378-2e8fea73327f">
+<span class="eqno">(53)<a class="headerlink" href="#equation-63d2bc37-fee6-4559-8378-2e8fea73327f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 S = \{s_1, s_2, ..., s_n\}
 \end{equation}\]</div>
 <p>To keep things simple, let’s start with three states:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b39c791-b129-42ed-ac1a-2496cb85be14">
-<span class="eqno">(54)<a class="headerlink" href="#equation-9b39c791-b129-42ed-ac1a-2496cb85be14" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-55db8dd0-04e3-4e0a-a761-d71f396ab75a">
+<span class="eqno">(54)<a class="headerlink" href="#equation-55db8dd0-04e3-4e0a-a761-d71f396ab75a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 S = \{s_1, s_2, s_3\}
 \end{equation}\]</div>
 <p>A Markov model generates a sequence of states, with one possible realization being:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-09488b60-6b9f-4af1-8588-93bdaf356ee8">
-<span class="eqno">(55)<a class="headerlink" href="#equation-09488b60-6b9f-4af1-8588-93bdaf356ee8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fa6f5d5f-1d9d-42dd-b13e-787876c42b2d">
+<span class="eqno">(55)<a class="headerlink" href="#equation-fa6f5d5f-1d9d-42dd-b13e-787876c42b2d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \{s_1, s_1, s_1, s_3, s_3, s_3, s_2, s_2, s_3, s_3, s_3, s_3, s_1, ...\}
 \end{equation}\]</div>
 <p>And generically, we represent it as a sequence of states <span class="math notranslate nohighlight">\(x_t, x_{t+1}... x_{t+n}\)</span>. (We have chosen a different symbol to not confuse the “generic” state with the specific realization. Graphically, a plain and simple Markov model looks like the following:</p>
@@ -1206,8 +1223,8 @@ The symbol etymology, which usually gets swept under the rug in mathematically-o
 <li><p><span class="math notranslate nohighlight">\(transition\)</span> doesn’t refer to time but simply indicates that it is for transitioning states,</p></li>
 <li><p><span class="math notranslate nohighlight">\(P\)</span> is used because it is a probability matrix.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-6f348c69-19b8-41d2-9079-b4ecba8810ee">
-<span class="eqno">(56)<a class="headerlink" href="#equation-6f348c69-19b8-41d2-9079-b4ecba8810ee" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-abb656ce-47b6-401b-b4d7-f611a5f0c850">
+<span class="eqno">(56)<a class="headerlink" href="#equation-abb656ce-47b6-401b-b4d7-f611a5f0c850" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P_{transition} = 
   \begin{pmatrix}
   p_{11} &amp; p_{12} &amp; p_{13} \\
