@@ -1310,7 +1310,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f8d311f48ce8449481f8ec1063cf6d8a"}
+{"version_major": 2, "version_minor": 0, "model_id": "a969a3b29f154c9997235b99c2cae652"}
 </script></div>
 </div>
 </div>
@@ -1344,7 +1344,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f9294335f05a4a30a16a9f81710ef1b0"}
+{"version_major": 2, "version_minor": 0, "model_id": "3bc6fb7460ef4c58a6a5df3f26b351f4"}
 </script></div>
 </div>
 </div>
@@ -1363,6 +1363,9 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unzip:  cannot find or open /content/MTFL.zip, /content/MTFL.zip.zip or /content/MTFL.zip.ZIP.
 </pre></div>
 </div>
@@ -1810,8 +1813,8 @@ Complete the <code class="docutils literal notranslate"><span class="pre">forwar
 <p>The algorithm does not favour either of the outcomes, so <span class="math notranslate nohighlight">\(P(cancer) = P(no\_cancer) = .5\)</span></p>
 <p>You wish to find the most important feature according to the model and you have the following list of conditional probabilities.</p>
 <p>\</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc5f4081-fd0e-4da9-8f7d-c4f7e2328967">
-<span class="eqno">(90)<a class="headerlink" href="#equation-cc5f4081-fd0e-4da9-8f7d-c4f7e2328967" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cd023924-d6f6-447d-a7bb-139070d62ab6">
+<span class="eqno">(90)<a class="headerlink" href="#equation-cd023924-d6f6-447d-a7bb-139070d62ab6" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(family\_history = 1  | no\_cancer) = .1 &amp;, P(family\_history = 1 | cancer) = .9 \\
 P(smoker = 1 | no\_cancer) = .05 &amp;, P(smoker = 1| cancer) = .8 \\
 P(young = 1 | no\_cancer) = .01 &amp;, P(young = 1 | cancer) = .71
@@ -1850,8 +1853,8 @@ P(young = 1 | no\_cancer) = .01 &amp;, P(young = 1 | cancer) = .71
 <p>Let’s assume that we wish to find the K best features. We know that a set of K features would be most important if they can predict the outcome with high confidence and better than any other set of the same size! We could hence try to predict the outcome using only the given set of features and record the accuracy. If this accuracy is higher than that using any other set of the same size, then we can say that the given set has the most important K features!</p>
 <p>In essence, we would want to find the accuracies considering all feature sets of size K and then pick the one with the highest accuracy.</p>
 <p>If we wish to define a loss instead (the lower the better), we could simply extend the above notion as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a8bd399-3fc2-4a83-8295-d13c9d377242">
-<span class="eqno">(91)<a class="headerlink" href="#equation-6a8bd399-3fc2-4a83-8295-d13c9d377242" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1b645ccc-76d2-41c3-92e2-b71a795f4c8f">
+<span class="eqno">(91)<a class="headerlink" href="#equation-1b645ccc-76d2-41c3-92e2-b71a795f4c8f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 Loss = 1 - Accuracy
 \end{equation}\]</div>
 </div>
