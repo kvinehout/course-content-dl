@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# @markdown ### Load a sample dataset', '# Load the data', 'mnist_train = datasets.EMNIST(root="./datasets", train=True,', '                              transform=transforms.ToTensor(),', "                              download=True, split='letters')"]
+['#to remove solution', 'def simpleFunGPU(dim, device):', '  """', '  Args:', '    dim: integer']
 ...
-['                                           generator=g_seed)', 'test_loader = torch.utils.data.DataLoader(mnist_test, batch_size=100,', '                                          shuffle=False,', '                                          worker_init_fn=seed_worker,', '                                          generator=g_seed)']
+['', '', '## TODO: Implement the function above and uncomment the following lines to test your code', 'timeFun(f=simpleFun, dim=dim, iterations=iterations, device=DEVICE)', 'timeFun(f=simpleFunGPU, dim=dim, iterations=iterations, device=DEVICE)']
 -------------------
 

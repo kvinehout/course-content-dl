@@ -32,9 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-# @title Download and unzip the dataset
-
-!wget -q http://mmlab.ie.cuhk.edu.hk/projects/TCDCN/data/MTFL.zip
-!unzip -q /content/MTFL.zip
+['# @title Clone a repo from github and import modules', '# @markdown Run this cell!', '!git clone https://github.com/raymondchua/nma_rl_games.git', '', 'import sys']
+...
+['', 'from othello.OthelloPlayers import *', 'from othello.OthelloLogic import Board', 'from othello.OthelloGame import OthelloGame', 'from othello.pytorch.NNet import NNetWrapper as NNet']
 -------------------
 
