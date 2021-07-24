@@ -303,6 +303,11 @@
      Tutorial 1: Learn how to use modern convnets
     </a>
 </li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_ModernConvnets/student/W2D2_Tutorial2.html">
+     Tutorial 2: Facial recognition using modern convnets
+    </a>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 has-children">
@@ -757,7 +762,7 @@
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "3650cf7824394948945aeb849e73e0ac"}
+{"version_major": 2, "version_minor": 0, "model_id": "66a42ae81870446194e7b1daf00fb187"}
 </script></div>
 </div>
 </div>
@@ -1038,7 +1043,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading and unpacking MNIST data. Please wait a moment...
 
---2021-07-24 00:59:51--  http://www.di.ens.fr/~lelarge/MNIST.tar.gz
+--2021-07-24 01:25:32--  http://www.di.ens.fr/~lelarge/MNIST.tar.gz
 Resolving www.di.ens.fr (www.di.ens.fr)... 
 </pre></div>
 </div>
@@ -1052,7 +1057,7 @@ HTTP request sent, awaiting response...
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>302 Found
 Location: https://www.di.ens.fr/~lelarge/MNIST.tar.gz [following]
---2021-07-24 00:59:52--  https://www.di.ens.fr/~lelarge/MNIST.tar.gz
+--2021-07-24 01:25:32--  https://www.di.ens.fr/~lelarge/MNIST.tar.gz
 Connecting to www.di.ens.fr (www.di.ens.fr)|129.199.99.14|:443... 
 </pre></div>
 </div>
@@ -1070,34 +1075,226 @@ Saving to: ‘MNIST.tar.gz’
 MNIST.tar.gz            [&lt;=&gt;                 ]       0  --.-KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]  79.69K   328KB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]  23.40K   107KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ] 773.36K  1.54MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ]  51.12K   117KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ]   3.96M  5.73MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ]  78.21K   120KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ]   8.88M  9.98MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ] 105.56K   121KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ]  13.66M  12.5MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ] 138.65K   127KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ]  18.57M  14.4MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ] 171.38K   131KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ]  23.40M  15.7MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ] 209.34K   137KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ]  28.26M  16.7MB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ] 247.74K   142KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ]  33.19M  17.6MB/s               
-MNIST.tar.gz            [          &lt;=&gt;       ]  33.20M  17.6MB/s    in 1.9s    
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ] 291.07K   149KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [          &lt;=&gt;       ] 334.56K   154KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [           &lt;=&gt;      ] 379.94K   159KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [            &lt;=&gt;     ] 430.48K   164KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [             &lt;=&gt;    ] 484.27K   171KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [              &lt;=&gt;   ] 540.30K   177KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [               &lt;=&gt;  ] 599.33K   183KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                &lt;=&gt; ] 659.20K   189KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                 &lt;=&gt;] 724.09K   195KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                &lt;=&gt; ] 790.55K   201KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [               &lt;=&gt;  ] 857.38K   207KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [              &lt;=&gt;   ] 927.72K   213KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [             &lt;=&gt;    ] 997.80K   223KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [            &lt;=&gt;     ]   1.05M   234KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [           &lt;=&gt;      ]   1.12M   246KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [          &lt;=&gt;       ]   1.21M   259KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ]   1.29M   271KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ]   1.37M   283KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ]   1.46M   296KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ]   1.55M   308KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ]   1.65M   320KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ]   1.74M   339KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ]   1.84M   351KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ]   1.94M   363KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]   2.04M   380KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [&lt;=&gt;                 ]   2.15M   393KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]   2.26M   406KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ]   2.39M   430KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ]   2.53M   443KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ]   2.69M   473KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ]   2.87M   510KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ]   3.07M   543KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ]   3.29M   582KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ]   3.52M   640KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ]   3.76M   689KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [          &lt;=&gt;       ]   4.05M   748KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [           &lt;=&gt;      ]   4.36M   802KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [            &lt;=&gt;     ]   4.70M   890KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [             &lt;=&gt;    ]   5.07M   974KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [              &lt;=&gt;   ]   5.47M  1.02MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [               &lt;=&gt;  ]   5.91M  1.14MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                &lt;=&gt; ]   6.38M  1.25MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                 &lt;=&gt;]   6.90M  1.35MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [                &lt;=&gt; ]   7.45M  1.49MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [               &lt;=&gt;  ]   8.05M  1.61MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [              &lt;=&gt;   ]   8.70M  1.74MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [             &lt;=&gt;    ]   9.39M  1.92MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [            &lt;=&gt;     ]  10.13M  2.07MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [           &lt;=&gt;      ]  10.93M  2.27MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [          &lt;=&gt;       ]  11.78M  2.43MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [         &lt;=&gt;        ]  12.69M  2.60MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [        &lt;=&gt;         ]  13.66M  2.78MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [       &lt;=&gt;          ]  14.69M  3.03MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [      &lt;=&gt;           ]  15.80M  3.23MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ]  16.97M  3.44MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ]  18.21M  3.73MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ]  19.53M  3.97MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ]  20.93M  4.20MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]  22.41M  4.54MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [&lt;=&gt;                 ]  23.98M  4.81MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [ &lt;=&gt;                ]  25.62M  5.07MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [  &lt;=&gt;               ]  27.37M  5.45MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [   &lt;=&gt;              ]  29.21M  5.76MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [    &lt;=&gt;             ]  31.15M  6.04MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST.tar.gz            [     &lt;=&gt;            ]  33.19M  6.48MB/s               
+MNIST.tar.gz            [      &lt;=&gt;           ]  33.20M  6.49MB/s    in 16s     
 
-2021-07-24 00:59:54 (17.6 MB/s) - ‘MNIST.tar.gz’ saved [34813078]
+2021-07-24 01:25:48 (2.09 MB/s) - ‘MNIST.tar.gz’ saved [34813078]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNIST/
@@ -1127,7 +1324,7 @@ MNIST/processed/training.pt
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>URL transformed to HTTPS due to an HSTS policy
---2021-07-24 00:59:55--  https://raw.githubusercontent.com/ContinualAI/colab/master/scripts/download_and_extract_core50_mini.sh
+--2021-07-24 01:25:50--  https://raw.githubusercontent.com/ContinualAI/colab/master/scripts/download_and_extract_core50_mini.sh
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.111.133, ...
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
 HTTP request sent, awaiting response... 
@@ -1141,12 +1338,12 @@ Saving to: ‘download_and_extract_core50_mini.sh’
           download_   0%[                    ]       0  --.-KB/s               
 download_and_extrac 100%[===================&gt;]     632  --.-KB/s    in 0s      
 
-2021-07-24 00:59:55 (30.9 MB/s) - ‘download_and_extract_core50_mini.sh’ saved [632/632]
+2021-07-24 01:25:50 (31.7 MB/s) - ‘download_and_extract_core50_mini.sh’ saved [632/632]
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4869</span><span class="o">/</span><span class="mf">586937735.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_5110</span><span class="o">/</span><span class="mf">586937735.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="c1"># this lines of code will download core50 in background. We suggest to run it at the start of the notebook</span>
 <span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'wget http://raw.githubusercontent.com/ContinualAI/colab/master/scripts/download_and_extract_core50_mini.sh'</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">68</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'nohup sh download_and_extract_core50_mini.sh &amp;'</span><span class="p">)</span>
@@ -1175,7 +1372,7 @@ download_and_extrac 100%[===================&gt;]     632  --.-KB/s    in 0s
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f67c3a21fced41049ca7e5e1cb265518"}
+{"version_major": 2, "version_minor": 0, "model_id": "06cd740e4fd34b0fb7eb440992dbecb6"}
 </script></div>
 </div>
 <p>Here we’ll explore catastrophic forgetting first hand, a key barrier preventing continual learning in neural networks. To do so, we’ll build a simple network model and try our best to teach it the trusty MNIST dataset</p>
@@ -1337,13 +1534,13 @@ t_test dim and type:  (10000,) int64
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4869</span><span class="o">/</span><span class="mf">1113941798.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_5110</span><span class="o">/</span><span class="mf">1113941798.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Training model on </span><span class="si">{</span><span class="n">nEpochs</span><span class="si">}</span><span class="s1"> epochs...'</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nEpochs</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">9</span>   <span class="n">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">DEVICE</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">t_train</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span>   <span class="n">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">DEVICE</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">t_test</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_4869/2281763851.py</span> in <span class="ni">train</span><span class="nt">(model, device, x_train, t_train, optimizer, epoch)</span>
+<span class="nn">/tmp/ipykernel_5110/2281763851.py</span> in <span class="ni">train</span><span class="nt">(model, device, x_train, t_train, optimizer, epoch)</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span>   <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_train</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">):</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">256</span>
 <span class="ne">---&gt; </span><span class="mi">12</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">)</span>
