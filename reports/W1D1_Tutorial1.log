@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# Print trainig stats every LOG_FREQ minibatches', 'LOG_FREQ = 200', '', '# Frequency for evaluating the validation metrics', 'VAL_FREQ = 200']
+['#to remove solution', 'def simpleFunGPU(dim, device):', '  """', '  Args:', '    dim: integer']
 ...
-['    running_acc += acc.cpu().item()', '    if batch_id % LOG_FREQ == (LOG_FREQ-1): # Print every LOG_FREQ minibatches', "      print('[TRAIN] Epoch %d - Batch %d - Loss: %.3f - Acc: %.3f' %", '            (epoch + 1, batch_id + 1, running_loss / LOG_FREQ, 100 * running_acc / LOG_FREQ))', '      running_loss, running_acc = 0., 0.']
+['', '', '## TODO: Implement the function above and uncomment the following lines to test your code', 'timeFun(f=simpleFun, dim=dim, iterations=iterations, device=DEVICE)', 'timeFun(f=simpleFunGPU, dim=dim, iterations=iterations, device=DEVICE)']
 -------------------
 
