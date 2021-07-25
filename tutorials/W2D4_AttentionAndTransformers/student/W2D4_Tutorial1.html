@@ -923,6 +923,12 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
 <span class="-Color -Color-Red">ERROR: Operation cancelled by user</span>
+<span class="-Color -Color-Yellow">WARNING: You are using pip version 21.1.3; however, version 21.2.1 is available.</span>
+<span class="-Color -Color-Yellow">You should consider upgrading via the '/opt/hostedtoolcache/Python/3.7.11/x64/bin/python -m pip install --upgrade pip' command.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class="-Color -Color-Yellow">WARNING: You are using pip version 21.1.3; however, version 21.2.1 is available.</span>
+<span class="-Color -Color-Yellow">You should consider upgrading via the '/opt/hostedtoolcache/Python/3.7.11/x64/bin/python -m pip install --upgrade pip' command.</span>
 </pre></div>
 </div>
 </div>
@@ -1218,8 +1224,8 @@
 <div class="section" id="coding-exercise-2-dot-product-attention">
 <h3>Coding Exercise 2: Dot product attention<a class="headerlink" href="#coding-exercise-2-dot-product-attention" title="Permalink to this headline">¶</a></h3>
 <p>In this exercise, let’s compute the scaled dot product attention using its matrix form.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ac4844b-d43d-4cb3-9463-19211dda681e">
-<span class="eqno">(81)<a class="headerlink" href="#equation-7ac4844b-d43d-4cb3-9463-19211dda681e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bf4ec30f-2b00-4e91-9d40-5c157da80e0e">
+<span class="eqno">(81)<a class="headerlink" href="#equation-bf4ec30f-2b00-4e91-9d40-5c157da80e0e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathrm{softmax} \left( \frac{Q K^\text{T}}{\sqrt{d}} \right) V
 \end{equation}\]</div>
 <p>Note: the function takes an additional argument <code class="docutils literal notranslate"><span class="pre">h</span></code> (number of heads). You can assume it is 1 for now.</p>
