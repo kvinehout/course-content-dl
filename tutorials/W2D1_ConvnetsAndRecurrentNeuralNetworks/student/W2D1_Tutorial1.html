@@ -1095,7 +1095,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "ccae0f8bc937483aa292e7e626d50d47"}
+{"version_major": 2, "version_minor": 0, "model_id": "5b97195aa1554bed82175bc93ba28e73"}
 </script></div>
 </div>
 </div>
@@ -1119,7 +1119,7 @@ What do you notice?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "70d0e67b11a44f7da37b2770990c501c"}
+{"version_major": 2, "version_minor": 0, "model_id": "07bd2af1f8344f6ca8daa8371d226fab"}
 </script></div>
 </div>
 </div>
@@ -1140,7 +1140,7 @@ What do you notice?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "138b607ca0b740f08f9d36b02597e69e"}
+{"version_major": 2, "version_minor": 0, "model_id": "080f84a7dbfb4a39b2b6afbe89e42104"}
 </script></div>
 </div>
 <p>Before jumping into coding exercises, take a moment to look at this animation that steps through the process of convolution.</p>
@@ -1913,7 +1913,7 @@ dom_target.querySelector(".play_fast").onchange = ()=&gt;{init()}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> "/tmp/ipykernel_3895/1723788140.py"</span><span class="gt">, line </span><span class="mi">3</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> "/tmp/ipykernel_3859/1723788140.py"</span><span class="gt">, line </span><span class="mi">3</span>
     <span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1932,8 +1932,8 @@ dom_target.querySelector(".play_fast").onchange = ()=&gt;{init()}
 <div class="section" id="coding-exercise-2-1-convolution-of-a-simple-kernel">
 <h2>Coding Exercise 2.1: Convolution of a Simple Kernel<a class="headerlink" href="#coding-exercise-2-1-convolution-of-a-simple-kernel" title="Permalink to this headline">¶</a></h2>
 <p>At its core, convolution is just repeatedly multiplying a matrix, known as a <em>kernel</em> or <em>filter</em>, with some other, larger matrix (in our case the pixels of an image). Consider the below image and kernel:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c944e53a-5b4d-4e4c-ad01-e06066657576">
-<span class="eqno">(54)<a class="headerlink" href="#equation-c944e53a-5b4d-4e4c-ad01-e06066657576" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-11edb51f-9647-44fe-9b8d-0f25412e89cd">
+<span class="eqno">(54)<a class="headerlink" href="#equation-11edb51f-9647-44fe-9b8d-0f25412e89cd" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \textbf{Image} &amp;= 
 \begin{bmatrix}0 &amp; 200 &amp; 200 \\0 &amp; 0 &amp; 200 \\ 0 &amp; 0 &amp; 0  
 \end{bmatrix} \\ \\
@@ -2101,9 +2101,9 @@ dom_target.querySelector(".play_fast").onchange = ()=&gt;{init()}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-07-25 12:39:34--  https://raw.githubusercontent.com/dem1995/generally_available_files/main/chicago_skyline_shrunk_v2.bmp
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.109.133, 185.199.108.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-07-25 17:02:53--  https://raw.githubusercontent.com/dem1995/generally_available_files/main/chicago_skyline_shrunk_v2.bmp
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
 HTTP request sent, awaiting response... 
 </pre></div>
 </div>
@@ -2113,9 +2113,11 @@ Saving to: ‘chicago_skyline_shrunk_v2.bmp’
 
 
           chicago_s   0%[                    ]       0  --.-KB/s               
-chicago_skyline_shr 100%[===================&gt;] 789.15K  --.-KB/s    in 0.03s   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chicago_skyline_shr 100%[===================&gt;] 789.15K  --.-KB/s    in 0.03s   
 
-2021-07-25 12:39:34 (30.6 MB/s) - ‘chicago_skyline_shrunk_v2.bmp’ saved [808090/808090]
+2021-07-25 17:02:54 (28.3 MB/s) - ‘chicago_skyline_shrunk_v2.bmp’ saved [808090/808090]
 </pre></div>
 </div>
 </div>
@@ -3717,8 +3719,8 @@ tensor([[[[ 0.,  3.,  8.,  4.],
 <div class="section" id="think-2-2-edge-detection">
 <h3>Think! 2.2: Edge Detection<a class="headerlink" href="#think-2-2-edge-detection" title="Permalink to this headline">¶</a></h3>
 <p>One of the simpler tasks performed by a convolutional layer is edge detection; that is, finding a place in the image where there is a large and abrupt change in color. Edge-detecting filters are usually learned by the first layers in a CNN. Observe the following simple kernel and discuss whether this will detect vertical edges (where the trace of the edge is vertical; i.e. there is a boundary between left and right), or whether it will detect horizontal edges (where the trace of the edge is horizontal; i.e., there is a boundary between top and bottom).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f232bb39-8aea-4000-8eb1-65280786de28">
-<span class="eqno">(55)<a class="headerlink" href="#equation-f232bb39-8aea-4000-8eb1-65280786de28" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-67c14acb-2e81-49f6-b770-d1c35f713f84">
+<span class="eqno">(55)<a class="headerlink" href="#equation-67c14acb-2e81-49f6-b770-d1c35f713f84" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \textbf{Kernel} = 
 \begin{bmatrix} 1 &amp; -1 \\ 1 &amp; -1
 \end{bmatrix} 
@@ -3793,7 +3795,7 @@ tensor([[[[ 0.,  3.,  8.,  4.],
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "5fded56e6ff74ea5b6abb266a4c19420"}
+{"version_major": 2, "version_minor": 0, "model_id": "9d2fe4aa9130444b8b4ba93c76fa5655"}
 </script></div>
 </div>
 <p>To visualize the various components of a CNN, we will build a simple CNN step by step. Recall that the MNIST dataset consists of binarized images of handwritten digits. This time we will be using the EMNIST letters dataset, which consists of binarized images of handwritten characters <span class="math notranslate nohighlight">\((A, ..., Z)\)</span>.</p>
@@ -3865,20 +3867,20 @@ tensor([[[[ 0.,  3.,  8.,  4.],
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "05dc4cccbe374a36ba60881a026a15f8"}
+{"version_major": 2, "version_minor": 0, "model_id": "e31a7d628b75450588634cf2ea2265bf"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting ./data/EMNIST/raw/gzip.zip to ./data/EMNIST/raw
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_3895</span><span class="o">/</span><span class="mf">1656787378.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_3859</span><span class="o">/</span><span class="mf">1656787378.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">emnist_train</span><span class="p">,</span> <span class="n">emnist_test</span> <span class="o">=</span> <span class="n">get_Xvs0_dataset</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span> <span class="o">=</span> <span class="n">get_data_loaders</span><span class="p">(</span><span class="n">emnist_train</span><span class="p">,</span> <span class="n">emnist_test</span><span class="p">,</span> <span class="n">SEED</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># index of an image in the dataset that corresponds to an X and O</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">x_img_idx</span> <span class="o">=</span> <span class="mi">4</span>
 
-<span class="nn">/tmp/ipykernel_3895/1960937608.py</span> in <span class="ni">get_Xvs0_dataset</span><span class="nt">()</span>
+<span class="nn">/tmp/ipykernel_3859/1960937608.py</span> in <span class="ni">get_Xvs0_dataset</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>       <span class="c1">#transforms.Normalize((0.1307,), (0.3081,))</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span>       <span class="p">])</span>
 <span class="ne">----&gt; </span><span class="mi">9</span>   <span class="n">emnist_train</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">EMNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">'./data'</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s1">'letters'</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
@@ -3919,20 +3921,6 @@ tensor([[[[ 0.,  3.,  8.,  4.],
 <span class="ne">--&gt; </span><span class="mi">357</span>         <span class="n">wfh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rfh</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 <span class="g g-Whitespace">    </span><span class="mi">358</span> 
 <span class="g g-Whitespace">    </span><span class="mi">359</span>     <span class="k">if</span> <span class="n">remove_finished</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/gzip.py</span> in <span class="ni">read</span><span class="nt">(self, size)</span>
-<span class="g g-Whitespace">    </span><span class="mi">285</span>             <span class="kn">import</span> <span class="nn">errno</span>
-<span class="g g-Whitespace">    </span><span class="mi">286</span>             <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="n">errno</span><span class="o">.</span><span class="n">EBADF</span><span class="p">,</span> <span class="s2">"read() on write-only GzipFile object"</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">287</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> 
-<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="k">def</span> <span class="nf">read1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/gzip.py</span> in <span class="ni">read</span><span class="nt">(self, size)</span>
-<span class="g g-Whitespace">    </span><span class="mi">480</span>             <span class="n">buf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">DEFAULT_BUFFER_SIZE</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span> 
-<span class="ne">--&gt; </span><span class="mi">482</span>             <span class="n">uncompress</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unconsumed_tail</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">""</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">484</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unconsumed_tail</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
