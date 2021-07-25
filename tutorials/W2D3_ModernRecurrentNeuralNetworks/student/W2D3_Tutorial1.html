@@ -812,7 +812,7 @@
 <p>Before we begin with exploring how RNNs excel at modelling sequences, we will explore some of the other ways we can model sequences, encode text, and make meaningful measurements using such encodings and embeddings.</p>
 <div class="section" id="tutorial-slides">
 <h2>Tutorial slides<a class="headerlink" href="#tutorial-slides" title="Permalink to this headline">¶</a></h2>
-<p>These are the slides for the videos in all tutorials today</p>
+<p>These are the slides for the videos in this tutorial</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
@@ -1234,18 +1234,18 @@
 and that the <em>system</em> transitions between these states with some probability at each time step <span class="math notranslate nohighlight">\(t\)</span>,
 thus generating a sequence of states over time.
 Let’s call these states <span class="math notranslate nohighlight">\(S\)</span>, where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6a4f9eb-d317-4aeb-98b9-ef49648f150b">
-<span class="eqno">(59)<a class="headerlink" href="#equation-f6a4f9eb-d317-4aeb-98b9-ef49648f150b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3d2e0745-b77a-4a55-b1c5-2bd7b59d4fd8">
+<span class="eqno">(59)<a class="headerlink" href="#equation-3d2e0745-b77a-4a55-b1c5-2bd7b59d4fd8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 S = \{s_1, s_2, ..., s_n\}
 \end{equation}\]</div>
 <p>To keep things simple, let’s start with three states:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fdb5780a-f2cb-4a74-bb63-a4aeb0a581b4">
-<span class="eqno">(60)<a class="headerlink" href="#equation-fdb5780a-f2cb-4a74-bb63-a4aeb0a581b4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ad1264c8-eacc-47f2-83d7-c0faf0a6b47a">
+<span class="eqno">(60)<a class="headerlink" href="#equation-ad1264c8-eacc-47f2-83d7-c0faf0a6b47a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 S = \{s_1, s_2, s_3\}
 \end{equation}\]</div>
 <p>A Markov model generates a sequence of states, with one possible realization being:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e220658c-779b-44a7-ab15-0f6cba1f9e25">
-<span class="eqno">(61)<a class="headerlink" href="#equation-e220658c-779b-44a7-ab15-0f6cba1f9e25" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-baa7f6ed-a70d-40bf-8726-44f40fb0378e">
+<span class="eqno">(61)<a class="headerlink" href="#equation-baa7f6ed-a70d-40bf-8726-44f40fb0378e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \{s_1, s_1, s_1, s_3, s_3, s_3, s_2, s_2, s_3, s_3, s_3, s_3, s_1, ...\}
 \end{equation}\]</div>
 <p>And generically, we represent it as a sequence of states <span class="math notranslate nohighlight">\(x_t, x_{t+1}... x_{t+n}\)</span>. (We have chosen a different symbol to not confuse the “generic” state with the specific realization. Graphically, a plain and simple Markov model looks like the following:</p>
@@ -1262,8 +1262,8 @@ The symbol etymology, which usually gets swept under the rug in mathematically-o
 <li><p><span class="math notranslate nohighlight">\(transition\)</span> doesn’t refer to time but simply indicates that it is for transitioning states,</p></li>
 <li><p><span class="math notranslate nohighlight">\(P\)</span> is used because it is a probability matrix.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-c974a31b-fc1e-4a8c-804e-f221ee63eff4">
-<span class="eqno">(62)<a class="headerlink" href="#equation-c974a31b-fc1e-4a8c-804e-f221ee63eff4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-68c7dfd5-ee0d-4ba9-a43b-dd4446d606c8">
+<span class="eqno">(62)<a class="headerlink" href="#equation-68c7dfd5-ee0d-4ba9-a43b-dd4446d606c8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P_{transition} = 
   \begin{pmatrix}
   p_{11} &amp; p_{12} &amp; p_{13} \\
