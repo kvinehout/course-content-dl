@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['#@markdown #### Run to train the default network', '', '#creating train data', 'X = torch.rand((10,1))', 'X.sort(dim = 0)']
+['# to remove solution', 'def simpleFunGPU(dim, device):', '  """', '  Args:', '    dim: integer']
 ...
-['val_acc_pure, train_acc_pure, _, model ,_ = main(args,', '                                                 model,', '                                                 train_loader,', '                                                 val_loader,', '                                                 img_test_dataset)']
+['', '', '## TODO: Implement the function above and uncomment the following lines to test your code', 'timeFun(f=simpleFun, dim=dim, iterations=iterations, device=DEVICE)', 'timeFun(f=simpleFunGPU, dim=dim, iterations=iterations, device=DEVICE)']
 -------------------
 
