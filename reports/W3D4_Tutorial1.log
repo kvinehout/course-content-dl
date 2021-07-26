@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# @title Data-loader Helper functions (MNIST and core50)', '', '# TODO:', '# We need a more permenate solution for this...', '# https://github.com/pytorch/vision/issues/1938']
+["# test the model's accuracy on both the regular and permuted dataset", '', "# Let's define a dictionary that holds each of the task", '# datasets and labels', "tasks = {'MNIST':(x_test, t_test),"]
 ...
-['# this lines of code will download core50 in background. We suggest to run it at the start of the notebook', '!wget http://raw.githubusercontent.com/ContinualAI/colab/master/scripts/download_and_extract_core50_mini.sh', '!nohup sh download_and_extract_core50_mini.sh &', '', "print('Core50 will be silently unpacked in the backgroud. Please continue.')"]
+['  print(f"Testing on task {ti+1}")', '  t1_accs.append(test(model, DEVICE, tasks[task][0], tasks[task][1]))', '', "# And then let's plot the testing accuracy on both datasets", "multi_task_barplot(t1_accs, tasks, t='Accuracy after training on Task 1 \\nbut before Training on Task 2')"]
 -------------------
 

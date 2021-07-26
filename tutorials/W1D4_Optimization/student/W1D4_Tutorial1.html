@@ -989,7 +989,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "b9fc24ad9eef4746a49eab35f22589e7"}
+{"version_major": 2, "version_minor": 0, "model_id": "66ef14becbaa40ad94857a4b8ab58f7f"}
 </script></div>
 </div>
 </div>
@@ -1011,7 +1011,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "1adfc11c8a3f4b0693dc06df3d381236"}
+{"version_major": 2, "version_minor": 0, "model_id": "81701081d6d64830bdc9d57a1e8b4e46"}
 </script></div>
 </div>
 </div>
@@ -1069,18 +1069,35 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "d4606a05650648598a4e423cceda059b"}
+{"version_major": 2, "version_minor": 0, "model_id": "2794589babb74638b1b9f99426992766"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting ./data/MNIST/raw/train-images-idx3-ubyte.gz to ./data/MNIST/raw
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to ./data/MNIST/raw/train-labels-idx1-ubyte.gz
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "d2f7f702bdab4a7ebc71a7194c6c2e74"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting ./data/MNIST/raw/train-labels-idx1-ubyte.gz to ./data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to ./data/MNIST/raw/t10k-images-idx3-ubyte.gz
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "95d0444bd13f453eb8aee5f344fded49"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2524</span><span class="o">/</span><span class="mf">1445642374.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2498</span><span class="o">/</span><span class="mf">1445642374.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span> 
 <span class="g g-Whitespace">     </span><span class="mi">37</span> 
 <span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">load_mnist_data</span><span class="p">(</span><span class="n">change_tensors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_2524/1445642374.py</span> in <span class="ni">load_mnist_data</span><span class="nt">(change_tensors, download)</span>
+<span class="nn">/tmp/ipykernel_2498/1445642374.py</span> in <span class="ni">load_mnist_data</span><span class="nt">(change_tensors, download)</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>   <span class="c1"># Load train and test sets</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span>   <span class="n">train_set</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">'./data'</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="n">download</span><span class="p">,</span>
 <span class="ne">---&gt; </span><span class="mi">13</span>                              <span class="n">transform</span><span class="o">=</span><span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">())</span>
@@ -1615,22 +1632,22 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="section" id="coding-exercise-4-implement-momentum">
 <h2>Coding Exercise 4: Implement momentum<a class="headerlink" href="#coding-exercise-4-implement-momentum" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise you will implement the momentum update given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-07d4861b-e083-45bb-a48d-d2503264b1c8">
-<span class="eqno">(42)<a class="headerlink" href="#equation-07d4861b-e083-45bb-a48d-d2503264b1c8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-18c8a9e5-a6f8-4499-932a-e80e999fb1f7">
+<span class="eqno">(42)<a class="headerlink" href="#equation-18c8a9e5-a6f8-4499-932a-e80e999fb1f7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{t+1} = w_t - \eta \nabla J(w_t) + \beta (w_t - w_{t-1})
 \end{equation}\]</div>
 <p>It is convenient to re-express this update rule in terms of a recursion. For that, we define ‘velocity’ as the quantity:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1609d3d4-23cf-48d3-8e42-788dec8eb780">
-<span class="eqno">(43)<a class="headerlink" href="#equation-1609d3d4-23cf-48d3-8e42-788dec8eb780" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-673cd91f-9450-4e78-8f9d-8518f79d9061">
+<span class="eqno">(43)<a class="headerlink" href="#equation-673cd91f-9450-4e78-8f9d-8518f79d9061" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 v_{t-1} := w_{t} - w_{t-1}
 \end{equation}\]</div>
 <p>which leads to the two-step update rule:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0736a615-005f-470c-8a71-396fb93f15b3">
-<span class="eqno">(44)<a class="headerlink" href="#equation-0736a615-005f-470c-8a71-396fb93f15b3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-27c589d8-2361-4b49-a8ac-c1eb20d26337">
+<span class="eqno">(44)<a class="headerlink" href="#equation-27c589d8-2361-4b49-a8ac-c1eb20d26337" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 v_t = - \eta \nabla J(w_t) + \beta (\underbrace{w_t - w_{t-1}}_{v_{t-1}})
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-5585518e-8697-4037-b070-db0608d029ee">
-<span class="eqno">(45)<a class="headerlink" href="#equation-5585518e-8697-4037-b070-db0608d029ee" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ecdd1128-abe9-4075-bc12-4969ebce2687">
+<span class="eqno">(45)<a class="headerlink" href="#equation-ecdd1128-abe9-4075-bc12-4969ebce2687" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{t+1} \leftarrow w_t + v_{t}
 \end{equation}\]</div>
 <p>Pay attention to the positive sign of the update in the last equation, given the definition of <span class="math notranslate nohighlight">\(v_t\)</span>, above.</p>
@@ -2033,8 +2050,8 @@ w_{t+1} \leftarrow w_t + v_{t}
 <div class="section" id="coding-exercise-7-implement-rmsprop">
 <h2>Coding Exercise 7: Implement RMSprop<a class="headerlink" href="#coding-exercise-7-implement-rmsprop" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise you will implement the update of the RMSprop optimizer:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2c408814-bc32-42b7-937b-1467d54594ae">
-<span class="eqno">(46)<a class="headerlink" href="#equation-2c408814-bc32-42b7-937b-1467d54594ae" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e0299548-0e33-4aad-8ebe-28ccc047e9be">
+<span class="eqno">(46)<a class="headerlink" href="#equation-e0299548-0e33-4aad-8ebe-28ccc047e9be" title="Permalink to this equation">¶</a></span>\[\begin{align}
 v_{t} &amp;= \alpha v_{t-1} + (1 - \alpha) \nabla J(w_t)^2 \\ \\
 w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 \end{align}\]</div>
