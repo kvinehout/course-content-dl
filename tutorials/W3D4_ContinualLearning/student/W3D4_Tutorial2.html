@@ -1397,7 +1397,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "9afe745884fe42fc8a8d1ae60d9d11d9"}
+{"version_major": 2, "version_minor": 0, "model_id": "b4c8237628944db7941990cfc91ef8e5"}
 </script></div>
 </div>
 </div>
@@ -1431,7 +1431,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "11b97508fdf44e54bf34d0d19773a9ed"}
+{"version_major": 2, "version_minor": 0, "model_id": "0f075550a8df42c2802caf5ac59f7413"}
 </script></div>
 </div>
 </div>
@@ -1900,8 +1900,8 @@ Complete the <code class="docutils literal notranslate"><span class="pre">forwar
 <p>The algorithm does not favour either of the outcomes, so <span class="math notranslate nohighlight">\(P(cancer) = P(no\_cancer) = .5\)</span></p>
 <p>You wish to find the most important feature according to the model and you have the following list of conditional probabilities.</p>
 <p>\</p>
-<div class="amsmath math notranslate nohighlight" id="equation-65ba07de-59c9-49be-aa7f-f56d207b5fac">
-<span class="eqno">(106)<a class="headerlink" href="#equation-65ba07de-59c9-49be-aa7f-f56d207b5fac" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3be690cb-3cb2-47c4-b1a8-9c5792ffb701">
+<span class="eqno">(106)<a class="headerlink" href="#equation-3be690cb-3cb2-47c4-b1a8-9c5792ffb701" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(family\_history = 1  | no\_cancer) = .1 &amp;, P(family\_history = 1 | cancer) = .9 \\
 P(smoker = 1 | no\_cancer) = .05 &amp;, P(smoker = 1| cancer) = .8 \\
 P(young = 1 | no\_cancer) = .01 &amp;, P(young = 1 | cancer) = .71
@@ -1940,8 +1940,8 @@ P(young = 1 | no\_cancer) = .01 &amp;, P(young = 1 | cancer) = .71
 <p>Let’s assume that we wish to find the K best features. We know that a set of K features would be most important if they can predict the outcome with high confidence and better than any other set of the same size! We could hence try to predict the outcome using only the given set of features and record the accuracy. If this accuracy is higher than that using any other set of the same size, then we can say that the given set has the most important K features!</p>
 <p>In essence, we would want to find the accuracies considering all feature sets of size K and then pick the one with the highest accuracy.</p>
 <p>If we wish to define a loss instead (the lower the better), we could simply extend the above notion as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73160372-4063-42c8-a39a-484df4b09256">
-<span class="eqno">(107)<a class="headerlink" href="#equation-73160372-4063-42c8-a39a-484df4b09256" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9ab34374-dfd4-46b6-9f9d-c45b0b2336bb">
+<span class="eqno">(107)<a class="headerlink" href="#equation-9ab34374-dfd4-46b6-9f9d-c45b0b2336bb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 Loss = 1 - Accuracy
 \end{equation}\]</div>
 </div>
