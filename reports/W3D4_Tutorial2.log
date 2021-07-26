@@ -32,8 +32,9 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['def load_mnist_data(change_tensors=False, download=True):', '  """Load training and test examples for the MNIST digits dataset', '', '  Returns:', '    train_data (tensor): training input tensor of size (train_size x 784)']
-...
-['', '  return train_set, test_set', '', '', 'train_set, test_set = load_mnist_data(change_tensors=True)']
+# @title Download and unzip the dataset
+
+!wget -q http://mmlab.ie.cuhk.edu.hk/projects/TCDCN/data/MTFL.zip
+!unzip -q /content/MTFL.zip
 -------------------
 

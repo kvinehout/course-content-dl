@@ -512,10 +512,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1">
-<a class="reference internal" href="../../../projects/docs/project_templates.html">
-   Project Templates
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../../projects/code/intro.html">
+   Notebook with codes for projects
   </a>
+<input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+<label for="toctree-checkbox-19">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/code/segmentation_denoising.html">
+     segmentation + denoising
+    </a>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -1316,18 +1328,18 @@
 and that the <em>system</em> transitions between these states with some probability at each time step <span class="math notranslate nohighlight">\(t\)</span>,
 thus generating a sequence of states over time.
 Let’s call these states <span class="math notranslate nohighlight">\(S\)</span>, where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d5918ee9-a248-48f8-be73-8dd7f800f98e">
-<span class="eqno">(59)<a class="headerlink" href="#equation-d5918ee9-a248-48f8-be73-8dd7f800f98e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4b5030ec-9ca7-4ee0-a5ac-66e66b3a6fae">
+<span class="eqno">(59)<a class="headerlink" href="#equation-4b5030ec-9ca7-4ee0-a5ac-66e66b3a6fae" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 S = \{s_1, s_2, ..., s_n\}
 \end{equation}\]</div>
 <p>To keep things simple, let’s start with three states:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32530218-6964-44f2-bd98-d5b366fc3a68">
-<span class="eqno">(60)<a class="headerlink" href="#equation-32530218-6964-44f2-bd98-d5b366fc3a68" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-396b053f-5eee-4c11-8946-1275cc52b8ed">
+<span class="eqno">(60)<a class="headerlink" href="#equation-396b053f-5eee-4c11-8946-1275cc52b8ed" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 S = \{s_1, s_2, s_3\}
 \end{equation}\]</div>
 <p>A Markov model generates a sequence of states, with one possible realization being:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-11a21c07-843f-4cea-9678-188bd2be7eab">
-<span class="eqno">(61)<a class="headerlink" href="#equation-11a21c07-843f-4cea-9678-188bd2be7eab" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-578f222c-dba4-4d27-855d-7891e0655882">
+<span class="eqno">(61)<a class="headerlink" href="#equation-578f222c-dba4-4d27-855d-7891e0655882" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \{s_1, s_1, s_1, s_3, s_3, s_3, s_2, s_2, s_3, s_3, s_3, s_3, s_1, ...\}
 \end{equation}\]</div>
 <p>And generically, we represent it as a sequence of states <span class="math notranslate nohighlight">\(x_t, x_{t+1}... x_{t+n}\)</span>. (We have chosen a different symbol to not confuse the “generic” state with the specific realization. Graphically, a plain and simple Markov model looks like the following:</p>
@@ -1339,8 +1351,8 @@ S = \{s_1, s_2, s_3\}
 while columns correspond to state at time <span class="math notranslate nohighlight">\(t+1\)</span>.
 Hence, row probabilities sum to one, because the probability of transitioning to the next state depends on only the current state, and all possible states are known and enumerated.</p>
 <p>Let’s call the transition matrix <span class="math notranslate nohighlight">\(P_{transition}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57364d39-37c6-4b88-8b61-1e508a71903f">
-<span class="eqno">(62)<a class="headerlink" href="#equation-57364d39-37c6-4b88-8b61-1e508a71903f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-37fe0873-062b-4ce9-838a-332d3b984603">
+<span class="eqno">(62)<a class="headerlink" href="#equation-37fe0873-062b-4ce9-838a-332d3b984603" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P_{transition} = 
   \begin{pmatrix}
   p_{11} &amp; p_{12} &amp; p_{13} \\

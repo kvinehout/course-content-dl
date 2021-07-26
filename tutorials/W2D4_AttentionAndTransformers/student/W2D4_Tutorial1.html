@@ -512,10 +512,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1">
-<a class="reference internal" href="../../../projects/docs/project_templates.html">
-   Project Templates
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../../projects/code/intro.html">
+   Notebook with codes for projects
   </a>
+<input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+<label for="toctree-checkbox-19">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/code/segmentation_denoising.html">
+     segmentation + denoising
+    </a>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -1288,8 +1300,8 @@
 <div class="section" id="coding-exercise-2-dot-product-attention">
 <h3>Coding Exercise 2: Dot product attention<a class="headerlink" href="#coding-exercise-2-dot-product-attention" title="Permalink to this headline">¶</a></h3>
 <p>In this exercise, let’s compute the scaled dot product attention using its matrix form.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-28119788-186c-493a-8354-cacb3b191e21">
-<span class="eqno">(81)<a class="headerlink" href="#equation-28119788-186c-493a-8354-cacb3b191e21" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f0c70f8d-77f9-48c4-89ce-af5e3dd68406">
+<span class="eqno">(81)<a class="headerlink" href="#equation-f0c70f8d-77f9-48c4-89ce-af5e3dd68406" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathrm{softmax} \left( \frac{Q K^\text{T}}{\sqrt{d}} \right) V
 \end{equation}\]</div>
 <p>Note: the function takes an additional argument <code class="docutils literal notranslate"><span class="pre">h</span></code> (number of heads). You can assume it is 1 for now.</p>

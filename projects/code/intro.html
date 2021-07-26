@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Templates &#8212; Neuromatch Academy: Deep Learning</title>
+    <title>Notebook with codes for projects &#8212; Neuromatch Academy: Deep Learning</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,6 +54,7 @@
     <link rel="shortcut icon" href="../../_static/nma-logo-square-4xp.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="segmentation + denoising" href="segmentation_denoising.html" />
     <link rel="prev" title="Example Data Project: the Train Illusion" href="../modelingsteps/TrainIllusionDataProjectDL.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -487,7 +488,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="project_guidance.html">
+  <a class="reference internal" href="../docs/project_guidance.html">
    Daily guide for projects
   </a>
  </li>
@@ -533,10 +534,22 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Project Templates
+   Notebook with codes for projects
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="segmentation_denoising.html">
+     segmentation + denoising
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -579,7 +592,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/projects/docs/project_templates.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/projects/code/intro.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -599,7 +612,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Fprojects/docs/project_templates.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/NeuromatchAcademy/course-content-dl/issues/new?title=Issue%20on%20page%20%2Fprojects/code/intro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -620,79 +633,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Project Templates
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#flow-of-information-through-the-brain-during-a-sensorimotor-task">
-   Flow of information through the brain during a sensorimotor task
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#effect-of-stimulus-context-and-behavior-state-on-visual-representations">
-   Effect of stimulus context and behavior state on visual representations
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#behavior-representations-in-mouse-visual-cortex">
-   Behavior representations in mouse visual cortex
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mapping-brain-activation-and-representation-with-fmri">
-   Mapping brain activation and representation with fMRI
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#retinotopic-mapping-with-fmri">
-   Retinotopic mapping with FMRI
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelling-of-navigational-affordances-and-scene-selective-responses">
-   Modelling of navigational affordances and scene-selective responses
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visual-information-in-different-brain-regions">
-   Visual information in different brain regions
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#state-dependent-decision-making-in-mice-performing-a-2afc-task">
-   State-dependent decision-making in mice performing a 2AFC task
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-working-memory-capacity-of-recurrent-neural-network-models">
-   The working memory capacity of recurrent neural network models
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#attractor-models-of-working-memory">
-   Attractor models of working memory
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#does-neural-activity-reflect-face-perception">
-   Does neural activity reflect face perception?
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-structure-of-mouse-social-behavior">
-   The structure of mouse social behavior
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -701,57 +641,10 @@
         
               <div>
                 
-  <div class="section" id="project-templates">
-<h1>Project Templates<a class="headerlink" href="#project-templates" title="Permalink to this headline">¶</a></h1>
-<p>Click on each image below to see a full browser version!</p>
+  <div class="section" id="notebook-with-codes-for-projects">
+<h1>Notebook with codes for projects<a class="headerlink" href="#notebook-with-codes-for-projects" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
 </div>
-<div class="section" id="flow-of-information-through-the-brain-during-a-sensorimotor-task">
-<h1>Flow of information through the brain during a sensorimotor task<a class="headerlink" href="#flow-of-information-through-the-brain-during-a-sensorimotor-task" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/InformationFlowSensoryMotorTask.svg"><img alt="projects/docs/template_images/InformationFlowSensoryMotorTask.svg" src="projects/docs/template_images/InformationFlowSensoryMotorTask.svg" width="100%" /></a>
-</div>
-<div class="section" id="effect-of-stimulus-context-and-behavior-state-on-visual-representations">
-<h1>Effect of stimulus context and behavior state on visual representations<a class="headerlink" href="#effect-of-stimulus-context-and-behavior-state-on-visual-representations" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/StimulusContextBehaviorState.svg"><img alt="projects/docs/template_images/StimulusContextBehaviorState.svg" src="projects/docs/template_images/StimulusContextBehaviorState.svg" width="100%" /></a>
-</div>
-<div class="section" id="behavior-representations-in-mouse-visual-cortex">
-<h1>Behavior representations in mouse visual cortex<a class="headerlink" href="#behavior-representations-in-mouse-visual-cortex" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/MouseOrofacialBehaviors.svg"><img alt="projects/docs/template_images/MouseOrofacialBehaviors.svg" src="projects/docs/template_images/MouseOrofacialBehaviors.svg" width="100%" /></a>
-</div>
-<div class="section" id="mapping-brain-activation-and-representation-with-fmri">
-<h1>Mapping brain activation and representation with fMRI<a class="headerlink" href="#mapping-brain-activation-and-representation-with-fmri" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/MappingBrainRepresentationwithfMRI.svg"><img alt="projects/docs/template_images/MappingBrainRepresentationwithfMRI.svg" src="projects/docs/template_images/MappingBrainRepresentationwithfMRI.svg" width="100%" /></a>
-</div>
-<div class="section" id="retinotopic-mapping-with-fmri">
-<h1>Retinotopic mapping with FMRI<a class="headerlink" href="#retinotopic-mapping-with-fmri" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/RetinotopicMappingFMRI.svg"><img alt="projects/docs/template_images/RetinotopicMappingFMRI.svg" src="projects/docs/template_images/RetinotopicMappingFMRI.svg" width="100%" /></a>
-</div>
-<div class="section" id="modelling-of-navigational-affordances-and-scene-selective-responses">
-<h1>Modelling of navigational affordances and scene-selective responses<a class="headerlink" href="#modelling-of-navigational-affordances-and-scene-selective-responses" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/NavigationalAffordancesFMRI.svg"><img alt="projects/docs/template_images/NavigationalAffordancesFMRI.svg" src="projects/docs/template_images/NavigationalAffordancesFMRI.svg" width="100%" /></a>
-</div>
-<div class="section" id="visual-information-in-different-brain-regions">
-<h1>Visual information in different brain regions<a class="headerlink" href="#visual-information-in-different-brain-regions" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/VisualInformationAcrossRegions.svg"><img alt="projects/docs/template_images/VisualInformationAcrossRegions.svg" src="projects/docs/template_images/VisualInformationAcrossRegions.svg" width="100%" /></a>
-</div>
-<div class="section" id="state-dependent-decision-making-in-mice-performing-a-2afc-task">
-<h1>State-dependent decision-making in mice performing a 2AFC task<a class="headerlink" href="#state-dependent-decision-making-in-mice-performing-a-2afc-task" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/MouseBehavior2AFC.svg"><img alt="projects/docs/template_images/MouseBehavior2AFC.svg" src="projects/docs/template_images/MouseBehavior2AFC.svg" width="100%" /></a>
-</div>
-<div class="section" id="the-working-memory-capacity-of-recurrent-neural-network-models">
-<h1>The working memory capacity of recurrent neural network models<a class="headerlink" href="#the-working-memory-capacity-of-recurrent-neural-network-models" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/WorkingMemoryRNNs.svg"><img alt="projects/docs/template_images/WorkingMemoryRNNs.svg" src="projects/docs/template_images/WorkingMemoryRNNs.svg" width="100%" /></a>
-</div>
-<div class="section" id="attractor-models-of-working-memory">
-<h1>Attractor models of working memory<a class="headerlink" href="#attractor-models-of-working-memory" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/WorkingMemoryAttractorModels.svg"><img alt="projects/docs/template_images/WorkingMemoryAttractorModels.svg" src="projects/docs/template_images/WorkingMemoryAttractorModels.svg" width="100%" /></a>
-</div>
-<div class="section" id="does-neural-activity-reflect-face-perception">
-<h1>Does neural activity reflect face perception?<a class="headerlink" href="#does-neural-activity-reflect-face-perception" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/NeuralBasisOfFacePerception.svg"><img alt="projects/docs/template_images/NeuralBasisOfFacePerception.svg" src="projects/docs/template_images/NeuralBasisOfFacePerception.svg" width="100%" /></a>
-</div>
-<div class="section" id="the-structure-of-mouse-social-behavior">
-<h1>The structure of mouse social behavior<a class="headerlink" href="#the-structure-of-mouse-social-behavior" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="projects/docs/template_images/MouseSocialBehavior.svg"><img alt="projects/docs/template_images/MouseSocialBehavior.svg" src="projects/docs/template_images/MouseSocialBehavior.svg" width="100%" /></a>
 </div>
 
     <script type="text/x-thebe-config">
@@ -767,7 +660,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./projects/docs"
+            path: "./projects/code"
         },
         predefinedOutput: true
     }
@@ -780,6 +673,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../modelingsteps/TrainIllusionDataProjectDL.html" title="previous page">Example Data Project: the Train Illusion</a>
+    <a class='right-next' id="next-link" href="segmentation_denoising.html" title="next page">segmentation + denoising</a>
 
         </div>
         

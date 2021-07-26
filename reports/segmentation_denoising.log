@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# @markdown Download MNIST and CIFAR10 image datasets while the above video plays', '# See https://pytorch.org/docs/stable/torchvision/datasets.html', 'from IPython.display import clear_output', '', '# MNIST contains handwritten digets 0-9, in grayscale images of size (1,28,28)']
+['fname = "gt1.tif"', 'url = "https://www.suite2p.org/test_data/gt1.tif"', '', 'if not os.path.isfile(fname):', '  try:']
 ...
-['                                  train=False,', '                                  transform=tv.transforms.ToTensor(),', '                                  download=True)', '', 'clear_output()']
+['', 'from tifffile import imread', 'data = imread(fname)', "print('imaging data of shape: ', data.shape)", 'n_time, Ly, Lx = data.shape']
 -------------------
 
