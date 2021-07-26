@@ -1380,18 +1380,18 @@ ffmpeg is already the newest version (7:4.2.4-1ubuntu0.1).
 <div class="section" id="section-1-2-l1-regularization">
 <h2>Section 1.2: L1 Regularization<a class="headerlink" href="#section-1-2-l1-regularization" title="Permalink to this headline">¶</a></h2>
 <p>L1 (or “LASSO”) Regularization uses a penalty which is the sum of the absolute value of all the weights in the DLN, resulting in the following loss function (L  is the usual Cross Entropy loss):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e9f5d28-e826-415d-bda2-e77b7bccb74f">
-<span class="eqno">(48)<a class="headerlink" href="#equation-7e9f5d28-e826-415d-bda2-e77b7bccb74f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7c84415a-3301-4285-aa48-b5b74db986ed">
+<span class="eqno">(48)<a class="headerlink" href="#equation-7c84415a-3301-4285-aa48-b5b74db986ed" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 L_R=L + \lambda \sum \left| w^{(r)}_{ij} \right|
 \end{equation}\]</div>
 <p>At a high level, L1 Regularization is similar to L2 Regularization since it leads to smaller weights. (You will see the analogy in the next subsection.) It results in the following weight update equation when using Stochastic Gradient Descent:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a6a851d2-368d-4659-bed8-97f1600f76bc">
-<span class="eqno">(49)<a class="headerlink" href="#equation-a6a851d2-368d-4659-bed8-97f1600f76bc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-53c168e2-7fdb-4823-822c-dbdf6d420e7a">
+<span class="eqno">(49)<a class="headerlink" href="#equation-53c168e2-7fdb-4823-822c-dbdf6d420e7a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w^{(r)}_{ij}←w^{(r)}_{ij}−\eta \lambda \text{sgn}\left(w^{(r)}_{ij}\right)−\eta \frac{\partial L}{\partial w_{ij}^{r}} 
 \end{equation}\]</div>
 <p>where  <span class="math notranslate nohighlight">\(\text{sgn}(\cdot)\)</span> is the sign function, such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-adf93a4a-8408-4a13-bf23-0116cd13017e">
-<span class="eqno">(50)<a class="headerlink" href="#equation-adf93a4a-8408-4a13-bf23-0116cd13017e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-39b1eb1e-5ddf-4385-a44b-3fa5a3c21a9f">
+<span class="eqno">(50)<a class="headerlink" href="#equation-39b1eb1e-5ddf-4385-a44b-3fa5a3c21a9f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{sgn(w)} = 
 \left\{
   \begin{array}{ll}
@@ -1483,18 +1483,18 @@ w^{(r)}_{ij}←w^{(r)}_{ij}−\eta \lambda \text{sgn}\left(w^{(r)}_{ij}\right)�
 <div class="section" id="section-1-3-l2-ridge-regularization">
 <h2>Section 1.3: L2 / Ridge Regularization<a class="headerlink" href="#section-1-3-l2-ridge-regularization" title="Permalink to this headline">¶</a></h2>
 <p>L2 Regularization, sometimes referred to as “Weight Decay”, is widely used. It works by adding a quadratic penalty term to the Cross Entropy Loss Function  L, which results in a new Loss Function  LR  given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b281414-30bd-4606-8aa3-0f26e415d815">
-<span class="eqno">(51)<a class="headerlink" href="#equation-0b281414-30bd-4606-8aa3-0f26e415d815" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-65e2a448-2662-4923-b522-92aff97073c9">
+<span class="eqno">(51)<a class="headerlink" href="#equation-65e2a448-2662-4923-b522-92aff97073c9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 L_R = L + \lambda \sum \left( w^{(r)}_{ij} \right)^2
 \end{equation}\]</div>
 <p>In order to get further insight into L2 Regularization, we investigate its effect on the Gradient Descent based update equations for the weight and bias parameters. Taking the derivative on both sides of the above equation, we obtain</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2ac7e2c-b97f-4f03-99a4-491bc2e5ff4b">
-<span class="eqno">(52)<a class="headerlink" href="#equation-d2ac7e2c-b97f-4f03-99a4-491bc2e5ff4b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5a23684b-6cc3-47e9-9320-c7c6e31eb294">
+<span class="eqno">(52)<a class="headerlink" href="#equation-5a23684b-6cc3-47e9-9320-c7c6e31eb294" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{\partial L_r}{\partial w^{(r)}_{ij}}=\frac{\partial L}{\partial w^{(r)}_{ij}} + \lambda w^{(r)}_{ij}cdot
 \end{equation}\]</div>
 <p>Thus the weight update rule becomes:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f7ade606-1558-47d2-87bd-466748430b3d">
-<span class="eqno">(53)<a class="headerlink" href="#equation-f7ade606-1558-47d2-87bd-466748430b3d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a8664ca-0298-41fa-8db5-290f83dad0f6">
+<span class="eqno">(53)<a class="headerlink" href="#equation-4a8664ca-0298-41fa-8db5-290f83dad0f6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w^{(r)}_{ij}←w^{(r)}_{ij}−η\frac{\partial L}{\partial W^{(r)}_{ij}}−\eta \lambda w^{(r)}_{ij}=(1−\eta \lambda)w^{(r)}_{ij} − \eta \frac{\partial L}{\partial w^{(r)}_{ij}}
 \end{equation}\]</div>
 <p>where, <span class="math notranslate nohighlight">\(\eta\)</span> is learning rate.</p>
