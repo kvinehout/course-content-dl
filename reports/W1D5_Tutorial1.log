@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# train the network on toy dataset', '', '# Intialize the model', 'set_seed(seed=SEED)', 'model = NetDropout()']
-...
-['  test_loss_dp.append(loss.data)', '', '  if (epoch % 500 == 0 or epoch == max_epochs):', '    running_predictions_dp[:, iters] = Y_test[:, 0, 0].detach().numpy()', '    iters += 1']
+# @title Install dependencies
+!sudo apt-get install -y ffmpeg --quiet
+!pip install imageio-ffmpeg --quiet
 -------------------
 
