@@ -647,6 +647,11 @@
      Video 2: Regularization as Shrinkage
     </a>
 </li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-1-frobenius-norm">
+     Coding Exercise 1: Frobenius Norm
+    </a>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry">
@@ -807,6 +812,9 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists...
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building dependency tree...
 </pre></div>
 </div>
@@ -853,14 +861,12 @@ Suggested packages:
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 upgraded, 77 newly installed, 0 to remove and 13 not upgraded.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Need to get 47.2 MB of archives.
+Need to get 47.2 MB of archives.
 After this operation, 196 MB of additional disk space will be used.
-Get:1 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libaom0 amd64 1.0.0.errata1-3build1 [1160 kB]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get:2 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libva2 amd64 2.7.0-2 [53.5 kB]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get:1 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libaom0 amd64 1.0.0.errata1-3build1 [1160 kB]
+Get:2 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libva2 amd64 2.7.0-2 [53.5 kB]
 Get:3 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libva-drm2 amd64 2.7.0-2 [7044 B]
 Get:4 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libva-x11-2 amd64 2.7.0-2 [11.9 kB]
 Get:5 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 libvdpau1 amd64 1.3-1ubuntu2 [25.6 kB]
@@ -884,9 +890,7 @@ Get:20 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 libvorbisenc2 amd
 Get:21 http://azure.archive.ubuntu.com/ubuntu focal-updates/main amd64 libwavpack1 amd64 5.2.0-1ubuntu0.1 [77.3 kB]
 Get:22 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libx264-155 amd64 2:0.155.2917+git0a84d98-2 [521 kB]
 Get:23 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libx265-179 amd64 3.2.1-1build1 [1060 kB]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get:24 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libxvidcore4 amd64 2:1.3.7-1 [201 kB]
+Get:24 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libxvidcore4 amd64 2:1.3.7-1 [201 kB]
 Get:25 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libzvbi-common all 0.2.35-17 [32.5 kB]
 Get:26 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libzvbi0 amd64 0.2.35-17 [237 kB]
 Get:27 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 libavcodec58 amd64 7:4.2.4-1ubuntu0.1 [4876 kB]
@@ -912,7 +916,9 @@ Get:42 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libsratom-0-0
 Get:43 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 liblilv-0-0 amd64 0.24.6-1ubuntu0.1 [40.6 kB]
 Get:44 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libmysofa1 amd64 1.0~dfsg0-1 [39.2 kB]
 Get:45 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 libpostproc55 amd64 7:4.2.4-1ubuntu0.1 [55.3 kB]
-Get:46 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 libsamplerate0 amd64 0.1.9-2 [939 kB]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get:46 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 libsamplerate0 amd64 0.1.9-2 [939 kB]
 Get:47 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 librubberband2 amd64 1.8.2-1build1 [89.4 kB]
 Get:48 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 libswscale5 amd64 7:4.2.4-1ubuntu0.1 [156 kB]
 Get:49 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libvidstab1.1 amd64 1.1.0-2 [35.0 kB]
@@ -927,7 +933,9 @@ Get:57 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 libjack-jackd2-0 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get:58 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libopenal-data all 1:1.19.1-1 [162 kB]
-Get:59 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libsndio7.0 amd64 1.5.0-3 [24.5 kB]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get:59 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libsndio7.0 amd64 1.5.0-3 [24.5 kB]
 Get:60 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libopenal1 amd64 1:1.19.1-1 [492 kB]
 Get:61 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 libasyncns0 amd64 0.8-6 [12.1 kB]
 Get:62 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 libflac8 amd64 1.3.3-1build1 [103 kB]
@@ -944,13 +952,13 @@ Get:70 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 intel-media-v
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get:71 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libaacs0 amd64 0.9.0-2 [50.1 kB]
 Get:72 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libbdplus0 amd64 0.1.2-3 [47.3 kB]
 Get:73 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 mesa-va-drivers amd64 20.2.6-0ubuntu0.20.04.1 [2618 kB]
-Get:74 http://azure.archive.ubuntu.com/ubuntu focal-updates/main amd64 mesa-vdpau-drivers amd64 20.2.6-0ubuntu0.20.04.1 [2744 kB]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get:75 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 i965-va-driver amd64 2.4.0-0ubuntu1 [924 kB]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get:74 http://azure.archive.ubuntu.com/ubuntu focal-updates/main amd64 mesa-vdpau-drivers amd64 20.2.6-0ubuntu0.20.04.1 [2744 kB]
+Get:75 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 i965-va-driver amd64 2.4.0-0ubuntu1 [924 kB]
 Get:76 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 va-driver-all amd64 2.7.0-2 [4020 B]
 Get:77 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 vdpau-driver-all amd64 1.3-1ubuntu2 [4596 B]
-Fetched 47.2 MB in 1s (86.5 MB/s)
+Fetched 47.2 MB in 1s (77.0 MB/s)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting templates from packages: 38%
@@ -1004,15 +1012,11 @@ Fetched 47.2 MB in 1s (86.5 MB/s)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Reading database ... 100%
 (Reading database ... 233736 files and directories currently installed.)
 Preparing to unpack .../00-libaom0_1.0.0.errata1-3build1_amd64.deb ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking libaom0:amd64 (1.0.0.errata1-3build1) ...
+Unpacking libaom0:amd64 (1.0.0.errata1-3build1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libva2:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../01-libva2_2.7.0-2_amd64.deb ...
+Preparing to unpack .../01-libva2_2.7.0-2_amd64.deb ...
 Unpacking libva2:amd64 (2.7.0-2) ...
 </pre></div>
 </div>
@@ -1023,28 +1027,28 @@ Unpacking libva-drm2:amd64 (2.7.0-2) ...
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libva-x11-2:amd64.
 Preparing to unpack .../03-libva-x11-2_2.7.0-2_amd64.deb ...
-Unpacking libva-x11-2:amd64 (2.7.0-2) ...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libvdpau1:amd64.
-Preparing to unpack .../04-libvdpau1_1.3-1ubuntu2_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking libva-x11-2:amd64 (2.7.0-2) ...
+Selecting previously unselected package libvdpau1:amd64.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../04-libvdpau1_1.3-1ubuntu2_amd64.deb ...
 Unpacking libvdpau1:amd64 (1.3-1ubuntu2) ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package ocl-icd-libopencl1:amd64.
+Selecting previously unselected package ocl-icd-libopencl1:amd64.
 Preparing to unpack .../05-ocl-icd-libopencl1_2.2.11-1ubuntu1_amd64.deb ...
-Unpacking ocl-icd-libopencl1:amd64 (2.2.11-1ubuntu1) ...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libavutil56:amd64.
-Preparing to unpack .../06-libavutil56_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking ocl-icd-libopencl1:amd64 (2.2.11-1ubuntu1) ...
+Selecting previously unselected package libavutil56:amd64.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../06-libavutil56_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
 Unpacking libavutil56:amd64 (7:4.2.4-1ubuntu0.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libcodec2-0.9:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../07-libcodec2-0.9_0.9.2-2_amd64.deb ...
+Preparing to unpack .../07-libcodec2-0.9_0.9.2-2_amd64.deb ...
 Unpacking libcodec2-0.9:amd64 (0.9.2-2) ...
 </pre></div>
 </div>
@@ -1058,17 +1062,15 @@ Selecting previously unselected package libmp3lame0:amd64.
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../09-libmp3lame0_3.100-3_amd64.deb ...
 Unpacking libmp3lame0:amd64 (3.100-3) ...
+Selecting previously unselected package libopenjp2-7:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libopenjp2-7:amd64.
-Preparing to unpack .../10-libopenjp2-7_2.3.1-1ubuntu4.20.04.1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../10-libopenjp2-7_2.3.1-1ubuntu4.20.04.1_amd64.deb ...
 Unpacking libopenjp2-7:amd64 (2.3.1-1ubuntu4.20.04.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libopus0:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../11-libopus0_1.3.1-0ubuntu1_amd64.deb ...
+Preparing to unpack .../11-libopus0_1.3.1-0ubuntu1_amd64.deb ...
 Unpacking libopus0:amd64 (1.3.1-0ubuntu1) ...
 </pre></div>
 </div>
@@ -1089,32 +1091,30 @@ Unpacking libspeex1:amd64 (1.2~rc1.2-1.1ubuntu1) ...
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libsoxr0:amd64.
 Preparing to unpack .../15-libsoxr0_0.1.3-2build1_amd64.deb ...
+Unpacking libsoxr0:amd64 (0.1.3-2build1) ...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking libsoxr0:amd64 (0.1.3-2build1) ...
-Selecting previously unselected package libswresample3:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../16-libswresample3_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libswresample3:amd64.
+Preparing to unpack .../16-libswresample3_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
 Unpacking libswresample3:amd64 (7:4.2.4-1ubuntu0.1) ...
-Selecting previously unselected package libtheora0:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../17-libtheora0_1.1.1+dfsg.1-15ubuntu2_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libtheora0:amd64.
+Preparing to unpack .../17-libtheora0_1.1.1+dfsg.1-15ubuntu2_amd64.deb ...
 Unpacking libtheora0:amd64 (1.1.1+dfsg.1-15ubuntu2) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libtwolame0:amd64.
-Preparing to unpack .../18-libtwolame0_0.4.0-2_amd64.deb ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../18-libtwolame0_0.4.0-2_amd64.deb ...
 Unpacking libtwolame0:amd64 (0.4.0-2) ...
+Selecting previously unselected package libvorbisenc2:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libvorbisenc2:amd64.
-Preparing to unpack .../19-libvorbisenc2_1.3.6-2ubuntu1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../19-libvorbisenc2_1.3.6-2ubuntu1_amd64.deb ...
 Unpacking libvorbisenc2:amd64 (1.3.6-2ubuntu1) ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libwavpack1:amd64.
+Selecting previously unselected package libwavpack1:amd64.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../20-libwavpack1_5.2.0-1ubuntu0.1_amd64.deb ...
@@ -1127,7 +1127,9 @@ Unpacking libx264-155:amd64 (2:0.155.2917+git0a84d98-2) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libx265-179:amd64.
-Preparing to unpack .../22-libx265-179_3.2.1-1build1_amd64.deb ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../22-libx265-179_3.2.1-1build1_amd64.deb ...
 Unpacking libx265-179:amd64 (3.2.1-1build1) ...
 </pre></div>
 </div>
@@ -1141,9 +1143,7 @@ Unpacking libxvidcore4:amd64 (2:1.3.7-1) ...
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../24-libzvbi-common_0.2.35-17_all.deb ...
 Unpacking libzvbi-common (0.2.35-17) ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libzvbi0:amd64.
+Selecting previously unselected package libzvbi0:amd64.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../25-libzvbi0_0.2.35-17_amd64.deb ...
@@ -1170,23 +1170,21 @@ Selecting previously unselected package libass9:amd64.
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../29-libass9_1%3a0.14.0-2_amd64.deb ...
 Unpacking libass9:amd64 (1:0.14.0-2) ...
+Selecting previously unselected package libbluray2:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libbluray2:amd64.
-Preparing to unpack .../30-libbluray2_1%3a1.2.0-1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../30-libbluray2_1%3a1.2.0-1_amd64.deb ...
 Unpacking libbluray2:amd64 (1:1.2.0-1) ...
+Selecting previously unselected package libchromaprint1:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libchromaprint1:amd64.
-Preparing to unpack .../31-libchromaprint1_1.4.3-3build1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../31-libchromaprint1_1.4.3-3build1_amd64.deb ...
 Unpacking libchromaprint1:amd64 (1.4.3-3build1) ...
+Selecting previously unselected package libgme0:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libgme0:amd64.
-Preparing to unpack .../32-libgme0_0.6.2-1build1_amd64.deb ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking libgme0:amd64 (0.6.2-1build1) ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../32-libgme0_0.6.2-1build1_amd64.deb ...
+Unpacking libgme0:amd64 (0.6.2-1build1) ...
 Selecting previously unselected package libmpg123-0:amd64.
 </pre></div>
 </div>
@@ -1212,14 +1210,12 @@ Unpacking libavformat58:amd64 (7:4.2.4-1ubuntu0.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libbs2b0:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../37-libbs2b0_3.1.0+dfsg-2.2build1_amd64.deb ...
+Preparing to unpack .../37-libbs2b0_3.1.0+dfsg-2.2build1_amd64.deb ...
 Unpacking libbs2b0:amd64 (3.1.0+dfsg-2.2build1) ...
-Selecting previously unselected package libflite1:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../38-libflite1_2.1-release-3_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libflite1:amd64.
+Preparing to unpack .../38-libflite1_2.1-release-3_amd64.deb ...
 Unpacking libflite1:amd64 (2.1-release-3) ...
 </pre></div>
 </div>
@@ -1239,24 +1235,22 @@ Unpacking libsratom-0-0:amd64 (0.6.4-1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package liblilv-0-0:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../42-liblilv-0-0_0.24.6-1ubuntu0.1_amd64.deb ...
+Preparing to unpack .../42-liblilv-0-0_0.24.6-1ubuntu0.1_amd64.deb ...
 Unpacking liblilv-0-0:amd64 (0.24.6-1ubuntu0.1) ...
-Selecting previously unselected package libmysofa1:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../43-libmysofa1_1.0~dfsg0-1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libmysofa1:amd64.
+Preparing to unpack .../43-libmysofa1_1.0~dfsg0-1_amd64.deb ...
 Unpacking libmysofa1:amd64 (1.0~dfsg0-1) ...
-Selecting previously unselected package libpostproc55:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../44-libpostproc55_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libpostproc55:amd64.
+Preparing to unpack .../44-libpostproc55_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
 Unpacking libpostproc55:amd64 (7:4.2.4-1ubuntu0.1) ...
-Selecting previously unselected package libsamplerate0:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../45-libsamplerate0_0.1.9-2_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libsamplerate0:amd64.
+Preparing to unpack .../45-libsamplerate0_0.1.9-2_amd64.deb ...
 Unpacking libsamplerate0:amd64 (0.1.9-2) ...
 </pre></div>
 </div>
@@ -1271,35 +1265,33 @@ Unpacking libswscale5:amd64 (7:4.2.4-1ubuntu0.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libvidstab1.1:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../48-libvidstab1.1_1.1.0-2_amd64.deb ...
+Preparing to unpack .../48-libvidstab1.1_1.1.0-2_amd64.deb ...
 Unpacking libvidstab1.1:amd64 (1.1.0-2) ...
-Selecting previously unselected package libavfilter7:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../49-libavfilter7_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
-Unpacking libavfilter7:amd64 (7:4.2.4-1ubuntu0.1) ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libavfilter7:amd64.
+Preparing to unpack .../49-libavfilter7_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking libavfilter7:amd64 (7:4.2.4-1ubuntu0.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libcaca0:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../50-libcaca0_0.99.beta19-2.1ubuntu1.20.04.1_amd64.deb ...
+Preparing to unpack .../50-libcaca0_0.99.beta19-2.1ubuntu1.20.04.1_amd64.deb ...
 Unpacking libcaca0:amd64 (0.99.beta19-2.1ubuntu1.20.04.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libcdio18:amd64.
-Preparing to unpack .../51-libcdio18_2.0.0-2_amd64.deb ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../51-libcdio18_2.0.0-2_amd64.deb ...
 Unpacking libcdio18:amd64 (2.0.0-2) ...
+Selecting previously unselected package libcdio-cdda2:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libcdio-cdda2:amd64.
-Preparing to unpack .../52-libcdio-cdda2_10.2+2.0.0-1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../52-libcdio-cdda2_10.2+2.0.0-1_amd64.deb ...
 Unpacking libcdio-cdda2:amd64 (10.2+2.0.0-1) ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libcdio-paranoia2:amd64.
+Selecting previously unselected package libcdio-paranoia2:amd64.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../53-libcdio-paranoia2_10.2+2.0.0-1_amd64.deb ...
@@ -1328,43 +1320,41 @@ Unpacking libopenal-data (1:1.19.1-1) ...
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libsndio7.0:amd64.
 Preparing to unpack .../58-libsndio7.0_1.5.0-3_amd64.deb ...
+Unpacking libsndio7.0:amd64 (1.5.0-3) ...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking libsndio7.0:amd64 (1.5.0-3) ...
-Selecting previously unselected package libopenal1:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../59-libopenal1_1%3a1.19.1-1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libopenal1:amd64.
+Preparing to unpack .../59-libopenal1_1%3a1.19.1-1_amd64.deb ...
 Unpacking libopenal1:amd64 (1:1.19.1-1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libasyncns0:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../60-libasyncns0_0.8-6_amd64.deb ...
+Preparing to unpack .../60-libasyncns0_0.8-6_amd64.deb ...
 Unpacking libasyncns0:amd64 (0.8-6) ...
-Selecting previously unselected package libflac8:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../61-libflac8_1.3.3-1build1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libflac8:amd64.
+Preparing to unpack .../61-libflac8_1.3.3-1build1_amd64.deb ...
 Unpacking libflac8:amd64 (1.3.3-1build1) ...
-Selecting previously unselected package libsndfile1:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../62-libsndfile1_1.0.28-7_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libsndfile1:amd64.
+Preparing to unpack .../62-libsndfile1_1.0.28-7_amd64.deb ...
 Unpacking libsndfile1:amd64 (1.0.28-7) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libpulse0:amd64.
-Preparing to unpack .../63-libpulse0_1%3a13.99.1-1ubuntu3.11_amd64.deb ...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking libpulse0:amd64 (1:13.99.1-1ubuntu3.11) ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../63-libpulse0_1%3a13.99.1-1ubuntu3.11_amd64.deb ...
+Unpacking libpulse0:amd64 (1:13.99.1-1ubuntu3.11) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libsdl2-2.0-0:amd64.
 Preparing to unpack .../64-libsdl2-2.0-0_2.0.10+dfsg1-3_amd64.deb ...
-Unpacking libsdl2-2.0-0:amd64 (2.0.10+dfsg1-3) ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking libsdl2-2.0-0:amd64 (2.0.10+dfsg1-3) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libavdevice58:amd64.
@@ -1378,21 +1368,19 @@ Unpacking libavresample4:amd64 (7:4.2.4-1ubuntu0.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package ffmpeg.
+Preparing to unpack .../67-ffmpeg_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../67-ffmpeg_7%3a4.2.4-1ubuntu0.1_amd64.deb ...
-Unpacking ffmpeg (7:4.2.4-1ubuntu0.1) ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking ffmpeg (7:4.2.4-1ubuntu0.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package libigdgmm11:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../68-libigdgmm11_20.1.1+ds1-1_amd64.deb ...
+Preparing to unpack .../68-libigdgmm11_20.1.1+ds1-1_amd64.deb ...
 Unpacking libigdgmm11:amd64 (20.1.1+ds1-1) ...
-Selecting previously unselected package intel-media-va-driver:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../69-intel-media-va-driver_20.1.1+dfsg1-1_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package intel-media-va-driver:amd64.
+Preparing to unpack .../69-intel-media-va-driver_20.1.1+dfsg1-1_amd64.deb ...
 Unpacking intel-media-va-driver:amd64 (20.1.1+dfsg1-1) ...
 </pre></div>
 </div>
@@ -1412,28 +1400,22 @@ Unpacking mesa-va-drivers:amd64 (20.2.6-0ubuntu0.20.04.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package mesa-vdpau-drivers:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../73-mesa-vdpau-drivers_20.2.6-0ubuntu0.20.04.1_amd64.deb ...
+Preparing to unpack .../73-mesa-vdpau-drivers_20.2.6-0ubuntu0.20.04.1_amd64.deb ...
 Unpacking mesa-vdpau-drivers:amd64 (20.2.6-0ubuntu0.20.04.1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package i965-va-driver:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../74-i965-va-driver_2.4.0-0ubuntu1_amd64.deb ...
+Preparing to unpack .../74-i965-va-driver_2.4.0-0ubuntu1_amd64.deb ...
 Unpacking i965-va-driver:amd64 (2.4.0-0ubuntu1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package va-driver-all:amd64.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../75-va-driver-all_2.7.0-2_amd64.deb ...
+Preparing to unpack .../75-va-driver-all_2.7.0-2_amd64.deb ...
 Unpacking va-driver-all:amd64 (2.7.0-2) ...
-Selecting previously unselected package vdpau-driver-all:amd64.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing to unpack .../76-vdpau-driver-all_1.3-1ubuntu2_amd64.deb ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selecting previously unselected package vdpau-driver-all:amd64.
+Preparing to unpack .../76-vdpau-driver-all_1.3-1ubuntu2_amd64.deb ...
 Unpacking vdpau-driver-all:amd64 (1.3-1ubuntu2) ...
 </pre></div>
 </div>
@@ -1448,12 +1430,12 @@ Setting up libtwolame0:amd64 (0.4.0-2) ...
 Setting up libgsm1:amd64 (1.0.18-2) ...
 Setting up libx264-155:amd64 (2:0.155.2917+git0a84d98-2) ...
 Setting up libx265-179:amd64 (3.2.1-1build1) ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting up libsoxr0:amd64 (0.1.3-2build1) ...
+Setting up libsoxr0:amd64 (0.1.3-2build1) ...
 Setting up libaom0:amd64 (1.0.0.errata1-3build1) ...
 Setting up libmysofa1:amd64 (1.0~dfsg0-1) ...
-Setting up libdc1394-22:amd64 (2.2.5-2.1) ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting up libdc1394-22:amd64 (2.2.5-2.1) ...
 Setting up libcdio18:amd64 (2.0.0-2) ...
 Setting up libxvidcore4:amd64 (2:1.3.7-1) ...
 Setting up libsnappy1v5:amd64 (1.1.8-1build1) ...
@@ -1463,12 +1445,12 @@ Setting up libva2:amd64 (2.7.0-2) ...
 Setting up libigdgmm11:amd64 (20.1.1+ds1-1) ...
 Setting up libcodec2-0.9:amd64 (0.9.2-2) ...
 Setting up libopus0:amd64 (1.3.1-0ubuntu1) ...
-Setting up intel-media-va-driver:amd64 (20.1.1+dfsg1-1) ...
-Setting up libaacs0:amd64 (0.9.0-2) ...
-Setting up libsndio7.0:amd64 (1.5.0-3) ...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting up libbdplus0:amd64 (0.1.2-3) ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting up intel-media-va-driver:amd64 (20.1.1+dfsg1-1) ...
+Setting up libaacs0:amd64 (0.9.0-2) ...
+Setting up libsndio7.0:amd64 (1.5.0-3) ...
+Setting up libbdplus0:amd64 (0.1.2-3) ...
 Setting up libvidstab1.1:amd64 (1.1.0-2) ...
 Setting up libflite1:amd64 (2.1-release-3) ...
 Setting up libva-drm2:amd64 (2.7.0-2) ...
@@ -1507,11 +1489,11 @@ Setting up libpostproc55:amd64 (7:4.2.4-1ubuntu0.1) ...
 Setting up librubberband2:amd64 (1.8.2-1build1) ...
 Setting up libjack-jackd2-0:amd64 (1.9.12~dfsg-2ubuntu2) ...
 Setting up vdpau-driver-all:amd64 (1.3-1ubuntu2) ...
-Setting up libsord-0-0:amd64 (0.16.4-1) ...
-Setting up libsratom-0-0:amd64 (0.6.4-1) ...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting up libswscale5:amd64 (7:4.2.4-1ubuntu0.1) ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting up libsord-0-0:amd64 (0.16.4-1) ...
+Setting up libsratom-0-0:amd64 (0.6.4-1) ...
+Setting up libswscale5:amd64 (7:4.2.4-1ubuntu0.1) ...
 Setting up libsndfile1:amd64 (1.0.28-7) ...
 Setting up liblilv-0-0:amd64 (0.24.6-1ubuntu0.1) ...
 Setting up libpulse0:amd64 (1:13.99.1-1ubuntu3.11) ...
@@ -1520,13 +1502,13 @@ Setting up libavresample4:amd64 (7:4.2.4-1ubuntu0.1) ...
 Setting up libavcodec58:amd64 (7:4.2.4-1ubuntu0.1) ...
 Setting up libsdl2-2.0-0:amd64 (2.0.10+dfsg1-3) ...
 Setting up libchromaprint1:amd64 (1.4.3-3build1) ...
-Setting up libavformat58:amd64 (7:4.2.4-1ubuntu0.1) ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting up libavformat58:amd64 (7:4.2.4-1ubuntu0.1) ...
 Setting up libavfilter7:amd64 (7:4.2.4-1ubuntu0.1) ...
 Setting up libavdevice58:amd64 (7:4.2.4-1ubuntu0.1) ...
 Setting up ffmpeg (7:4.2.4-1ubuntu0.1) ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for man-db (2.9.1-1) ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
@@ -1836,7 +1818,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "d11fc15618d94f68a7f978e4b9faebc0"}
+{"version_major": 2, "version_minor": 0, "model_id": "84c690c8575a47b596bd8c12b943c644"}
 </script></div>
 </div>
 <p>A key idea of neural nets, is that they use models that are “too complex” - complex enough to fit all the noise in the data. One then needs to “regularize” them to make the models fit complex enough, but not too complex. The more complex the model, the better it fits the training data, but if it is too complex, it generalizes less well; it memorizes the training data but is less accurate on future test data.</p>
@@ -1846,15 +1828,18 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "ad42ae0d799e4b64b43f0f1f44cb6d92"}
+{"version_major": 2, "version_minor": 0, "model_id": "a1291e5cd32e42f4bdab3065a1ac0db7"}
 </script></div>
 </div>
 <p>One way to think about Regularization is to think in terms of the magnitude of the overall weights of the model. A model with big weights can fit more data perfectly, whereas a model with smaller weights tends to underperform on the train set but can surprisingly do very well on the test set. Having the weights too small can also be an issue as it can then underfit the model.</p>
 <p>This week we use the sum of Frobenius Norm of all the tensors in the model as a measure of the “size of the model”.</p>
-<p>##Coding Exercise 1: Frobenius Norm
-Before we start, let’s define the Frobenius norm, sometimes also called the Euclidean norm of an <span class="math notranslate nohighlight">\(m×n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>  as the square root of the sum of the absolute squares of its elements.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78563559-6d01-4b94-a36e-8500b6906156">
-<span class="eqno">(47)<a class="headerlink" href="#equation-78563559-6d01-4b94-a36e-8500b6906156" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+</div>
+<div class="section" id="coding-exercise-1-frobenius-norm">
+<h2>Coding Exercise 1: Frobenius Norm<a class="headerlink" href="#coding-exercise-1-frobenius-norm" title="Permalink to this headline">¶</a></h2>
+<p>Before we start, let’s define the Frobenius norm, sometimes also called the Euclidean norm of an <span class="math notranslate nohighlight">\(m×n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>  as the square root of the sum of the absolute squares of its elements.</p>
+<br/>
+<div class="amsmath math notranslate nohighlight" id="equation-f7d50dad-a937-48c3-8932-6d403db72ea1">
+<span class="eqno">(47)<a class="headerlink" href="#equation-f7d50dad-a937-48c3-8932-6d403db72ea1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 ||A||_F= \sqrt{\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^2}
 \end{equation}\]</div>
 <p>This is just a measure of how big the matrix is, analogous to how big a vector is.</p>
@@ -1973,7 +1958,7 @@ Frobenius Norm of Models weights: 7.3810
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "36301c36ada648f88d6763f403260fb2"}
+{"version_major": 2, "version_minor": 0, "model_id": "4c6491b730b74472ba35a7e34c3a0e7f"}
 </script></div>
 </div>
 </div>
@@ -2105,7 +2090,7 @@ Frobenius Norm of Models weights: 7.3810
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "7f52d0b94f0442fab5b4d8151e14de8a"}
+{"version_major": 2, "version_minor": 0, "model_id": "f1ce1cc2beda4118ac4424086806f3ef"}
 </script></div>
 </div>
 <p>Now that we have finished training, let’s see how the model has evolved over the training process.</p>
@@ -3148,11 +3133,13 @@ TGF2ZjU4LjI5LjEwMA==
 <span class="c1"># Creating train_loader and Val_loader</span>
 <span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">img_train_data</span><span class="p">,</span>
                                            <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                           <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                            <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
                                            <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
 
 <span class="n">val_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">img_val_data</span><span class="p">,</span>
                                          <span class="n">batch_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                                         <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                          <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
                                          <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
 </pre></div>
@@ -3175,13 +3162,13 @@ TGF2ZjU4LjI5LjEwMA==
 <span class="c1"># Randomized train and validation dataloader</span>
 <span class="n">rand_train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">random_img_train_data</span><span class="p">,</span>
                                                 <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-                                                <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                                 <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
                                                 <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
 
 <span class="n">rand_val_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">random_img_val_data</span><span class="p">,</span>
                                               <span class="n">batch_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
-                                              <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                              <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                               <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
                                               <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
 </pre></div>
@@ -3204,13 +3191,13 @@ TGF2ZjU4LjI5LjEwMA==
 <span class="c1"># Training and Validation loader for partially randomized data</span>
 <span class="n">partial_rand_train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">partially_random_train_data</span><span class="p">,</span>
                                                         <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-                                                        <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                        <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                                         <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
                                                         <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
 
 <span class="n">partial_rand_val_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">partially_random_val_data</span><span class="p">,</span>
                                                       <span class="n">batch_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
-                                                      <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                      <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                                       <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
                                                       <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
 </pre></div>
@@ -3300,106 +3287,76 @@ TGF2ZjU4LjI5LjEwMA==
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "573f556a557a4a7889b6f323bfec4fb8"}
-</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+{"version_major": 2, "version_minor": 0, "model_id": "7c47fd04e0b64640872b263fb2e05e66"}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2882</span><span class="o">/</span><span class="mf">1338239424.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2844</span><span class="o">/</span><span class="mf">1338239424.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">19</span>                                                  <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span>                                                  <span class="n">train_loader</span><span class="o">=</span><span class="n">train_loader</span><span class="p">,</span>
 <span class="ne">---&gt; </span><span class="mi">21</span>                                                  <span class="n">val_loader</span><span class="o">=</span><span class="n">val_loader</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span> 
 
-<span class="nn">/tmp/ipykernel_2882/3029915720.py</span> in <span class="ni">main</span><span class="nt">(args, model, train_loader, val_loader, reg_function1, reg_function2)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">train</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>           <span class="n">reg_function1</span><span class="o">=</span><span class="n">reg_function1</span><span class="p">,</span>
-<span class="ne">---&gt; </span><span class="mi">58</span>           <span class="n">reg_function2</span><span class="o">=</span><span class="n">reg_function2</span><span class="p">)</span>
+<span class="nn">/tmp/ipykernel_2844/3029915720.py</span> in <span class="ni">main</span><span class="nt">(args, model, train_loader, val_loader, reg_function1, reg_function2)</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span>           <span class="n">reg_function2</span><span class="o">=</span><span class="n">reg_function2</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="n">train_acc</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="n">val_acc</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">60</span>     <span class="n">val_acc</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="n">param_norm</span> <span class="o">=</span> <span class="n">calculate_frobenius_norm</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="n">train_acc_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_acc</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_2882/3029915720.py</span> in <span class="ni">train</span><span class="nt">(args, model, train_loader, optimizer, reg_function1, reg_function2, criterion)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>   <span class="n">device</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">'device'</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>   <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">9</span>   <span class="k">for</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">target</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+<span class="nn">/tmp/ipykernel_2844/3029915720.py</span> in <span class="ni">test</span><span class="nt">(model, test_loader, criterion, device)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">test_loader</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>       <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">target</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">33</span>       <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>       <span class="n">test_loss</span> <span class="o">+=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">'sum'</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>  <span class="c1"># sum up batch loss</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>       <span class="n">pred</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># get the index of the max log-probability</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/utils/data/dataloader.py</span> in <span class="ni">__next__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">519</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampler_iter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">520</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">521</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_data</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">522</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">    </span><span class="mi">523</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_kind</span> <span class="o">==</span> <span class="n">_DatasetKind</span><span class="o">.</span><span class="n">Iterable</span> <span class="ow">and</span> \
+<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/nn/modules/module.py</span> in <span class="ni">_call_impl</span><span class="nt">(self, *input, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1050</span>                 <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1051</span>             <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1052</span>         <span class="c1"># Do not call functions when jit is used</span>
+<span class="g g-Whitespace">   </span><span class="mi">1053</span>         <span class="n">full_backward_hooks</span><span class="p">,</span> <span class="n">non_full_backward_hooks</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/utils/data/dataloader.py</span> in <span class="ni">_next_data</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">559</span>     <span class="k">def</span> <span class="nf">_next_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span>         <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_index</span><span class="p">()</span>  <span class="c1"># may raise StopIteration</span>
-<span class="ne">--&gt; </span><span class="mi">561</span>         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_fetcher</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>  <span class="c1"># may raise StopIteration</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pin_memory</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span>             <span class="n">data</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">pin_memory</span><span class="o">.</span><span class="n">pin_memory</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nn">/tmp/ipykernel_2844/1984848162.py</span> in <span class="ni">forward</span><span class="nt">(self, x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>   <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">leaky_relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">leaky_relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py</span> in <span class="ni">fetch</span><span class="nt">(self, possibly_batched_index)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">possibly_batched_index</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_collation</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">44</span>             <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">possibly_batched_index</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">possibly_batched_index</span><span class="p">]</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/nn/modules/module.py</span> in <span class="ni">_call_impl</span><span class="nt">(self, *input, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1050</span>                 <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1051</span>             <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1052</span>         <span class="c1"># Do not call functions when jit is used</span>
+<span class="g g-Whitespace">   </span><span class="mi">1053</span>         <span class="n">full_backward_hooks</span><span class="p">,</span> <span class="n">non_full_backward_hooks</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">possibly_batched_index</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_collation</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">44</span>             <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">possibly_batched_index</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">possibly_batched_index</span><span class="p">]</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/nn/modules/linear.py</span> in <span class="ni">forward</span><span class="nt">(self, input)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> 
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> 
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="k">def</span> <span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/utils/data/dataset.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, idx)</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span> 
-<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">311</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span> 
-<span class="g g-Whitespace">    </span><span class="mi">313</span>     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/folder.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, index)</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span>         <span class="sd">"""</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span><span class="sd">         path, target = self.samples[index]</span>
-<span class="ne">--&gt; </span><span class="mi">232</span><span class="sd">         sample = self.loader(path)</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span><span class="sd">         if self.transform is not None:</span>
-<span class="g g-Whitespace">    </span><span class="mi">234</span><span class="sd">             sample = self.transform(sample)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/folder.py</span> in <span class="ni">default_loader</span><span class="nt">(path)</span>
-<span class="g g-Whitespace">    </span><span class="mi">267</span><span class="sd">         return accimage_loader(path)</span>
-<span class="g g-Whitespace">    </span><span class="mi">268</span><span class="sd">     else:</span>
-<span class="ne">--&gt; </span><span class="mi">269</span><span class="sd">         return pil_loader(path)</span>
-<span class="g g-Whitespace">    </span><span class="mi">270</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="sd"> </span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/folder.py</span> in <span class="ni">pil_loader</span><span class="nt">(path)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span><span class="sd">     with open(path, 'rb') as f:</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span><span class="sd">         img = Image.open(f)</span>
-<span class="ne">--&gt; </span><span class="mi">251</span><span class="sd">         return img.convert('RGB')</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span><span class="sd"> </span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/PIL/Image.py</span> in <span class="ni">convert</span><span class="nt">(self, mode, matrix, dither, palette, colors)</span>
-<span class="g g-Whitespace">    </span><span class="mi">913</span><span class="sd">         """</span>
-<span class="g g-Whitespace">    </span><span class="mi">914</span> 
-<span class="ne">--&gt; </span><span class="mi">915</span>         <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">916</span> 
-<span class="g g-Whitespace">    </span><span class="mi">917</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">mode</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"P"</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/PIL/ImageFile.py</span> in <span class="ni">load</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">178</span> 
-<span class="g g-Whitespace">    </span><span class="mi">179</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">180</span>             <span class="n">seek</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_seek</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span>             <span class="n">use_mmap</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/PIL/Image.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span> 
-<span class="g g-Whitespace">    </span><span class="mi">537</span>     <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">538</span>         <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"category"</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">539</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span>                 <span class="s2">"Image categories are deprecated and will be removed in Pillow 10 "</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/nn/functional.py</span> in <span class="ni">linear</span><span class="nt">(input, weight, bias)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1845</span>     <span class="k">if</span> <span class="n">has_torch_function_variadic</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1846</span>         <span class="k">return</span> <span class="n">handle_torch_function</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">),</span> <span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">bias</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1847</span>     <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_nn</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">bias</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1848</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1849</span> 
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -3704,10 +3661,10 @@ TGF2ZjU4LjI5LjEwMA==
 <div class="container">
 <p>
         
-          By Neuromatch<br/>
+          By Neuromatch<br>
         
             © Copyright 2021.<br/>
-</p>
+</br></p>
 </div>
 </footer>
 </main>
