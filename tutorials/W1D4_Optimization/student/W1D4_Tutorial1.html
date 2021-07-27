@@ -55,7 +55,7 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
 <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../../../index.html">
-<img alt="logo" class="logo" src="../../../_static/nma-logo-square-4xp.jpg"/>
+<img alt="logo" class="logo" src="../../../_static/nma-dl-logo-square-4xp.jpeg"/>
 <h1 class="site-logo" id="site-title">Neuromatch Academy: Deep Learning</h1>
 </a>
 </div><form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
@@ -943,6 +943,8 @@
 <span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 <span class="kn">import</span> <span class="nn">torchvision.datasets</span> <span class="k">as</span> <span class="nn">datasets</span>
+
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
 </pre></div>
 </div>
 </div>
@@ -1065,7 +1067,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "06d2a09719654c1db68ae5efbc7f9cfe"}
+{"version_major": 2, "version_minor": 0, "model_id": "6f2ace6c3e5f42e2b4ba7eacb33a7148"}
 </script></div>
 </div>
 </div>
@@ -1087,7 +1089,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "464a7f118ea5496cab91c96123607776"}
+{"version_major": 2, "version_minor": 0, "model_id": "ffbf673dd1a746bcb087a95dba031ca8"}
 </script></div>
 </div>
 </div>
@@ -1141,92 +1143,65 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to ./data/MNIST/raw/train-images-idx3-ubyte.gz
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download (trying next):
+HTTP Error 503: Service Unavailable
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz to ./data/MNIST/raw/train-images-idx3-ubyte.gz
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "baed5a2def724e71a3093362fd2f77e8"}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+{"version_major": 2, "version_minor": 0, "model_id": "e577c345c0ce4103b97bc9e0b990677a"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting ./data/MNIST/raw/train-images-idx3-ubyte.gz to ./data/MNIST/raw
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2789</span><span class="o">/</span><span class="mf">1445642374.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span> 
-<span class="g g-Whitespace">     </span><span class="mi">37</span> 
-<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">load_mnist_data</span><span class="p">(</span><span class="n">change_tensors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+Failed to download (trying next):
+HTTP Error 503: Service Unavailable
 
-<span class="nn">/tmp/ipykernel_2789/1445642374.py</span> in <span class="ni">load_mnist_data</span><span class="nt">(change_tensors, download)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>   <span class="c1"># Load train and test sets</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>   <span class="n">train_set</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">'./data'</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="n">download</span><span class="p">,</span>
-<span class="ne">---&gt; </span><span class="mi">13</span>                              <span class="n">transform</span><span class="o">=</span><span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">())</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>   <span class="n">test_set</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">'./data'</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="n">download</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>                             <span class="n">transform</span><span class="o">=</span><span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">())</span>
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz to ./data/MNIST/raw/train-labels-idx1-ubyte.gz
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "b0dc76774c664c2ea2b94c9fc3178a40"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting ./data/MNIST/raw/train-labels-idx1-ubyte.gz to ./data/MNIST/raw
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/mnist.py</span> in <span class="ni">__init__</span><span class="nt">(self, root, train, transform, target_transform, download)</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span> 
-<span class="g g-Whitespace">     </span><span class="mi">86</span>         <span class="k">if</span> <span class="n">download</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">87</span>             <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span> 
-<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_exists</span><span class="p">():</span>
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+Failed to download (trying next):
+HTTP Error 503: Service Unavailable
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/mnist.py</span> in <span class="ni">download</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">177</span>                         <span class="n">url</span><span class="p">,</span> <span class="n">download_root</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_folder</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">178</span>                         <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">179</span>                         <span class="n">md5</span><span class="o">=</span><span class="n">md5</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>                     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span>                 <span class="k">except</span> <span class="n">URLError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz to ./data/MNIST/raw/t10k-images-idx3-ubyte.gz
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "3f72802ab21c42bfb7da0c92a8495b4a"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting ./data/MNIST/raw/t10k-images-idx3-ubyte.gz to ./data/MNIST/raw
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/utils.py</span> in <span class="ni">download_and_extract_archive</span><span class="nt">(url, download_root, extract_root, filename, md5, remove_finished)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span>         <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span> 
-<span class="ne">--&gt; </span><span class="mi">413</span>     <span class="n">download_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">download_root</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">md5</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span> 
-<span class="g g-Whitespace">    </span><span class="mi">415</span>     <span class="n">archive</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+Failed to download (trying next):
+HTTP Error 503: Service Unavailable
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/utils.py</span> in <span class="ni">download_url</span><span class="nt">(url, root, filename, md5, max_redirect_hops)</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>         <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>             <span class="nb">print</span><span class="p">(</span><span class="s1">'Downloading '</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s1">' to '</span> <span class="o">+</span> <span class="n">fpath</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">139</span>             <span class="n">_urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">fpath</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>         <span class="k">except</span> <span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">URLError</span><span class="p">,</span> <span class="ne">IOError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># type: ignore[attr-defined]</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>             <span class="k">if</span> <span class="n">url</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'https'</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/utils.py</span> in <span class="ni">_urlretrieve</span><span class="nt">(url, filename, chunk_size)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>         <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"User-Agent"</span><span class="p">:</span> <span class="n">USER_AGENT</span><span class="p">}))</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>             <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">33</span>                 <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">),</span> <span class="s2">""</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>                     <span class="k">if</span> <span class="ow">not</span> <span class="n">chunk</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>                         <span class="k">break</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/utils.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>         <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"User-Agent"</span><span class="p">:</span> <span class="n">USER_AGENT</span><span class="p">}))</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>             <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">33</span>                 <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">),</span> <span class="s2">""</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>                     <span class="k">if</span> <span class="ow">not</span> <span class="n">chunk</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>                         <span class="k">break</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/http/client.py</span> in <span class="ni">read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>             <span class="c1"># Amount is given, implement using readinto</span>
-<span class="g g-Whitespace">    </span><span class="mi">464</span>             <span class="n">b</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">465</span>             <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">466</span>             <span class="k">return</span> <span class="nb">memoryview</span><span class="p">(</span><span class="n">b</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">467</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/http/client.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">507</span>         <span class="c1"># connection, and the user is reading more bytes than will be provided</span>
-<span class="g g-Whitespace">    </span><span class="mi">508</span>         <span class="c1"># (for example, reading in 1k chunks)</span>
-<span class="ne">--&gt; </span><span class="mi">509</span>         <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">510</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">511</span>             <span class="c1"># Ideally, we would raise IncompleteRead if the content-length</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">589</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span>             <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz to ./data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "34424213e611403eb90912c4ff570372"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting ./data/MNIST/raw/t10k-labels-idx1-ubyte.gz to ./data/MNIST/raw
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
 </pre></div>
 </div>
 </div>
@@ -1268,6 +1243,9 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W1D4_Tutorial1_34_0.png" src="../../../_images/W1D4_Tutorial1_34_0.png"/>
 </div>
 </div>
 </div>
@@ -1339,6 +1317,15 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MLP(
+  (main): Sequential(
+    (0): Linear(in_features=784, out_features=10, bias=True)
+  )
+)
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="section-2-3-loss">
@@ -1396,6 +1383,9 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W1D4_Tutorial1_44_0.png" src="../../../_images/W1D4_Tutorial1_44_0.png"/>
+</div>
 </div>
 </div>
 </div>
@@ -1407,6 +1397,10 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="section" id="video-3-optimization-of-an-objective-function">
 <h2>Video 3: Optimization of an Objective Function<a class="headerlink" href="#video-3-optimization-of-an-objective-function" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "bed11f29182f4ab78842d8cde41cd405"}
+</script></div>
 </div>
 </div>
 <div class="section" id="coding-exercise-3-implement-gradient-descent">
@@ -1437,7 +1431,7 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gradient_update</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gradient_update</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
   <span class="sd">"""Perform a gradient descent update on a given loss over a collection of parameters</span>
 
 <span class="sd">  Args:</span>
@@ -1452,42 +1446,60 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
   <span class="c1"># Compute gradients on given objective</span>
   <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 
-  <span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-    <span class="c1">#################################################</span>
-    <span class="c1">## TODO for students: update the value of the parameter ##</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Student exercise: implement gradient update"</span><span class="p">)</span>
-    <span class="c1">#################################################</span>
-    <span class="c1"># Here we work with the 'data' attribute of the parameter rather than the</span>
-    <span class="c1"># parameter itself.</span>
-    <span class="n">par</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="o">...</span>
+  <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+      <span class="c1">#################################################</span>
+      <span class="c1">## TODO for students: update the value of the parameter ##</span>
+      <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Student exercise: implement gradient update"</span><span class="p">)</span>
+      <span class="c1">#################################################</span>
+      <span class="c1"># Here we work with the 'data' attribute of the parameter rather than the</span>
+      <span class="c1"># parameter itself.</span>
+      <span class="n">par</span> <span class="o">-=</span> <span class="o">...</span>
 
 
 <span class="n">set_seed</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">[])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1"> The model parameters before the update are: </span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 <span class="n">print_params</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
 
 <span class="c1">## Uncomment below to test your function</span>
-<span class="c1"># gradient_update(loss, list(model.parameters()), lr=1e-2)</span>
+<span class="c1"># gradient_update(loss, list(model.parameters()), lr=1e-1)</span>
 <span class="c1"># print('\n The model parameters after the update are: \n')</span>
 <span class="c1"># print_params(model)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random seed 2021 has been set.
+
+ The model parameters before the update are: 
+
+main.0.weight tensor([[-0.0264,  0.0010,  0.0173,  ...,  0.0297,  0.0278, -0.0221],
+        [-0.0040, -0.0295, -0.0086,  ..., -0.0070,  0.0254, -0.0233],
+        [ 0.0240, -0.0231,  0.0342,  ...,  0.0124,  0.0270, -0.0180],
+        ...,
+        [-0.0005,  0.0157,  0.0111,  ...,  0.0144, -0.0301, -0.0144],
+        [ 0.0181,  0.0303,  0.0255,  ..., -0.0110, -0.0175,  0.0205],
+        [ 0.0208, -0.0353, -0.0183,  ..., -0.0271,  0.0099,  0.0003]])
+main.0.bias tensor([-0.0290, -0.0033,  0.0100, -0.0320,  0.0022,  0.0221,  0.0307,  0.0243,
+         0.0159, -0.0064])
+</pre></div>
 </div>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D4_Optimization/solutions/W1D4_Tutorial1_Solution_86710eba.py"><em>Click for solution</em></a></p>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D4_Optimization/solutions/W1D4_Tutorial1_Solution_1125f3f5.py"><em>Click for solution</em></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">The</span> <span class="n">model</span> <span class="n">parameters</span> <span class="n">after</span> <span class="n">the</span> <span class="n">update</span> <span class="n">are</span><span class="p">:</span> 
 
-<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">weight</span> <span class="n">tensor</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.0264</span><span class="p">,</span>  <span class="mf">0.0010</span><span class="p">,</span>  <span class="mf">0.0173</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0297</span><span class="p">,</span>  <span class="mf">0.0278</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0221</span><span class="p">],</span>
-        <span class="p">[</span><span class="o">-</span><span class="mf">0.0041</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0296</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0087</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0071</span><span class="p">,</span>  <span class="mf">0.0254</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0234</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mf">0.0240</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0231</span><span class="p">,</span>  <span class="mf">0.0341</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0123</span><span class="p">,</span>  <span class="mf">0.0269</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0181</span><span class="p">],</span>
+<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">weight</span> <span class="n">tensor</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.0263</span><span class="p">,</span>  <span class="mf">0.0010</span><span class="p">,</span>  <span class="mf">0.0174</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0298</span><span class="p">,</span>  <span class="mf">0.0278</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0220</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.0047</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0302</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0093</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0077</span><span class="p">,</span>  <span class="mf">0.0248</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0240</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.0234</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0237</span><span class="p">,</span>  <span class="mf">0.0335</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0117</span><span class="p">,</span>  <span class="mf">0.0263</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0187</span><span class="p">],</span>
         <span class="o">...</span><span class="p">,</span>
-        <span class="p">[</span><span class="o">-</span><span class="mf">0.0005</span><span class="p">,</span>  <span class="mf">0.0157</span><span class="p">,</span>  <span class="mf">0.0111</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0144</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0301</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0144</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mf">0.0179</span><span class="p">,</span>  <span class="mf">0.0301</span><span class="p">,</span>  <span class="mf">0.0253</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0112</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0176</span><span class="p">,</span>  <span class="mf">0.0203</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mf">0.0208</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0353</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0183</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0271</span><span class="p">,</span>  <span class="mf">0.0099</span><span class="p">,</span>  <span class="mf">0.0003</span><span class="p">]])</span>
-<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">bias</span> <span class="n">tensor</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0290</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0032</span><span class="p">,</span>  <span class="mf">0.0101</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0325</span><span class="p">,</span>  <span class="mf">0.0025</span><span class="p">,</span>  <span class="mf">0.0215</span><span class="p">,</span>  <span class="mf">0.0308</span><span class="p">,</span>  <span class="mf">0.0243</span><span class="p">,</span>
-         <span class="mf">0.0163</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0063</span><span class="p">])</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.0006</span><span class="p">,</span>  <span class="mf">0.0156</span><span class="p">,</span>  <span class="mf">0.0110</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0143</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0302</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0145</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.0164</span><span class="p">,</span>  <span class="mf">0.0286</span><span class="p">,</span>  <span class="mf">0.0238</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0127</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0191</span><span class="p">,</span>  <span class="mf">0.0188</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.0206</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0354</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0184</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0272</span><span class="p">,</span>  <span class="mf">0.0098</span><span class="p">,</span>  <span class="mf">0.0002</span><span class="p">]])</span>
+<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">bias</span> <span class="n">tensor</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0292</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0018</span><span class="p">,</span>  <span class="mf">0.0115</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0370</span><span class="p">,</span>  <span class="mf">0.0054</span><span class="p">,</span>  <span class="mf">0.0155</span><span class="p">,</span>  <span class="mf">0.0317</span><span class="p">,</span>  <span class="mf">0.0246</span><span class="p">,</span>
+         <span class="mf">0.0198</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0061</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1538,12 +1550,13 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 </pre></div>
 </div>
 </div>
+
 </div>
 </div>
 <div class="section" id="think-3-gradient-descent-vs-random-search">
 <h2>Think! 3: Gradient descent vs. random search<a class="headerlink" href="#think-3-gradient-descent-vs-random-search" title="Permalink to this headline">¶</a></h2>
 <p>Compare the behavior of gradient descent and random search based on the histograms above. Is any of the two methods more reliable? How can you explain the changes between behavior of the methods at initialization vs during training?</p>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D4_Optimization/solutions/W1D4_Tutorial1_Solution_e1813c68.py"><em>Click for solution</em></a></p>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D4_Optimization/solutions/W1D4_Tutorial1_Solution_2de57667.py"><em>Click for solution</em></a></p>
 </div>
 </div>
 <hr class="docutils"/>
@@ -1553,6 +1566,10 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="section" id="video-4-momentum">
 <h2>Video 4: Momentum<a class="headerlink" href="#video-4-momentum" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "1dde61d5f7cd4c0580b11670e29b59e1"}
+</script></div>
 </div>
 <p>We illustrate this issue in a 2-dimensional setting. We freeze all but two parameters of the network: one of them is an element of the weight matrix (filter) for class 0, while the other is the bias for class 7. This results in an optimization with two decision variables.</p>
 <p>How much difference is there in the behavior of these two parameters under gradient descent? What is the effect of momentum in bridging that gap?</p>
@@ -1691,28 +1708,28 @@ WARNING: For this notebook to perform best, if possible, in the menu under `Runt
 <div class="section" id="coding-exercise-4-implement-momentum">
 <h2>Coding Exercise 4: Implement momentum<a class="headerlink" href="#coding-exercise-4-implement-momentum" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise you will implement the momentum update given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd4744b1-b1fb-4a2b-afb2-58f32a8d540e">
-<span class="eqno">(42)<a class="headerlink" href="#equation-dd4744b1-b1fb-4a2b-afb2-58f32a8d540e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-86c34225-3257-4f51-962e-0026f53c1c42">
+<span class="eqno">(42)<a class="headerlink" href="#equation-86c34225-3257-4f51-962e-0026f53c1c42" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{t+1} = w_t - \eta \nabla J(w_t) + \beta (w_t - w_{t-1})
 \end{equation}\]</div>
 <p>It is convenient to re-express this update rule in terms of a recursion. For that, we define ‘velocity’ as the quantity:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31911f38-6b40-4d37-aed8-2290c8b6aaaa">
-<span class="eqno">(43)<a class="headerlink" href="#equation-31911f38-6b40-4d37-aed8-2290c8b6aaaa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb039e46-d6b3-481a-9404-57ff7b0e9fec">
+<span class="eqno">(43)<a class="headerlink" href="#equation-cb039e46-d6b3-481a-9404-57ff7b0e9fec" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 v_{t-1} := w_{t} - w_{t-1}
 \end{equation}\]</div>
 <p>which leads to the two-step update rule:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9684987-51d8-4b75-88a5-695055c46221">
-<span class="eqno">(44)<a class="headerlink" href="#equation-a9684987-51d8-4b75-88a5-695055c46221" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1b332dfd-9bb1-466e-bd98-b5c73b87003c">
+<span class="eqno">(44)<a class="headerlink" href="#equation-1b332dfd-9bb1-466e-bd98-b5c73b87003c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 v_t = - \eta \nabla J(w_t) + \beta (\underbrace{w_t - w_{t-1}}_{v_{t-1}})
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-4fde0232-bcd5-4766-b13a-14f695e220d1">
-<span class="eqno">(45)<a class="headerlink" href="#equation-4fde0232-bcd5-4766-b13a-14f695e220d1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c08f691e-4062-4bb8-a420-364313ed9dd8">
+<span class="eqno">(45)<a class="headerlink" href="#equation-c08f691e-4062-4bb8-a420-364313ed9dd8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 w_{t+1} \leftarrow w_t + v_{t}
 \end{equation}\]</div>
 <p>Pay attention to the positive sign of the update in the last equation, given the definition of <span class="math notranslate nohighlight">\(v_t\)</span>, above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">momentum_update</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">grad_vel</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">momentum_update</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">grad_vel</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
   <span class="sd">"""Perform a momentum update over a collection of parameters given a loss and 'velocities'</span>
 
 <span class="sd">  Args:</span>
@@ -1728,43 +1745,62 @@ w_{t+1} \leftarrow w_t + v_{t}
   <span class="c1"># Compute gradients on given objective</span>
   <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">vel</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">grad_vel</span><span class="p">):</span>
-    <span class="c1">#################################################</span>
-    <span class="c1">## TODO for students: update the value of the parameter ##</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Student exercise: implement momentum update"</span><span class="p">)</span>
-    <span class="c1">#################################################</span>
-    <span class="c1"># Update 'velocity'</span>
-    <span class="n">vel</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="o">...</span>
-    <span class="c1"># Update parameters</span>
-    <span class="n">par</span><span class="o">.</span><span class="n">data</span> <span class="o">+=</span> <span class="o">...</span>
+  <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">vel</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">grad_vel</span><span class="p">):</span>
+      <span class="c1">#################################################</span>
+      <span class="c1">## TODO for students: update the value of the parameter ##</span>
+      <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Student exercise: implement momentum update"</span><span class="p">)</span>
+      <span class="c1">#################################################</span>
+      <span class="c1"># Update 'velocity'</span>
+      <span class="n">vel</span> <span class="o">=</span> <span class="o">...</span>
+      <span class="c1"># Update parameters</span>
+      <span class="n">par</span> <span class="o">+=</span> <span class="o">...</span>
 
 
 <span class="n">set_seed</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">[])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1"> The model parameters before the update are: </span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 <span class="n">print_params</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="n">initial_vel</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">()]</span>
 
 <span class="c1">## Uncomment below to test your function</span>
-<span class="c1"># momentum_update(loss, list(model.parameters()), grad_vel=list(model.parameters()), lr=1e-2)</span>
+<span class="c1"># momentum_update(loss, list(model.parameters()), grad_vel=initial_vel, lr=1e-1)</span>
 <span class="c1"># print('\n The model parameters after the update are: \n')</span>
 <span class="c1"># print_params(model)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random seed 2021 has been set.
+
+ The model parameters before the update are: 
+
+main.0.weight tensor([[-0.0264,  0.0010,  0.0173,  ...,  0.0297,  0.0278, -0.0221],
+        [-0.0040, -0.0295, -0.0086,  ..., -0.0070,  0.0254, -0.0233],
+        [ 0.0240, -0.0231,  0.0342,  ...,  0.0124,  0.0270, -0.0180],
+        ...,
+        [-0.0005,  0.0157,  0.0111,  ...,  0.0144, -0.0301, -0.0144],
+        [ 0.0181,  0.0303,  0.0255,  ..., -0.0110, -0.0175,  0.0205],
+        [ 0.0208, -0.0353, -0.0183,  ..., -0.0271,  0.0099,  0.0003]])
+main.0.bias tensor([-0.0290, -0.0033,  0.0100, -0.0320,  0.0022,  0.0221,  0.0307,  0.0243,
+         0.0159, -0.0064])
+</pre></div>
 </div>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D4_Optimization/solutions/W1D4_Tutorial1_Solution_776d30a8.py"><em>Click for solution</em></a></p>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D4_Optimization/solutions/W1D4_Tutorial1_Solution_5e492954.py"><em>Click for solution</em></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">The</span> <span class="n">model</span> <span class="n">parameters</span> <span class="n">after</span> <span class="n">the</span> <span class="n">update</span> <span class="n">are</span><span class="p">:</span> 
 
-<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">weight</span> <span class="n">tensor</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.0422</span><span class="p">,</span>  <span class="mf">0.0015</span><span class="p">,</span>  <span class="mf">0.0277</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0476</span><span class="p">,</span>  <span class="mf">0.0444</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0353</span><span class="p">],</span>
-        <span class="p">[</span><span class="o">-</span><span class="mf">0.0066</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0474</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0139</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0114</span><span class="p">,</span>  <span class="mf">0.0406</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0374</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mf">0.0383</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0370</span><span class="p">,</span>  <span class="mf">0.0546</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0197</span><span class="p">,</span>  <span class="mf">0.0431</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0290</span><span class="p">],</span>
+<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">weight</span> <span class="n">tensor</span><span class="p">([[</span> <span class="mf">1.4102</span><span class="p">,</span>  <span class="mf">0.0104</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.7971</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9630</span><span class="p">,</span>  <span class="mf">0.3613</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8537</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.4131</span><span class="p">,</span>  <span class="mf">0.5320</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6555</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.4867</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2414</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5839</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">1.2522</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9844</span><span class="p">,</span>  <span class="mf">0.5808</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9055</span><span class="p">,</span>  <span class="mf">0.5810</span><span class="p">,</span>  <span class="mf">0.1143</span><span class="p">],</span>
         <span class="o">...</span><span class="p">,</span>
-        <span class="p">[</span><span class="o">-</span><span class="mf">0.0008</span><span class="p">,</span>  <span class="mf">0.0252</span><span class="p">,</span>  <span class="mf">0.0177</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0230</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0481</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0230</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mf">0.0286</span><span class="p">,</span>  <span class="mf">0.0481</span><span class="p">,</span>  <span class="mf">0.0405</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0180</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0283</span><span class="p">,</span>  <span class="mf">0.0324</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mf">0.0332</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0565</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0293</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0433</span><span class="p">,</span>  <span class="mf">0.0159</span><span class="p">,</span>  <span class="mf">0.0005</span><span class="p">]])</span>
-<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">bias</span> <span class="n">tensor</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0464</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0050</span><span class="p">,</span>  <span class="mf">0.0163</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0522</span><span class="p">,</span>  <span class="mf">0.0042</span><span class="p">,</span>  <span class="mf">0.0341</span><span class="p">,</span>  <span class="mf">0.0493</span><span class="p">,</span>  <span class="mf">0.0390</span><span class="p">,</span>
-         <span class="mf">0.0263</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0101</span><span class="p">])</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.4532</span><span class="p">,</span>  <span class="mf">0.4529</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0626</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.9965</span><span class="p">,</span>  <span class="mf">0.2545</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8600</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.3897</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1012</span><span class="p">,</span>  <span class="mf">0.6730</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0690</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1672</span><span class="p">,</span>  <span class="mf">0.3165</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.9599</span><span class="p">,</span>  <span class="mf">0.8921</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3801</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3372</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5537</span><span class="p">,</span>  <span class="mf">0.5356</span><span class="p">]])</span>
+<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">bias</span> <span class="n">tensor</span><span class="p">([</span> <span class="mf">0.3654</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9282</span><span class="p">,</span>  <span class="mf">0.7764</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4442</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8556</span><span class="p">,</span>  <span class="mf">0.8400</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4569</span><span class="p">,</span>  <span class="mf">1.1953</span><span class="p">,</span>
+         <span class="mf">0.5866</span><span class="p">,</span>  <span class="mf">0.3262</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1843,6 +1879,10 @@ w_{t+1} \leftarrow w_t + v_{t}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "b1bfd9db4ce44ffd903ac624642ad958"}
+</script></div>
 </div>
 </div>
 <div class="section" id="think-4-momentum-and-oscillations">
@@ -1863,6 +1903,10 @@ w_{t+1} \leftarrow w_t + v_{t}
 <div class="section" id="video-5-overparametrization">
 <h2>Video 5: Overparametrization<a class="headerlink" href="#video-5-overparametrization" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "8844264f5dd3464094d90a423d444d75"}
+</script></div>
 </div>
 <p>Take a couple of minutes to play with a more complex 3D visualization of the loss landscape of a neural network on a non-convex problem. Visit https://losslandscape.com/explorer.</p>
 <ol class="simple">
@@ -1929,6 +1973,10 @@ w_{t+1} \leftarrow w_t + v_{t}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "210751e6117749db9e9af2adff775b38"}
+</script></div>
 </div>
 <div class="section" id="think-5-1-width-and-depth-of-the-network">
 <h3>Think! 5.1: Width and depth of the network<a class="headerlink" href="#think-5-1-width-and-depth-of-the-network" title="Permalink to this headline">¶</a></h3>
@@ -1948,6 +1996,10 @@ w_{t+1} \leftarrow w_t + v_{t}
 <div class="section" id="video-6-mini-batches">
 <h2>Video 6: Mini-batches<a class="headerlink" href="#video-6-mini-batches" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "2552c5aed70b40028661929cc5e8db7d"}
+</script></div>
 </div>
 </div>
 <div class="section" id="interactive-demo-6-1-cost-of-computation">
@@ -1993,6 +2045,10 @@ w_{t+1} \leftarrow w_t + v_{t}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "8c99a44244bd412c9508d0e0c31d19d0"}
+</script></div>
 </div>
 </div>
 <div class="section" id="coding-exercise-6-implement-minibatch-sampling">
@@ -2084,6 +2140,10 @@ w_{t+1} \leftarrow w_t + v_{t}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "c8d48df8d9fc4c8fb02742323dc0672a"}
+</script></div>
 </div>
 <p><strong>Remarks:</strong> SGD works! We have an algorithm that can be applied (with the due precautions) to learn datasets of arbitrary size.</p>
 <p>However, <strong>note the diference in the vertical scale</strong> across the plots above. When using a larger minibatch, we can perform fewer parameter updates as the forward and backward passes are more expensive.</p>
@@ -2104,13 +2164,17 @@ w_{t+1} \leftarrow w_t + v_{t}
 <div class="section" id="video-7-adaptive-methods">
 <h2>Video 7: Adaptive Methods<a class="headerlink" href="#video-7-adaptive-methods" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "a4420ba977ab4e858a679549dc55707d"}
+</script></div>
 </div>
 </div>
 <div class="section" id="coding-exercise-7-implement-rmsprop">
 <h2>Coding Exercise 7: Implement RMSprop<a class="headerlink" href="#coding-exercise-7-implement-rmsprop" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise you will implement the update of the RMSprop optimizer:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b916ff1-2e6b-4069-b6c8-cdf79bd8cdba">
-<span class="eqno">(46)<a class="headerlink" href="#equation-7b916ff1-2e6b-4069-b6c8-cdf79bd8cdba" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a03ff5f5-2134-4aff-a472-25cae04a1d5f">
+<span class="eqno">(46)<a class="headerlink" href="#equation-a03ff5f5-2134-4aff-a472-25cae04a1d5f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 v_{t} &amp;= \alpha v_{t-1} + (1 - \alpha) \nabla J(w_t)^2 \\ \\
 w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 \end{align}\]</div>
@@ -2118,7 +2182,7 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 <p>Here, the <span class="math notranslate nohighlight">\(\epsilon\)</span> hyperparameter provides numerical estability to the algorithm, by preventing the learning rate to become too big when <span class="math notranslate nohighlight">\(v_t\)</span> is small. Typically, we set <span class="math notranslate nohighlight">\(\epsilon\)</span> to a default small value, like <span class="math notranslate nohighlight">\(10^{-8}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rmsprop_update</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">grad_sq</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rmsprop_update</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">grad_sq</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">espilon</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">):</span>
   <span class="sd">"""Perform an RMSprop update on a collection of parameters</span>
 
 <span class="sd">  Args:</span>
@@ -2127,6 +2191,7 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 <span class="sd">    grad_sq (iterable): Moving average of squared gradients</span>
 <span class="sd">    lr (float): Scalar specifying the learning rate or step-size for the update</span>
 <span class="sd">    alpha (float): Moving average parameter</span>
+<span class="sd">    espilon (float): for numerical estability</span>
 <span class="sd">  """</span>
   <span class="c1"># Clear up gradients as Pytorch automatically accumulates gradients from</span>
   <span class="c1"># successive backward calls</span>
@@ -2134,16 +2199,12 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
   <span class="c1"># Compute gradients on given objective</span>
   <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">gsq</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">grad_sq</span><span class="p">):</span>
-    <span class="c1">#################################################</span>
-    <span class="c1">## TODO for students: update the value of the parameter ##</span>
-    <span class="c1"># Use gsq.data and par.grad</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Student exercise: implement gradient update"</span><span class="p">)</span>
-    <span class="c1">#################################################</span>
-    <span class="c1"># Update estimate of gradient variance</span>
-    <span class="n">gsq</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="o">...</span>
-    <span class="c1"># Update parameters</span>
-    <span class="n">par</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="o">...</span>
+  <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">gsq</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">grad_sq</span><span class="p">):</span>
+      <span class="c1"># Update estimate of gradient variance</span>
+      <span class="n">gsq</span> <span class="o">=</span> <span class="o">...</span>
+      <span class="c1"># Update parameters</span>
+      <span class="n">par</span> <span class="o">-=</span>  <span class="o">...</span>
 
 
 <span class="n">set_seed</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
@@ -2151,28 +2212,46 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1"> The model parameters before the update are: </span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 <span class="n">print_params</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
-<span class="n">grad_sq</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0001</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())]</span>
+<span class="c1"># Intialize the moving average of squared gradients</span>
+<span class="n">grad_sq</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-6</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())]</span>
 
 <span class="c1">## Uncomment below to test your function</span>
-<span class="c1"># rmsprop_update(loss, list(model.parameters()), grad_sq=grad_sq, lr=1e-2)</span>
+<span class="c1"># rmsprop_update(loss, list(model.parameters()), grad_sq=grad_sq, lr=1e-3)</span>
 <span class="c1"># print('\n The model parameters after the update are: \n')</span>
 <span class="c1"># print_params(model)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random seed 2021 has been set.
+
+ The model parameters before the update are: 
+
+main.0.weight tensor([[-0.0264,  0.0010,  0.0173,  ...,  0.0297,  0.0278, -0.0221],
+        [-0.0040, -0.0295, -0.0086,  ..., -0.0070,  0.0254, -0.0233],
+        [ 0.0240, -0.0231,  0.0342,  ...,  0.0124,  0.0270, -0.0180],
+        ...,
+        [-0.0005,  0.0157,  0.0111,  ...,  0.0144, -0.0301, -0.0144],
+        [ 0.0181,  0.0303,  0.0255,  ..., -0.0110, -0.0175,  0.0205],
+        [ 0.0208, -0.0353, -0.0183,  ..., -0.0271,  0.0099,  0.0003]])
+main.0.bias tensor([-0.0290, -0.0033,  0.0100, -0.0320,  0.0022,  0.0221,  0.0307,  0.0243,
+         0.0159, -0.0064])
+</pre></div>
 </div>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D4_Optimization/solutions/W1D4_Tutorial1_Solution_9732cf5a.py"><em>Click for solution</em></a></p>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content-dl/tree/main//tutorials/W1D4_Optimization/solutions/W1D4_Tutorial1_Solution_a7ee3a13.py"><em>Click for solution</em></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">The</span> <span class="n">model</span> <span class="n">parameters</span> <span class="n">after</span> <span class="n">the</span> <span class="n">update</span> <span class="n">are</span><span class="p">:</span> 
 
-<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">weight</span> <span class="n">tensor</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.0509</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0213</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0039</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0092</span><span class="p">,</span>  <span class="mf">0.0071</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0462</span><span class="p">],</span>
-        <span class="p">[</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0526</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0312</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0296</span><span class="p">,</span>  <span class="mf">0.0037</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0462</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mf">0.0453</span><span class="p">,</span>  <span class="mf">0.0006</span><span class="p">,</span>  <span class="mf">0.0550</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0341</span><span class="p">,</span>  <span class="mf">0.0481</span><span class="p">,</span>  <span class="mf">0.0053</span><span class="p">],</span>
+<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">weight</span> <span class="n">tensor</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.0240</span><span class="p">,</span>  <span class="mf">0.0031</span><span class="p">,</span>  <span class="mf">0.0193</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0316</span><span class="p">,</span>  <span class="mf">0.0297</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0198</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.0063</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0318</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0109</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0093</span><span class="p">,</span>  <span class="mf">0.0232</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0255</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.0218</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0253</span><span class="p">,</span>  <span class="mf">0.0320</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0102</span><span class="p">,</span>  <span class="mf">0.0248</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0203</span><span class="p">],</span>
         <span class="o">...</span><span class="p">,</span>
-        <span class="p">[</span><span class="o">-</span><span class="mf">0.0229</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0051</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0102</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0065</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0566</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0385</span><span class="p">],</span>
-        <span class="p">[</span><span class="o">-</span><span class="mf">0.0040</span><span class="p">,</span>  <span class="mf">0.0083</span><span class="p">,</span>  <span class="mf">0.0035</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0335</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0401</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0016</span><span class="p">],</span>
-        <span class="p">[</span><span class="o">-</span><span class="mf">0.0012</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0584</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0410</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0500</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0122</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0220</span><span class="p">]])</span>
-<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">bias</span> <span class="n">tensor</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0063</span><span class="p">,</span>  <span class="mf">0.0190</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0123</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0544</span><span class="p">,</span>  <span class="mf">0.0245</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0002</span><span class="p">,</span>  <span class="mf">0.0509</span><span class="p">,</span>  <span class="mf">0.0462</span><span class="p">,</span>
-         <span class="mf">0.0383</span><span class="p">,</span>  <span class="mf">0.0160</span><span class="p">])</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.0027</span><span class="p">,</span>  <span class="mf">0.0136</span><span class="p">,</span>  <span class="mf">0.0089</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span>  <span class="mf">0.0123</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0324</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0166</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.0159</span><span class="p">,</span>  <span class="mf">0.0281</span><span class="p">,</span>  <span class="mf">0.0233</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0133</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0197</span><span class="p">,</span>  <span class="mf">0.0182</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.0186</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0376</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0205</span><span class="p">,</span>  <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0293</span><span class="p">,</span>  <span class="mf">0.0077</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0019</span><span class="p">]])</span>
+<span class="n">main</span><span class="mf">.0</span><span class="o">.</span><span class="n">bias</span> <span class="n">tensor</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0313</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0011</span><span class="p">,</span>  <span class="mf">0.0122</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0342</span><span class="p">,</span>  <span class="mf">0.0045</span><span class="p">,</span>  <span class="mf">0.0199</span><span class="p">,</span>  <span class="mf">0.0329</span><span class="p">,</span>  <span class="mf">0.0265</span><span class="p">,</span>
+         <span class="mf">0.0182</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0041</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -2232,6 +2311,10 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "067dd666614b4a8ca3b9f4cf5e003996"}
+</script></div>
 </div>
 <div class="section" id="discussion">
 <h3><strong>Discussion</strong><a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h3>
@@ -2260,6 +2343,10 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 <div class="section" id="video-8-putting-it-all-together">
 <h2>Video 8: Putting it all together<a class="headerlink" href="#video-8-putting-it-all-together" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "cc592a3b7436431bb9183008ffe8ab40"}
+</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2278,14 +2365,13 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
                                     <span class="n">map_location</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">))</span>
 
 <span class="c1"># Create MLP object and update weights with those of saved model</span>
-<span class="n">benchmark_model</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<span class="n">benchmark_model</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
 <span class="n">benchmark_model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">benchmark_state_dict</span><span class="p">)</span>
 
 <span class="c1"># Define helper function to evaluate models</span>
-<span class="k">def</span> <span class="nf">eval_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data_loader</span><span class="p">,</span> <span class="n">num_batches</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">eval_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data_loader</span><span class="p">,</span> <span class="n">num_batches</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">'cpu'</span><span class="p">):</span>
 
   <span class="n">loss_log</span><span class="p">,</span> <span class="n">acc_log</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-  <span class="n">device</span> <span class="o">=</span> <span class="n">set_device</span><span class="p">()</span>
   <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 
   <span class="c1"># We are just evaluating the model, no need to compute gradients</span>
@@ -2302,6 +2388,11 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
       <span class="n">acc_log</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mf">1.</span> <span class="o">*</span> <span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">labels</span><span class="p">))</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
 
   <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">loss_log</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">acc_log</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: For this notebook to perform best, if possible, in the menu under `Runtime` -&gt; `Change runtime type.`  select `GPU` 
 </pre></div>
 </div>
 </div>
@@ -2328,15 +2419,12 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 <span class="c1">## TODO for students: adjust training settings ##</span>
 
 <span class="c1"># The three parameters below are in your full control</span>
-<span class="n">MAX_EPOCHS</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#select number of epochs to train</span>
-<span class="n">LR</span> <span class="o">=</span> <span class="mf">1e-5</span> <span class="c1">#choose the step size</span>
-<span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">64</span> <span class="c1">#number of examples per minibatch</span>
+<span class="n">MAX_EPOCHS</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># select number of epochs to train</span>
+<span class="n">LR</span> <span class="o">=</span> <span class="mf">1e-5</span>  <span class="c1"># choose the step size</span>
+<span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">64</span>  <span class="c1"># number of examples per minibatch</span>
 
 <span class="c1"># Define the model and associated optimizer -- you may change its architecture!</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
-
-<span class="k">if</span> <span class="n">DEVICE</span> <span class="o">==</span> <span class="s2">"cuda"</span><span class="p">:</span>
-  <span class="n">model</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
 
 <span class="c1"># You can take your pick from many different optimizers</span>
 <span class="c1"># Check the optimizer documentation and hyperparameter meaning before using!</span>
@@ -2352,27 +2440,40 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print trainig stats every LOG_FREQ minibatches</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="c1"># Print trainig stats every LOG_FREQ minibatches</span>
 <span class="n">LOG_FREQ</span> <span class="o">=</span> <span class="mi">200</span>
-
 <span class="c1"># Frequency for evaluating the validation metrics</span>
 <span class="n">VAL_FREQ</span> <span class="o">=</span> <span class="mi">200</span>
-
 <span class="c1"># Load data using a Pytorch Dataset</span>
 <span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">load_mnist_data</span><span class="p">(</span><span class="n">change_tensors</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="c1"># We separate 10.000 training samples to create a validation set</span>
+<span class="c1"># We separate 10,000 training samples to create a validation set</span>
 <span class="n">train_set</span><span class="p">,</span> <span class="n">val_set</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">random_split</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">])</span>
 
 <span class="c1"># Create the corresponding DataLoaders for training and test</span>
-<span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
-<span class="n">val_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">val_set</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
-<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+<span class="n">g_seed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">()</span>
+<span class="n">g_seed</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span>
+                                           <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                           <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">,</span>
+                                           <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
+                                           <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
+<span class="n">val_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">val_set</span><span class="p">,</span>
+                                         <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                         <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+                                         <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
+                                         <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span>
+                                          <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+                                          <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
+                                          <span class="n">generator</span><span class="o">=</span><span class="n">g_seed</span><span class="p">)</span>
 
 <span class="c1"># Run training</span>
 <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'train_loss'</span><span class="p">:[],</span> <span class="s1">'train_acc'</span><span class="p">:[],</span> <span class="s1">'val_loss'</span><span class="p">:[],</span> <span class="s1">'val_acc'</span><span class="p">:[],</span> <span class="s1">'val_idx'</span><span class="p">:[]}</span>
 <span class="n">step_idx</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_EPOCHS</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">MAX_EPOCHS</span><span class="p">)):</span>
 
   <span class="n">running_loss</span><span class="p">,</span> <span class="n">running_acc</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span>
 
@@ -2397,23 +2498,85 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
     <span class="n">metrics</span><span class="p">[</span><span class="s1">'train_loss'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
     <span class="n">metrics</span><span class="p">[</span><span class="s1">'train_acc'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">acc</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
 
-    <span class="k">if</span> <span class="n">batch_id</span> <span class="o">%</span> <span class="n">VAL_FREQ</span> <span class="o">==</span> <span class="p">(</span><span class="n">VAL_FREQ</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">batch_id</span> <span class="o">%</span> <span class="n">VAL_FREQ</span> <span class="o">==</span> <span class="p">(</span><span class="n">VAL_FREQ</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
       <span class="c1"># Get an estimate of the validation accuracy with 100 batches</span>
-      <span class="n">val_loss</span><span class="p">,</span> <span class="n">val_acc</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+      <span class="n">val_loss</span><span class="p">,</span> <span class="n">val_acc</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span>
+                                     <span class="n">num_batches</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                                     <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
       <span class="n">metrics</span><span class="p">[</span><span class="s1">'val_idx'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">step_idx</span><span class="p">)</span>
       <span class="n">metrics</span><span class="p">[</span><span class="s1">'val_loss'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val_loss</span><span class="p">)</span>
       <span class="n">metrics</span><span class="p">[</span><span class="s1">'val_acc'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val_acc</span><span class="p">)</span>
 
-      <span class="nb">print</span><span class="p">(</span><span class="s1">'[VALID] Epoch </span><span class="si">%d</span><span class="s1"> - Batch </span><span class="si">%d</span><span class="s1"> - Loss: </span><span class="si">%.3f</span><span class="s1"> - Acc: </span><span class="si">%.3f</span><span class="s1">'</span> <span class="o">%</span>
-            <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">batch_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">val_acc</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[VALID] Epoch </span><span class="si">{</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2"> - Batch </span><span class="si">{</span><span class="n">batch_id</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2"> - "</span>
+            <span class="sa">f</span><span class="s2">"Loss: </span><span class="si">{</span><span class="n">val_loss</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> - Acc: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">val_acc</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">%"</span><span class="p">)</span>
 
     <span class="c1"># print statistics</span>
     <span class="n">running_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
     <span class="n">running_acc</span> <span class="o">+=</span> <span class="n">acc</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">batch_id</span> <span class="o">%</span> <span class="n">LOG_FREQ</span> <span class="o">==</span> <span class="p">(</span><span class="n">LOG_FREQ</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># Print every LOG_FREQ minibatches</span>
-      <span class="nb">print</span><span class="p">(</span><span class="s1">'[TRAIN] Epoch </span><span class="si">%d</span><span class="s1"> - Batch </span><span class="si">%d</span><span class="s1"> - Loss: </span><span class="si">%.3f</span><span class="s1"> - Acc: </span><span class="si">%.3f</span><span class="s1">'</span> <span class="o">%</span>
-            <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">batch_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">running_loss</span> <span class="o">/</span> <span class="n">LOG_FREQ</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">running_acc</span> <span class="o">/</span> <span class="n">LOG_FREQ</span><span class="p">))</span>
+    <span class="c1"># Print every LOG_FREQ minibatches</span>
+    <span class="k">if</span> <span class="n">batch_id</span> <span class="o">%</span> <span class="n">LOG_FREQ</span> <span class="o">==</span> <span class="p">(</span><span class="n">LOG_FREQ</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[TRAIN] Epoch </span><span class="si">{</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2"> - Batch </span><span class="si">{</span><span class="n">batch_id</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2"> - "</span>
+            <span class="sa">f</span><span class="s2">"Loss: </span><span class="si">{</span><span class="n">running_loss</span> <span class="o">/</span> <span class="n">LOG_FREQ</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> - "</span>
+            <span class="sa">f</span><span class="s2">"Acc: </span><span class="si">{</span><span class="mi">100</span> <span class="o">*</span> <span class="n">running_acc</span> <span class="o">/</span> <span class="n">LOG_FREQ</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">%"</span><span class="p">)</span>
+
       <span class="n">running_loss</span><span class="p">,</span> <span class="n">running_acc</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random seed 2021 has been set.
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "3b9157287fa549ab9ef5cda0394c7e05"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[VALID] Epoch 1 - Batch 200 - Loss: 2.253 - Acc: 24.775%
+[TRAIN] Epoch 1 - Batch 200 - Loss: 2.282 - Acc: 15.781%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[VALID] Epoch 1 - Batch 400 - Loss: 2.129 - Acc: 57.285%
+[TRAIN] Epoch 1 - Batch 400 - Loss: 2.201 - Acc: 46.992%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[VALID] Epoch 1 - Batch 600 - Loss: 1.914 - Acc: 56.621%
+[TRAIN] Epoch 1 - Batch 600 - Loss: 2.029 - Acc: 56.453%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[VALID] Epoch 2 - Batch 200 - Loss: 1.401 - Acc: 69.795%
+[TRAIN] Epoch 2 - Batch 200 - Loss: 1.520 - Acc: 66.562%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[VALID] Epoch 2 - Batch 400 - Loss: 1.175 - Acc: 74.844%
+[TRAIN] Epoch 2 - Batch 400 - Loss: 1.292 - Acc: 72.461%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[VALID] Epoch 2 - Batch 600 - Loss: 0.998 - Acc: 80.029%
+[TRAIN] Epoch 2 - Batch 600 - Loss: 1.085 - Acc: 77.172%
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2751</span><span class="o">/</span><span class="mf">1937889659.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>     <span class="n">acc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">labels</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="c1"># Compute gradients</span>
+<span class="ne">---&gt; </span><span class="mi">50</span>     <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="c1"># Update parameters</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>     <span class="c1"># Note how all the magic in the update of the parameters is encapsulated by</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/_tensor.py</span> in <span class="ni">backward</span><span class="nt">(self, gradient, retain_graph, create_graph, inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>                 <span class="n">create_graph</span><span class="o">=</span><span class="n">create_graph</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span>                 <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">255</span>         <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">retain_graph</span><span class="p">,</span> <span class="n">create_graph</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span> 
+<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="k">def</span> <span class="nf">register_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/torch/autograd/__init__.py</span> in <span class="ni">backward</span><span class="nt">(tensors, grad_tensors, retain_graph, create_graph, grad_variables, inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="n">Variable</span><span class="o">.</span><span class="n">_execution_engine</span><span class="o">.</span><span class="n">run_backward</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>         <span class="n">tensors</span><span class="p">,</span> <span class="n">grad_tensors_</span><span class="p">,</span> <span class="n">retain_graph</span><span class="p">,</span> <span class="n">create_graph</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">149</span>         <span class="n">allow_unreachable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">accumulate_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># allow_unreachable flag</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span> 
+<span class="g g-Whitespace">    </span><span class="mi">151</span> 
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -2450,17 +2613,17 @@ w_{t+1} &amp;= w_t - \eta \frac{\nabla J(w_t)}{\sqrt{v_t + \epsilon}}
 <p>Which model would you keep? (*drum roll*)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Your model'</span><span class="p">)</span>
-<span class="n">train_loss</span><span class="p">,</span> <span class="n">train_accuracy</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">)</span>
-<span class="n">test_loss</span><span class="p">,</span> <span class="n">test_accuracy</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Train/Test Loss </span><span class="si">%.3f</span><span class="s1"> </span><span class="si">%.3f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_loss</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Train/Test Accuracy </span><span class="si">%.3f</span><span class="s1"> </span><span class="si">%.3f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">train_accuracy</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">test_accuracy</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Your model...'</span><span class="p">)</span>
+<span class="n">train_loss</span><span class="p">,</span> <span class="n">train_accuracy</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="n">test_loss</span><span class="p">,</span> <span class="n">test_accuracy</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Train Loss </span><span class="si">{</span><span class="n">train_loss</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> / Test Loss </span><span class="si">{</span><span class="n">test_loss</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Train Accuracy </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">train_accuracy</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">% / Test Accuracy </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">test_accuracy</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">%'</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Benchmark model'</span><span class="p">)</span>
-<span class="n">train_loss</span><span class="p">,</span> <span class="n">train_accuracy</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">benchmark_model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">)</span>
-<span class="n">test_loss</span><span class="p">,</span> <span class="n">test_accuracy</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">benchmark_model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Train/Test Loss </span><span class="si">%.3f</span><span class="s1"> </span><span class="si">%.3f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_loss</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Train/Test Accuracy </span><span class="si">%.3f</span><span class="s1"> </span><span class="si">%.3f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">train_accuracy</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">test_accuracy</span><span class="p">))</span>
+<span class="n">train_loss</span><span class="p">,</span> <span class="n">train_accuracy</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">benchmark_model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="n">test_loss</span><span class="p">,</span> <span class="n">test_accuracy</span> <span class="o">=</span> <span class="n">eval_model</span><span class="p">(</span><span class="n">benchmark_model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Train Loss </span><span class="si">{</span><span class="n">train_loss</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> / Test Loss </span><span class="si">{</span><span class="n">test_loss</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Train Accuracy </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">train_accuracy</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">% / Test Accuracy </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">test_accuracy</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">%'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

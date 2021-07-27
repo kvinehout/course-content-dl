@@ -32,9 +32,11 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-# @title Download and unzip the dataset
+emnist_train, emnist_test = get_Xvs0_dataset()
+train_loader, test_loader = get_data_loaders(emnist_train, emnist_test, SEED)
 
-!wget -q http://mmlab.ie.cuhk.edu.hk/projects/TCDCN/data/MTFL.zip
-!unzip -q /content/MTFL.zip
+# index of an image in the dataset that corresponds to an X and O
+x_img_idx = 4
+o_img_idx = 15
 -------------------
 
