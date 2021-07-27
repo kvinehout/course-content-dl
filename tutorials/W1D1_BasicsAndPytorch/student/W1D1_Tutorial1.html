@@ -510,6 +510,11 @@
      Example Data Project: the Train Illusion
     </a>
 </li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/modelingsteps/MoVi_motion_classification_steps.html">
+     Example Data Science Project: MoVi motion classification demo project
+    </a>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 has-children">
@@ -1069,7 +1074,7 @@
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "36882bb4c9aa454c9b991910a488ac50"}
+{"version_major": 2, "version_minor": 0, "model_id": "c82484f3c7f342e4aa1090a9c0f6ed1c"}
 </script></div>
 </div>
 <p>*This will be an intensive 3 week adventure. We will all learn Deep Learning. In a group. Groups need standards. Read our
@@ -1080,7 +1085,7 @@
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "b9d93a0d48c74f04984a95e4036b33f0"}
+{"version_major": 2, "version_minor": 0, "model_id": "e3ad870a858f4f289437138ffc838c0b"}
 </script></div>
 </div>
 <p><strong>Describe what you hope to get out of this course in about 100 words.</strong></p>
@@ -1110,7 +1115,7 @@ and speed</p></li>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "8645d57c94684132997d805a2d8bfabf"}
+{"version_major": 2, "version_minor": 0, "model_id": "8e781c5042ff45c49fd4e72716ee7e37"}
 </script></div>
 </div>
 <p>There are various ways of creating tensors, and when doing any real deep learning project we will usually have to do so.</p>
@@ -1141,7 +1146,10 @@ and speed</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tensor a: tensor([0, 1, 2])
-Tensor b: tensor([[1.0000, 1.1000],
+Tensor b: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.0000, 1.1000],
         [1.2000, 1.3000]])
 Tensor c: tensor([[1., 1., 1.],
         [1., 1., 1.]], dtype=torch.float64)
@@ -1172,7 +1180,7 @@ Tensor c: tensor([[1., 1., 1.],
         [1., 1., 1.],
         [1., 1., 1.]])
 Tensor y: tensor([0., 0.])
-Tensor z: tensor([[[3.4521e+19, 3.0956e-41, 3.4668e+19, 3.0956e-41, 8.9683e-44]]])
+Tensor z: tensor([[[-5.3093e-25,  3.0851e-41, -5.3606e-25,  3.0851e-41,  8.9683e-44]]])
 </pre></div>
 </div>
 </div>
@@ -1205,12 +1213,12 @@ Tensor z: tensor([[[3.4521e+19, 3.0956e-41, 3.4668e+19, 3.0956e-41, 8.9683e-44]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tensor a:  tensor([[8.1021e-04, 3.1243e-01, 9.4788e-01]])
-Tensor b:  tensor([[-0.7718, -0.0537, -0.6136,  0.2951],
-        [ 0.9223, -1.5268,  0.3485, -0.2395],
-        [ 0.5399, -0.2473,  1.3193,  0.0404]])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tensor a:  tensor([[0.9196, 0.3279, 0.6725]])
+Tensor b:  tensor([[ 0.4918,  0.7580,  0.0692,  0.3817],
+        [-0.6621,  1.9967,  0.4812,  0.2210],
+        [-0.9874,  0.5351,  0.6565, -0.5798]])
 Tensor c:  tensor([[0., 0., 0.]])
-Tensor d:  tensor([[0.2572, 0.2277, 0.5119]])
+Tensor d:  tensor([[0.6739, 0.1541, 0.5468]])
 </pre></div>
 </div>
 </div>
@@ -1398,7 +1406,7 @@ Numpy array d: [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5. ]
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "d42beb91cbc84b6abff0c08ba8218280"}
+{"version_major": 2, "version_minor": 0, "model_id": "7872f80449974348bbcdde890221ae3a"}
 </script></div>
 </div>
 <p><strong>Tensor-Tensor operations</strong></p>
@@ -1478,14 +1486,14 @@ The common standard arithmetic operators (+, -, *, /, and **) have all been lift
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.5846, 0.0332, 0.1387],
         [0.2422, 0.8155, 0.7932],
         [0.2783, 0.4820, 0.8198]])
-
-
-Sum of every element of x: 4.187318325042725
-Sum of the columns of x: tensor([1.1051, 1.3306, 1.7517])
-Sum of the rows of x: tensor([0.7565, 1.8509, 1.5800])
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean value of all elements of x 0.46525758504867554
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum of every element of x: 4.187318325042725
+Sum of the columns of x: tensor([1.1051, 1.3306, 1.7517])
+Sum of the rows of x: tensor([0.7565, 1.8509, 1.5800])
+
+
+Mean value of all elements of x 0.46525758504867554
 Mean values of the columns of x tensor([0.3684, 0.4435, 0.5839])
 Mean values of the rows of x tensor([0.2522, 0.6170, 0.5267])
 </pre></div>
@@ -1583,7 +1591,7 @@ Mean values of the rows of x tensor([0.2522, 0.6170, 0.5267])
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "34b1125c5aca45dcbe03495ed171263b"}
+{"version_major": 2, "version_minor": 0, "model_id": "13208cc9e51945d4a823d4890f582dd6"}
 </script></div>
 </div>
 <p><strong>Indexing</strong></p>
@@ -1602,9 +1610,7 @@ Mean values of the rows of x tensor([0.2522, 0.6170, 0.5267])
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 tensor(9)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([1, 2])
+tensor([1, 2])
 tensor([0, 1, 2, 3, 4, 5, 6, 7])
 </pre></div>
 </div>
@@ -1992,7 +1998,7 @@ z: tensor([ 0.2659, -0.5148, -0.0613,  0.5046,  0.1385])  |  z type:  torch.Floa
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "c07d4de3d1e84eb280efc01d8a3b2d80"}
+{"version_major": 2, "version_minor": 0, "model_id": "7de146c828c6499baa497227571817a5"}
 </script></div>
 </div>
 <p>By default, when we create a tensor it will <em>not</em> live on the GPU!</p>
@@ -2215,7 +2221,31 @@ tensor([ 9, 11, 13])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time taken for 1 iterations of simpleFun(10000): 16.81589
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time taken for 1 iterations of simpleFun(10000): 15.15290
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2003</span><span class="o">/</span><span class="mf">594278033.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1">## TODO: Implement the function above and uncomment the following lines to test your code</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">timeFun</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">simpleFun</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">timeFun</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="n">simpleFunGPU</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+
+<span class="nn">/tmp/ipykernel_2003/1005989125.py</span> in <span class="ni">timeFun</span><span class="nt">(f, dim, iterations, device)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>   <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">37</span>     <span class="n">f</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">t_total</span> <span class="o">+=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nn">/tmp/ipykernel_2003/594278033.py</span> in <span class="ni">simpleFunGPU</span><span class="nt">(dim, device)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> 
+<span class="g g-Whitespace">     </span><span class="mi">14</span>   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="ne">---&gt; </span><span class="mi">15</span>   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">@</span> <span class="n">z</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> 
+<span class="g g-Whitespace">     </span><span class="mi">17</span> 
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -2806,8 +2836,8 @@ X &amp; Y &amp; \text{XOR} \
 </ul>
 <p>For the second part, you should set the weights by clicking on the connections and either type the value or use the up and down keys to change it by one increment. You could also do the same for the biases by clicking on the tiny square to each neuron’s bottom left.
 Even though there are infinitely many solutions, a neat solution when <span class="math notranslate nohighlight">\(f(x)\)</span> is ReLU is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-105e42f3-8b11-4299-af6a-84f5d0ab1b30">
-<span class="eqno">(1)<a class="headerlink" href="#equation-105e42f3-8b11-4299-af6a-84f5d0ab1b30" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d045ce09-6f44-45da-8221-defe84cdfdd2">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d045ce09-6f44-45da-8221-defe84cdfdd2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
   y = f(x_1)+f(x_2)-f(x_1+x_2)
 \end{equation}\]</div>
 <p>Try to set the weights and biases to implement this function after you played enough :)</p>
